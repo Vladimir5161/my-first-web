@@ -22,7 +22,7 @@ class ReactSlider extends React.Component {
         <div>
           <div className="HeaderSlick">
             <div className="slide">
-              <h2>Unique and Modern Design</h2>
+              <h2>Enjoy the story of Ragnar Lodbrok with us</h2>
               <h1>Portfolio PSD Template</h1>
               <p>
                 Nam liber tempor cum soluta nobis eleifend option congue nihil

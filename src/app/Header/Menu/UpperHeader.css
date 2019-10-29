@@ -56,3 +56,7 @@
   background-color: inherit;
   margin: 0 13px;
 }
+.cart:hover,
+.search:hover {
+  cursor: pointer;
+}
