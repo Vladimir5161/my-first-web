@@ -1,0 +1,94 @@
+.HeaderSlick {
+  height: 870px;
+  padding-top: 240px;
+  margin-bottom: 20px;
+}
+.slick-prev:before {
+  content: url(./sliderImages/left.png);
+  top: 40%;
+  opacity: 1;
+}
+.slick-prev {
+  left: -100px;
+}
+.slick-next:before {
+  content: url(./sliderImages/right.png);
+  top: 40%;
+  opacity: 1;
+}
+.slick-next {
+  right: -90px;
+}
+.slide {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.slide h2 {
+  line-height: 50px;
+  font-family: "Raleway";
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+}
+.slide h1 {
+  line-height: 60px;
+  font-family: "Raleway";
+  font-size: 52px;
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+}
+.slide p {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: "Raleway";
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+}
+.sliderButton {
+  background-color: #998675;
+  width: 170px;
+  height: 53px;
+  border: none;
+  border-bottom: 3px solid #736357;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-family: "Raleway";
+  font-size: 14px;
+  line-height: 23px;
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.sliderButton:hover {
+  background-color: #fff;
+  border-bottom: 3px solid #d6d2ce;
+  color: #998675;
+}
+.slick-dots {
+  padding-bottom: 30px;
+}
+.slick-dots li button:before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background-color: #959597;
+  opacity: 1;
+}
+.slick-dots li.slick-active button:before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background-color: #212125;
+  border: 2px solid #d3c1ad;
+  opacity: 1;
+  top: -2px;
+}
