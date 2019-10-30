@@ -1,6 +1,9 @@
 .upperheader {
   display: grid;
-  grid-template-columns: 4fr 6fr 1fr;
+  grid-template-columns: 3fr 6fr 1fr;
+  position: fixed;
+  width: 1170px;
+  z-index: 40;
 }
 
 .searcharea {
@@ -23,7 +26,7 @@
   display: block;
   color: #fff;
   font-family: "Monserrat";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   text-decoration: none;
   line-height: 30px;
@@ -51,7 +54,7 @@
   border: none;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 30px;
+  height: 26px;
   width: 25px;
   background-color: inherit;
   margin: 0 13px;

@@ -18,19 +18,13 @@ const UpperHeader = () => {
             <a href="#">About Us</a>
           </li>
           <li className="menuPoints">
-            <a href="#">Portfolio</a>
+            <a href="#">Photos</a>
           </li>
           <li className="menuPoints">
-            <a href="#">Features</a>
+            <a href="#">Vikings History</a>
           </li>
           <li className="menuPoints">
-            <a href="#">Blog</a>
-          </li>
-          <li className="menuPoints">
-            <a href="#">Pricing</a>
-          </li>
-          <li className="menuPoints">
-            <a href="#">Shortcodes</a>
+            <a href="#">Vikings Characters</a>
           </li>
           <li className="menuPoints">
             <a href="#">Contacts</a>

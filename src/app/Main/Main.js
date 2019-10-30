@@ -6,12 +6,12 @@ import FirstPage from "./pages/FirstPage";
 
 const Main = () => {
   return (
-    <div className="container">
+    <main className="main">
       <FirstPage />
       {/* <LastProjects />
       <Video />
       <LastPage /> */}
-    </div>
+    </main>
   );
 };
 

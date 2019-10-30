@@ -1,0 +1,71 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: 4fr 6fr 20fr;
+  padding-top: 30px;
+}
+.introPage h2 {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 30px;
+  color: #555555;
+  text-align: center;
+  padding: 10px 0;
+}
+.introPage p {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #8c8c8c;
+  font-weight: 300;
+  padding: 10px 0;
+}
+.addContent {
+  height: 150px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.Add-content {
+  background-color: #998675;
+  width: 170px;
+  height: 53px;
+  border: none;
+  border-bottom: 3px solid #736357;
+  border-radius: 5px;
+  margin: 10px auto;
+  font-family: "Raleway";
+  font-size: 14px;
+  line-height: 23px;
+  color: #fff;
+  font-weight: 600;
+}
+.Add-content:hover {
+  background-color: #fff;
+  border-bottom: 3px solid #d6d2ce;
+  color: #998675;
+  cursor: pointer;
+}
+.filter ul {
+  display: inline;
+}
+.filter {
+  text-align: center;
+}
+.filter ul li {
+  display: inline-block;
+  margin: 20px;
+}
+.buttonFilter {
+  border: 1px solid #ebebeb;
+  height: 32px;
+  width: 100px;
+  border-radius: 3px;
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #8c8c8c;
+}
+.buttonFilter:hover {
+  background-color: #998675;
+  color: #fff;
+}
