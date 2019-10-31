@@ -1,12 +1,14 @@
 import React from "react";
 
-const SlickSlides = ({ h1, h2, text }) => {
+const SlickSlides = ({ h1, h2, text, image }) => {
   return (
     <div className="slide">
+      <div className="sliderImage">
+        <img src={image} />
+      </div>
       <h2>{h2}</h2>
       <h1>{h1}</h1>
-      <text>{text}</text>
-      <button className="sliderButton">Get Started</button>
+      <p>{text}</p>
     </div>
   );
 };

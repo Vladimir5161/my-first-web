@@ -5,7 +5,7 @@ import ContentList from "./content/ContentList";
 
 const FirstPage = () => {
   return (
-    <div className="container">
+    <div className="containerMain">
       <div className="wrapper">
         <div className="introPage">
           <h2>Our Content</h2>
@@ -35,7 +35,7 @@ const FirstPage = () => {
         </div>
         <div className="Products">
           <ContentList />
-          <button className="LoadMore">Load More</button>
+          <button className="Add-content LoadMore">Load More</button>
         </div>
       </div>
     </div>

@@ -6,3 +6,10 @@
   margin: 0 auto;
   padding: 40px 0;
 }
+.containerMain {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 40px 0;
+  background-color: #fcfcfc;
+  box-shadow: 0 90px 70px 70px #d3d3d3;
+}

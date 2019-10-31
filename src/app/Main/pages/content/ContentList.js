@@ -1,16 +1,16 @@
 import React from "react";
 
-import content from "./content";
-import ContentListItem from "./ContentListItem";
-
+import ContentListItem from "./ContentListItem.js";
+import content from "./content.js";
+import Player from "./Player.js";
 const ContentList = () => {
   return (
-    <div className="content">
+    <div className="ContentList">
       {content.map(({ image, name, description, video, text, id }) => (
         <div className="Content" key={id}>
+          <Player video={video} />
           <ContentListItem
             image={image}
-            video={video}
             name={name}
             text={text}
             description={description}

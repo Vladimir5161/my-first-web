@@ -1,11 +1,15 @@
 .upperheader {
   display: grid;
   grid-template-columns: 3fr 6fr 1fr;
-  position: fixed;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   width: 1170px;
   z-index: 40;
+  width: 100%;
 }
-
+.logo img {
+  padding: 0 10px;
+  max-width: 300px;
+}
 .searcharea {
   margin: 0 auto;
 }
@@ -37,7 +41,8 @@
 .searcharea {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
 }
 .cart {
   background-image: url(../HeaderImages/icon-cart.png);

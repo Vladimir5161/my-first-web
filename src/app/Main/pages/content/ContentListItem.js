@@ -1,19 +1,15 @@
 import React from "react";
 
-import Player from "./Video.js";
-const ContentListItem = ({ image, name, description, video, text }) => {
+const ContentListItem = ({ image, name, description, text }) => {
   return (
     <div className="content-list-item">
       <div className="content-image">
         <img src={image} alt="" />
       </div>
-      <div className="content-video">
-        <Player />
-      </div>
       <div className="content-text">{text} </div>
-      <div className="content-name">{name}</div>
-      <div className="content-description">{description}</div>
-      <button className="knowMore fighterButton">Know More</button>
+      <h2 className="content-name">{name}</h2>
+      <p className="content-description">"{description}"</p>
+      <button className="Add-content">Know More</button>
     </div>
   );
 };

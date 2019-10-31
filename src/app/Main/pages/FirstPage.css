@@ -1,7 +1,6 @@
 .wrapper {
-  display: grid;
-  grid-template-rows: 4fr 6fr 20fr;
   padding-top: 30px;
+  padding-bottom: 50px;
 }
 .introPage h2 {
   font-family: "Raleway";
@@ -19,10 +18,12 @@
   font-weight: 300;
   padding: 10px 0;
 }
+.introPage {
+  height: 120px;
+}
 .addContent {
-  height: 150px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
 }
 .Add-content {
   background-color: #998675;
@@ -31,7 +32,7 @@
   border: none;
   border-bottom: 3px solid #736357;
   border-radius: 5px;
-  margin: 10px auto;
+  margin: 10px auto 20px auto;
   font-family: "Raleway";
   font-size: 14px;
   line-height: 23px;
@@ -41,6 +42,7 @@
 .Add-content:hover {
   background-color: #fff;
   border-bottom: 3px solid #d6d2ce;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
   color: #998675;
   cursor: pointer;
 }
@@ -68,4 +70,41 @@
 .buttonFilter:hover {
   background-color: #998675;
   color: #fff;
+}
+.ContentList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-column-gap: 20px;
+  /* padding: 0 10px; */
+}
+.Content {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.react-player {
+  margin: 0 auto;
+}
+.content-name {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 30px;
+  color: #998675;
+}
+.content-description {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  height: 100px;
+}
+.LoadMore {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 20px auto;
 }
