@@ -83,11 +83,18 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 10px 80px 10px;
   margin: 10px 0;
+  position: relative;
 }
 .react-player {
   margin: 0 auto;
+}
+.react-player div:first-child {
+  height: 270px !important;
+}
+.content-image img {
+  width: 100%;
 }
 .content-name {
   font-family: "Raleway";
@@ -100,11 +107,28 @@
   font-weight: 400;
   font-size: 16px;
   color: #000;
-  height: 100px;
+  height: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+.content-story {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  height: 100%;
+  padding: 10px 0;
+  text-align: justify;
 }
 .LoadMore {
   position: absolute;
   left: 0;
   right: 0;
   margin: 20px auto;
+}
+.Know-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

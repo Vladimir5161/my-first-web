@@ -8,7 +8,12 @@ class Player extends React.Component {
     return (
       <div className="player-wrapper">
         <div className="VideoContent">
-          <ReactPlayer className="react-player" url={video} width="320" />
+          <ReactPlayer
+            className="react-player"
+            url={video}
+            width="320"
+            height="auto"
+          />
         </div>
       </div>
     );
