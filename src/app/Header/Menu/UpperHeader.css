@@ -68,5 +68,15 @@
 .search:hover {
   cursor: pointer;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .upperheader {
+    grid-template-rows: 4fr 7fr 2fr;
+    grid-template-columns: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .navigationMenu {
+    display: grid;
+    justify-content: center;
+  }
 }
