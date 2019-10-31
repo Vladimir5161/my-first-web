@@ -1,6 +1,6 @@
 import React from "react";
 
-import Player from "../../../../common/Player.js";
+import Player from "../../../../../common/Player.js";
 
 const ContentListItem = ({ image, name, description, text, story, video }) => {
   return (

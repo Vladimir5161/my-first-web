@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Main.css";
 
-import FirstPage from "./pages/FirstPage";
+import FirstPage from "./pages/firstPage/FirstPage.js";
 
 const Main = () => {
   return (

@@ -1,0 +1,57 @@
+.footer {
+  background-image: url(./Footer.images/photo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 335px;
+}
+.containerFooter {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+.footerImage img {
+  padding: 10px;
+  width: 100%;
+}
+.footerLogos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.FooterFlor {
+  background-color: #111111;
+}
+.FooterFlorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  height: 110px;
+}
+.florBlock:first-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  justify-content: center;
+  text-align: center;
+}
+.florBlock:nth-child(2) {
+  text-align: center;
+}
+.link {
+  font-family: "Montserrat";
+  font-size: 13px;
+  color: #373737;
+  border-right: 1px solid #373737;
+  height: 13px;
+}
+.link a {
+  font-family: "Montserrat";
+  font-size: 13px;
+  color: #373737;
+  text-decoration: none;
+  padding: 0 13px;
+  align-items: center;
+}
+.link a:hover {
+  color: #ad9b85;
+}
+.link a span {
+  color: #747474;
+}

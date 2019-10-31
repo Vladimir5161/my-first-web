@@ -1,7 +1,3 @@
-.wrapper {
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
 .introPage h2 {
   font-family: "Raleway";
   font-weight: 700;
@@ -25,27 +21,7 @@
   display: grid;
   grid-template-rows: 1fr 2fr;
 }
-.Add-content {
-  background-color: #998675;
-  width: 170px;
-  height: 53px;
-  border: none;
-  border-bottom: 3px solid #736357;
-  border-radius: 5px;
-  margin: 10px auto 20px auto;
-  font-family: "Raleway";
-  font-size: 14px;
-  line-height: 23px;
-  color: #fff;
-  font-weight: 600;
-}
-.Add-content:hover {
-  background-color: #fff;
-  border-bottom: 3px solid #d6d2ce;
-  box-shadow: 1px 1px 10px 1px #d3d3d3;
-  color: #998675;
-  cursor: pointer;
-}
+
 .filter ul {
   display: inline;
 }
