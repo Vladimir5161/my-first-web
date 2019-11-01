@@ -1,6 +1,6 @@
 const images = [
   {
-    logo: "./images/logo.png"
+    logo: "/images/logo.png"
   },
   {
     iconCart: "./images/icon-cart.png"
