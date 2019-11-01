@@ -45,7 +45,7 @@
   grid-template-rows: repeat(auto-fit, 1fr);
 }
 .cart {
-  background-image: url(../HeaderImages/icon-cart.png);
+  background-image: url(../../../common/images/iconCart.png);
   border: none;
   background-size: contain;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@
   margin: 0 13px;
 }
 .search {
-  background-image: url(../HeaderImages/icon-search.png);
+  background-image: url(../../../common/images/iconSearch.png);
   border: none;
   background-size: contain;
   background-repeat: no-repeat;

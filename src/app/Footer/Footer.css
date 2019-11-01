@@ -1,12 +1,11 @@
 .footer {
-  background-image: url(./Footer.images/photo.png);
+  background-image: url(../../common/images/photo.png);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 335px;
 }
 .containerFooter {
   display: grid;
-  align-items: center;
   height: 100%;
 }
 .footerImage img {

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./UpperHeader.css";
-import logo from "../HeaderImages/logo.png";
+import logo from "../../../common/images/logo.png";
 
 const UpperHeader = () => {
   return (

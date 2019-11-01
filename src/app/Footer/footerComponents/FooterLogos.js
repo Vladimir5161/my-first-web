@@ -1,15 +1,15 @@
 import React from "react";
 
-import vikings from "../Footer.images/logo.png";
-import lostfilm from "../Footer.images/lostFilm.png";
-import total from "../Footer.images/total.png";
+import logo from "../../../common/images/logo.png";
+import lostfilm from "../../../common/images/lostFilm.png";
+import total from "../../../common/images/total.png";
 
 const FooterLogos = () => {
   return (
     <div className="container containerFooter">
       <div className="footerLogos">
         <a href="#" className="footerImage">
-          <img src={vikings} alt="" />
+          <img src={logo} alt="" />
         </a>
         <a href="#" className="footerImage">
           <img src={lostfilm} alt="" />
