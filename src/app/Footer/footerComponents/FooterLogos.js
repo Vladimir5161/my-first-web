@@ -1,21 +1,19 @@
 import React from "react";
 
-import logo from "../../../common/images/logo.png";
-import lostfilm from "../../../common/images/lostFilm.png";
-import total from "../../../common/images/total.png";
+import images from "../../../common/images.js";
 
 const FooterLogos = () => {
   return (
     <div className="container containerFooter">
       <div className="footerLogos">
         <a href="#" className="footerImage">
-          <img src={logo} alt="" />
+          <img src={images[0].logo} alt="" />
         </a>
         <a href="#" className="footerImage">
-          <img src={lostfilm} alt="" />
+          <img src={images[4].lostFilm} alt="" />
         </a>
         <a href="#" className="footerImage">
-          <img src={total} alt="" />
+          <img src={images[3].total} alt="" />
         </a>
       </div>
     </div>

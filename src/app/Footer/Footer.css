@@ -1,5 +1,5 @@
 .footer {
-  background-image: url(../../common/images/photo.png);
+  background-image: url(/images/photo.png);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 335px;

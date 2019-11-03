@@ -1,13 +1,13 @@
 import React from "react";
 
 import "./UpperHeader.css";
-import logo from "../../../common/images/logo.png";
+import images from "../../../common/images.js";
 
 const UpperHeader = () => {
   return (
     <div className="upperheader">
       <div className="logo">
-        <img src={logo} alt="" className="logoImage" />
+        <img src={images[0].logo} alt="" className="logoImage" />
       </div>
       <nav className="menu">
         <ul className="navigationMenu">
