@@ -3,7 +3,7 @@ import React from "react";
 import "./UpperHeader.css";
 import images from "../../../common/images.js";
 
-const UpperHeader = () => {
+const UpperHeader = ({ countLike }) => {
   return (
     <div className="upperheader">
       <div className="logo">
@@ -32,7 +32,9 @@ const UpperHeader = () => {
         </ul>
       </nav>
       <div className="searcharea">
-        <button className="cart"></button>
+        <button className="cart">
+          <div className="countLike">{countLike}</div>
+        </button>
         <button className="search"></button>
       </div>
     </div>

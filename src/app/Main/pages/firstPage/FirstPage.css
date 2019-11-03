@@ -108,3 +108,29 @@
   left: 0;
   right: 0;
 }
+.likedNo {
+  border: none;
+  background-color: inherit;
+  background-image: url(/images/like.png);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 35px;
+}
+.likedNo:hover {
+  background-image: url(/images/liked.png);
+  cursor: pointer;
+}
+.liked {
+  background-image: url(/images/liked.png);
+  border: none;
+  background-color: inherit;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 35px;
+}

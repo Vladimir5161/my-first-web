@@ -45,12 +45,12 @@
   grid-template-rows: repeat(auto-fit, 1fr);
 }
 .cart {
-  background-image: url(/images/iconCart.png);
+  background-image: url(/images/likeW.png);
   border: none;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 30px;
-  width: 25px;
+  height: 35px;
+  width: 30px;
   background-color: inherit;
   margin: 0 13px;
 }
@@ -67,6 +67,12 @@
 .cart:hover,
 .search:hover {
   cursor: pointer;
+}
+.countLike {
+  position: relative;
+  top: 10px;
+  left: 12px;
+  color: #fff;
 }
 @media screen and (max-width: 767px) {
   .upperheader {

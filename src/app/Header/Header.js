@@ -4,11 +4,11 @@ import "./Header.css";
 import UpperHeader from "./Menu/UpperHeader.js";
 import ReactSlider from "./slider/Slider.js";
 
-const Header = () => {
+const Header = ({ countLike }) => {
   return (
     <header className="header">
       <div className="container">
-        <UpperHeader />
+        <UpperHeader countLike={countLike} />
         <ReactSlider />
       </div>
     </header>

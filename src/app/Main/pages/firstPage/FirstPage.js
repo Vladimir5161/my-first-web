@@ -3,7 +3,7 @@ import React from "react";
 import "./FirstPage.css";
 import ContentList from "./content/ContentList";
 
-const FirstPage = () => {
+const FirstPage = ({ OnLikeClick, OnLikedClick, like, countLike }) => {
   return (
     <div className="containerMain">
       <div className="wrapper">
@@ -34,7 +34,12 @@ const FirstPage = () => {
           </div>
         </div>
         <div className="Products">
-          <ContentList />
+          <ContentList
+            OnLikeClick={OnLikeClick}
+            OnLikedClick={OnLikedClick}
+            like={like}
+            countLike={countLike}
+          />
           <button className="Add-content LoadMore">Load More</button>
         </div>
       </div>
