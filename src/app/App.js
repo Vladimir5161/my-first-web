@@ -9,27 +9,19 @@ import Footer from "./Footer/Footer.js";
 
 class App extends React.Component {
   state = {
-    countLike: 0,
-    like: "likedNo"
+    countLike: 0
   };
-  OnLikeClick = () => {
-    this.setState(prevState => ({ like: (prevState.like = "liked") }));
+  OnLiked = () => {
     this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
   };
-
-  OnLikedClick = () => {
-    this.setState(prevState => ({ like: (prevState.like = "likedNo") }));
+  OnLike = () => {
+    this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
   };
-
   render() {
     return (
       <div>
         <Header countLike={this.state.countLike} />
-        <Main
-          OnLikeClick={this.OnLikeClick}
-          OnLikedClick={this.OnLikedClick}
-          like={this.state.like}
-        />
+        <Main OnLike={this.OnLike} OnLiked={this.OnLiked} />
         <Footer />
       </div>
     );

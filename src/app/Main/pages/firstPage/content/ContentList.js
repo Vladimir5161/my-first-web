@@ -5,7 +5,7 @@ import content from "./content.js";
 
 class ContentList extends React.Component {
   render() {
-    const { OnLikeClick, OnLikedClick, like, countLike } = this.props;
+    const { OnLike, OnLiked } = this.props;
 
     return (
       <div className="ContentList">
@@ -18,10 +18,8 @@ class ContentList extends React.Component {
               text={text}
               description={description}
               story={story}
-              OnLikeClick={OnLikeClick}
-              OnLikedClick={OnLikedClick}
-              like={like}
-              countLike={countLike}
+              OnLike={OnLike}
+              OnLiked={OnLiked}
             />
             <button className="Add-content Know-more">Know More</button>
           </div>
