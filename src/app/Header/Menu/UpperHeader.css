@@ -21,6 +21,7 @@
 .menu {
   display: grid;
   align-items: center;
+  position: relative;
 }
 .menuPoints {
   float: left;
@@ -43,6 +44,7 @@
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, 1fr);
+  position: relative;
 }
 .cart {
   background-image: url(/images/likeW.png);
@@ -64,6 +66,57 @@
   background-color: inherit;
   margin: 0 13px;
 }
+.searchField {
+  width: 465px;
+  position: absolute;
+  bottom: -50px;
+  margin: 0 auto;
+  z-index: 30;
+  border: 2px solid #fff;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  display: none;
+  grid-template-columns: 3fr 1fr;
+  padding: 0 20px;
+}
+.searchFieldActive {
+  width: 465px;
+  position: absolute;
+  bottom: -50px;
+  margin: 0 auto;
+  z-index: 30;
+  border: 2px solid #fff;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 0 20px;
+}
+
+.searchFieldActive input,
+.searchButton {
+  height: 50px;
+  background-color: inherit;
+  border: none;
+  font-family: "Raleway";
+  font-size: 20px;
+  color: #fff;
+}
+.searchButton {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.searchButton:hover {
+  border-radius: 40px;
+  text-shadow: 0 0 10px red;
+  color: red;
+}
 .cart:hover,
 .search:hover {
   cursor: pointer;
@@ -84,5 +137,50 @@
   .navigationMenu {
     display: grid;
     justify-content: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .searchFieldActive {
+    width: 410px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .searchFieldActive {
+    width: 300px;
+  }
+  .searchFieldActive input {
+    width: 180px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 400px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+@media screen and (max-width: 375px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 350px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 280px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  .searchFieldActive input {
+    width: 155px;
+    font-size: 15px;
   }
 }
