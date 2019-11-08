@@ -46,12 +46,24 @@ class FirstPage extends React.Component {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/contentlistvideo" className="buttonFilter">
+                    <NavLink
+                      to="/contentlistvideo"
+                      className="buttonFilter"
+                      onClick={() => {
+                        this.OnClickPathChange();
+                      }}
+                    >
                       Video
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/contentliststory" className="buttonFilter">
+                    <NavLink
+                      to="/contentliststory"
+                      className="buttonFilter"
+                      onClick={() => {
+                        this.OnClickPathChange();
+                      }}
+                    >
                       Stories
                     </NavLink>
                   </li>
