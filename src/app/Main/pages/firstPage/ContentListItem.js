@@ -1,6 +1,6 @@
 import React from "react";
 
-import Player from "../../../../../common/Player.js";
+import Player from "../../../../common/Player.js";
 import ButtonLike from "./ButtonLike.js";
 
 class ContentListItem extends React.Component {

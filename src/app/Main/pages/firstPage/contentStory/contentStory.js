@@ -1,43 +1,4 @@
-const content = [
-  {
-    id: 1,
-    video: "https://www.youtube.com/watch?v=Y7d0A5re7-0",
-    //   image: "/images/conor.jpg",
-    name: "Vikings trailer 1",
-    description: "season 6"
-  },
-  {
-    id: 2,
-    video: "https://www.youtube.com/watch?v=M7Bu5ed0NvE",
-    //   image: "/images/conor.jpg",
-    name: "Vikings trailer 1",
-    description: "season 6"
-  },
-  {
-    id: 3,
-    video: "https://www.youtube.com/watch?v=IGnoxboek3g",
-    //   image: "/images/conor.jpg",
-    name: "Vikings trailer 1",
-    description: "about Ragnar"
-  },
-  {
-    id: 4,
-    image: "https://hdqwalls.com/download/vikings-ragnar-4k-92-1920x1080.jpg",
-    name: "Ragnar`s photo poster Full HD",
-    description: "photo Full Hd"
-  },
-  {
-    id: 5,
-    image: "https://wallpaperaccess.com/full/782445.jpg",
-    name: "Vikings poster Full HD",
-    description: "photo Full Hd"
-  },
-  {
-    id: 6,
-    image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg",
-    name: "Vikings on the battlefield",
-    description: "photo Full Hd"
-  },
+const contentStory = [
   {
     id: 7,
     name: "The Vikings invasion to England",
@@ -58,5 +19,4 @@ const content = [
       In 839, a large Norse fleet invaded via the River Tay and River Earn, both of which were highly navigable, and reached into the heart of the Pictish kingdom of Fortriu. They defeated Eogán mac Óengusa, king of the Picts, his brother Bran, and the king of the Scots of Dál Riata, Áed mac Boanta, along with many members of the Pictish aristocracy in battle. The sophisticated kingdom that had been built fell apart, as did the Pictish leadership, which had been stable for more than 100 years since the time of Óengus mac Fergusa (The accession of Cináed mac Ailpín as king of both Picts and Scots can be attributed to the aftermath of this event).`
   }
 ];
-
-export default content;
+export default contentStory;

@@ -1,23 +1,22 @@
 import React from "react";
 
-import ContentListItem from "./ContentListItem.js";
-import content from "./content.js";
+import PropTypes from "prop-types";
+import ContentListItem from "../ContentListItem.js";
+import contentImage from "./contentImage.js";
 
-class ContentList extends React.Component {
+class ContentListImage extends React.Component {
   render() {
     const { OnLike, OnLiked } = this.props;
 
     return (
       <div className="ContentList">
-        {content.map(({ image, name, description, video, text, story, id }) => (
+        {contentImage.map(({ image, name, description, text, id }) => (
           <div className="Content" key={id}>
             <ContentListItem
-              video={video}
               image={image}
               name={name}
               text={text}
               description={description}
-              story={story}
               OnLike={OnLike}
               OnLiked={OnLiked}
             />
@@ -29,4 +28,7 @@ class ContentList extends React.Component {
   }
 }
 
-export default ContentList;
+ContentListImage.propTypes = {
+  image: PropTypes.string.isRequired
+};
+export default ContentListImage;
