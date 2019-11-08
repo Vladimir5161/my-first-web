@@ -14,7 +14,8 @@ const slides = [
     h2: "Vikings invasion",
     h1: "They are coming",
     text: "Become a part of an action",
-    button: "Watch on Youtube"
+    button: "Watch on Youtube",
+    href: "https://www.youtube.com/watch?v=Y7d0A5re7-0&t=2s"
   },
   {
     id: 3,

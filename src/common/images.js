@@ -18,6 +18,14 @@ const images = [
   {
     id: 5,
     lostFilm: "/images/lostFilm.png"
+  },
+  {
+    id: 6,
+    arrowScroll: "/images/arrowScroll.png"
+  },
+  {
+    id: 7,
+    arrowBlackScroll: "/images/arrowBlackScroll.png"
   }
 ];
 export default images;

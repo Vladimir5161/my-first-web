@@ -20,7 +20,7 @@ class FirstPage extends React.Component {
   render() {
     const { OnLike, OnLiked } = this.props;
     return (
-      <div className="containerMain">
+      <div className="containerMain" id="photo">
         <BrowserRouter>
           <div className="wrapper">
             <div className="introPage">
@@ -79,7 +79,7 @@ class FirstPage extends React.Component {
                 </ul>
               </div>
             </div>
-            <div className="Products">
+            <div className="Products" id="content">
               <Route
                 path="/ContentListVideo"
                 render={props => (

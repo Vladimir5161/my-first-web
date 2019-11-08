@@ -91,3 +91,11 @@
   opacity: 1;
   top: -2px;
 }
+.Add-content a {
+  line-height: 53px;
+  text-decoration: none;
+  color: #fff;
+}
+.Add-content:hover a {
+  color: #998675;
+}

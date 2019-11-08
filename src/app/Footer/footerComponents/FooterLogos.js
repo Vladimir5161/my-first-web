@@ -5,7 +5,7 @@ import images from "../../../common/images.js";
 const FooterLogos = () => {
   return (
     <div className="container containerFooter">
-      <div className="footerLogos">
+      <div className="footerLogos" id="partners">
         <a href="#" className="footerImage">
           <img src={images[0].logo} alt="" />
         </a>

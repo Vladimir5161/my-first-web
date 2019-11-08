@@ -29,11 +29,11 @@
   float: left;
   margin: 0 13px;
 }
-.menuPoints a {
+.menuPointsLinks {
   display: block;
   color: #fff;
   font-family: "Monserrat";
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   text-decoration: none;
   line-height: 30px;
@@ -128,6 +128,15 @@
   top: 10px;
   left: 12px;
   color: #fff;
+}
+.arrowScroll {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+}
+.arrowScroll img {
+  height: 40px;
+  width: 70px;
 }
 @media screen and (max-width: 767px) {
   .upperheader {
