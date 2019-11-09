@@ -56,6 +56,7 @@
   grid-column-gap: 20px;
   /* padding: 0 10px; */
 }
+
 .Content {
   width: 100%;
   text-align: center;
@@ -74,6 +75,7 @@
 }
 .content-image img {
   width: 100%;
+  max-height: 170px;
 }
 .content-name {
   font-family: "Raleway";
@@ -95,21 +97,10 @@
   font-weight: 400;
   font-size: 16px;
   color: #000;
-  height: 100%;
+  max-height: 250px;
   padding: 10px 0;
   text-align: justify;
-}
-.LoadMore {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 20px auto;
-}
-.Know-more {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  overflow: auto;
 }
 .likedNo {
   border: none;

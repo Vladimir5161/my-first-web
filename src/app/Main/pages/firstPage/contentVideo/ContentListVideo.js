@@ -10,19 +10,23 @@ class ContentListVideo extends React.Component {
 
     return (
       <div className="ContentList">
-        {contentVideo.map(({ name, description, video, text, id }) => (
-          <div className="Content" key={id}>
-            <ContentListItem
-              video={video}
-              name={name}
-              text={text}
-              description={description}
-              OnLike={OnLike}
-              OnLiked={OnLiked}
-            />
-            <button className="Add-content Know-more">Know More</button>
-          </div>
-        ))}
+        {contentVideo.map(
+          ({ name, description, video, text, id, image, story }) => (
+            <div className="Content" key={id}>
+              <ContentListItem
+                image={image}
+                story={story}
+                video={video}
+                name={name}
+                text={text}
+                description={description}
+                OnLike={OnLike}
+                OnLiked={OnLiked}
+              />
+              <button className="Add-content Know-more">Know More</button>
+            </div>
+          )
+        )}
       </div>
     );
   }

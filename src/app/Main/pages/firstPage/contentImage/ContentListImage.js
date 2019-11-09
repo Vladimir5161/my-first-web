@@ -1,7 +1,7 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import ContentListItem from "../ContentListItem.js";
+import ContentListImagesItem from "./ContentListImagesItem.js";
 import contentImage from "./contentImage.js";
 
 class ContentListImage extends React.Component {
@@ -9,18 +9,14 @@ class ContentListImage extends React.Component {
     const { OnLike, OnLiked } = this.props;
 
     return (
-      <div className="ContentList">
-        {contentImage.map(({ image, name, description, text, id }) => (
-          <div className="Content" key={id}>
-            <ContentListItem
+      <div className="ContentList-images">
+        {contentImage.map(({ image, id }) => (
+          <div className="Content-images" key={id}>
+            <ContentListImagesItem
               image={image}
-              name={name}
-              text={text}
-              description={description}
               OnLike={OnLike}
               OnLiked={OnLiked}
             />
-            <button className="Add-content Know-more">Know More</button>
           </div>
         ))}
       </div>

@@ -18,12 +18,12 @@ class ContentListItem extends React.Component {
     return (
       <div className="content-list-item">
         <Player video={video} />
-        <div className="content-image">
-          <img src={image} alt="" />
-        </div>
         <div className="content-text">{text} </div>
         <h2 className="content-name">{name}</h2>
         <p className="content-description">"{description}"</p>
+        <div className="content-image">
+          <img src={image} alt="" />
+        </div>
         <p className="content-story">{story}</p>
         <ButtonLike OnLike={OnLike} OnLiked={OnLiked} />
       </div>

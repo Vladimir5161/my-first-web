@@ -85,6 +85,7 @@
 }
 .searchFieldActive {
   width: 465px;
+  display: grid;
   position: absolute;
   bottom: -50px;
   margin: 0 auto;
@@ -94,11 +95,9 @@
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
-  display: grid;
   grid-template-columns: 3fr 1fr;
   padding: 0 20px;
 }
-
 .searchFieldActive input,
 .searchButton {
   height: 50px;
@@ -131,7 +130,7 @@
 }
 .arrowScroll {
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   right: 10px;
 }
 .arrowScroll img {
