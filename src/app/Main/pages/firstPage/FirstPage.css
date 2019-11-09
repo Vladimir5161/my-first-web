@@ -56,7 +56,6 @@
   grid-column-gap: 20px;
   /* padding: 0 10px; */
 }
-
 .Content {
   width: 100%;
   text-align: center;
@@ -66,6 +65,14 @@
   padding: 10px 10px 80px 10px;
   margin: 10px 0;
   position: relative;
+}
+.contentBlockName {
+  text-align: center;
+  font-family: "Abril Fatface", cursive;
+  font-size: 45px;
+  font-weight: 200;
+  color: #998675;
+  padding: 20px;
 }
 .react-player {
   margin: 0 auto;

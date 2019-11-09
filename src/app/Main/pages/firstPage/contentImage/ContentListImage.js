@@ -9,16 +9,19 @@ class ContentListImage extends React.Component {
     const { OnLike, OnLiked } = this.props;
 
     return (
-      <div className="ContentList-images">
-        {contentImage.map(({ image, id }) => (
-          <div className="Content-images" key={id}>
-            <ContentListImagesItem
-              image={image}
-              OnLike={OnLike}
-              OnLiked={OnLiked}
-            />
-          </div>
-        ))}
+      <div>
+        <div className="contentBlockName">Images</div>
+        <div className="ContentList-images">
+          {contentImage.map(({ image, id }) => (
+            <div className="Content-images" key={id}>
+              <ContentListImagesItem
+                image={image}
+                OnLike={OnLike}
+                OnLiked={OnLiked}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
