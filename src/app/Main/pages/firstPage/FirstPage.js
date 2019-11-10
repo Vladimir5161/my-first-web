@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 class FirstPage extends React.Component {
   state = {
-    loadpath: "/"
+    loadpath: "/ContentListAll"
   };
   OnClickPathChange = () => {
     this.setState(prevState => ({
@@ -112,9 +112,9 @@ class FirstPage extends React.Component {
                 )}
               />
               <Route
-                path="/ContentListAll"
-                isExact
+                from
                 path={this.state.loadpath}
+                default
                 render={props => (
                   <ContentListAll
                     {...props}

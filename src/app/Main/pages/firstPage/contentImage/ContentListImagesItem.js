@@ -7,9 +7,7 @@ class ContentListImagesItem extends React.Component {
     const { image, OnLiked, OnLike } = this.props;
     return (
       <div className="content-list-images-item">
-        <div className="content-image">
-          <img className="imageContent" src={image} alt="" />
-        </div>
+        <img className="imageContent" src={image} alt="" />
         <ButtonLike OnLike={OnLike} OnLiked={OnLiked} />
       </div>
     );

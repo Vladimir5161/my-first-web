@@ -11,37 +11,13 @@ class ContentListAll extends React.Component {
     const { OnLike, OnLiked } = this.props;
 
     return (
-      <div className="ContentList">
-        {contentVideo.map(({ video, story, name, description, text, id }) => (
-          <div className="Content" key={id}>
-            <ContentListItem
-              video={video}
-              story={story}
-              name={name}
-              text={text}
-              description={description}
-              OnLike={OnLike}
-              OnLiked={OnLiked}
-            />
-            <button className="Add-content Know-more">Know More</button>
-          </div>
-        ))}
-        {contentImage.map(({ image, id }) => (
-          <div className="Content-images" key={id}>
-            <ContentListImagesItem
-              image={image}
-              OnLike={OnLike}
-              OnLiked={OnLiked}
-            />
-          </div>
-        ))}
-        {contentStory.map(
-          ({ image, video, story, name, description, text, id }) => (
+      <div>
+        <div className="ContentList">
+          {contentVideo.map(({ video, story, name, description, text, id }) => (
             <div className="Content" key={id}>
               <ContentListItem
                 video={video}
                 story={story}
-                image={image}
                 name={name}
                 text={text}
                 description={description}
@@ -50,8 +26,38 @@ class ContentListAll extends React.Component {
               />
               <button className="Add-content Know-more">Know More</button>
             </div>
-          )
-        )}
+          ))}
+        </div>
+        <div className="ContentList">
+          {contentImage.map(({ image, id }) => (
+            <div className="Content-images" key={id}>
+              <ContentListImagesItem
+                image={image}
+                OnLike={OnLike}
+                OnLiked={OnLiked}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="ContentList">
+          {contentStory.map(
+            ({ image, video, story, name, description, text, id }) => (
+              <div className="Content" key={id}>
+                <ContentListItem
+                  video={video}
+                  story={story}
+                  image={image}
+                  name={name}
+                  text={text}
+                  description={description}
+                  OnLike={OnLike}
+                  OnLiked={OnLiked}
+                />
+                <button className="Add-content Know-more">Know More</button>
+              </div>
+            )
+          )}
+        </div>
       </div>
     );
   }
