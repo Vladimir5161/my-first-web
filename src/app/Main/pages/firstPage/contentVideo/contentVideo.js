@@ -19,6 +19,13 @@ const contentVideo = [
     //   image: "/images/conor.jpg",
     name: "Vikings trailer 1",
     description: "about Ragnar"
+  },
+  {
+    id: 3,
+    video: "https://www.youtube.com/watch?v=IGnoxboek3g",
+    //   image: "/images/conor.jpg",
+    name: "Vikings trailer 1",
+    description: "about Ragnar"
   }
 ];
 export default contentVideo;
