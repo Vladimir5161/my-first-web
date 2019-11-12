@@ -22,9 +22,9 @@ class ReactSlider extends React.Component {
     return (
       <Slider {...settings}>
         {slides.map(({ h1, text, h2, image, button, id, href }) => (
-          <div className="HeaderSlick">
+          <div className="HeaderSlick" key={id}>
             <div className="slide">
-              <div className="Slides" key={id}>
+              <div className="Slides">
                 <SlickSlides
                   image={image}
                   h2={h2}

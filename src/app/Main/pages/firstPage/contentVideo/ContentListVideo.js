@@ -1,16 +1,15 @@
 import React from "react";
 
-import PropTypes from "prop-types";
 import ContentListItem from "../ContentListItem.js";
 import contentVideo from "./contentVideo.js";
 
 class ContentListVideo extends React.Component {
   render() {
-    const { OnLike, OnLiked } = this.props;
+    const { OnLike, OnLiked, videos } = this.props;
 
     return (
-      <div>
-        <div className="contentBlockName">Videos</div>
+      <div className={videos}>
+        <div className="contentBlockName ">Videos</div>
         <div className="ContentList">
           {contentVideo.map(
             ({ name, description, video, text, id, image, story }) => (
@@ -34,7 +33,5 @@ class ContentListVideo extends React.Component {
     );
   }
 }
-ContentListVideo.propTypes = {
-  video: PropTypes.string.isRequired
-};
+
 export default ContentListVideo;

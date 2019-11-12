@@ -1,15 +1,14 @@
 import React from "react";
 
-import PropTypes from "prop-types";
 import ContentListImagesItem from "./ContentListImagesItem.js";
 import contentImage from "./contentImage.js";
 
 class ContentListImage extends React.Component {
   render() {
-    const { OnLike, OnLiked } = this.props;
+    const { OnLike, OnLiked, images } = this.props;
 
     return (
-      <div>
+      <div className={images}>
         <div className="contentBlockName">Images</div>
         <div className="ContentList-images">
           {contentImage.map(({ image, id }) => (
@@ -26,8 +25,4 @@ class ContentListImage extends React.Component {
     );
   }
 }
-
-ContentListImage.propTypes = {
-  image: PropTypes.string.isRequired
-};
 export default ContentListImage;

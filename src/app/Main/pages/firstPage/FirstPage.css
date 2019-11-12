@@ -19,7 +19,7 @@
 }
 .addContent {
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 0fr 1fr;
 }
 
 .filter ul {
@@ -45,6 +45,7 @@
   line-height: 21px;
   color: #8c8c8c;
   text-decoration: none;
+  cursor: pointer;
 }
 .buttonFilter:hover {
   background-color: #998675;
@@ -136,4 +137,12 @@
   bottom: 25px;
   transition: 0.5s;
   cursor: pointer;
+}
+.images,
+.stories,
+.videos {
+  display: block;
+}
+.activeNo {
+  display: none;
 }

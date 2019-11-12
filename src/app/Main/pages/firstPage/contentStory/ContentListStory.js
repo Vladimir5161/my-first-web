@@ -1,15 +1,14 @@
 import React from "react";
 
-import PropTypes from "prop-types";
 import ContentListItem from "../ContentListItem.js";
 import contentStory from "./contentStory.js";
 
 class ContentListStory extends React.Component {
   render() {
-    const { OnLike, OnLiked } = this.props;
+    const { OnLike, OnLiked, stories } = this.props;
 
     return (
-      <div>
+      <div className={stories}>
         <div className="contentBlockName">Stories</div>
         <div className="ContentList">
           {contentStory.map(
@@ -34,7 +33,4 @@ class ContentListStory extends React.Component {
     );
   }
 }
-ContentListStory.propTypes = {
-  story: PropTypes.string.isRequired
-};
 export default ContentListStory;
