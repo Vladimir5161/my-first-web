@@ -2,7 +2,7 @@
   font-family: "Raleway";
   font-weight: 700;
   font-size: 30px;
-  color: #555555;
+  color: #252525;
   text-align: center;
   padding: 10px 0;
 }
@@ -10,8 +10,8 @@
   text-align: center;
   font-family: "Montserrat";
   font-size: 16px;
-  color: #8c8c8c;
-  font-weight: 300;
+  color: #252525;
+  font-weight: 700;
   padding: 10px 0;
 }
 .introPage {
@@ -40,10 +40,10 @@
   width: 100px;
   border-radius: 3px;
   font-family: "Montserrat";
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 21px;
-  color: #8c8c8c;
+  color: #252525;
   text-decoration: none;
   cursor: pointer;
 }
@@ -75,7 +75,7 @@
   font-family: "Abril Fatface", cursive;
   font-size: 45px;
   font-weight: 200;
-  color: #998675;
+  color: #252525;
   padding: 20px;
 }
 .react-player {

@@ -20,24 +20,26 @@ class ReactSlider extends React.Component {
     };
     const { stateSlides } = this.props;
     return (
-      <Slider {...settings}>
-        {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
-          <div className="HeaderSlick" key={id}>
-            <div className="slide">
-              <div className="Slides">
-                <SlickSlides
-                  image={image}
-                  h2={h2}
-                  h1={h1}
-                  text={text}
-                  button={button}
-                  href={href}
-                />
+      <div className="sliderDiv">
+        <Slider {...settings}>
+          {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
+            <div className="HeaderSlick" key={id}>
+              <div className="slide">
+                <div className="Slides">
+                  <SlickSlides
+                    image={image}
+                    h2={h2}
+                    h1={h1}
+                    text={text}
+                    button={button}
+                    href={href}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     );
   }
 }

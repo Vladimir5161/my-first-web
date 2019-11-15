@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     const { state } = this.props;
     return (
-      <div>
+      <div className="app">
         <Header
           countLike={this.state.countLike}
           state={state}
