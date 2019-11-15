@@ -28,11 +28,20 @@
   float: left;
   margin: 0 13px;
 }
-.menuPoints:hover .seasonsSubMenu {
+.menuPoints:hover .contentSubMenu {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 185px;
+  width: 200px;
 }
+.MoviesSubMenu {
+  display: none;
+  position: absolute;
+}
+.menuPoints:hover .MoviesSubMenu {
+  display: block;
+  line-height: 30px;
+}
+
 .menuPoints a:hover {
   color: #9e8f7c;
 }
@@ -45,7 +54,7 @@
   text-decoration: none;
   line-height: 30px;
 }
-.seasonsMenu {
+.contentMenu {
   display: block;
   color: #fff;
   font-family: "Monserrat";
@@ -53,15 +62,16 @@
   cursor: pointer;
   line-height: 30px;
 }
-.seasonsMenu:hover {
+.contentMenu:hover {
   color: #9e8f7c;
 }
-.seasonsSubMenu {
+.contentSubMenu {
   display: none;
   position: absolute;
   z-index: 50;
 }
-.season {
+.season,
+.movie {
   display: block;
   color: #fff;
   font-family: "Monserrat";
@@ -71,7 +81,8 @@
   cursor: pointer;
   text-decoration: none;
 }
-.season:hover {
+.season:hover,
+.movie:hover {
   color: #9e8f7c;
 }
 .searcharea {
@@ -101,56 +112,7 @@
   background-color: inherit;
   margin: 0 13px;
 }
-.searchField {
-  width: 465px;
-  position: absolute;
-  bottom: -40px;
-  margin: 0 auto;
-  z-index: 30;
-  border: 2px solid #000;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 30px;
-  display: none;
-  grid-template-columns: 3fr 1fr;
-  padding: 0 20px;
-}
-.searchFieldActive {
-  width: 465px;
-  display: grid;
-  position: absolute;
-  bottom: -50px;
-  margin: 0 auto;
-  z-index: 30;
-  border: 2px solid #fff;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 30px;
-  grid-template-columns: 3fr 1fr;
-  padding: 0 20px;
-}
-.searchFieldActive input,
-.searchButton {
-  height: 50px;
-  background-color: inherit;
-  border: none;
-  font-family: "Raleway";
-  font-size: 20px;
-  color: #fff;
-}
-.searchButton {
-  display: grid;
-  text-align: center;
-  align-items: center;
-  cursor: pointer;
-}
-.searchButton:hover {
-  border-radius: 40px;
-  text-shadow: 0 0 10px gold;
-  color: gold;
-}
+
 .cart:hover,
 .search:hover {
   cursor: pointer;

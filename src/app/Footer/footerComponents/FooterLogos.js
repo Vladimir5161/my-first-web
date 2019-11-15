@@ -13,7 +13,7 @@ const FooterLogos = () => {
           <img src={images[4].lostFilm} alt="" />
         </a>
         <a href="#" className="footerImage">
-          <img src={images[3].total} alt="" />
+          <img src={images[3].got} alt="" />
         </a>
       </div>
     </div>

@@ -18,9 +18,9 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    const { stateSlides } = this.props;
+    const { stateSlides, sliderDiv } = this.props;
     return (
-      <div className="sliderDiv">
+      <div className={sliderDiv}>
         <Slider {...settings}>
           {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
             <div className="HeaderSlick" key={id}>

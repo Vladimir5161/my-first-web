@@ -1,6 +1,6 @@
 let state = {
-  mainContent: {
-    season6: {
+  vikings: {
+    season1: {
       contentVideo: [
         {
           id: 1,
@@ -60,43 +60,31 @@ let state = {
         {
           id: 8,
           image:
-            "https://hdqwalls.com/download/vikings-ragnar-4k-92-1920x1080.jpg",
-          imageS1:
-            "https://torrentfan.net/uploads/posts/2017-01/1485084885_1.jpg"
+            "https://hdqwalls.com/download/vikings-ragnar-4k-92-1920x1080.jpg"
         },
         {
           id: 9,
-          image: "https://wallpaperaccess.com/full/782445.jpg",
-          imageS1:
-            "https://miro.medium.com/max/3200/1*nIQpXVuCT6pDQpArpNWGWw.jpeg"
+          image: "https://wallpaperaccess.com/full/782445.jpg"
         },
         {
           id: 10,
-          image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg",
-          imageS1:
-            "https://tvfeed.in/cache/40/7f/407f7915b75feb86c4680b175a6f9f18.jpg"
+          image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg"
         },
         {
           id: 11,
-          image: "https://wallpaperaccess.com/full/782445.jpg",
-          imageS1:
-            "http://hahita.com/upload/video/images/big/ab/12/ab12c208c76c483d1056d9a92466139c.jpg"
+          image: "https://wallpaperaccess.com/full/782445.jpg"
         },
         {
           id: 12,
-          image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg",
-          imageS1:
-            "https://vikingi.tv/wp-content/uploads/2019/08/2-seria-1-sezon.jpg"
+          image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg"
         },
         {
           id: 13,
-          image: "https://wallpaperaccess.com/full/782445.jpg",
-          imageS1:
-            "http://torrentfilms.ru/wp-content/uploads/2017/04/vikingi-opisanie-serij-1-sezon_1.jpg"
+          image: "https://wallpaperaccess.com/full/782445.jpg"
         }
       ]
     },
-    season1: {
+    season2: {
       contentVideo: [
         {
           id: 14,
@@ -142,60 +130,120 @@ let state = {
             "https://mindreels.files.wordpress.com/2015/11/vikings-season-2-promo.png"
         }
       ]
+    }
+  },
+  GOT: {
+    season1: {
+      contentVideo: [
+        {
+          id: 28,
+          video: "https://www.youtube.com/watch?v=gcTkNV5Vg1E",
+          name: "Season 1 trailer",
+          description: "season 1"
+        },
+        {
+          id: 29,
+          video: "https://www.youtube.com/watch?v=WSP4iIB_wnY",
+          name: "Season 1 - top 10 best scenes",
+          description: "season 1"
+        },
+        {
+          id: 30,
+          video:
+            "https://www.youtube.com/watch?v=tBRH5s2lsxc&list=PLxs8sC_ZcV3r6Zo_aTfm9Othwqjms3Atn&index=3",
+          name: "House Stark season 1",
+          description: "season 1"
+        }
+      ],
+      contentStory: [
+        {
+          id: 31,
+          image:
+            "https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2019/04/game_of_thrones_season_1_episode_1_winter_is_coming.jpg",
+          name: "Season 1 description",
+          story:
+            'King Robert Baratheon and his Queen, Cersei Lannister, travel north to make his old friend Eddard "Ned" Stark, Lord of Winterfell, the offer to be the new Hand of the King after the previous one, Jon Arryn died under mysterious circumstances.Across the narrow sea, the exiled Prince Viserys Targaryen offers to trade his sister Daenerys to a violent Dothraki horse lord in exchange for his army. He hopes to use them to take back the throne which was taken from his father by Cersei`s brother, Jaime.Back in Winterfell, Ned`s 10-year-old son Bran discovers that Cersei and Jaime are involved in an incestuous relationship. Jaime pushes Bran out of the window to keep him from telling anyone.'
+        }
+      ],
+      contentImage: [
+        {
+          id: 32,
+          image:
+            "https://static01.nyt.com/images/2011/04/10/arts/THRONES-6/THRONES-6-superJumbo-v2.jpg"
+        },
+        {
+          id: 33,
+          image:
+            "https://oblacco.com/wp-content/uploads/2016/09/Game-of-Thrones-season-1.jpg"
+        },
+        {
+          id: 34,
+          image:
+            "http://www.cheatsheet.com/wp-content/uploads/2015/02/tyrion.png"
+        },
+        {
+          id: 35,
+          image:
+            "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/2/the-kingsroad-1920.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+        },
+        {
+          id: 36,
+          image:
+            "https://www.newshub.co.nz/dam/form-uploaded-images-ordered/2019/05/15/HBO_jaime-jon-season-1_140519_1120.jpg"
+        }
+      ]
     },
     season2: {
       contentVideo: [
         {
-          id: 21,
-          video: "https://www.youtube.com/watch?v=fXOej9DUHJ4",
-          name: "Vikings season  wall on wall battle",
+          id: 28,
+          video: "https://www.youtube.com/watch?v=XuKfFzk1uQs",
+          name: "Season 2 trailer",
           description: "season 2"
         },
         {
-          id: 22,
-          video:
-            "https://www.youtube.com/watch?v=FDisCTeRQwI&list=PLkGEC13z_M-J1rmnfL9roVmMaelX7aOgU",
-          name: "Brother War",
+          id: 29,
+          video: "https://www.youtube.com/watch?v=Iv5o7MxnRfM",
+          name: "The Adventures of Tyrion the Imp (Season 2) - Game of Thrones",
           description: "season 2"
         }
       ],
       contentStory: [
         {
-          id: 23,
-          image:
-            "https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/full/public/2014/04/25/vikings-season-2-spoilers.jpeg",
-          name: "The Vikings Season 2 description",
+          id: 31,
+          image: "https://i.ytimg.com/vi/kzSicCwtJI4/maxresdefault.jpg",
+          name: "Season 2 description",
           story:
-            "The second season of the historical drama television series Vikings premiered on February 27, 2014 on History in Canada, and concluded on May 1, 2014, consisting of ten episodes. The series broadly follows the exploits of the legendary Viking chieftain Ragnar Lothbrok and his crew, and later those of his sons. The first season of the series begins at the start of the Viking Age, marked by the Lindisfarne raid in 793.The second season follows Ragnar's struggles with rival Vikings and his rise from Earl to King. The Vikings raid further into England, and for the first time are offered land for settlement."
+            "Game of Thrones Season 2 drops Thrones fans into a world torn apart by the death of Eddard Stark. The Game of Thrones second season aired on HBO in 2012, and with all the plot twists and new characters GoT throws at viewers with each new season, and even each new episode, it`s always good to refresh your memory with a quick summary, and that`s exactly what you`ll find in this Game of Thrones season 2 recap.As GoT season 2 opens, The War of the Five Kings is raging on, and Robb Stark`s army is growing while Stannis and his Red Priestess plan to take over the kingdom. There are dragons in Essos, white walkers beyond the wall, and Greyjoys holding Winterfell. Each of the Game of Thrones season 2 episodes seemed to be more complex than the previous one. Refresh your memory with this Game of Thrones season 2 episode list and summary."
         }
       ],
       contentImage: [
         {
-          id: 24,
+          id: 32,
           image:
-            "https://timedotcom.files.wordpress.com/2014/04/fimmel-vikings-cropped.jpg?w=600&quality=85"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Nghuq09YNhbozPL_qEK0vdqlYY7lPpZEzlKm6yjo9yKFg4-a&s"
         },
         {
-          id: 25,
-          image: "https://cdn.wallpapersafari.com/49/44/g4Ifjk.jpg"
+          id: 33,
+          image:
+            "http://images5.fanpop.com/image/photos/30200000/Game-Of-Thrones-Season-2-Weeks-Ahead-Trailer-game-of-thrones-30265948-1280-720.jpg"
         },
         {
-          id: 26,
+          id: 34,
           image:
-            "http://guidagay.info/wp-content/uploads/2018/12/vikings-season-4-part-1-vikings-images-vikings-season-2-episode-1-brothers-war-wallpaper-and-background-photos.jpg"
+            "https://www.slantmagazine.com/wp-content/uploads/2015/07/tv_gameofthrones0205.jpg"
         },
         {
-          id: 27,
-          image:
-            "http://www.wallpaperbetter.com/wallpaper/823/866/514/vikings-season-2-2K-wallpaper-middle-size.jpg"
+          id: 35,
+          image: "http://i1.ytimg.com/vi/dcqrNXKv628/maxresdefault.jpg"
         }
       ]
     }
   },
-  headerContent: {
-    slides: [
+  slides: {
+    vikingsSlides: [
       {
-        id: 28,
+        id: 37,
         image:
           "https://i.pinimg.com/originals/98/57/fa/9857fa2582acee2a3e36ebcdf6ccf3c6.jpg",
         h2: "The Story of Ragnar Lothbrok",
@@ -204,7 +252,7 @@ let state = {
         button: "Get Started"
       },
       {
-        id: 29,
+        id: 38,
         image: "https://images3.alphacoders.com/691/thumb-1920-691818.jpg",
         h2: "Vikings invasion",
         h1: "They are coming",
@@ -213,7 +261,7 @@ let state = {
         href: "https://www.youtube.com/watch?v=Y7d0A5re7-0&t=2s"
       },
       {
-        id: 30,
+        id: 39,
         image:
           "https://cdns.kinguin.net/media/category/s/s/ss_97648b570dd8e7061e32b2e623cfed4c5c20fce9.1920x1080_1517652254.jpg",
         h2: "Total war Thrones of britannia",
@@ -221,6 +269,27 @@ let state = {
         text:
           "Thy the only one game where you can conquer England playing for vikings.",
         button: "Press to buy now"
+      }
+    ],
+    GOTSlides: [
+      {
+        id: 40,
+        image:
+          "https://theholyshrine.files.wordpress.com/2013/08/game-of-thrones-01.jpg",
+        h2: "The best story of all times",
+        h1: "HBO Chanel",
+        text: "Which side will you choose?",
+        button: "Get Started"
+      },
+      {
+        id: 41,
+        image:
+          "http://www.photobackgroundhd.com/wp-content/uploads/2019/04/latest-game-of-thrones-photo.jpg",
+        h2: "GOT",
+        h1: "HBO Chanel",
+        text: "Become a part of an action",
+        button: "Watch on Youtube",
+        href: "https://www.youtube.com/watch?v=gy_4WOQidjI&t=3s"
       }
     ]
   }

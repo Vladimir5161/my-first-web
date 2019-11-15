@@ -13,7 +13,7 @@ const images = [
   },
   {
     id: 4,
-    total: "/images/total.png"
+    got: "/images/got.png"
   },
   {
     id: 5,

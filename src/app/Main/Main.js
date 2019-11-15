@@ -3,7 +3,6 @@ import React from "react";
 import "./Main.css";
 
 import FirstPage from "./pages/firstPage/FirstPage.js";
-import state from "../../redux/state";
 
 const Main = ({ OnLike, OnLiked, stateVideo, stateImage, stateStory }) => {
   return (

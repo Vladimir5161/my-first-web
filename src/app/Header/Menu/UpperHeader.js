@@ -6,22 +6,9 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class UpperHeader extends React.Component {
   state = {
-    searchField: "searchField",
-    clicked: false,
     colorArrow: images[5].arrowScroll
   };
-  OnSearchClick = () => {
-    this.setState({ clicked: true });
-    this.setState(prevState => ({
-      searchField: (prevState.searchField = "searchFieldActive")
-    }));
-  };
-  OnSearchDeClick = () => {
-    this.setState({ clicked: false });
-    this.setState(prevState => ({
-      searchField: (prevState.searchField = "searchField")
-    }));
-  };
+
   listenScrollEvent = () => {
     if (window.scrollY > 10) {
       this.setState({ colorArrow: images[6].arrowBlackScroll });
@@ -35,17 +22,22 @@ class UpperHeader extends React.Component {
   render() {
     const {
       countLike,
-      OnSeasonS6ClickChange,
-      OnSeasonS5ClickChange,
-      OnSeasonS4ClickChange,
-      OnSeasonS3ClickChange,
-      OnSeasonS2ClickChange,
-      OnSeasonS1ClickChange
+      OnVikingsSeasonS2ClickChange,
+      OnGOTSeasonS1ClickChange,
+      OnVikingsSeasonS1ClickChange,
+      OnGOTSeasonS2ClickChange,
+      OnSearchClick,
+      OnSearchDeClick,
+      MovieChoseClick1,
+      MovieChoseClick2,
+      clicked,
+      logo,
+      chosen
     } = this.props;
     return (
       <div className="upperheader" id="home">
         <div className="logo">
-          <img src={images[0].logo} alt="" className="logoImage" />
+          <img src={logo} alt="" className="logoImage" />
         </div>
         <nav className="menu">
           <ul className="navigationMenu">
@@ -55,68 +47,73 @@ class UpperHeader extends React.Component {
               </a>
             </li>
             <li className="menuPoints">
-              <div className="seasonsMenu">Seasons</div>
-              <ul className="seasonsSubMenu">
+              <div className="contentMenu">Movies</div>
+              <ul className="MoviesSubMenu">
                 <li
                   onClick={() => {
-                    OnSeasonS1ClickChange();
+                    MovieChoseClick1();
                   }}
+                  className="movie"
                 >
-                  <AnchorLink href="#content" className="season">
-                    Season 1
-                  </AnchorLink>
+                  Game of Thrones
                 </li>
                 <li
                   onClick={() => {
-                    OnSeasonS2ClickChange();
+                    MovieChoseClick2();
                   }}
+                  className="movie"
                 >
-                  <AnchorLink href="#content" className="season">
-                    Season 2
-                  </AnchorLink>
-                </li>
-                <li
-                  onClick={() => {
-                    OnSeasonS3ClickChange();
-                  }}
-                >
-                  <AnchorLink href="#content" className="season">
-                    Season 3
-                  </AnchorLink>
-                </li>
-                <li
-                  onClick={() => {
-                    OnSeasonS4ClickChange();
-                  }}
-                >
-                  <AnchorLink href="#content" className="season">
-                    Season 4
-                  </AnchorLink>
-                </li>
-                <li
-                  onClick={() => {
-                    OnSeasonS5ClickChange();
-                  }}
-                >
-                  <AnchorLink href="#content" className="season">
-                    Season 5
-                  </AnchorLink>
-                </li>
-                <li
-                  onClick={() => {
-                    OnSeasonS6ClickChange();
-                  }}
-                >
-                  <AnchorLink href="#content" className="season">
-                    Season 6
-                  </AnchorLink>
+                  Vikings
                 </li>
               </ul>
             </li>
             <li className="menuPoints">
-              <AnchorLink className="menuPointsLinks" href="#content">
-                Content
-              </AnchorLink>
+              <div className="contentMenu">Content</div>
+              <ul className="contentSubMenu">
+                {chosen ? (
+                  <div>
+                    <li
+                      onClick={() => {
+                        OnGOTSeasonS1ClickChange();
+                      }}
+                    >
+                      <AnchorLink href="#content" className="season">
+                        Season 1
+                      </AnchorLink>
+                    </li>
+                    <li
+                      onClick={() => {
+                        OnGOTSeasonS2ClickChange();
+                      }}
+                    >
+                      <AnchorLink href="#content" className="season">
+                        Season 2
+                      </AnchorLink>
+                    </li>
+                  </div>
+                ) : (
+                  <div>
+                    <li
+                      onClick={() => {
+                        OnVikingsSeasonS1ClickChange();
+                      }}
+                    >
+                      <AnchorLink href="#content" className="season">
+                        Season 1
+                      </AnchorLink>
+                    </li>
+                    <li
+                      onClick={() => {
+                        OnVikingsSeasonS2ClickChange();
+                      }}
+                    >
+                      <AnchorLink href="#content" className="season">
+                        Season 2
+                      </AnchorLink>
+                    </li>
+                  </div>
+                )}
+              </ul>
             </li>
             <li className="menuPoints">
               <AnchorLink className="menuPointsLinks" href="#partners">
@@ -129,28 +126,23 @@ class UpperHeader extends React.Component {
               </AnchorLink>
             </li>
           </ul>
-          <div className={this.state.searchField}>
-            <input type="text" />
-            <button className="searchButton">Search</button>
-          </div>
         </nav>
-
         <div className="searcharea">
           <button className="cart">
             <div className="countLike">{countLike}</div>
           </button>
-          {this.state.clicked ? (
+          {clicked ? (
             <button
               className="search"
               onClick={() => {
-                this.OnSearchDeClick();
+                OnSearchDeClick();
               }}
             ></button>
           ) : (
             <button
               className="search"
               onClick={() => {
-                this.OnSearchClick();
+                OnSearchClick();
               }}
             ></button>
           )}
