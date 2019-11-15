@@ -6,11 +6,11 @@ class ButtonLike extends React.Component {
     like: "likedNo"
   };
 
-  OnLikedClick = () => {
+  OnLikeClick = () => {
     this.setState({ clicked: true });
     this.setState(prevState => ({ like: (prevState.like = "liked") }));
   };
-  OnLikeClick = () => {
+  OnLikedClick = () => {
     this.setState(prevState => ({ like: (prevState.like = "likedNo") }));
     this.setState({ clicked: false });
   };
@@ -22,16 +22,16 @@ class ButtonLike extends React.Component {
           <button
             className={this.state.like}
             onClick={() => {
-              this.OnLikeClick();
-              OnLike();
+              this.OnLikedClick();
+              OnLiked();
             }}
           ></button>
         ) : (
           <button
             className={this.state.like}
             onClick={() => {
-              this.OnLikedClick();
-              OnLiked();
+              this.OnLikeClick();
+              OnLike();
             }}
           ></button>
         )}

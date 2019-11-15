@@ -4,9 +4,11 @@ import ContentListImagesItem from "./ContentListImagesItem.js";
 import contentImage from "./contentImage.js";
 
 class ContentListImage extends React.Component {
+  state = {
+    content: contentImage
+  };
   render() {
     const { OnLike, OnLiked, images } = this.props;
-
     return (
       <div className={images}>
         <div className="contentBlockName">Images</div>

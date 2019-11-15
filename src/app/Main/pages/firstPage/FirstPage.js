@@ -71,11 +71,7 @@ class FirstPage extends React.Component {
                   <div
                     className="buttonFilter"
                     onClick={() => {
-                      this.OnClickVideo(
-                        this.state.videos,
-                        this.state.images,
-                        this.state.stories
-                      );
+                      this.OnClickVideo();
                     }}
                   >
                     Video
@@ -85,11 +81,7 @@ class FirstPage extends React.Component {
                   <div
                     className="buttonFilter"
                     onClick={() => {
-                      this.OnClickStory(
-                        this.state.stories,
-                        this.state.images,
-                        this.state.videos
-                      );
+                      this.OnClickStory();
                     }}
                   >
                     Stories
@@ -99,11 +91,7 @@ class FirstPage extends React.Component {
                   <div
                     className="buttonFilter"
                     onClick={() => {
-                      this.OnClickAllContent(
-                        this.state.stories,
-                        this.state.images,
-                        this.state.videos
-                      );
+                      this.OnClickAllContent();
                     }}
                   >
                     All

@@ -47,9 +47,15 @@ class UpperHeader extends React.Component {
               </a>
             </li>
             <li className="menuPoints">
-              <AnchorLink className="menuPointsLinks" href="#about">
-                About Us
-              </AnchorLink>
+              <div className="seasonsMenu">Seasons</div>
+              <ul className="seasonsSubMenu">
+                <li className="season">Season 1</li>
+                <li className="season">Season 2</li>
+                <li className="season">Season 3</li>
+                <li className="season">Season 4</li>
+                <li className="season">Season 5</li>
+                <li className="season">Season 6</li>
+              </ul>
             </li>
             <li className="menuPoints">
               <AnchorLink className="menuPointsLinks" href="#content">

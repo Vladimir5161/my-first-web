@@ -14,7 +14,6 @@
 .searcharea {
   margin: 0 auto;
 }
-
 .navigationMenu:after {
   content: "";
   clear: both;
@@ -29,6 +28,14 @@
   float: left;
   margin: 0 13px;
 }
+.menuPoints:hover .seasonsSubMenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 185px;
+}
+.menuPoints a:hover {
+  color: #9e8f7c;
+}
 .menuPointsLinks {
   display: block;
   color: #fff;
@@ -38,7 +45,32 @@
   text-decoration: none;
   line-height: 30px;
 }
-.menuPoints a:hover {
+.seasonsMenu {
+  display: block;
+  color: #fff;
+  font-family: "Monserrat";
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 30px;
+}
+.seasonsMenu:hover {
+  color: #9e8f7c;
+}
+.seasonsSubMenu {
+  display: none;
+  position: absolute;
+  z-index: 50;
+}
+.season {
+  display: block;
+  color: #fff;
+  font-family: "Monserrat";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  cursor: pointer;
+}
+.season:hover {
   color: #9e8f7c;
 }
 .searcharea {
@@ -162,6 +194,11 @@
     width: 180px;
     font-size: 15px;
   }
+  .menuPoints:hover .seasonsSubMenu {
+    display: grid;
+    top: 90px;
+    left: 45px;
+  }
 }
 @media screen and (max-width: 425px) {
   .searchFieldActive {
@@ -171,6 +208,12 @@
     left: 0;
     right: 0;
   }
+  .menuPoints:hover .seasonsSubMenu {
+    display: grid;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
 }
 @media screen and (max-width: 375px) {
   .searchFieldActive {
@@ -179,6 +222,12 @@
     margin: 0 auto;
     left: 0;
     right: 0;
+  }
+  .menuPoints:hover .seasonsSubMenu {
+    display: grid;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 }
 @media screen and (max-width: 320px) {
@@ -192,5 +241,11 @@
   .searchFieldActive input {
     width: 155px;
     font-size: 15px;
+  }
+  .menuPoints:hover .seasonsSubMenu {
+    display: grid;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 }

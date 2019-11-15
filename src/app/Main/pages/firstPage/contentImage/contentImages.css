@@ -1,5 +1,6 @@
 .Content-images {
   padding: 1.5px 3px;
+  position: relative;
 }
 .Content-images img:hover {
   box-shadow: 0 0 10px 10px #b8b2b2;
@@ -9,14 +10,13 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
 }
-.content-list-item-images {
-  position: relative;
-}
-.content-list-item-images .likedNo {
+.content-list-item-images .likedNo,
+.content-list-item-images-clicked .likedNo {
   bottom: 10px;
   right: 10px;
 }
-.content-list-item-images .liked {
+.content-list-item-images .liked,
+.content-list-item-images-clicked .liked {
   height: 30px;
   width: 30px;
   right: 10px;
@@ -25,4 +25,34 @@
 .imageContent {
   width: 100%;
   height: 170px;
+}
+.imageContent-full-clicked {
+  display: block;
+  width: 1170px;
+  position: fixed;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid black;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 30;
+}
+.imageContent-full {
+  display: none;
+  width: 1170px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid black;
+  cursor: pointer;
+}
+.fullScreenBlock {
+  width: 1170px;
+  height: 100%;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  right: 0;
 }

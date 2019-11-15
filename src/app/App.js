@@ -12,10 +12,10 @@ class App extends React.Component {
     countLike: 0
   };
   OnLiked = () => {
-    this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
+    this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
   };
   OnLike = () => {
-    this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
+    this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
   };
   render() {
     return (
