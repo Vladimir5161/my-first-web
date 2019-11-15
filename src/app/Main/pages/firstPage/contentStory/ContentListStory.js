@@ -1,17 +1,16 @@
 import React from "react";
 
 import ContentListItem from "../ContentListItem.js";
-import contentStory from "./contentStory.js";
 
 class ContentListStory extends React.Component {
   render() {
-    const { OnLike, OnLiked, stories } = this.props;
+    const { OnLike, OnLiked, stories, stateStory } = this.props;
 
     return (
       <div className={stories}>
         <div className="contentBlockName">Stories</div>
         <div className="ContentList">
-          {contentStory.map(
+          {stateStory.map(
             ({ name, description, text, story, id, image, video }) => (
               <div className="Content" key={id}>
                 <ContentListItem

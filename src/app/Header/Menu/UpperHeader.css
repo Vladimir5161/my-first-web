@@ -69,6 +69,7 @@
   font-weight: 400;
   line-height: 30px;
   cursor: pointer;
+  text-decoration: none;
 }
 .season:hover {
   color: #9e8f7c;

@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css";
 
 import SlickSlides from "./SlickSlides";
-import slides from "./slides";
 import Slider from "react-slick";
 
 class ReactSlider extends React.Component {
@@ -19,9 +18,10 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+    const { stateSlides } = this.props;
     return (
       <Slider {...settings}>
-        {slides.map(({ h1, text, h2, image, button, id, href }) => (
+        {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
           <div className="HeaderSlick" key={id}>
             <div className="slide">
               <div className="Slides">

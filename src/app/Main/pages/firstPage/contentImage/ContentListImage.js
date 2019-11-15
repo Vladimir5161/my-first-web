@@ -1,19 +1,15 @@
 import React from "react";
 
 import ContentListImagesItem from "./ContentListImagesItem.js";
-import contentImage from "./contentImage.js";
 
 class ContentListImage extends React.Component {
-  state = {
-    content: contentImage
-  };
   render() {
-    const { OnLike, OnLiked, images } = this.props;
+    const { OnLike, OnLiked, images, stateImage } = this.props;
     return (
       <div className={images}>
         <div className="contentBlockName">Images</div>
         <div className="ContentList-images">
-          {contentImage.map(({ image, id }) => (
+          {stateImage.map(({ image, id }) => (
             <div className="Content-images" key={id}>
               <ContentListImagesItem
                 image={image}
