@@ -1,12 +1,15 @@
 import React from "react";
 
 import ButtonLike from "../ButtonLike.js";
-import ButtonFullScreen from "../ButtonFullScreen.js";
+import ButtonCloseImage from "../ButtonCloseImage";
 
 class ContentListImagesItem extends React.Component {
   state = {
     contentImageItem: "content-list-item-images",
-    imageContent: "imageContent-full"
+    imageContent: "imageContent-full",
+    fullScreenBlock: "fullScreenBlock",
+    ButtonCloseImage: "ButtonCloseImage",
+    fullScreenImageFixedBlock: "fullScreenImageFixedBlock"
   };
   OnClickedImage = () => {
     this.setState(prevState => ({
@@ -16,6 +19,11 @@ class ContentListImagesItem extends React.Component {
     this.setState(prevState => ({
       imageContent: (prevState.imageContent = "imageContent-full-clicked")
     }));
+    this.setState({ fullScreenBlock: "fullScreenBlock-clicked" });
+    this.setState({ ButtonCloseImage: "ButtonCloseImage-clicked" });
+    this.setState({
+      fullScreenImageFixedBlock: "fullScreenImageFixedBlock-clicked"
+    });
   };
   OnClickImage = () => {
     this.setState(prevState => ({
@@ -25,27 +33,36 @@ class ContentListImagesItem extends React.Component {
     this.setState(prevState => ({
       imageContent: (prevState.imageContent = "imageContent-full")
     }));
+    this.setState({ fullScreenBlock: "fullScreenBlock" });
+    this.setState({ ButtonCloseImage: "ButtonCloseImage" });
+    this.setState({ fullScreenImageFixedBlock: "fullScreenImageFixedBlock" });
   };
   render() {
     const { image, OnLiked, OnLike } = this.props;
     return (
       <div>
         <div className={this.state.contentImageItem}>
-          <img className="imageContent" src={image} alt="" />
-          <div className="fullScreenBlock">
-            <img
-              className={this.state.imageContent}
-              src={image}
-              alt=""
-              onClick={() => {
-                this.OnClickImage();
-              }}
+          <img
+            className="imageContent"
+            src={image}
+            alt=""
+            onClick={() => {
+              this.OnClickedImage();
+            }}
+          />
+          <div
+            className={this.state.fullScreenBlock}
+            onClick={() => {
+              this.OnClickImage();
+            }}
+          ></div>
+          <div className={this.state.fullScreenImageFixedBlock}>
+            <img className={this.state.imageContent} src={image} alt="" />
+            <ButtonCloseImage
+              OnClickImage={this.OnClickImage}
+              ButtonCloseImage={this.state.ButtonCloseImage}
             />
           </div>
-          <ButtonFullScreen
-            OnClickedImage={this.OnClickedImage}
-            OnClickImage={this.OnClickImage}
-          />
           <ButtonLike OnLike={OnLike} OnLiked={OnLiked} />
         </div>
       </div>

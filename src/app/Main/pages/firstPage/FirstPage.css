@@ -149,18 +149,3 @@
 .activeNo {
   display: none;
 }
-.ButtonFullScreen {
-  position: absolute;
-  right: 17px;
-  top: 15px;
-  width: 20px;
-  height: 20px;
-  background-image: url(/images/switch-to-full-button.png);
-  background-size: cover;
-  background-color: inherit;
-  border: none;
-  cursor: pointer;
-}
-.ButtonFullScreen:hover {
-  background-image: url(/images/switch-to-full-button-white.png);
-}
