@@ -56,3 +56,28 @@
   left: 0;
   right: 0;
 }
+@media screen and (max-width: 1024px) {
+  .imageContent-full-clicked {
+    width: 1024px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .imageContent-full-clicked {
+    width: 768px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .imageContent-full-clicked {
+    width: 425px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .imageContent-full-clicked {
+    width: 375px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .imageContent-full-clicked {
+    width: 320px;
+  }
+}
