@@ -53,9 +53,9 @@
 }
 .ContentList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(565px, 1fr));
   grid-column-gap: 20px;
-  padding: 0;
+  padding: 10px;
 }
 .Content {
   width: 100%;
@@ -85,7 +85,7 @@
 }
 .content-image img {
   width: 100%;
-  max-height: 170px;
+  max-height: 240px;
 }
 .content-name {
   font-family: "Raleway";
@@ -147,4 +147,22 @@
 }
 .activeNo {
   display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(492px, 1fr));
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+}
+@media screen and (max-width: 320px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    padding: 0;
+  }
 }
