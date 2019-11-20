@@ -2,7 +2,8 @@ import React from "react";
 
 import "../common/reset.css";
 import "../common/base.css";
-import state from "../redux/state";
+import vikingsData from "../redux/vikingsData";
+import gotData from "../redux/gotData";
 import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
@@ -10,10 +11,10 @@ import Footer from "./Footer/Footer.js";
 class App extends React.Component {
   state = {
     countLike: 0,
-    stateImage: state.vikings.season1.contentImage,
-    stateContent: state.vikings.season1.content,
+    stateImage: vikingsData.season1.contentImage,
+    stateContent: vikingsData.season1.content,
     logo: "../../images/logo.png",
-    stateSlides: state.slides.vikingsSlides,
+    stateSlides: vikingsData.slides.vikingsSlides,
     chosen: false
   };
   OnLiked = () => {
@@ -24,36 +25,35 @@ class App extends React.Component {
   };
   MovieChoseClick1 = () => {
     this.setState({ chosen: true });
-    this.setState({ stateSlides: state.slides.GOTSlides });
+    this.setState({ stateSlides: gotData.slides.GOTSlides });
     this.setState({ logo: "../../images/got.png" });
-    this.setState({ stateContent: state.GOT.season1.content });
-    this.setState({ stateImage: state.GOT.season1.contentImage });
+    this.setState({ stateContent: gotData.season1.content });
+    this.setState({ stateImage: gotData.season1.contentImage });
   };
   MovieChoseClick2 = () => {
     this.setState({ chosen: false });
-    this.setState({ stateSlides: state.slides.vikingsSlides });
+    this.setState({ stateSlides: vikingsData.slides.vikingsSlides });
     this.setState({ logo: "../../images/logo.png" });
-    this.setState({ stateContent: state.vikings.season1.content });
-    this.setState({ stateImage: state.vikings.season1.contentImage });
+    this.setState({ stateContent: vikingsData.season1.content });
+    this.setState({ stateImage: vikingsData.season1.contentImage });
   };
   OnVikingsSeasonS1ClickChange = () => {
-    this.setState({ stateContent: state.vikings.season1.content });
-    this.setState({ stateImage: state.vikings.season1.contentImage });
+    this.setState({ stateContent: vikingsData.season1.content });
+    this.setState({ stateImage: vikingsData.season1.contentImage });
   };
   OnVikingsSeasonS2ClickChange = () => {
-    this.setState({ stateContent: state.vikings.season2.content });
-    this.setState({ stateImage: state.vikings.season2.contentImage });
+    this.setState({ stateContent: vikingsData.season2.content });
+    this.setState({ stateImage: vikingsData.season2.contentImage });
   };
   OnGOTSeasonS1ClickChange = () => {
-    this.setState({ stateContent: state.GOT.season1.content });
-    this.setState({ stateImage: state.GOT.season1.contentImage });
+    this.setState({ stateContent: gotData.season1.content });
+    this.setState({ stateImage: gotData.season1.contentImage });
   };
   OnGOTSeasonS2ClickChange = () => {
-    this.setState({ stateContent: state.GOT.season2.content });
-    this.setState({ stateImage: state.GOT.season2.contentImage });
+    this.setState({ stateContent: gotData.season2.content });
+    this.setState({ stateImage: gotData.season2.contentImage });
   };
   render() {
-    const {} = this.props;
     return (
       <div className="app">
         <Header

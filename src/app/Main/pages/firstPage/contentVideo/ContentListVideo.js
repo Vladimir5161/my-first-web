@@ -12,14 +12,11 @@ class ContentListVideo extends React.Component {
         <div className="ContentList">
           {stateContent
             .filter(item => item.video)
-            .map(({ name, description, video, text, id, image, story }) => (
+            .map(({ name, description, video, id }) => (
               <div className="Content" key={id}>
                 <ContentListItem
-                  image={image}
-                  story={story}
                   video={video}
                   name={name}
-                  text={text}
                   description={description}
                   OnLike={OnLike}
                   OnLiked={OnLiked}

@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 .app {
   background-image: url(/images/background.png);

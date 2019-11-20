@@ -4,7 +4,7 @@ const SlickSlides = ({ h1, h2, text, image, button, href }) => {
   return (
     <div className="slide">
       <div className="sliderImage">
-        <img src={image} />
+        <img src={image} alt="here should be image" />
       </div>
       <h2>{h2}</h2>
       <h1>{h1}</h1>
