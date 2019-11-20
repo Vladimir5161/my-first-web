@@ -3,8 +3,8 @@ import React from "react";
 import "./FirstPage.css";
 import "./contentImage/contentImages.css";
 
-import ContentListVideo from "./contentVideo/ContentListVideo";
 import ContentListImage from "./contentImage/ContentListImage";
+import ContentListVideo from "./contentVideo/ContentListVideo";
 import ContentListStory from "./contentStory/ContentListStory";
 
 class FirstPage extends React.Component {
@@ -12,7 +12,8 @@ class FirstPage extends React.Component {
     activeNo: "activeNo",
     images: "images",
     videos: "videos",
-    stories: "stories"
+    stories: "stories",
+    itemClass: "video"
   };
   OnClickPhoto = () => {
     this.setState({
@@ -25,25 +26,28 @@ class FirstPage extends React.Component {
     this.setState({
       images: "activeNo",
       videos: "videos",
-      stories: "activeNo"
+      stories: "activeNo",
+      itemClass: "video"
     });
   };
   OnClickStory = () => {
     this.setState({
       images: "activeNo",
       videos: "activeNo",
-      stories: "stories"
+      stories: "stories",
+      itemClass: "story"
     });
   };
   OnClickAllContent = () => {
     this.setState({
       images: "images",
       videos: "videos",
-      stories: "stories"
+      stories: "stories",
+      itemClass: "id"
     });
   };
   render() {
-    const { OnLike, OnLiked, stateVideo, stateImage, stateStory } = this.props;
+    const { OnLike, OnLiked, stateContent, stateImage } = this.props;
     return (
       <div className="containerMain">
         <div className="wrapper">
@@ -102,23 +106,23 @@ class FirstPage extends React.Component {
             </div>
           </div>
           <div className="Products" id="content">
-            <ContentListVideo
-              OnLike={OnLike}
-              OnLiked={OnLiked}
-              videos={this.state.videos}
-              stateVideo={stateVideo}
-            />
             <ContentListImage
               OnLike={OnLike}
               OnLiked={OnLiked}
               images={this.state.images}
               stateImage={stateImage}
             />
+            <ContentListVideo
+              OnLike={OnLike}
+              OnLiked={OnLiked}
+              videos={this.state.videos}
+              stateContent={stateContent}
+            />
             <ContentListStory
               OnLike={OnLike}
               OnLiked={OnLiked}
               stories={this.state.stories}
-              stateStory={stateStory}
+              stateContent={stateContent}
             />
             <button className="Add-content LoadMore">Load More</button>
           </div>

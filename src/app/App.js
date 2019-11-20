@@ -10,9 +10,8 @@ import Footer from "./Footer/Footer.js";
 class App extends React.Component {
   state = {
     countLike: 0,
-    stateVideo: state.vikings.season1.contentVideo,
     stateImage: state.vikings.season1.contentImage,
-    stateStory: state.vikings.season1.contentStory,
+    stateContent: state.vikings.season1.content,
     logo: "../../images/logo.png",
     stateSlides: state.slides.vikingsSlides,
     chosen: false
@@ -27,37 +26,31 @@ class App extends React.Component {
     this.setState({ chosen: true });
     this.setState({ stateSlides: state.slides.GOTSlides });
     this.setState({ logo: "../../images/got.png" });
-    this.setState({ stateVideo: state.GOT.season1.contentVideo });
+    this.setState({ stateContent: state.GOT.season1.content });
     this.setState({ stateImage: state.GOT.season1.contentImage });
-    this.setState({ stateStory: state.GOT.season1.contentStory });
   };
   MovieChoseClick2 = () => {
     this.setState({ chosen: false });
     this.setState({ stateSlides: state.slides.vikingsSlides });
     this.setState({ logo: "../../images/logo.png" });
-    this.setState({ stateVideo: state.vikings.season1.contentVideo });
+    this.setState({ stateContent: state.vikings.season1.content });
     this.setState({ stateImage: state.vikings.season1.contentImage });
-    this.setState({ stateStory: state.vikings.season1.contentStory });
   };
   OnVikingsSeasonS1ClickChange = () => {
-    this.setState({ stateVideo: state.vikings.season1.contentVideo });
+    this.setState({ stateContent: state.vikings.season1.content });
     this.setState({ stateImage: state.vikings.season1.contentImage });
-    this.setState({ stateStory: state.vikings.season1.contentStory });
   };
   OnVikingsSeasonS2ClickChange = () => {
-    this.setState({ stateVideo: state.vikings.season2.contentVideo });
+    this.setState({ stateContent: state.vikings.season2.content });
     this.setState({ stateImage: state.vikings.season2.contentImage });
-    this.setState({ stateStory: state.vikings.season2.contentStory });
   };
   OnGOTSeasonS1ClickChange = () => {
-    this.setState({ stateVideo: state.GOT.season1.contentVideo });
+    this.setState({ stateContent: state.GOT.season1.content });
     this.setState({ stateImage: state.GOT.season1.contentImage });
-    this.setState({ stateStory: state.GOT.season1.contentStory });
   };
   OnGOTSeasonS2ClickChange = () => {
-    this.setState({ stateVideo: state.GOT.season2.contentVideo });
+    this.setState({ stateContent: state.GOT.season2.content });
     this.setState({ stateImage: state.GOT.season2.contentImage });
-    this.setState({ stateStory: state.GOT.season2.contentStory });
   };
   render() {
     const {} = this.props;
@@ -78,9 +71,8 @@ class App extends React.Component {
         <Main
           OnLike={this.OnLike}
           OnLiked={this.OnLiked}
-          stateVideo={this.state.stateVideo}
+          stateContent={this.state.stateContent}
           stateImage={this.state.stateImage}
-          stateStory={this.state.stateStory}
         />
         <Footer />
       </div>

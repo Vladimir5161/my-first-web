@@ -4,14 +4,15 @@ import ContentListItem from "../ContentListItem.js";
 
 class ContentListStory extends React.Component {
   render() {
-    const { OnLike, OnLiked, stories, stateStory } = this.props;
+    const { OnLike, OnLiked, stories, stateContent } = this.props;
 
     return (
       <div className={stories}>
         <div className="contentBlockName">Stories</div>
         <div className="ContentList">
-          {stateStory.map(
-            ({ name, description, text, story, id, image, video }) => (
+          {stateContent
+            .filter(item => item.story)
+            .map(({ name, description, text, story, id, image, video }) => (
               <div className="Content" key={id}>
                 <ContentListItem
                   video={video}
@@ -25,8 +26,7 @@ class ContentListStory extends React.Component {
                 />
                 <button className="Add-content Know-more">Know More</button>
               </div>
-            )
-          )}
+            ))}
         </div>
       </div>
     );

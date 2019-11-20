@@ -1,7 +1,7 @@
 let state = {
   vikings: {
     season1: {
-      contentVideo: [
+      content: [
         {
           id: 1,
           video: "https://www.youtube.com/watch?v=Y7d0A5re7-0",
@@ -29,9 +29,7 @@ let state = {
           //   image: "/images/conor.jpg",
           name: "Vikings trailer 1",
           description: "about Ragnar"
-        }
-      ],
-      contentStory: [
+        },
         {
           id: 5,
           image: "https://wallpaperaccess.com/full/782445.jpg",
@@ -85,15 +83,13 @@ let state = {
       ]
     },
     season2: {
-      contentVideo: [
+      content: [
         {
           id: 14,
           video: "https://www.youtube.com/watch?v=f5av6OqFwz0",
           name: "Vikings season 1 trailer",
           description: "season 1"
-        }
-      ],
-      contentStory: [
+        },
         {
           id: 15,
           image:
@@ -134,7 +130,7 @@ let state = {
   },
   GOT: {
     season1: {
-      contentVideo: [
+      content: [
         {
           id: 28,
           video: "https://www.youtube.com/watch?v=gcTkNV5Vg1E",
@@ -153,9 +149,7 @@ let state = {
             "https://www.youtube.com/watch?v=tBRH5s2lsxc&list=PLxs8sC_ZcV3r6Zo_aTfm9Othwqjms3Atn&index=3",
           name: "House Stark season 1",
           description: "season 1"
-        }
-      ],
-      contentStory: [
+        },
         {
           id: 31,
           image:
@@ -194,7 +188,7 @@ let state = {
       ]
     },
     season2: {
-      contentVideo: [
+      content: [
         {
           id: 28,
           video: "https://www.youtube.com/watch?v=XuKfFzk1uQs",
@@ -206,9 +200,7 @@ let state = {
           video: "https://www.youtube.com/watch?v=Iv5o7MxnRfM",
           name: "The Adventures of Tyrion the Imp (Season 2) - Game of Thrones",
           description: "season 2"
-        }
-      ],
-      contentStory: [
+        },
         {
           id: 31,
           image: "https://i.ytimg.com/vi/kzSicCwtJI4/maxresdefault.jpg",

@@ -4,15 +4,14 @@ import "./Main.css";
 
 import FirstPage from "./pages/firstPage/FirstPage.js";
 
-const Main = ({ OnLike, OnLiked, stateVideo, stateImage, stateStory }) => {
+const Main = ({ OnLike, OnLiked, stateImage, stateContent }) => {
   return (
     <main className="main">
       <FirstPage
         OnLike={OnLike}
         OnLiked={OnLiked}
         stateImage={stateImage}
-        stateVideo={stateVideo}
-        stateStory={stateStory}
+        stateContent={stateContent}
       />
       {/* <LastProjects />
       <Video />
