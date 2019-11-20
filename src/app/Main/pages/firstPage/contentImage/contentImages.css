@@ -8,14 +8,12 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
 }
-.content-list-item-images .likedNo,
-.content-list-item-images-clicked .likedNo {
+.content-list-item-images .likedNo {
   background-image: url(/images/like-white.png);
   bottom: 10px;
   right: 10px;
 }
-.content-list-item-images .liked,
-.content-list-item-images-clicked .liked {
+.content-list-item-images .liked {
   height: 30px;
   width: 30px;
   right: 10px;
@@ -27,7 +25,7 @@
   cursor: pointer;
 }
 .imageContent:hover {
-  width: 101%;
+  width: 100%;
   border: 3px solid #b8b2b2;
 }
 .imageContent-full-clicked {
@@ -53,6 +51,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
+  padding: 0;
   left: 0;
   top: 0;
 }
