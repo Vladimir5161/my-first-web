@@ -33,6 +33,10 @@
   margin: 0 auto;
   display: grid;
 }
+.sliderDiv {
+  max-width: 1170px;
+  margin: 0 auto;
+}
 .sliderDivNo {
   display: none;
 }
@@ -102,4 +106,19 @@
 }
 .Add-content:hover a {
   color: #998675;
+}
+@media screen and (max-width: 425px) {
+  .sliderImage img {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sliderImage img {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .sliderImage img {
+    height: 160px;
+  }
 }

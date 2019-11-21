@@ -15,13 +15,44 @@ class App extends React.Component {
     stateContent: vikingsData.season1.content,
     logo: "../../images/logo.png",
     stateSlides: vikingsData.slides.vikingsSlides,
-    chosen: false
+    chosen: false,
+    searchField: "searchField",
+    clicked: false,
+    sliderDiv: "sliderDiv",
+    likedContent: ""
+  };
+  OnClickLikesDefaultCount = () => {
+    this.setState({ countLike: 0 });
+  };
+  OnSearchClick = () => {
+    this.setState({ clicked: true });
+    this.setState(prevState => ({
+      searchField: (prevState.searchField = "searchFieldActive")
+    }));
+    this.setState(prevState => ({
+      sliderDiv: (prevState.sliderDiv = "sliderDivNo")
+    }));
+  };
+  OnSearchDeClick = () => {
+    this.setState({ clicked: false });
+    this.setState(prevState => ({
+      searchField: (prevState.searchField = "searchField")
+    }));
+    this.setState(prevState => ({
+      sliderDiv: (prevState.sliderDiv = "sliderDiv")
+    }));
   };
   OnLiked = () => {
     this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
   };
-  OnLike = () => {
+  OnLike = contentId => {
     this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
+    this.setState(prevState => ({
+      likedContent: {
+        ...prevState.likedContent,
+        [contentId]: prevState.likedContent[contentId] || 0
+      }
+    }));
   };
   MovieChoseClick1 = () => {
     this.setState({ chosen: true });
@@ -58,21 +89,28 @@ class App extends React.Component {
       <div className="app">
         <Header
           countLike={this.state.countLike}
-          stateSlides={this.state.stateSlides}
           OnVikingsSeasonS2ClickChange={this.OnVikingsSeasonS2ClickChange}
           OnVikingsSeasonS1ClickChange={this.OnVikingsSeasonS1ClickChange}
+          OnSearchClick={this.OnSearchClick}
+          OnSearchDeClick={this.OnSearchDeClick}
           OnGOTSeasonS2ClickChange={this.OnGOTSeasonS2ClickChange}
           OnGOTSeasonS1ClickChange={this.OnGOTSeasonS1ClickChange}
           MovieChoseClick1={this.MovieChoseClick1}
           MovieChoseClick2={this.MovieChoseClick2}
           logo={this.state.logo}
           chosen={this.state.chosen}
+          clicked={this.state.clicked}
+          searchField={this.state.searchField}
         />
         <Main
           OnLike={this.OnLike}
           OnLiked={this.OnLiked}
+          stateSlides={this.state.stateSlides}
           stateContent={this.state.stateContent}
           stateImage={this.state.stateImage}
+          sliderDiv={this.state.sliderDiv}
+          OnClickLikesDefaultCount={this.OnClickLikesDefaultCount}
+          likedContent={this.state.likedContent}
         />
         <Footer />
       </div>

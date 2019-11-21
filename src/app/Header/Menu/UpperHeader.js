@@ -2,6 +2,8 @@ import React from "react";
 
 import "./UpperHeader.css";
 import images from "../../../common/images.js";
+import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class UpperHeader extends React.Component {
@@ -47,73 +49,77 @@ class UpperHeader extends React.Component {
               </a>
             </li>
             <li className="menuPoints">
-              <div className="contentMenu">Movies</div>
-              <ul className="MoviesSubMenu">
-                <li
-                  onClick={() => {
-                    MovieChoseClick1();
-                  }}
-                  className="movie"
-                >
-                  Game of Thrones
-                </li>
-                <li
-                  onClick={() => {
-                    MovieChoseClick2();
-                  }}
-                  className="movie"
-                >
-                  Vikings
-                </li>
-              </ul>
+              <Link to="/">
+                <div className="contentMenu">Movies</div>
+                <ul className="MoviesSubMenu">
+                  <li
+                    onClick={() => {
+                      MovieChoseClick1();
+                    }}
+                    className="movie"
+                  >
+                    Game of Thrones
+                  </li>
+                  <li
+                    onClick={() => {
+                      MovieChoseClick2();
+                    }}
+                    className="movie"
+                  >
+                    Vikings
+                  </li>
+                </ul>
+              </Link>
             </li>
             <li className="menuPoints">
-              <div className="contentMenu">Content</div>
-              <ul className="contentSubMenu">
-                {chosen ? (
-                  <div>
-                    <li
-                      onClick={() => {
-                        OnGOTSeasonS1ClickChange();
-                      }}
-                    >
-                      <AnchorLink href="#content" className="season">
-                        Season 1
-                      </AnchorLink>
-                    </li>
-                    <li
-                      onClick={() => {
-                        OnGOTSeasonS2ClickChange();
-                      }}
-                    >
-                      <AnchorLink href="#content" className="season">
-                        Season 2
-                      </AnchorLink>
-                    </li>
-                  </div>
-                ) : (
-                  <div>
-                    <li
-                      onClick={() => {
-                        OnVikingsSeasonS1ClickChange();
-                      }}
-                    >
-                      <AnchorLink href="#content" className="season">
-                        Season 1
-                      </AnchorLink>
-                    </li>
-                    <li
-                      onClick={() => {
-                        OnVikingsSeasonS2ClickChange();
-                      }}
-                    >
-                      <AnchorLink href="#content" className="season">
-                        Season 2
-                      </AnchorLink>
-                    </li>
-                  </div>
-                )}
-              </ul>
+              <Link to="/">
+                <div className="contentMenu">Content</div>
+                <ul className="contentSubMenu">
+                  {chosen ? (
+                    <div>
+                      <li
+                        onClick={() => {
+                          OnGOTSeasonS1ClickChange();
+                        }}
+                      >
+                        <AnchorLink href="#content" className="season">
+                          Season 1
+                        </AnchorLink>
+                      </li>
+                      <li
+                        onClick={() => {
+                          OnGOTSeasonS2ClickChange();
+                        }}
+                      >
+                        <AnchorLink href="#content" className="season">
+                          Season 2
+                        </AnchorLink>
+                      </li>
+                    </div>
+                  ) : (
+                    <div>
+                      <li
+                        onClick={() => {
+                          OnVikingsSeasonS1ClickChange();
+                        }}
+                      >
+                        <AnchorLink href="#content" className="season">
+                          Season 1
+                        </AnchorLink>
+                      </li>
+                      <li
+                        onClick={() => {
+                          OnVikingsSeasonS2ClickChange();
+                        }}
+                      >
+                        <AnchorLink href="#content" className="season">
+                          Season 2
+                        </AnchorLink>
+                      </li>
+                    </div>
+                  )}
+                </ul>
+              </Link>
             </li>
             <li className="menuPoints">
               <AnchorLink className="menuPointsLinks" href="#partners">
@@ -129,7 +135,9 @@ class UpperHeader extends React.Component {
         </nav>
         <div className="searcharea">
           <button className="cart">
-            <div className="countLike">{countLike}</div>
+            <Link to="/likedContentPage">
+              <div className="countLike">{countLike}</div>
+            </Link>
           </button>
           {clicked ? (
             <button

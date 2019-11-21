@@ -8,6 +8,9 @@
   right: 0;
   margin: 20px auto;
 }
+.main {
+  min-height: 467.2px;
+}
 .Know-more {
   position: absolute;
   bottom: 0;

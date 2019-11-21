@@ -2,7 +2,6 @@ import React from "react";
 
 import "./FirstPage.css";
 import "./contentImage/contentImages.css";
-
 import ContentListImage from "./contentImage/ContentListImage";
 import ContentListVideo from "./contentVideo/ContentListVideo";
 import ContentListStory from "./contentStory/ContentListStory";
