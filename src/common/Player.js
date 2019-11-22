@@ -13,6 +13,7 @@ class Player extends React.Component {
             url={video}
             width="320"
             height="auto"
+            controls="true"
           />
         </div>
       </div>

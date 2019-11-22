@@ -15,6 +15,7 @@
 }
 .containerMain {
   border-radius: 20px;
+  min-height: 410px;
   max-width: 1170px;
   margin: 0 auto;
   padding: 40px 0 100px 0;

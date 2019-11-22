@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import FirstPage from "./pages/firstPage/FirstPage.js";
 import LikedContentPage from "./pages/likedContentPage/LikedContentPage";
 import ReactSlider from "./pages/slider/ReactSlider.js";
+import NewsList from "./pages/news/NewsList";
 
 const Main = ({
   OnLike,
@@ -34,6 +35,7 @@ const Main = ({
             </div>
           )}
         />
+        <Route path="/news" render={() => <NewsList />} />
         <Route
           path="/likedContentPage"
           render={() => (
