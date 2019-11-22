@@ -4,6 +4,7 @@ import "../common/reset.css";
 import "../common/base.css";
 import vikingsData from "../redux/vikingsData";
 import gotData from "../redux/gotData";
+import { addImage } from "../redux/vikingsData";
 import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
@@ -111,6 +112,7 @@ class App extends React.Component {
           sliderDiv={this.state.sliderDiv}
           OnClickLikesDefaultCount={this.OnClickLikesDefaultCount}
           likedContent={this.state.likedContent}
+          addImage={addImage}
         />
         <Footer />
       </div>

@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let vikingsData = {
   season1: {
     content: [
@@ -61,18 +63,6 @@ let vikingsData = {
       {
         id: 10,
         image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg"
-      },
-      {
-        id: 11,
-        image: "https://wallpaperaccess.com/full/782445.jpg"
-      },
-      {
-        id: 12,
-        image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg"
-      },
-      {
-        id: 13,
-        image: "https://wallpaperaccess.com/full/782445.jpg"
       }
     ]
   },
@@ -118,6 +108,10 @@ let vikingsData = {
         id: 20,
         image:
           "https://mindreels.files.wordpress.com/2015/11/vikings-season-2-promo.png"
+      },
+      {
+        id: 11,
+        image: "https://wallpaperaccess.com/full/782445.jpg"
       }
     ]
   },
@@ -153,5 +147,14 @@ let vikingsData = {
       }
     ]
   }
+};
+
+export let addImage = currentImage => {
+  let newImage = {
+    id: 100,
+    image: currentImage
+  };
+  vikingsData.season1.contentImage.push(newImage);
+  rerenderEntireTree();
 };
 export default vikingsData;

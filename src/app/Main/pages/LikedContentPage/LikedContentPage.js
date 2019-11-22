@@ -15,6 +15,7 @@ class LikedContentPage extends React.Component {
     const { OnClickLikesDefaultCount, likedContent } = this.props;
     return (
       <div className="containerMain">
+        <h1 className="h1">Liked Content</h1>
         {keys(likedContent).map(contentId => (
           <div key={contentId}>{productsMap[contentId]}</div>
         ))}

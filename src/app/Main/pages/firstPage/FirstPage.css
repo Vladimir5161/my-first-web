@@ -17,11 +17,6 @@
 .introPage {
   height: 120px;
 }
-.addContent {
-  display: grid;
-  grid-template-rows: 0fr 1fr;
-}
-
 .filter ul {
   display: inline;
 }

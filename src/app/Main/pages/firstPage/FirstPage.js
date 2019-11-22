@@ -2,6 +2,7 @@ import React from "react";
 
 import "./FirstPage.css";
 import "./contentImage/contentImages.css";
+import AddContent from "./addContent/AddContent";
 import ContentListImage from "./contentImage/ContentListImage";
 import ContentListVideo from "./contentVideo/ContentListVideo";
 import ContentListStory from "./contentStory/ContentListStory";
@@ -46,7 +47,8 @@ class FirstPage extends React.Component {
     });
   };
   render() {
-    const { OnLike, OnLiked, stateContent, stateImage } = this.props;
+    const { OnLike, OnLiked, stateContent, stateImage, addImage } = this.props;
+
     return (
       <div className="containerMain">
         <div className="wrapper">
@@ -58,7 +60,8 @@ class FirstPage extends React.Component {
             </p>
           </div>
           <div className="addContent">
-            <button className="Add-content">Add Content</button>
+            <AddContent addImage={addImage} />
+
             <div className="filter">
               <ul>
                 <li>

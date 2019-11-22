@@ -45,7 +45,8 @@
   max-height: 450px;
   overflow: auto;
 }
-.h1news {
+.h1 {
+  text-align: center;
   font-family: "Montserrat";
   font-size: 30px;
   color: #1d1c1c;

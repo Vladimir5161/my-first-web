@@ -1,0 +1,18 @@
+.addContentTable {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+.inputImage {
+  width: 300px;
+  height: 40px;
+  margin: 0 auto;
+}
+.addContentH1 {
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
