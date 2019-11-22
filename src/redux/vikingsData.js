@@ -23,8 +23,8 @@ let vikingsData = {
       },
       {
         id: 4,
-        video: "https://www.youtube.com/watch?v=IGnoxboek3g",
-        name: "Vikings trailer 1",
+        video: "https://www.youtube.com/watch?v=MLJyFzdQfK8",
+        name: "Ragnar Lothbrok",
         description: "about Ragnar"
       },
       {
