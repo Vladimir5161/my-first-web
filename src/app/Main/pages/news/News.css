@@ -30,15 +30,41 @@
   color: #1d1c1c;
   font-weight: 700;
   line-height: 18px;
+  text-align: justify;
 }
 .newsImage {
   float: left;
-  height: 150px;
-  width: 300px;
-  margin: 0 10px 10px 0;
+  max-height: 150px;
+  max-width: 300px;
+  margin: 0 10px 10px 5px;
 }
 .newsState {
   padding: 20px 10px;
   margin: 20px 20px;
   background-color: #fff;
+  max-height: 450px;
+  overflow: auto;
+}
+.h1news {
+  font-family: "Montserrat";
+  font-size: 30px;
+  color: #1d1c1c;
+  font-weight: 900;
+  line-height: 40px;
+  text-align: center;
+}
+@media screen and (max-width: 425px) {
+  .newsName {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .newsName {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .newsImage {
+    width: 250px;
+  }
 }
