@@ -148,7 +148,16 @@ let vikingsData = {
     ]
   }
 };
-
+export let addVideo = (currentVideo, currentName, currentDescription) => {
+  let newVideo = {
+    id: 100,
+    video: currentVideo,
+    name: currentName,
+    description: currentDescription
+  };
+  vikingsData.season1.content.push(newVideo);
+  rerenderEntireTree();
+};
 export let addImage = currentImage => {
   let newImage = {
     id: 100,

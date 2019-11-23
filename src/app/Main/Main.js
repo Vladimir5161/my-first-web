@@ -16,7 +16,8 @@ const Main = ({
   sliderDiv,
   OnClickLikesDefaultCount,
   likedContent,
-  addImage
+  addImage,
+  addVideo
 }) => {
   return (
     <main className="main">
@@ -33,6 +34,7 @@ const Main = ({
                 stateImage={stateImage}
                 stateContent={stateContent}
                 addImage={addImage}
+                addVideo={addVideo}
               />
             </div>
           )}

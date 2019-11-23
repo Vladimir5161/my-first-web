@@ -47,7 +47,14 @@ class FirstPage extends React.Component {
     });
   };
   render() {
-    const { OnLike, OnLiked, stateContent, stateImage, addImage } = this.props;
+    const {
+      OnLike,
+      OnLiked,
+      stateContent,
+      stateImage,
+      addImage,
+      addVideo
+    } = this.props;
 
     return (
       <div className="containerMain">
@@ -60,7 +67,7 @@ class FirstPage extends React.Component {
             </p>
           </div>
           <div className="addContent">
-            <AddContent addImage={addImage} />
+            <AddContent addImage={addImage} addVideo={addVideo} />
 
             <div className="filter">
               <ul>
