@@ -270,29 +270,29 @@ let Data = {
   },
   newImage: "",
   newVideoText: "",
-  newTextName: "",
-  newTextDescription: "",
-  newStoryText: ""
+  newName: "",
+  newDescription: "",
+  newStory: ""
 };
 
 export let newTextInTextAreaImage = newText => {
-  Data.vikingsData.newImage = newText;
+  Data.newImage = newText;
   rerenderEntireTree();
 };
 export let newTextInTextAreaVideo = newText => {
-  Data.vikingsData.newVideoText = newText;
+  Data.newVideo = newText;
   rerenderEntireTree();
 };
 export let newTextInTextAreaName = newText => {
-  Data.vikingsData.newTextName = newText;
+  Data.newName = newText;
   rerenderEntireTree();
 };
 export let newTextInTextAreaDescription = newText => {
-  Data.vikingsData.newTextDescription = newText;
+  Data.newDescription = newText;
   rerenderEntireTree();
 };
 export let newTextInTextAreaStory = newText => {
-  Data.vikingsData.newStoryText = newText;
+  Data.newStory = newText;
   rerenderEntireTree();
 };
 export let addVideo = (currentVideo, currentName, currentDescription) => {
@@ -310,7 +310,7 @@ export let addImage = currentImage => {
     id: 100,
     image: currentImage
   };
-  Data.vikingsData.season1.contentImage.push(newImage);
+  Data.vikingsData.season1.content.push(newImage);
   rerenderEntireTree();
 };
 

@@ -44,6 +44,7 @@
   background-color: #fff;
   max-height: 450px;
   overflow: auto;
+  position: relative;
 }
 .h1 {
   text-align: center;
@@ -54,14 +55,43 @@
   line-height: 40px;
   text-align: center;
 }
+.readMore {
+  width: 120px;
+  margin: 0 auto;
+  height: 40px;
+  background-color: #c9c4c0;
+  border: 2px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 20px auto;
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+.readMore:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
 @media screen and (max-width: 425px) {
   .newsName {
     width: 75%;
+  }
+  .readMore {
+    right: 10px;
   }
 }
 @media screen and (max-width: 375px) {
   .newsName {
     width: 100%;
+  }
+  .readMore {
+    top: -10px;
+    width: 120px;
+    height: 30px;
   }
 }
 @media screen and (max-width: 320px) {

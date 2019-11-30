@@ -1,6 +1,7 @@
 .LikedPage {
   display: block;
   justify-content: center;
+  min-height: 260px;
 }
 .likedContent {
   width: 360px;
@@ -52,6 +53,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 40;
 }
 .ButtonClose {
   position: absolute;
@@ -71,9 +73,161 @@
   display: flex;
   justify-content: center;
 }
+.react-player div:first-child {
+  min-height: 230px !important;
+}
 .imagesLikedArea {
   margin: 5px;
 }
 .likedImages {
   position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .likedContentPage {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .likedImageContent {
+    width: 310px;
+  }
+  .likedContent {
+    width: 310px;
+  }
+  .likedContent-image img {
+    width: 270px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .likedContentPage {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  .likedImageContent {
+    width: 355px;
+    padding: 0 10px;
+    border-radius: 10px;
+  }
+  .likedContent {
+    width: 350px;
+    height: 280px;
+    padding: 0 20px;
+  }
+  .likedContent .react-player {
+    height: 220px;
+  }
+  .react-player div {
+    max-height: 220px !important;
+  }
+  .likedContent-image img {
+    width: 300px;
+    margin: 0 10px;
+  }
+  .likedContent-name {
+    font-size: 12px;
+  }
+  .likedContent-story {
+    max-height: 120px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 425px) {
+  .likedContentPage {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  .likedImageContent {
+    width: 400px;
+  }
+  .likedContent {
+    width: 400px;
+    height: 270px;
+    padding: 0 15px;
+  }
+  .likedContent .react-player {
+    height: 150px;
+    padding-top: 10px;
+  }
+  .react-player:nth-child(1) {
+    height: 150px;
+  }
+  .likedContent-name {
+    font-size: 18px;
+  }
+  .likedContent-image img {
+    width: 345px;
+  }
+  .likedContent-name {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 5px;
+  }
+  .likedContent-story {
+    max-height: 100px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .likedContentPage {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  .likedImageContent {
+    width: 345px;
+  }
+  .likedContent {
+    width: 345px;
+    height: 270px;
+    padding: 0 15px;
+  }
+  .likedContent .react-player {
+    height: 150px;
+    padding-top: 10px;
+  }
+  .react-player:nth-child(1) {
+    height: 150px;
+  }
+  .likedContent-name {
+    font-size: 18px;
+  }
+  .likedContent-image img {
+    width: 295px;
+  }
+  .likedContent-name {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 5px;
+  }
+  .likedContent-story {
+    max-height: 100px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 325px) {
+  .likedContentPage {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .likedImageContent {
+    width: 290px;
+  }
+  .likedContent {
+    width: 290px;
+    height: 250px;
+    padding: 0 15px;
+  }
+  .likedContent .react-player {
+    height: 150px;
+    padding-top: 10px;
+  }
+  .react-player:nth-child(1) {
+    height: 150px;
+  }
+
+  .likedContent-image img {
+    width: 240px;
+  }
+  .likedContent-name {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 5px;
+  }
+  .likedContent-story {
+    max-height: 100px;
+    font-size: 13px;
+  }
 }

@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class NewsListItem extends React.Component {
   render() {
-    const { newsImage, newsText, newsName, data, time } = this.props;
+    const { newsImage, newsText, newsName, data, time, id } = this.props;
     return (
       <div className="newsState">
         <div className="newsTimeData">
@@ -16,6 +17,9 @@ class NewsListItem extends React.Component {
             <div className="newsText">{newsText}</div>
           </div>
         </div>
+        <Link to="/news/:id">
+          <button className="readMore">Read More</button>
+        </Link>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import React from "react";
-
+import { keys } from "lodash";
 import "./News.css";
 import NewsListItem from "./NewsListItem";
 import newsData from "../../../../redux/newsData.js";
+import ExactNewsPage from "./ExactNewsPage";
 
 class NewsList extends React.Component {
   render() {
@@ -17,6 +18,8 @@ class NewsList extends React.Component {
               newsName={newsName}
               data={data}
               time={time}
+              id={id}
+              newsData={newsData}
             />
           </div>
         ))}

@@ -1,5 +1,6 @@
 let newsData = [
   {
+    id: 1,
     data: "19.11.2019",
     time: "10:03 pm",
     newsName:
@@ -10,6 +11,7 @@ let newsData = [
       "Vikings Valhalla, set 100 years after the original series, will follow some familiar characters. Leif Erickson, Freydis, Harald Hardrada and William the Conqueror are set to make an appearance. However the news raises some questions, as Freydis was killed by Ivar the Boneless in season five. It will be interesting to see how this one plays out. Netflix announced the news on Twitter, revealing that the historical drama will be leaving History Channel. In a short notice it read: ‘#Vikings creator Michael Hirst is picking up — almost — where he left off with #VikingsValhalla, a new series set 100 years after the original. ‘This saga will follow the most famous Vikings who ever lived: Leif Erickson, Freydis, Harald Harada, and William the Conqueror! Before we get to that, there’s the small business of the final season of Vikings to watch first. A new trailer for season six didn’t go down well with fans as they felt it gave away the death of a major character. Hopefully any upcoming teasers will be a bit more…teasery. The new season could also see a potential team up between Ivar (Alex Høgh Andersen) and Prince Oleg (Danila Kozlovsky), and Lagertha (Kathryn Winnick) seemingly go back on her word to not get involved in any more battles."
   },
   {
+    id: 2,
     data: "11.08.2019",
     time: "8:22 1m",
     newsName:
@@ -20,6 +22,7 @@ let newsData = [
       "The 41-year-old has just celebrated the release of her latest series, Wu Assassins, where she joined her cast and crew in Los Angeles, on Thursday, for it’s Netflix debut. And while revelling in the show’s success, the actress has revealed she’s making headway on a new movie, and it’s just a bit too much. Taking to Instagram, the star shared a glamorous picture of herself getting her hair and makeup done while posing in a blue dress. Writing alongside the snap, Katheryn spoke about her career, and what we can expect next. ‘This pic pretty much sums up my summer,’ she explained before adding: ‘Shooting two movies back to back and just about to announce my next one. he Polar star continued: ‘Even thought it’s fun to get all dolled up…I can’t tell you how much I cherish the days I can just throw on a baseball hat and sunglasses and walk out the door.’ We bet! Katheryn appears to have a busy time ahead of her, despite shunning the spotlight, as not only will she be announcing her movie, her epic series Vikings, which she helped direct, is set to drop onto the screens this Autumn."
   },
   {
+    id: 3,
     data: "09.10.2019",
     time: "07:01 pm",
     newsName:
@@ -30,6 +33,7 @@ let newsData = [
       "The real Prince Oleg of Novgorod is not named in historical sources as invading Scandinavia.The sources which detail his life are The Rus’ Chronicles, The East Slavic Chronicles and The Primary Chronicle, credit him as ruling all or part of the Rus’ people during the late 9th and early 10th centuries.He is also credited as laying the foundation of the power state of Kievan Rus’ with the help of the Rus’ people.The Kievan Rus’ was a loose federation of East Slavic and Finnic people in Europe, which covers present-day Belarus, Russia and Ukraine.The term “Rus People” or “Viking Rus” is the name given to ethnically Scandinavian people who were trading and raiding on the river-routes between the Baltic and Black Seas between the eighth and 10th century. The Rus People based themselves among the Slavic and Volga Finns in the upper Volga region, trading furs and slaves for silk, silver and other commodities.This means Oleg did come into contact with people from Scandinavia and ruled over many of them, but he did not attack or plunder the country.Oleg focused his raids on Constantinople, the capital of the Byzantine Empire, successfully launching at least one attack. Four Viking Kings - Olaf I of Norway, Olaf II of Norway, Magnus I of Norway and Harald Hardrada - sought refuge in Novgorod from enemies in Norway. Historians debate over the exact period of his reign due to the inconsistency in the sources, but Oleg is believed to have been in power from around 880 until 912.In the first trailer for Vikings season six, Ivar asked Oleg to join him to fight against “our brothers”, as he tries to regain his power in Scandinavia and Europe. Ivar had been overthrown by his older brother Bjorn Ironside (Alexander Ludwig) at the end of Vikings season five, de-throning his brother has the ruler of Kattegat. In the second trailer for season six of Vikings, Oleg tells Ivar the Boneless that he wants to invade Scandinavia. He says: “I have decided to treat your arrival here as a sign Ivar the Boneless. I have ordered the construction of a great fleet, for the invasion of Scandinavia. And you can help and be avenged upon your brothers. The Rus are coming."
   },
   {
+    id: 4,
     data: "24.07.2019",
     time: "9:36 pm",
     newsName:

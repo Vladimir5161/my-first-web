@@ -110,7 +110,7 @@
   text-align: justify;
   overflow: auto;
 }
-.likedNo {
+.content-list-item .likedNo {
   border: none;
   background-color: inherit;
   background-image: url(/images/like.png);
@@ -121,22 +121,22 @@
   right: 20px;
   bottom: 30px;
 }
-.likedNo:hover {
+.content-list-item .likedNo:hover {
   background-image: url(/images/liked.png);
   cursor: pointer;
 }
-.liked {
+.content-list-item .liked {
   background-image: url(/images/liked.png);
   border: none;
   background-color: inherit;
   background-size: cover;
-  height: 45px;
-  width: 45px;
   position: absolute;
-  right: 15px;
-  bottom: 25px;
+  right: 20px;
+  bottom: 30px;
   transition: 0.5s;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
 }
 .images,
 .stories,

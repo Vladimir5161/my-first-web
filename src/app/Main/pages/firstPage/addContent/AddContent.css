@@ -52,14 +52,14 @@
   width: 200px;
 }
 .filterContentActive li:hover {
-  background-color: #736357;
+  background-color: #c9c4c0;
   cursor: pointer;
 }
 .filterButton {
   width: 200px;
   margin: 0 auto;
   height: 40px;
-  background-color: #736357;
+  background-color: #c9c4c0;
   border: 2px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
@@ -68,4 +68,9 @@
   line-height: 18px;
   border-radius: 5px;
   margin: 20px auto;
+}
+.filterButton:hover {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
