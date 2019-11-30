@@ -51,9 +51,13 @@ class FirstPage extends React.Component {
       OnLike,
       OnLiked,
       stateContent,
-      stateImage,
       addImage,
-      addVideo
+      addVideo,
+      newImageText,
+      newVideoText,
+      newVideoTextName,
+      newVideoTextDescription,
+      newTextInTextAreaImage
     } = this.props;
 
     return (
@@ -67,7 +71,15 @@ class FirstPage extends React.Component {
             </p>
           </div>
           <div className="addContent">
-            <AddContent addImage={addImage} addVideo={addVideo} />
+            <AddContent
+              addImage={addImage}
+              addVideo={addVideo}
+              newImageText={newImageText}
+              newVideoText={newVideoText}
+              newVideoTextName={newVideoTextName}
+              newVideoTextDescription={newVideoTextDescription}
+              newTextInTextAreaImage={newTextInTextAreaImage}
+            />
 
             <div className="filter">
               <ul>
@@ -119,7 +131,7 @@ class FirstPage extends React.Component {
               OnLike={OnLike}
               OnLiked={OnLiked}
               images={this.state.images}
-              stateImage={stateImage}
+              stateContent={stateContent}
             />
             <ContentListVideo
               OnLike={OnLike}

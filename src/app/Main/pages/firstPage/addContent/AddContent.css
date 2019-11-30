@@ -15,8 +15,9 @@
   font-weight: 700;
   line-height: 18px;
   text-align: center;
+  margin: 2px 0;
 }
-.inputVideo {
+.inputContent {
   margin: 0 auto;
   width: 300px;
   height: 25px;
@@ -67,7 +68,4 @@
   line-height: 18px;
   border-radius: 5px;
   margin: 20px auto;
-}
-.addStory {
-  display: none;
 }

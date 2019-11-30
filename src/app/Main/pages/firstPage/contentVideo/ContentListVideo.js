@@ -20,6 +20,7 @@ class ContentListVideo extends React.Component {
                   description={description}
                   OnLike={OnLike}
                   OnLiked={OnLiked}
+                  id={id}
                 />
                 <button className="Add-content Know-more">Know More</button>
               </div>

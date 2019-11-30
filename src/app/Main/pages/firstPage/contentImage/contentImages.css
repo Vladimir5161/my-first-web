@@ -30,6 +30,8 @@
 }
 .imageContent-full-clicked {
   width: 100%;
+  position: relative;
+  z-index: 40;
 }
 .imageContent-full {
   display: none;
@@ -40,12 +42,12 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 30;
+  z-index: 40;
   left: 0;
   top: 0;
 }
 .fullScreenBlock-clicked {
-  z-index: 30;
+  z-index: 40;
   display: block;
   cursor: pointer;
   width: 100%;
@@ -87,7 +89,7 @@
   border: 5px solid #b8b2b2;
   left: 0;
   right: 0;
-  z-index: 35;
+  z-index: 45;
 }
 @media screen and (max-width: 1024px) {
   .imageContent-full-clicked {

@@ -12,21 +12,24 @@ class ContentListStory extends React.Component {
         <div className="ContentList">
           {stateContent
             .filter(item => item.story)
-            .map(({ name, description, text, story, id, image, video }) => (
-              <div className="Content" key={id}>
-                <ContentListItem
-                  video={video}
-                  image={image}
-                  name={name}
-                  text={text}
-                  description={description}
-                  story={story}
-                  OnLike={OnLike}
-                  OnLiked={OnLiked}
-                />
-                <button className="Add-content Know-more">Know More</button>
-              </div>
-            ))}
+            .map(
+              ({ name, description, text, story, id, imageContent, video }) => (
+                <div className="Content" key={id}>
+                  <ContentListItem
+                    video={video}
+                    image={imageContent}
+                    name={name}
+                    text={text}
+                    description={description}
+                    story={story}
+                    OnLike={OnLike}
+                    OnLiked={OnLiked}
+                    id={id}
+                  />
+                  <button className="Add-content Know-more">Know More</button>
+                </div>
+              )
+            )}
         </div>
       </div>
     );

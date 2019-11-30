@@ -1,30 +1,31 @@
 import React from "react";
 import { keys } from "lodash";
-import vikingsData from "../../../../redux/vikingsData";
-
-const productsMap = vikingsData.season1.content.reduce(
-  (map, product) => ({
-    ...map,
-    [vikingsData.season1.content]: product
-  }),
-  {}
-);
+import { getContentMap } from "../../../../redux/vikingsData";
+import LikedContentPageItem from "./LikedContentPageItem";
+import "./LikedContent.css";
 
 class LikedContentPage extends React.Component {
   render() {
-    const { OnClickLikesDefaultCount, likedContent } = this.props;
+    const {
+      likedContent,
+      arreyPass,
+      contentMap = getContentMap(arreyPass.content),
+      OnCloseButtonClick
+    } = this.props;
     return (
-      <div className="containerMain">
+      <div>
         <h1 className="h1">Liked Content</h1>
-        {keys(likedContent).map(contentId => (
-          <div key={contentId}>{productsMap[contentId]}</div>
-        ))}
-        <button
-          className="Add-content"
-          onClick={() => OnClickLikesDefaultCount()}
-        >
-          Clear Likes
-        </button>
+        <div className="likedContentPage">
+          {keys(likedContent).map(contentId => (
+            <div className="contentLikedArea" key={contentId}>
+              <LikedContentPageItem
+                contentId={contentId}
+                product={contentMap[contentId]}
+                OnCloseButtonClick={OnCloseButtonClick}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

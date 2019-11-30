@@ -15,7 +15,7 @@ class ButtonLike extends React.Component {
     this.setState({ clicked: false });
   };
   render() {
-    const { OnLiked, OnLike } = this.props;
+    const { OnLiked, OnLike, id } = this.props;
     return (
       <div>
         {this.state.clicked ? (
@@ -23,7 +23,7 @@ class ButtonLike extends React.Component {
             className={this.state.like}
             onClick={() => {
               this.OnLikedClick();
-              OnLiked();
+              OnLiked(id);
             }}
           ></button>
         ) : (
@@ -31,7 +31,7 @@ class ButtonLike extends React.Component {
             className={this.state.like}
             onClick={() => {
               this.OnLikeClick();
-              OnLike();
+              OnLike(id);
             }}
           ></button>
         )}

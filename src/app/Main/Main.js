@@ -3,21 +3,28 @@ import React from "react";
 import "./Main.css";
 import { Route } from "react-router-dom";
 import FirstPage from "./pages/firstPage/FirstPage.js";
-import LikedContentPage from "./pages/likedContentPage/LikedContentPage";
+import LikedPage from "./pages/likedContentPage/LikedPage";
 import ReactSlider from "./pages/slider/ReactSlider.js";
 import NewsList from "./pages/news/NewsList";
 
 const Main = ({
   OnLike,
   OnLiked,
-  stateImage,
   stateContent,
   stateSlides,
   sliderDiv,
-  OnClickLikesDefaultCount,
   likedContent,
   addImage,
-  addVideo
+  addVideo,
+  addStory,
+  newTextInTextAreaImage,
+  newTextInTextAreaVideo,
+  newTextInTextAreaName,
+  newTextInTextAreaDescription,
+  newTextInTextAreaStory,
+  OnCloseButtonClick,
+  arreyPass,
+  OnClearAllClick
 }) => {
   return (
     <main className="main">
@@ -31,10 +38,15 @@ const Main = ({
               <FirstPage
                 OnLike={OnLike}
                 OnLiked={OnLiked}
-                stateImage={stateImage}
                 stateContent={stateContent}
                 addImage={addImage}
                 addVideo={addVideo}
+                addStory={addStory}
+                newTextInTextAreaImage={newTextInTextAreaImage}
+                newTextInTextAreaVideo={newTextInTextAreaVideo}
+                newTextInTextAreaName={newTextInTextAreaName}
+                newTextInTextAreaDescription={newTextInTextAreaDescription}
+                newTextInTextAreaStory={newTextInTextAreaStory}
               />
             </div>
           )}
@@ -43,9 +55,11 @@ const Main = ({
         <Route
           path="/likedContentPage"
           render={() => (
-            <LikedContentPage
-              OnClickLikesDefaultCount={OnClickLikesDefaultCount}
+            <LikedPage
               likedContent={likedContent}
+              OnCloseButtonClick={OnCloseButtonClick}
+              arreyPass={arreyPass}
+              OnClearAllClick={OnClearAllClick}
             />
           )}
         />

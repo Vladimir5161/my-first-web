@@ -1,0 +1,79 @@
+.LikedPage {
+  display: block;
+  justify-content: center;
+}
+.likedContent {
+  width: 360px;
+  height: 300px;
+  margin: 0 5px 20px 5px;
+  position: relative;
+  padding: 0 20px;
+}
+.likedContentPage {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+.contentLikedArea {
+  background-color: rgba(228, 228, 228, 0.7);
+  margin: 10px;
+  border-radius: 10px;
+  max-height: 310px;
+  position: relative;
+}
+.likedContent-story {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  max-height: 120px;
+  padding: 0 10px;
+  margin: 5px auto;
+  text-align: justify;
+  overflow: auto;
+}
+.likedContent-name {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 20px;
+  color: #998675;
+  text-align: center;
+  line-height: 30px;
+}
+.likedContent-image img {
+  width: 320px;
+  border-radius: 10px;
+  max-height: 140px;
+}
+.likedImageContent {
+  width: 360px;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ButtonClose {
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-image: url(/images/closeWindow-hover.png);
+  background-size: cover;
+  background-color: inherit;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+}
+.buttonClearAll {
+  display: flex;
+  justify-content: center;
+}
+.imagesLikedArea {
+  margin: 5px;
+}
+.likedImages {
+  position: relative;
+}
