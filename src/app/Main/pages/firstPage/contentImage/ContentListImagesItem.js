@@ -39,7 +39,15 @@ class ContentListImagesItem extends React.Component {
     this.setState({ fullScreenImageFixedBlock: "fullScreenImageFixedBlock" });
   };
   render() {
-    const { image, OnLiked, OnLike, id } = this.props;
+    const {
+      image,
+      OnLiked,
+      OnLike,
+      id,
+      clicked,
+      OnLikedClick,
+      OnLikeClick
+    } = this.props;
     return (
       <div>
         <div className={this.state.contentImageItem}>
@@ -67,8 +75,11 @@ class ContentListImagesItem extends React.Component {
           <ButtonLike
             OnLike={OnLike}
             OnLiked={OnLiked}
+            clicked={clicked}
             id={id}
             value={this.state.value}
+            OnLikeClick={OnLikeClick}
+            OnLikedClick={OnLikedClick}
           />
         </div>
       </div>

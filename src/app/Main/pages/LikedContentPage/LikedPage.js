@@ -7,7 +7,9 @@ class LikedPage extends React.Component {
   render() {
     const {
       likedContent,
-      arreyPass,
+      arreyPassVikings,
+      arreyPassGoT,
+      chosen,
       OnCloseButtonClick,
       OnClearAllClick
     } = this.props;
@@ -16,8 +18,10 @@ class LikedPage extends React.Component {
         <div className="LikedPage">
           <LikedContentPage
             OnCloseButtonClick={OnCloseButtonClick}
-            arreyPass={arreyPass}
+            arreyPassVikings={arreyPassVikings}
+            arreyPassGoT={arreyPassGoT}
             likedContent={likedContent}
+            chosen={chosen}
           />
         </div>
         <div className="buttonClearAll">

@@ -14,7 +14,10 @@ class ContentListItem extends React.Component {
       video,
       OnLiked,
       OnLike,
-      id
+      id,
+      clicked,
+      OnLikedClick,
+      OnLikeClick
     } = this.props;
     return (
       <div className="content-list-item">
@@ -26,7 +29,14 @@ class ContentListItem extends React.Component {
           <img src={image} alt="" />
         </div>
         <p className="content-story">{story}</p>
-        <ButtonLike OnLike={OnLike} OnLiked={OnLiked} id={id} />
+        <ButtonLike
+          OnLike={OnLike}
+          OnLiked={OnLiked}
+          id={id}
+          clicked={clicked}
+          OnLikeClick={OnLikeClick}
+          OnLikedClick={OnLikedClick}
+        />
       </div>
     );
   }

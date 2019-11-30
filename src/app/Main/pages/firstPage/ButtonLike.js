@@ -1,36 +1,30 @@
 import React from "react";
 
 class ButtonLike extends React.Component {
-  state = {
-    clicked: false,
-    like: "likedNo"
-  };
-
-  OnLikeClick = () => {
-    this.setState({ clicked: true });
-    this.setState(prevState => ({ like: (prevState.like = "liked") }));
-  };
-  OnLikedClick = () => {
-    this.setState(prevState => ({ like: (prevState.like = "likedNo") }));
-    this.setState({ clicked: false });
-  };
   render() {
-    const { OnLiked, OnLike, id } = this.props;
+    const {
+      OnLiked,
+      OnLike,
+      id,
+      clicked,
+      OnLikeClick,
+      OnLikedClick
+    } = this.props;
     return (
       <div>
-        {this.state.clicked ? (
+        {clicked ? (
           <button
-            className={this.state.like}
+            className="liked"
             onClick={() => {
-              this.OnLikedClick();
+              OnLikedClick(id);
               OnLiked(id);
             }}
           ></button>
         ) : (
           <button
-            className={this.state.like}
+            className="likedNo"
             onClick={() => {
-              this.OnLikeClick();
+              OnLikeClick(id);
               OnLike(id);
             }}
           ></button>

@@ -30,7 +30,27 @@ class App extends React.Component {
     clicked: false,
     sliderDiv: "sliderDiv",
     likedContent: {},
-    arreyPass: Data.vikingsData.season1
+    arreyPassVikings: Data.vikingsData.season1,
+    arreyPassGoT: Data.gotData.season1,
+    likedContentState: {
+      id: false
+    }
+  };
+  OnLikeClick = contentId => {
+    this.setState(prevState => ({
+      likedContentState: {
+        ...prevState.likedContentState,
+        [contentId]: (prevState.likedContentState = true)
+      }
+    }));
+  };
+  OnLikedClick = contentId => {
+    this.setState(prevState => ({
+      likedContentState: {
+        ...prevState.likedContentState,
+        [contentId]: false
+      }
+    }));
   };
   OnSearchClick = () => {
     this.setState({ clicked: true });
@@ -71,7 +91,8 @@ class App extends React.Component {
   OnClearAllClick = () => {
     this.setState({ countLike: 0 });
     this.setState({
-      likedContent: []
+      likedContent: [],
+      likedContentState: []
     });
   };
   OnCloseButtonClick = contentId => {
@@ -82,37 +103,43 @@ class App extends React.Component {
         likedContent: omit(prevLikedContent, [contentId])
       };
     });
+    this.setState(prevState => {
+      let prevlikedContentState = { ...prevState.likedContentState };
+      return {
+        likedContentState: omit(prevlikedContentState, [contentId])
+      };
+    });
   };
   MovieChoseClick1 = () => {
     this.setState({ chosen: true });
     this.setState({ stateSlides: Data.gotData.slides.GOTSlides });
     this.setState({ logo: "../../images/got.png" });
     this.setState({ stateContent: Data.gotData.season1.content });
-    this.setState({ arreyPass: Data.gotData.season1 });
+    this.setState({ arreyPassGot: Data.gotData.season1 });
   };
   MovieChoseClick2 = () => {
     this.setState({ chosen: false });
     this.setState({ stateSlides: Data.vikingsData.slides.vikingsSlides });
     this.setState({ logo: "../../images/logo.png" });
     this.setState({ stateContent: Data.vikingsData.season1.content });
-    this.setState({ arreyPass: Data.vikingsData.season1 });
+    this.setState({ arreyPassVikings: Data.vikingsData.season1 });
   };
   OnVikingsSeasonS1ClickChange = () => {
     this.setState({ stateContent: Data.vikingsData.season1.content });
     this.setState({ stateImage: Data.vikingsData.season1.contentImage });
-    this.setState({ arreyPass: Data.vikingsData.season1 });
+    this.setState({ arreyPassVikings: Data.vikingsData.season1 });
   };
   OnVikingsSeasonS2ClickChange = () => {
     this.setState({ stateContent: Data.vikingsData.season2.content });
-    this.setState({ arreyPass: Data.vikingsData.season2 });
+    this.setState({ arreyPassVikings: Data.vikingsData.season2 });
   };
   OnGOTSeasonS1ClickChange = () => {
     this.setState({ stateContent: Data.gotData.season1.content });
-    this.setState({ arreyPass: Data.gotData.season1 });
+    this.setState({ arreyPassGoT: Data.gotData.season1 });
   };
   OnGOTSeasonS2ClickChange = () => {
     this.setState({ stateContent: Data.gotData.season2.content });
-    this.setState({ arreyPass: Data.gotData.season2 });
+    this.setState({ arreyPassGoT: Data.gotData.season2 });
   };
   render() {
     return (
@@ -148,8 +175,13 @@ class App extends React.Component {
           newTextInTextAreaDescription={newTextInTextAreaDescription}
           newTextInTextAreaStory={newTextInTextAreaStory}
           OnCloseButtonClick={this.OnCloseButtonClick}
-          arreyPass={this.state.arreyPass}
+          arreyPassVikings={this.state.arreyPassVikings}
+          arreyPassGoT={this.state.arreyPassGoT}
           OnClearAllClick={this.OnClearAllClick}
+          likedContentState={this.state.likedContentState}
+          OnLikeClick={this.OnLikeClick}
+          OnLikedClick={this.OnLikedClick}
+          chosen={this.state.chosen}
         />
         <Footer />
       </div>

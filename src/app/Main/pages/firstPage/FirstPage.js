@@ -57,7 +57,10 @@ class FirstPage extends React.Component {
       newVideoText,
       newVideoTextName,
       newVideoTextDescription,
-      newTextInTextAreaImage
+      newTextInTextAreaImage,
+      likedContentState,
+      OnLikeClick,
+      OnLikedClick
     } = this.props;
 
     return (
@@ -132,18 +135,27 @@ class FirstPage extends React.Component {
               OnLiked={OnLiked}
               images={this.state.images}
               stateContent={stateContent}
+              likedContentState={likedContentState}
+              OnLikeClick={OnLikeClick}
+              OnLikedClick={OnLikedClick}
             />
             <ContentListVideo
               OnLike={OnLike}
               OnLiked={OnLiked}
               videos={this.state.videos}
               stateContent={stateContent}
+              likedContentState={likedContentState}
+              OnLikeClick={OnLikeClick}
+              OnLikedClick={OnLikedClick}
             />
             <ContentListStory
               OnLike={OnLike}
               OnLiked={OnLiked}
               stories={this.state.stories}
               stateContent={stateContent}
+              likedContentState={likedContentState}
+              OnLikeClick={OnLikeClick}
+              OnLikedClick={OnLikedClick}
             />
             <button className="Add-content LoadMore">Load More</button>
           </div>

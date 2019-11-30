@@ -8,8 +8,11 @@ class LikedContentPage extends React.Component {
   render() {
     const {
       likedContent,
-      arreyPass,
-      contentMap = getContentMap(arreyPass.content),
+      arreyPassVikings,
+      arreyPassGoT,
+      contentMapVikings = getContentMap(arreyPassVikings.content),
+      contentMapGoT = getContentMap(arreyPassGoT.content),
+      chosen,
       OnCloseButtonClick
     } = this.props;
     return (
@@ -20,7 +23,11 @@ class LikedContentPage extends React.Component {
             <div className="contentLikedArea" key={contentId}>
               <LikedContentPageItem
                 contentId={contentId}
-                product={contentMap[contentId]}
+                product={
+                  chosen
+                    ? contentMapGoT[contentId]
+                    : contentMapVikings[contentId]
+                }
                 OnCloseButtonClick={OnCloseButtonClick}
               />
             </div>

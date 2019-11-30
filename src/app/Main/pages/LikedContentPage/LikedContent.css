@@ -15,7 +15,6 @@
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 .contentLikedArea {
-  background-color: rgba(228, 228, 228, 0.7);
   margin: 10px;
   border-radius: 10px;
   max-height: 310px;
@@ -23,20 +22,21 @@
 }
 .likedContent-story {
   font-family: "Raleway";
-  font-weight: 400;
+  font-weight: bold;
   font-size: 16px;
   color: #000;
   max-height: 120px;
-  padding: 0 10px;
   margin: 5px auto;
   text-align: justify;
   overflow: auto;
+  position: relative;
+  left: 10px;
 }
 .likedContent-name {
   font-family: "Raleway";
-  font-weight: 400;
+  font-weight: 700;
   font-size: 20px;
-  color: #998675;
+  color: #a56f41;
   text-align: center;
   line-height: 30px;
 }
@@ -69,6 +69,10 @@
   z-index: 20;
   cursor: pointer;
 }
+.ButtonClose:hover {
+  cursor: pointer;
+  background-image: url(/images/closeWindow.png);
+}
 .buttonClearAll {
   display: flex;
   justify-content: center;
@@ -86,12 +90,6 @@
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
-  .likedImageContent {
-    width: 310px;
-  }
-  .likedContent {
-    width: 310px;
-  }
   .likedContent-image img {
     width: 270px;
   }
@@ -102,8 +100,6 @@
   }
   .likedImageContent {
     width: 355px;
-    padding: 0 10px;
-    border-radius: 10px;
   }
   .likedContent {
     width: 350px;
@@ -121,7 +117,7 @@
     margin: 0 10px;
   }
   .likedContent-name {
-    font-size: 12px;
+    font-size: 18px;
   }
   .likedContent-story {
     max-height: 120px;
@@ -147,14 +143,11 @@
   .react-player:nth-child(1) {
     height: 150px;
   }
-  .likedContent-name {
-    font-size: 18px;
-  }
   .likedContent-image img {
     width: 345px;
   }
   .likedContent-name {
-    font-size: 12px;
+    font-size: 18px;
     line-height: 12px;
     padding-top: 5px;
   }
@@ -182,14 +175,11 @@
   .react-player:nth-child(1) {
     height: 150px;
   }
-  .likedContent-name {
-    font-size: 18px;
-  }
   .likedContent-image img {
     width: 295px;
   }
   .likedContent-name {
-    font-size: 12px;
+    font-size: 18px;
     line-height: 12px;
     padding-top: 5px;
   }
@@ -222,7 +212,7 @@
     width: 240px;
   }
   .likedContent-name {
-    font-size: 12px;
+    font-size: 18px;
     line-height: 12px;
     padding-top: 5px;
   }

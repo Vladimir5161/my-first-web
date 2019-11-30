@@ -23,8 +23,13 @@ const Main = ({
   newTextInTextAreaDescription,
   newTextInTextAreaStory,
   OnCloseButtonClick,
-  arreyPass,
-  OnClearAllClick
+  arreyPassVikings,
+  arreyPassGoT,
+  OnClearAllClick,
+  likedContentState,
+  OnLikeClick,
+  OnLikedClick,
+  chosen
 }) => {
   return (
     <main className="main">
@@ -47,6 +52,9 @@ const Main = ({
                 newTextInTextAreaName={newTextInTextAreaName}
                 newTextInTextAreaDescription={newTextInTextAreaDescription}
                 newTextInTextAreaStory={newTextInTextAreaStory}
+                likedContentState={likedContentState}
+                OnLikeClick={OnLikeClick}
+                OnLikedClick={OnLikedClick}
               />
             </div>
           )}
@@ -58,8 +66,10 @@ const Main = ({
             <LikedPage
               likedContent={likedContent}
               OnCloseButtonClick={OnCloseButtonClick}
-              arreyPass={arreyPass}
+              arreyPassVikings={arreyPassVikings}
+              arreyPassGoT={arreyPassGoT}
               OnClearAllClick={OnClearAllClick}
+              chosen={chosen}
             />
           )}
         />
