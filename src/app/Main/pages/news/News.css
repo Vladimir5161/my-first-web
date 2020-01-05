@@ -1,0 +1,194 @@
+.newsTimeData {
+  font-family: "Montserrat";
+  font-size: 12px;
+  color: #363535;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+}
+.newsTimeData div {
+  padding-right: 20px;
+}
+.news {
+  max-height: 180px;
+  overflow: hidden;
+}
+.newsName {
+  font-family: "Montserrat";
+  font-size: 18px;
+  color: #363535;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  padding: 10px;
+}
+.ExactNewsName {
+  font-family: "Montserrat";
+  font-size: 21px;
+  color: #363535;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+}
+.row:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.newsText {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: justify;
+}
+.ExactNewsText {
+  font-family: "Montserrat";
+  font-size: 17px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 25px;
+  text-align: justify;
+}
+.ExactNewsImage {
+  float: left;
+  max-height: 250px;
+  max-width: 300px;
+  margin: 0 10px 10px 5px;
+}
+.newsImage {
+  float: left;
+  max-height: 150px;
+  max-width: 300px;
+  margin: 0 10px 10px 5px;
+}
+.newsState {
+  padding: 20px 10px;
+  margin: 20px 20px;
+  background-color: #fff;
+  position: relative;
+}
+.h1 {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 35px;
+  color: #1d1c1c;
+  font-weight: 900;
+  line-height: 40px;
+  text-align: center;
+}
+.readMore {
+  width: 120px;
+  height: 40px;
+  background-color: #c9c4c0;
+  border: 2px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 10px auto 0 auto;
+  position: relative;
+  left: 980px;
+}
+.readMore:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+.ButtonGoBackDiv {
+  padding: 10px 0;
+  position: absolute;
+  top: 10px;
+}
+.ButtonGoBack {
+  width: 70px;
+  margin: 0 auto;
+  height: 25px;
+  background-image: url(/images/arrow-left.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 2px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+}
+.ButtonGoBack:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+  .readMore {
+    left: 830px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .readMore {
+    left: 580px;
+  }
+  .ExactNewsName {
+    width: 80%;
+  }
+  .ButtonGoBack {
+    width: 70px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .newsName {
+    width: 75%;
+  }
+  .readMore {
+    left: 240px;
+  }
+  .ExactNewsName {
+    width: 100%;
+  }
+  .news {
+    max-height: 235px;
+  }
+  .newsState {
+    padding-top: 50px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .newsImage {
+    width: 200px;
+  }
+  .newsName {
+    width: 100%;
+  }
+  .readMore {
+    left: 190px;
+    width: 120px;
+    height: 30px;
+  }
+  .ExactNewsText {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .newsImage {
+    width: 250px;
+  }
+  .readMore {
+    left: 140px;
+  }
+  .ExactNewsName {
+    font-size: 18px;
+  }
+  .ExactNewsImage {
+    width: 250px;
+  }
+}
