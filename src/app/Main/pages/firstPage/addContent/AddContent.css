@@ -1,0 +1,76 @@
+.addContentTable {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+.inputImage {
+  width: 300px;
+  height: 40px;
+  margin: 0 auto;
+}
+.addContentH1 {
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  margin: 2px 0;
+}
+.inputContent {
+  margin: 0 auto;
+  width: 300px;
+  height: 25px;
+}
+.filterAddContent {
+  justify-content: center;
+  margin: 0 auto;
+  display: grid;
+}
+.filterButtonHover {
+  display: grid;
+  justify-content: center;
+}
+.filterContentActive {
+  display: block;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.filterContent {
+  display: none;
+}
+.filterContentActive li {
+  padding: 10px 0;
+  padding: 10px;
+  border: 1px solid #1d1c1c;
+  text-align: center;
+  width: 200px;
+}
+.filterContentActive li:hover {
+  background-color: #c9c4c0;
+  cursor: pointer;
+}
+.filterButton {
+  width: 200px;
+  margin: 0 auto;
+  height: 40px;
+  background-color: #c9c4c0;
+  border: 2px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+.filterButton:hover {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+}

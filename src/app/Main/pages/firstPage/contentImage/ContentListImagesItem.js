@@ -1,16 +1,16 @@
 import React from "react";
-import Player from "./../../../../common/Player.js";
-import ButtonClose from "./ButtonClose";
-import ButtonCloseImage from "../mainPage/ButtonCloseImage";
 
-class LikedContentPageItem extends React.Component {
+import ButtonLike from "../ButtonLike.js";
+import ButtonCloseImage from "../ButtonCloseImage";
+
+class ContentListImagesItem extends React.Component {
   state = {
     contentImageItem: "content-list-item-images",
     imageContent: "imageContent-full",
     fullScreenBlock: "fullScreenBlock",
     ButtonCloseImage: "ButtonCloseImage",
-    fullScreenImageFixedBlock: "fullScreenImageFixedBlock"
-
+    fullScreenImageFixedBlock: "fullScreenImageFixedBlock",
+    value: true
   };
   OnClickedImage = () => {
     this.setState(prevState => ({
@@ -39,46 +39,52 @@ class LikedContentPageItem extends React.Component {
     this.setState({ fullScreenImageFixedBlock: "fullScreenImageFixedBlock" });
   };
   render() {
-    const { product, OnCloseButtonClick, contentId } = this.props;
+    const {
+      image,
+      OnLiked,
+      OnLike,
+      id,
+      clicked,
+      OnLikedClick,
+      OnLikeClick
+    } = this.props;
     return (
       <div>
-        <ButtonClose
-          ButtonCloseImage={this.state.ButtonCloseImage}
-          OnCloseButtonClick={OnCloseButtonClick}
-          contentId={contentId}
-        />
         <div className={this.state.contentImageItem}>
           <img
-            className="likedImageContent"
-            src={product.image}
+            className="imageContent"
+            src={image}
             alt=""
             onClick={() => {
               this.OnClickedImage();
             }}
           />
-
+          <div
+            className={this.state.fullScreenBlock}
+            onClick={() => {
+              this.OnClickImage();
+            }}
+          ></div>
           <div className={this.state.fullScreenImageFixedBlock}>
-            <img
-              className={this.state.imageContent}
-              src={product.image}
-              alt=""
-            />
+            <img className={this.state.imageContent} src={image} alt="" />
             <ButtonCloseImage
               OnClickImage={this.OnClickImage}
               ButtonCloseImage={this.state.ButtonCloseImage}
             />
           </div>
-        </div>
-        <div className="likedContent">
-          <h2 className="likedContent-name">{product.name}</h2>
-          <Player video={product.video} />
-          <div className="likedContent-image">
-            <img src={product.imageContent} alt="" />
-          </div>
-          <p className="likedContent-story">{product.story}</p>
+          <ButtonLike
+            OnLike={OnLike}
+            OnLiked={OnLiked}
+            clicked={clicked}
+            id={id}
+            value={this.state.value}
+            OnLikeClick={OnLikeClick}
+            OnLikedClick={OnLikedClick}
+          />
         </div>
       </div>
     );
   }
 }
-export default LikedContentPageItem;
+
+export default ContentListImagesItem;

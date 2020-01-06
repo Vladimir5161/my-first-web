@@ -58,21 +58,6 @@ class App extends React.Component {
   };
   OnLiked = contentId => {
     this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
-    // this.setState(prevState => {
-    //   let prevLikedContent = { ...prevState.likedContent };
-    //   return {
-    //     likedContent: omit(prevLikedContent, [contentId])
-    //   };
-    // });
-  };
-  OnLike = contentId => {
-    this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
-    // this.setState(prevState => ({
-    //   likedContent: {
-    //     ...prevState.likedContent,
-    //     [contentId]: prevState.likedContent[contentId] || 0
-    //   }
-    // }));
   };
   OnClearAllClick = () => {
     this.setState({ countLike: 0 });

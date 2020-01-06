@@ -34,3 +34,4 @@ const mapStateToProps = (state) => ({
   likedContent: state.likedContent
 })
 export default connect(mapStateToProps)(LikedContentPage);
+

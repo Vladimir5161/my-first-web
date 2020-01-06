@@ -9,7 +9,6 @@ class ButtonClose extends React.Component {
         className="ButtonClose"
         onClick={() => {
           OnCloseButtonClick(contentId);
-          deleteContent(contentId);
         }}
       ></button>
     );

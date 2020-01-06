@@ -1,0 +1,166 @@
+.introPage h2 {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 30px;
+  color: #252525;
+  text-align: center;
+  padding: 10px 0;
+}
+.introPage p {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #252525;
+  font-weight: 700;
+  padding: 10px 0;
+}
+.introPage {
+  height: 120px;
+}
+.filter ul {
+  display: inline;
+}
+.filter {
+  text-align: center;
+}
+.filter ul li {
+  display: inline-block;
+  margin: 20px;
+}
+.buttonFilter {
+  display: block;
+  border: 1px solid #ebebeb;
+  padding: 5px 10px;
+  height: 32px;
+  width: 100px;
+  border-radius: 3px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  color: #252525;
+  text-decoration: none;
+  cursor: pointer;
+}
+.buttonFilter:hover {
+  background-color: #998675;
+  color: #fff;
+}
+.ContentList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(565px, 1fr));
+  grid-column-gap: 20px;
+  padding: 10px;
+}
+.Content {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 10px 80px 10px;
+  margin: 10px auto;
+  position: relative;
+}
+.Content:hover {
+  box-shadow: 0 0 5px 5px #b8b2b2;
+}
+.contentBlockName {
+  text-align: center;
+  font-family: "Abril Fatface", cursive;
+  font-size: 45px;
+  font-weight: 200;
+  color: #252525;
+  padding: 20px;
+}
+.react-player {
+  margin: 0 auto;
+}
+.react-player div:first-child {
+  height: 270px !important;
+}
+.content-image img {
+  width: 100%;
+  max-height: 240px;
+  margin: 0 0 10px 0;
+}
+.content-name {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 30px;
+  color: #998675;
+}
+.content-description {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  height: 100%;
+  max-height: 70px;
+  padding: 10px;
+  overflow: auto;
+  text-align: center;
+}
+.content-story {
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  max-height: 250px;
+  padding: 0 10px;
+  text-align: justify;
+  overflow: auto;
+}
+.content-list-item .likedNo {
+  border: none;
+  background-color: inherit;
+  background-image: url(/images/like.png);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+}
+.content-list-item .likedNo:hover {
+  background-image: url(/images/liked.png);
+  cursor: pointer;
+}
+.content-list-item .liked {
+  background-image: url(/images/liked.png);
+  border: none;
+  background-color: inherit;
+  background-size: cover;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+.images,
+.stories,
+.videos {
+  display: block;
+}
+.activeNo {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(492px, 1fr));
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+}
+@media screen and (max-width: 320px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    padding: 0;
+  }
+}

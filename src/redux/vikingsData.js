@@ -1,3 +1,4 @@
+
 let rerenderEntireTree = () => {
   console.log("s");
 };
@@ -465,6 +466,7 @@ export let getContentMap = arrey => {
     {}
   );
 };
+
 export const reloader = observer => {
   rerenderEntireTree = observer;
 };

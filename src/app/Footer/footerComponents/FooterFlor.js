@@ -15,6 +15,7 @@ const FooterFlor = () => {
               </a>
             </div>
             <div className="link">
+<<<<<<< HEAD
               <a href="#">Privat Policy</a>
             </div>
             <div className="link">
@@ -22,6 +23,15 @@ const FooterFlor = () => {
             </div>
             <div className="link">
               <a href="#">Support</a>
+=======
+              <a href="">Privat Policy</a>
+            </div>
+            <div className="link">
+              <a href="">FAQ</a>
+            </div>
+            <div className="link">
+              <a href="">Support</a>
+>>>>>>> e73566af505b08d7f54fe3c6b1b0db15f3abe7d2
             </div>
           </div>
           <div className="florBlock">

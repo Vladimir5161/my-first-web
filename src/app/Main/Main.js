@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Main.css";
 import { Route } from "react-router-dom";
+<<<<<<< HEAD
 import MainPage from "./pages/mainPage/MainPage.js";
 import LikedPage from "./pages/LikedContentPage/LikedPage";
 import ReactSlider from "./pages/slider/ReactSlider.js";
@@ -9,6 +10,12 @@ import NewsList from "./pages/news/NewsList";
 import ExactNewsPage from "./pages/news/ExactNewsPage";
 import ExactContentPage from "./pages/mainPage/ExactContentPage";
 import Data from "../../redux/vikingsData";
+=======
+import FirstPage from "./pages/firstPage/FirstPage.js";
+import LikedPage from "./pages/likedContentPage/LikedPage";
+import ReactSlider from "./pages/slider/ReactSlider.js";
+import NewsList from "./pages/news/NewsList";
+>>>>>>> e73566af505b08d7f54fe3c6b1b0db15f3abe7d2
 
 const Main = ({
   OnLike,
@@ -16,6 +23,7 @@ const Main = ({
   stateContent,
   stateSlides,
   sliderDiv,
+<<<<<<< HEAD
   addImage,
   addVideo,
   addStory,
@@ -38,6 +46,25 @@ const Main = ({
   filterWay1,
   filterWay2,
   filterWay3
+=======
+  likedContent,
+  addImage,
+  addVideo,
+  addStory,
+  newTextInTextAreaImage,
+  newTextInTextAreaVideo,
+  newTextInTextAreaName,
+  newTextInTextAreaDescription,
+  newTextInTextAreaStory,
+  OnCloseButtonClick,
+  arreyPassVikings,
+  arreyPassGoT,
+  OnClearAllClick,
+  likedContentState,
+  OnLikeClick,
+  OnLikedClick,
+  chosen
+>>>>>>> e73566af505b08d7f54fe3c6b1b0db15f3abe7d2
 }) => {
   return (
     <main className="main">
@@ -75,6 +102,7 @@ const Main = ({
             </div>
           )}
         />
+
         <Route path="/news" exact render={() => <NewsList />} />
         <Route
           path="/likedContentPage"
