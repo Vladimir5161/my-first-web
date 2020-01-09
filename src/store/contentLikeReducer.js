@@ -12,17 +12,17 @@ const contentLikeReducer = (state = {
     case "ONLIKECOUNT":
       return {
         ...state,
-        [action.countLike]: (state[action.countLike] || 0) + 1
+        [action.countLike]: state[action.countLike] || 0  + 1
       }
     case "ONLIKE":
       return omit(state, action.id);
     case "ONLIKEDCOUNT" :
       return {
         ...state,
-        [action.countLike]: (state[action.countLike] || 0) - 1
+        [action.countLike]: state[action.countLike] || 0 - 1
       }
     case "ONCLOSEBUTTONCLICK" :
-      return omit(state, action.id)
+      return omit(state, action.id);
     case "ONLIKEDCLICK":
       return {
         ...state,
@@ -33,6 +33,10 @@ const contentLikeReducer = (state = {
           ...state,
           [action.id] : true
         }
+    case "ONCLEARALLCLICK":
+      return {
+        [action.countLike]: state[action.countLike] === 0,
+            }
     default:
       return state;
   }

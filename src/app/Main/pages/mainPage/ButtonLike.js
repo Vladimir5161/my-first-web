@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 class ButtonLike extends React.Component {
   render() {
     const {
-      OnLiked,
       OnLike,
+      OnLiked,
+      OnLikedCount,
+      OnLikeCount,
       id,
       clicked,
       onLikeClick,
@@ -19,6 +21,7 @@ class ButtonLike extends React.Component {
             className="liked"
             onClick={() => {
               onLikedClick(id);
+              // OnLikedCount(id);
               OnLiked(id);
               removeContent(id);
             }}
@@ -28,6 +31,7 @@ class ButtonLike extends React.Component {
             className="likedNo"
             onClick={() => {
               onLikeClick(id);
+              // OnLikeCount(id);
               OnLike(id);
               addContent(id);
             }}
@@ -53,6 +57,14 @@ const mapDispatchToProps = dispatch => ({
   onLikeClick: id=>dispatch({
     type: "ONLIKECLICK",
     id: id,
-  })
+  }),
+  onLikeCount: id=>dispatch({
+    type: "ONLIKECOUNT",
+    id: id,
+  }),
+  onLikedCount: id=>dispatch({
+    type: "ONLIKEDCOUNT",
+    id: id,
+  }),
 });
 export default connect(null, mapDispatchToProps)(ButtonLike);

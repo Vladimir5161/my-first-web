@@ -1,8 +1,7 @@
 import React from "react";
+import { connect } from "react-redux"
 
-class SearchField extends React.Component {
-  render() {
-    const { searchField } = this.props;
+const SearchField = ({searchField } ) => {
     return (
       <div className={searchField}>
         <input type="text" />
@@ -10,5 +9,5 @@ class SearchField extends React.Component {
       </div>
     );
   }
-}
-export default SearchField;
+
+export default connect(null)(SearchField);

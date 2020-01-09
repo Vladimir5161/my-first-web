@@ -10,7 +10,6 @@ class LikedContentPageItem extends React.Component {
     fullScreenBlock: "fullScreenBlock",
     ButtonCloseImage: "ButtonCloseImage",
     fullScreenImageFixedBlock: "fullScreenImageFixedBlock"
-
   };
   OnClickedImage = () => {
     this.setState(prevState => ({

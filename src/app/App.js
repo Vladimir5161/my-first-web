@@ -15,7 +15,6 @@ import {
   newTextStoryImage,
   newTextStoryName
 } from "../redux/vikingsData";
-
 import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
@@ -28,7 +27,6 @@ class App extends React.Component {
     stateSlides: Data.vikingsSlides,
     chosen: false,
     searchField: "searchField",
-    clicked: false,
     sliderDiv: "sliderDiv",
     wayVIdeo: item => item.filter,
     wayImage: item => item.movieVikingsSeason1Image,
@@ -39,22 +37,17 @@ class App extends React.Component {
     filterWay3: false
   };
   OnSearchClick = () => {
-    this.setState({ clicked: true });
     this.setState(prevState => ({
       searchField: (prevState.searchField = "searchFieldActive")
     }));
-    this.setState(prevState => ({
-      sliderDiv: (prevState.sliderDiv = "sliderDivNo")
-    }));
   };
   OnSearchDeClick = () => {
-    this.setState({ clicked: false });
     this.setState(prevState => ({
       searchField: (prevState.searchField = "searchField")
     }));
-    this.setState(prevState => ({
-      sliderDiv: (prevState.sliderDiv = "sliderDiv")
-    }));
+  };
+  OnLike = contentId => {
+    this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
   };
   OnLiked = contentId => {
     this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
@@ -163,7 +156,6 @@ class App extends React.Component {
           MovieChoseClick2={this.MovieChoseClick2}
           logo={this.state.logo}
           chosen={this.state.chosen}
-          clicked={this.state.clicked}
           searchField={this.state.searchField}
         />
         <Main

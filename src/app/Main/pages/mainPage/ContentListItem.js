@@ -26,10 +26,10 @@ class ContentListItem extends React.Component {
         </div>
         <p className="content-story">{story}</p>
         <ButtonLike
-          OnLike={OnLike}
-          OnLiked={OnLiked}
           id={id}
           clicked={clicked}
+          OnLike={OnLike}
+          OnLiked={OnLiked}
         />
       </div>
     );

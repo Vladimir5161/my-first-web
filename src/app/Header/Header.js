@@ -4,12 +4,7 @@ import "./Header.css";
 import UpperHeader from "./Menu/UpperHeader.js";
 import SearchField from "./SearchField.js";
 
-class Header extends React.Component {
-  state = {
-    searchField: "searchField",
-    clicked: false,
-    sliderDiv: "sliderDiv"
-  };
+class Header extends React.Component{
 
   render() {
     const {
@@ -24,8 +19,7 @@ class Header extends React.Component {
       OnSearchDeClick,
       logo,
       chosen,
-      clicked,
-      searchField
+      searchField,
     } = this.props;
     return (
       <header className="header">
@@ -36,15 +30,14 @@ class Header extends React.Component {
             OnVikingsSeasonS1ClickChange={OnVikingsSeasonS1ClickChange}
             OnGOTSeasonS2ClickChange={OnGOTSeasonS2ClickChange}
             OnVikingsSeasonS2ClickChange={OnVikingsSeasonS2ClickChange}
-            OnSearchDeClick={OnSearchDeClick}
-            OnSearchClick={OnSearchClick}
             MovieChoseClick1={MovieChoseClick1}
             MovieChoseClick2={MovieChoseClick2}
             logo={logo}
             chosen={chosen}
-            clicked={clicked}
+            OnSearchClick={OnSearchClick}
+            OnSearchDeClick={OnSearchDeClick}
           />
-          <SearchField searchField={searchField} />
+          <SearchField  searchField={searchField}/>
         </div>
       </header>
     );
