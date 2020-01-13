@@ -6,7 +6,8 @@ const rootReducer = combineReducers({
   likedContent: contentLikeReducer,
   likedContentState: contentLikeReducer,
   countLike: contentLikeReducer,
-  isClicked: searchReducer
+  isClicked: searchReducer,
+  searchField: searchReducer
 
 });
 

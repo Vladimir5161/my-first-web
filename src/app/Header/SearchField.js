@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux"
 
 const SearchField = ({searchField } ) => {
     return (
@@ -10,4 +9,4 @@ const SearchField = ({searchField } ) => {
     );
   }
 
-export default connect(null)(SearchField);
+export default SearchField;

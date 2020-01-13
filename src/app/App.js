@@ -36,16 +36,16 @@ class App extends React.Component {
     filterWay2: false,
     filterWay3: false
   };
-  OnSearchClick = () => {
-    this.setState(prevState => ({
-      searchField: (prevState.searchField = "searchFieldActive")
-    }));
-  };
-  OnSearchDeClick = () => {
-    this.setState(prevState => ({
-      searchField: (prevState.searchField = "searchField")
-    }));
-  };
+  // OnSearchClick = () => {
+  //   this.setState(prevState => ({
+  //     searchField: (prevState.searchField = "searchFieldActive")
+  //   }));
+  // };
+  // OnSearchDeClick = () => {
+  //   this.setState(prevState => ({
+  //     searchField: (prevState.searchField = "searchField")
+  //   }));
+  // };
   OnLike = contentId => {
     this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
   };

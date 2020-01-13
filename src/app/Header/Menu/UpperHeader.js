@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux"
+
 import "./UpperHeader.css";
 import images from "../../../common/images.js";
 import { Link } from "react-router-dom";
@@ -7,8 +7,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class UpperHeader extends React.Component {
   state = {
-    colorArrow: images[5].arrowScroll,
-    clicked: false
+    colorArrow: images[5].arrowScroll
   };
 
   listenScrollEvent = () => {
@@ -28,14 +27,15 @@ class UpperHeader extends React.Component {
       OnGOTSeasonS1ClickChange,
       OnVikingsSeasonS1ClickChange,
       OnGOTSeasonS2ClickChange,
-
       OnClicked,
       OnDeClicked,
       MovieChoseClick1,
       MovieChoseClick2,
       clicked,
       logo,
-      chosen
+      chosen,
+      OnClickedOn,
+      OnClickedOff,
     } = this.props;
     return (
       <div className="upperheader" id="home">
@@ -143,6 +143,7 @@ class UpperHeader extends React.Component {
               className="search"
               onClick={() => {
                 OnDeClicked();
+                OnClickedOff();
               }}
             ></button>
           ) : (
@@ -150,6 +151,7 @@ class UpperHeader extends React.Component {
               className="search"
               onClick={() => {
                 OnClicked();
+                OnClickedOn();
               }}
             ></button>
           )}
@@ -163,15 +165,4 @@ class UpperHeader extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  clicked: state.isClicked,
-})
-const mapDispatchToProps = dispatch => ({
-  OnClicked: () =>dispatch({
-    type: "CLICKED",
-  }),
-  OnDeClicked: () =>dispatch({
-    type: "NOT_CLICKED",
-  })
-})
-export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);
+export default UpperHeader;
