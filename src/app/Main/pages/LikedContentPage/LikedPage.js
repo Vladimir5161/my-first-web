@@ -6,7 +6,6 @@ import "./LikedContent.css";
 class LikedPage extends React.Component {
   render() {
     const {
-      chosen,
       OnCloseButtonClick,
       OnClearAllClick,
       OnLikedContentClear,
@@ -16,7 +15,6 @@ class LikedPage extends React.Component {
         <div className="LikedPage">
           <LikedContentPage
             OnCloseButtonClick={OnCloseButtonClick}
-            chosen={chosen}
           />
         </div>
         <div className="buttonClearAll">
@@ -28,11 +26,7 @@ class LikedPage extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  chosen: state.movieChose1.chosen,
 
-
-})
 const mapDispatchToProps=(dispatch)=>({
   OnClearAllClick: ()=>dispatch({
     type: "ONCLEARALLCLICK"
@@ -41,4 +35,4 @@ const mapDispatchToProps=(dispatch)=>({
     type: "ONLIKEDCONTENTCLEAR"
   })
 })
-export default connect(mapStateToProps, mapDispatchToProps)(LikedPage);
+export default connect(null, mapDispatchToProps)(LikedPage);

@@ -167,6 +167,7 @@ class UpperHeader extends React.Component {
 }
 const mapStateToProps = (store)=>({
   logo: store.movieChose1.logo,
+  chosen: store.movieChose1.chosen
 
 })
 const mapDispatchToProps = dispatch => ({
