@@ -1,5 +1,15 @@
 import React from "react";
 import "./AddContent.css";
+import {  
+  newTextImage,
+  newTextVideo,
+  newTextVideoName,
+  newTextVideoDescription,
+  newTextStoryText,
+  newTextStoryImage,
+  newTextStoryName
+} from "../../../../../redux/vikingsData";
+import { connect } from "react-redux"
 
 class AddContent extends React.Component {
   state = {
@@ -54,17 +64,10 @@ class AddContent extends React.Component {
       addImage,
       addVideo,
       addStory,
-      newTextImage,
-      newTextVideo,
-      newTextVideoName,
-      newTextVideoDescription,
-      newTextStoryText,
-      newTextStoryImage,
-      newTextStoryName,
       filterWay,
       filterWay1,
       filterWay2,
-      filterWay3
+      filterWay3,
     } = this.props;
     let newImage = React.createRef();
     let newVideo = React.createRef();
@@ -308,4 +311,11 @@ class AddContent extends React.Component {
     );
   }
 }
-export default AddContent;
+
+const mapStateToProps = state => ({
+  filterWay: state.movieChose1.filterWay,
+  filterWay1: state.movieChose1.filterWay1,
+  filterWay2: state.movieChose1.filterWay2,
+  filterWay3: state.movieChose1.filterWay3
+})
+export default connect(mapStateToProps)(AddContent);

@@ -9,12 +9,6 @@ class Header extends React.Component{
   render() {
     const {
       countLike,
-      OnGOTSeasonS2ClickChange,
-      OnVikingsSeasonS2ClickChange,
-      MovieChoseClick1,
-      MovieChoseClick2,
-      OnGOTSeasonS1ClickChange,
-      OnVikingsSeasonS1ClickChange,
       OnClicked,
       OnDeClicked,
       logo,
@@ -29,12 +23,6 @@ class Header extends React.Component{
         <div className="container">
           <UpperHeader
             countLike={countLike}
-            OnGOTSeasonS1ClickChange={OnGOTSeasonS1ClickChange}
-            OnVikingsSeasonS1ClickChange={OnVikingsSeasonS1ClickChange}
-            OnGOTSeasonS2ClickChange={OnGOTSeasonS2ClickChange}
-            OnVikingsSeasonS2ClickChange={OnVikingsSeasonS2ClickChange}
-            MovieChoseClick1={MovieChoseClick1}
-            MovieChoseClick2={MovieChoseClick2}
             logo={logo}
             chosen={chosen}
             clicked={clicked}
@@ -49,7 +37,7 @@ class Header extends React.Component{
     );
   }
 }
-const mapStateToProps = (store, props)=>({
+const mapStateToProps = (store)=>({
   searchField: store.searchField.search,
   clicked: store.isClicked.clicked,
   countLike: store.isLiked.countLike

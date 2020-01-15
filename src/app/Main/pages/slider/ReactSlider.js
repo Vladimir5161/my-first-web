@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css";
@@ -17,9 +17,9 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    const { stateSlides, sliderDiv } = this.props;
+    const { stateSlides} = this.props;
     return (
-      <div className={sliderDiv}>
+      <div className="sliderDiv">
         <Slider {...settings}>
           {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
             <div className="HeaderSlick" key={id}>
@@ -42,5 +42,7 @@ class ReactSlider extends React.Component {
     );
   }
 }
-
-export default ReactSlider;
+const mapStateToProps = state => ({
+  stateSlides: state.movieChose1.stateSlides,
+})
+export default connect(mapStateToProps)(ReactSlider);

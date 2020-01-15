@@ -5,8 +5,6 @@ import ContentListImagesItem from "./ContentListImagesItem.js";
 class ContentListImage extends React.Component {
   render() {
     const {
-      OnLike,
-      OnLiked,
       images,
       stateContent,
       wayImage
@@ -19,8 +17,6 @@ class ContentListImage extends React.Component {
             <div className="Content-images" key={id}>
               <ContentListImagesItem
                 image={image}
-                OnLike={OnLike}
-                OnLiked={OnLiked}
                 id={id}
               />
             </div>

@@ -6,11 +6,8 @@ import ContentListItem from "../ContentListItem.js";
 class ContentListVideo extends React.Component {
   render() {
     const {
-      OnLike,
-      OnLiked,
       videos,
       stateContent,
-      likedContentState,
       wayVIdeo
     } = this.props;
     return (
@@ -25,8 +22,6 @@ class ContentListVideo extends React.Component {
                   video={video}
                   name={name}
                   description={description}
-                  OnLike={OnLike}
-                  OnLiked={OnLiked}
                   id={id}
                 />
                 <Link to={`/content/${id}`}>

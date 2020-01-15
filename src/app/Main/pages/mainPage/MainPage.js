@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect  } from "react-redux"
 import "./MainPage.css";
 import "./contentImage/contentImages.css";
 import AddContent from "./addContent/AddContent";
@@ -49,25 +49,10 @@ class FirstPage extends React.Component {
   render() {
     const {
       stateContent,
-      addImage,
-      addVideo,
-      addStory,
-      newTextImage,
-      newTextVideo,
-      newTextVideoName,
-      newTextVideoDescription,
-      newTextStoryText,
-      newTextStoryImage,
-      newTextStoryName,
-      wayImage,
       wayVIdeo,
+      wayImage,
       wayStory,
-      filterWay,
-      filterWay1,
-      filterWay2,
-      filterWay3
-    } = this.props;
-
+    } = this.props
     return (
       <div className="containerMain">
         <div className="wrapper">
@@ -79,23 +64,7 @@ class FirstPage extends React.Component {
             </p>
           </div>
           <div className="addContent">
-            <AddContent
-              addImage={addImage}
-              addVideo={addVideo}
-              addStory={addStory}
-              newTextImage={newTextImage}
-              newTextVideo={newTextVideo}
-              newTextVideoName={newTextVideoName}
-              newTextVideoDescription={newTextVideoDescription}
-              newTextStoryText={newTextStoryText}
-              newTextStoryImage={newTextStoryImage}
-              newTextStoryName={newTextStoryName}
-              filterWay={filterWay}
-              filterWay1={filterWay1}
-              filterWay2={filterWay2}
-              filterWay3={filterWay3}
-            />
-
+            <AddContent />
             <div className="filter">
               <ul>
                 <li>
@@ -164,5 +133,12 @@ class FirstPage extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  stateContent: state.movieChose1. stateContent,
+  logo: state.movieChose1.logo,
+  wayVIdeo: state.movieChose1.wayVIdeo,
+  wayImage: state.movieChose1.wayImage,
+  wayStory: state.movieChose1.wayStory,
 
-export default FirstPage;
+})
+export default connect(mapStateToProps)(FirstPage);

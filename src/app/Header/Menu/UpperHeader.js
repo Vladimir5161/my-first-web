@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux"
 import "./UpperHeader.css";
 import images from "../../../common/images.js";
 import { Link } from "react-router-dom";
@@ -23,14 +23,14 @@ class UpperHeader extends React.Component {
   render() {
     const {
       countLike,
-      OnVikingsSeasonS2ClickChange,
-      OnGOTSeasonS1ClickChange,
-      OnVikingsSeasonS1ClickChange,
-      OnGOTSeasonS2ClickChange,
+      OnVikingsS1,
+      OnVikingsS2,
+      OnGOTS1,
+      OnGOTS2,
       OnClicked,
       OnDeClicked,
-      MovieChoseClick1,
-      MovieChoseClick2,
+      OnMovieChose1,
+      OnMovieChose2,
       clicked,
       logo,
       chosen,
@@ -55,7 +55,7 @@ class UpperHeader extends React.Component {
                 <ul className="MoviesSubMenu">
                   <li
                     onClick={() => {
-                      MovieChoseClick1();
+                      OnMovieChose1();
                     }}
                     className="movie"
                   >
@@ -63,7 +63,7 @@ class UpperHeader extends React.Component {
                   </li>
                   <li
                     onClick={() => {
-                      MovieChoseClick2();
+                      OnMovieChose2();
                     }}
                     className="movie"
                   >
@@ -80,7 +80,7 @@ class UpperHeader extends React.Component {
                     <Link to="/">
                       <li
                         onClick={() => {
-                          OnGOTSeasonS1ClickChange();
+                          OnGOTS1();
                         }}
                         className="season"
                       >
@@ -88,7 +88,7 @@ class UpperHeader extends React.Component {
                       </li>
                       <li
                         onClick={() => {
-                          OnGOTSeasonS2ClickChange();
+                          OnGOTS2();
                         }}
                         className="season"
                       >
@@ -101,7 +101,7 @@ class UpperHeader extends React.Component {
                     <Link to="/">
                       <li
                         onClick={() => {
-                          OnVikingsSeasonS1ClickChange();
+                          OnVikingsS1();
                         }}
                         className="season"
                       >
@@ -109,7 +109,7 @@ class UpperHeader extends React.Component {
                       </li>
                       <li
                         onClick={() => {
-                          OnVikingsSeasonS2ClickChange();
+                          OnVikingsS2();
                         }}
                         className="season"
                       >
@@ -165,4 +165,29 @@ class UpperHeader extends React.Component {
     );
   }
 }
-export default UpperHeader;
+const mapStateToProps = (store)=>({
+  logo: store.movieChose1.logo,
+
+})
+const mapDispatchToProps = dispatch => ({
+  OnMovieChose1: () =>dispatch({
+    type: "MOVIEGROUP1CLICK",
+  }),
+  OnMovieChose2: () =>dispatch({
+    type: "MOVIEGROUP2CLICK",
+  }),
+  OnVikingsS1: () =>dispatch({
+    type: "VIKINGSSEASON1",
+  }),
+  OnVikingsS2: () =>dispatch({
+    type: "VIKINGSSEASON2",
+  }),
+  OnGOTS1: () =>dispatch({
+    type: "GOTSEASON1",
+  }),
+  OnGOTS2: () =>dispatch({
+    type: "GOTSEASON2",
+  })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);
