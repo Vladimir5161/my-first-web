@@ -33,6 +33,10 @@ class LikedContentPage extends React.Component {
   }
 }
 
+const mapStateToProps = store=> ({
+  likedContentItems: store.likedContentItems
+})
+
 const mapDispatchToProps = dispatch => ({
   OnCloseButtonClick: (id) =>dispatch({
     type: "ONCLIKED",
@@ -43,5 +47,5 @@ const mapDispatchToProps = dispatch => ({
     contentId: id,
   }),
 })
-export default connect(null, mapDispatchToProps)(LikedContentPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LikedContentPage);
 

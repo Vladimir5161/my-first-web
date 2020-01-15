@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux"
 import "./Main.css";
 import { Route } from "react-router-dom";
 import MainPage from "./pages/mainPage/MainPage.js";
@@ -24,8 +23,6 @@ const Main = ({
   newTextStoryText,
   newTextStoryImage,
   newTextStoryName,
-  OnCloseButtonClick,
-  OnClearAllClick,
   chosen,
   wayImage,
   wayVIdeo,
@@ -34,7 +31,7 @@ const Main = ({
   filterWay1,
   filterWay2,
   filterWay3,
-  likedContentItems,
+  
 }) => {
   return (
     <main className="main">
@@ -75,9 +72,6 @@ const Main = ({
           exact
           render={() => (
             <LikedPage
-            likedContentItems={likedContentItems}
-              OnCloseButtonClick={OnCloseButtonClick}
-              OnClearAllClick={OnClearAllClick}
               chosen={chosen}
             />
           )}
@@ -89,7 +83,6 @@ const Main = ({
   );
 };
 
-const mapStateToProps = state=> ({
-  likedContentItems: state.content.likedContentInfo
-})
-export default connect(mapStateToProps)(Main);
+
+
+export default Main;

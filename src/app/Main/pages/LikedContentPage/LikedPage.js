@@ -1,6 +1,6 @@
 import React from "react";
 import LikedContentPage from "./LikedContentPage";
-
+import { connect } from "react-redux"
 import "./LikedContent.css";
 
 class LikedPage extends React.Component {
@@ -10,7 +10,8 @@ class LikedPage extends React.Component {
       arreyPassGoT,
       chosen,
       OnCloseButtonClick,
-      OnClearAllClick
+      OnClearAllClick,
+      OnLikedContentClear,
     } = this.props;
     return (
       <div className="containerMain">
@@ -23,7 +24,7 @@ class LikedPage extends React.Component {
           />
         </div>
         <div className="buttonClearAll">
-          <button className="Add-content" onClick={() => OnClearAllClick()}>
+          <button className="Add-content" onClick={() => {OnClearAllClick(); OnLikedContentClear();}}>
             Clear All
           </button>
         </div>
@@ -31,4 +32,13 @@ class LikedPage extends React.Component {
     );
   }
 }
-export default LikedPage;
+
+const mapDispatchToProps=(dispatch)=>({
+  OnClearAllClick: ()=>dispatch({
+    type: "ONCLEARALLCLICK"
+  }),
+  OnLikedContentClear: ()=>dispatch({
+    type: "ONLIKEDCONTENTCLEAR"
+  })
+})
+export default connect(null, mapDispatchToProps)(LikedPage);

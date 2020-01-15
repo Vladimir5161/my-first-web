@@ -12,7 +12,6 @@ class ContentListItem extends React.Component {
       story,
       video,
       id,
-      clicked,
     } = this.props;
     return (
       <div className="content-list-item">

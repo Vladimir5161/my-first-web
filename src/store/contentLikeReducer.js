@@ -2,19 +2,12 @@ import { omit } from "lodash";
 
 const initialState = {
   countLike: 0,
-  likedContentInfo: {},
+  Items: {},
   likedContentState: {},
 }
 
 const contentLikeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ONLIKE":
-      return {
-        ...state,
-        [action.id]: state.likedContentInfo[action.id] || 0
-      };
-      case "ONLIKED":
-        return omit(state.likedContentInfo, action.id);
     case "ONLIKECOUNT":
       return {
         ...state,
@@ -35,9 +28,10 @@ const contentLikeReducer = (state = initialState, action) => {
           ...state,
           [action.id] : state.likedContentState[action.id] = true
         }
-    case "ONCLEARALLCLICK":
-      return  state = {}, {
-        countLike: state[action.countLike] === 0,
+    case "ONLIKEDCONTENTCLEAR":
+      return   {
+        countLike: state.countLike = 0,
+        likedContentState: state.likedContentState = {},
             }
     default:
       return state;

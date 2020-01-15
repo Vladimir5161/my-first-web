@@ -35,13 +35,6 @@ class App extends React.Component {
     filterWay2: false,
     filterWay3: false,
   };
-  OnClearAllClick = () => {
-    this.setState({ countLike: 0 });
-    this.setState({
-      likedContent: [],
-      likedContentState: []
-    });
-  };
 
   MovieChoseClick1 = () => {
     this.setState({ chosen: true });
@@ -116,19 +109,14 @@ class App extends React.Component {
         <Header
           OnVikingsSeasonS2ClickChange={this.OnVikingsSeasonS2ClickChange}
           OnVikingsSeasonS1ClickChange={this.OnVikingsSeasonS1ClickChange}
-          OnSearchClick={this.OnSearchClick}
-          OnSearchDeClick={this.OnSearchDeClick}
           OnGOTSeasonS2ClickChange={this.OnGOTSeasonS2ClickChange}
           OnGOTSeasonS1ClickChange={this.OnGOTSeasonS1ClickChange}
           MovieChoseClick1={this.MovieChoseClick1}
           MovieChoseClick2={this.MovieChoseClick2}
           logo={this.state.logo}
           chosen={this.state.chosen}
-          searchField={this.state.searchField}
         />
         <Main
-          OnLike={this.OnLike}
-          OnLiked={this.OnLiked}
           stateSlides={this.state.stateSlides}
           stateContent={this.state.stateContent}
           sliderDiv={this.state.sliderDiv}
@@ -142,8 +130,6 @@ class App extends React.Component {
           newTextStoryText={newTextStoryText}
           newTextStoryImage={newTextStoryImage}
           newTextStoryName={newTextStoryName}
-          OnCloseButtonClick={this.OnCloseButtonClick}
-          OnClearAllClick={this.OnClearAllClick}
           chosen={this.state.chosen}
           wayVIdeo={this.state.wayVIdeo}
           wayImage={this.state.wayImage}

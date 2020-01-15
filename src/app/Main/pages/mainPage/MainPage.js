@@ -48,8 +48,6 @@ class FirstPage extends React.Component {
   };
   render() {
     const {
-      OnLike,
-      OnLiked,
       stateContent,
       addImage,
       addVideo,
@@ -145,22 +143,16 @@ class FirstPage extends React.Component {
           </div>
           <div className="Products" id="content">
             <ContentListImage
-              OnLike={OnLike}
-              OnLiked={OnLiked}
               images={this.state.images}
               stateContent={stateContent}
               wayImage={wayImage}
             />
             <ContentListVideo
-              OnLike={OnLike}
-              OnLiked={OnLiked}
               videos={this.state.videos}
               stateContent={stateContent}
               wayVIdeo={wayVIdeo}
             />
             <ContentListStory
-              OnLike={OnLike}
-              OnLiked={OnLiked}
               stories={this.state.stories}
               stateContent={stateContent}
               wayStory={wayStory}
