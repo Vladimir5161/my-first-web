@@ -70,7 +70,7 @@ let Data = {
     {
       id: 10,
       movieVikingsSeason1Image: true,
-      image: "https://wallpaperplay.com/walls/full/5/9/a/55928.jpg"
+      image: "https://www.elsetge.cat/myimg/f/2-28775_download-full-hd-1080p-vikings-pc-wallpaper-id.jpg"
     },
     {
       id: 14,

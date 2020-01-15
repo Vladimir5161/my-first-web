@@ -3,12 +3,13 @@ import { connect } from "react-redux"
 
 class ButtonClose extends React.Component {
   render() {
-    const { contentId, deleteContent} = this.props;
+    const { contentId, deleteContent, onLikedCount} = this.props;
     return (
       <button
         className="ButtonClose"
         onClick={() => {
           deleteContent(contentId);
+          onLikedCount();
         }}
       ></button>
     );
@@ -19,5 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
     type: "ONLIKED",
     id: id,
   }),
+  onLikedCount: ()=>dispatch({
+    type: "ONLIKEDCOUNT",
+  })
 })
 export default connect (null, mapDispatchToProps)(ButtonClose);

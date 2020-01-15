@@ -5,14 +5,14 @@ import Player from "../../../../common/Player.js";
 
 class ExactContentPage extends React.Component {
   render() {
-    const { match, contentMap = getContentMap(Data.vikingsData) } = this.props;
+    const { match, contentMap = getContentMap(Data.vikingsData), playerStyle = "react-player2" } = this.props;
     return (
       <div className="containerMain">
         <div className="ExactContent">
           <h3 className="ExactContentName">
             {contentMap[match.params.id].name}
           </h3>
-          <Player video={contentMap[match.params.id].video} />
+          <Player video={contentMap[match.params.id].video} playerStyle={playerStyle}/>
 
           <div className="ButtonGoBackDiv">
             <Link to="/">

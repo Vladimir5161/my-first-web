@@ -12,10 +12,11 @@ class ContentListItem extends React.Component {
       story,
       video,
       id,
+      playerStyle = "react-player"
     } = this.props;
     return (
       <div className="content-list-item">
-        <Player video={video} />
+        <Player video={video} playerStyle={playerStyle}/>
         <div className="content-text">{text} </div>
         <h2 className="content-name">{name}</h2>
         <div className="content-image">

@@ -4,12 +4,12 @@ import ReactPlayer from "react-player";
 
 class Player extends React.Component {
   render() {
-    const { video } = this.props;
+    const { video, playerStyle } = this.props;
     return (
       <div className="player-wrapper">
         <div className="VideoContent">
           <ReactPlayer
-            className="react-player"
+            className={playerStyle}
             url={video}
             width="320"
             height="auto"

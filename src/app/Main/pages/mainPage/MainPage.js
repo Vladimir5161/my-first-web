@@ -126,7 +126,6 @@ class FirstPage extends React.Component {
               stateContent={stateContent}
               wayStory={wayStory}
             />
-            <button className="Add-content LoadMore">Load More</button>
           </div>
         </div>
       </div>

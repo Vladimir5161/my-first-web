@@ -173,11 +173,21 @@
   line-height: 25px;
   text-align: justify;
 }
+.react-player2 iframe {
+  height: 400px !important;
+}
+.react-player2 {
+  border-radius: 40px;
+  overflow: hidden;
 
+}
 @media screen and (max-width: 1170px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(492px, 1fr));
     padding: 10px;
+  }
+  .ExactContent {
+    padding-bottom: 20px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -185,11 +195,23 @@
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     padding: 10px;
   }
+  .ExactContent {
+    padding-bottom: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     padding: 10px;
+  }
+  .react-player2 iframe {
+    height: 300px !important;
+  }
+  .ExactContent .VideoContent {
+    width: 600px;
+  }
+  .ExactContent {
+    padding-bottom: 20px;
   }
 }
 
@@ -198,4 +220,35 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
+  .react-player2 iframe {
+    height: 250px !important;
+  }
+  .ExactContent .VideoContent {
+    width: 370px;
+  }
 }
+@media screen and (max-width: 375px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 10px;
+  }
+  .react-player2 iframe {
+    height: 200px !important;
+  }
+  .ExactContent .VideoContent {
+    width: 340px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .ContentList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 10px;
+  }
+  .react-player2 iframe {
+    height: 200px !important;
+  }
+  .ExactContent .VideoContent {
+    width: 280px;
+  }
+}
+
