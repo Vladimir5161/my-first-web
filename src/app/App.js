@@ -26,7 +26,6 @@ class App extends React.Component {
     logo: "../../images/logo.png",
     stateSlides: Data.vikingsSlides,
     chosen: false,
-    searchField: "searchField",
     sliderDiv: "sliderDiv",
     wayVIdeo: item => item.filter,
     wayImage: item => item.movieVikingsSeason1Image,
@@ -34,23 +33,7 @@ class App extends React.Component {
     filterWay: true,
     filterWay1: false,
     filterWay2: false,
-    filterWay3: false
-  };
-  // OnSearchClick = () => {
-  //   this.setState(prevState => ({
-  //     searchField: (prevState.searchField = "searchFieldActive")
-  //   }));
-  // };
-  // OnSearchDeClick = () => {
-  //   this.setState(prevState => ({
-  //     searchField: (prevState.searchField = "searchField")
-  //   }));
-  // };
-  OnLike = contentId => {
-    this.setState(prevState => ({ countLike: prevState.countLike + 1 }));
-  };
-  OnLiked = contentId => {
-    this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
+    filterWay3: false,
   };
   OnClearAllClick = () => {
     this.setState({ countLike: 0 });
@@ -59,21 +42,7 @@ class App extends React.Component {
       likedContentState: []
     });
   };
-  OnCloseButtonClick = contentId => {
-    this.setState(prevState => ({ countLike: prevState.countLike - 1 }));
-    // this.setState(prevState => {
-    //   let prevLikedContent = { ...prevState.likedContent };
-    //   return {
-    //     likedContent: omit(prevLikedContent, [contentId])
-    //   };
-    // });
-    // this.setState(prevState => {
-    //   let prevlikedContentState = { ...prevState.likedContentState };
-    //   return {
-    //     likedContentState: omit(prevlikedContentState, [contentId])
-    //   };
-    // });
-  };
+
   MovieChoseClick1 = () => {
     this.setState({ chosen: true });
     this.setState({ stateSlides: Data.GOTSlides });
@@ -145,7 +114,6 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header
-          countLike={this.state.countLike}
           OnVikingsSeasonS2ClickChange={this.OnVikingsSeasonS2ClickChange}
           OnVikingsSeasonS1ClickChange={this.OnVikingsSeasonS1ClickChange}
           OnSearchClick={this.OnSearchClick}

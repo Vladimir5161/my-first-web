@@ -38,13 +38,14 @@ class LikedContentPageItem extends React.Component {
     this.setState({ fullScreenImageFixedBlock: "fullScreenImageFixedBlock" });
   };
   render() {
-    const { product, OnCloseButtonClick, contentId } = this.props;
+    const { product, OnCloseButtonClick, contentId, OnLikedCount } = this.props;
     return (
       <div>
         <ButtonClose
           ButtonCloseImage={this.state.ButtonCloseImage}
           OnCloseButtonClick={OnCloseButtonClick}
           contentId={contentId}
+          OnLikedCount={OnLikedCount}
         />
         <div className={this.state.contentImageItem}>
           <img

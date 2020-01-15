@@ -49,22 +49,23 @@ class Header extends React.Component{
     );
   }
 }
-const mapStateToProps = (store)=>({
+const mapStateToProps = (store, props)=>({
   searchField: store.searchField.search,
   clicked: store.isClicked.clicked,
+  countLike: store.isLiked.countLike
 })
 const mapDispatchToProps = dispatch => ({
-  OnClicked: ()=>dispatch({
+  OnClickedOn: ()=>dispatch({
     type: "SEARCHON",
   }),
-  OnDeClicked: ()=>dispatch({
+  OnClickedOff: ()=>dispatch({
     type: "SEARCHOFF",
   }),
-  OnClickedOn: ()=>dispatch({
-    type: "CLICKEDON",
+  OnClicked: ()=>dispatch({
+    type: "CLICKEDON"
   }),
-  OnClickedOff: ()=>dispatch({
-    type: "CLICKEDOFF",
+  OnDeClicked: ()=>dispatch({
+    type: "CLIKEDOFF"
   }),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

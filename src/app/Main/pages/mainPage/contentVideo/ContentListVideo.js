@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
-import { connect } from "react-redux"
+
 
 class ContentListVideo extends React.Component {
   render() {
@@ -28,7 +28,6 @@ class ContentListVideo extends React.Component {
                   OnLike={OnLike}
                   OnLiked={OnLiked}
                   id={id}
-                  clicked={likedContentState[id]}
                 />
                 <Link to={`/content/${id}`}>
                   <button className="Add-content Know-more">Know More</button>
@@ -40,7 +39,5 @@ class ContentListVideo extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  likedContentState: state.likedContentState
-})
-export default connect(mapStateToProps)(ContentListVideo);
+
+export default ContentListVideo;

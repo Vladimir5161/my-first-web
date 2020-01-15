@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux"
+
 import ContentListImagesItem from "./ContentListImagesItem.js";
 
 class ContentListImage extends React.Component {
@@ -9,7 +9,6 @@ class ContentListImage extends React.Component {
       OnLiked,
       images,
       stateContent,
-      likedContentState,
       wayImage
     } = this.props;
     return (
@@ -23,7 +22,6 @@ class ContentListImage extends React.Component {
                 OnLike={OnLike}
                 OnLiked={OnLiked}
                 id={id}
-                clicked={likedContentState[id]}
               />
             </div>
           ))}
@@ -32,7 +30,4 @@ class ContentListImage extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  likedContentState: state.likedContentState
-})
-export default connect(mapStateToProps)(ContentListImage);
+export default ContentListImage;

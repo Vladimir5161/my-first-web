@@ -3,9 +3,9 @@ import contentLikeReducer from "./contentLikeReducer";
 import searchReducer from "./searchReducer"
 
 const rootReducer = combineReducers({
+  content: contentLikeReducer,
   likedContent: contentLikeReducer,
-  likedContentState: contentLikeReducer,
-  countLike: contentLikeReducer,
+  isLiked: contentLikeReducer,
   isClicked: searchReducer,
   searchField: searchReducer
 

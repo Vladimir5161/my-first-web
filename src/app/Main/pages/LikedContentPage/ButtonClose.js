@@ -3,12 +3,13 @@ import { connect } from "react-redux"
 
 class ButtonClose extends React.Component {
   render() {
-    const { contentId, deleteContent} = this.props;
+    const { contentId, OnCloseButtonClick, OnLikedCount} = this.props;
     return (
       <button
         className="ButtonClose"
         onClick={() => {
-          deleteContent(contentId);
+          OnCloseButtonClick(contentId);
+          OnLikedCount(contentId);
         }}
       ></button>
     );

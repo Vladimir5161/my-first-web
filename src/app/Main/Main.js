@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux"
 import "./Main.css";
 import { Route } from "react-router-dom";
 import MainPage from "./pages/mainPage/MainPage.js";
@@ -11,8 +11,6 @@ import ExactContentPage from "./pages/mainPage/ExactContentPage";
 import Data from "../../redux/vikingsData";
 
 const Main = ({
-  OnLike,
-  OnLiked,
   stateContent,
   stateSlides,
   sliderDiv,
@@ -28,8 +26,6 @@ const Main = ({
   newTextStoryName,
   OnCloseButtonClick,
   OnClearAllClick,
-  OnLikeClick,
-  OnLikedClick,
   chosen,
   wayImage,
   wayVIdeo,
@@ -37,7 +33,8 @@ const Main = ({
   filterWay,
   filterWay1,
   filterWay2,
-  filterWay3
+  filterWay3,
+  likedContentItems,
 }) => {
   return (
     <main className="main">
@@ -49,8 +46,6 @@ const Main = ({
             <div>
               <ReactSlider stateSlides={stateSlides} sliderDiv={sliderDiv} />
               <MainPage
-                OnLike={OnLike}
-                OnLiked={OnLiked}
                 stateContent={stateContent}
                 addImage={addImage}
                 addVideo={addVideo}
@@ -62,8 +57,6 @@ const Main = ({
                 newTextStoryText={newTextStoryText}
                 newTextStoryImage={newTextStoryImage}
                 newTextStoryName={newTextStoryName}
-                OnLikeClick={OnLikeClick}
-                OnLikedClick={OnLikedClick}
                 wayVIdeo={wayVIdeo}
                 wayImage={wayImage}
                 wayStory={wayStory}
@@ -82,6 +75,7 @@ const Main = ({
           exact
           render={() => (
             <LikedPage
+            likedContentItems={likedContentItems}
               OnCloseButtonClick={OnCloseButtonClick}
               OnClearAllClick={OnClearAllClick}
               chosen={chosen}
@@ -95,4 +89,7 @@ const Main = ({
   );
 };
 
-export default Main;
+const mapStateToProps = state=> ({
+  likedContentItems: state.content.likedContentInfo
+})
+export default connect(mapStateToProps)(Main);

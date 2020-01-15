@@ -1,18 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 class ButtonLike extends React.Component {
+
   render() {
     const {
-      OnLike,
-      OnLiked,
-      OnLikedCount,
-      OnLikeCount,
+      onLikedCount,
+      onLikeCount,
       id,
       clicked,
       onLikeClick,
       onLikedClick,
       removeContent,
-      addContent
+      addContent,
     } = this.props;
     return (
       <div>
@@ -21,8 +20,7 @@ class ButtonLike extends React.Component {
             className="liked"
             onClick={() => {
               onLikedClick(id);
-              // OnLikedCount(id);
-              OnLiked(id);
+              onLikedCount(id);
               removeContent(id);
             }}
           ></button>
@@ -31,8 +29,7 @@ class ButtonLike extends React.Component {
             className="likedNo"
             onClick={() => {
               onLikeClick(id);
-              // OnLikeCount(id);
-              OnLike(id);
+              onLikeCount(id);
               addContent(id);
             }}
           ></button>
@@ -41,13 +38,18 @@ class ButtonLike extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state,props) => ({
+  clicked: state.likedContent.likedContentState[props.id]
+})
+
 const mapDispatchToProps = dispatch => ({
-  addContent: id =>dispatch({
-      type: "ONLIKED",
+  addContent: (id) =>dispatch({
+      type: "ONLIKE",
       id: id,
     }),
   removeContent: id =>dispatch({
-      type: "ONLIKE",
+      type: "ONLIKED",
       id: id,
     }),
   onLikedClick: id=>dispatch({
@@ -58,13 +60,13 @@ const mapDispatchToProps = dispatch => ({
     type: "ONLIKECLICK",
     id: id,
   }),
-  onLikeCount: id=>dispatch({
+  onLikeCount: (id)=>dispatch({
     type: "ONLIKECOUNT",
-    id: id,
+    id,
   }),
-  onLikedCount: id=>dispatch({
+  onLikedCount: (id)=>dispatch({
     type: "ONLIKEDCOUNT",
-    id: id,
+    id
   }),
 });
-export default connect(null, mapDispatchToProps)(ButtonLike);
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonLike);

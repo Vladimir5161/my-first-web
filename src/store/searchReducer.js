@@ -1,25 +1,27 @@
 const initialState = {
     clicked: false,
-    search: "searchField"
+    search: "searchField",
 }
 
 const searchReducer = (state = initialState, action) => {
     switch(action.type) {
         case "SEARCHON":
+
             return {
-                [action.search]: action.search = "searchFieldActive",
+                ...state,
+                search: action.newSearch =  "searchFieldActive",
             }
         case "CLICKEDON" :
             return {
-                [action.clicked]: true,
-            }
+                clicked:  action.newClicked = true,
+           }
         case "CLICKEDOFF" :
             return {
-                [action.clicked]: false,
+                clicked:  action.newClicked2 = false,
             }
         case "SEARCHOFF":
             return {
-                [action.search]: action.search = "searchFiled",
+                search: action.newSearch2 = "searchField"
             }
         default:
             return state;

@@ -11,8 +11,6 @@ class ContentListItem extends React.Component {
       text,
       story,
       video,
-      OnLiked,
-      OnLike,
       id,
       clicked,
     } = this.props;
@@ -27,13 +25,9 @@ class ContentListItem extends React.Component {
         <p className="content-story">{story}</p>
         <ButtonLike
           id={id}
-          clicked={clicked}
-          OnLike={OnLike}
-          OnLiked={OnLiked}
         />
       </div>
     );
   }
 }
-
 export default ContentListItem;

@@ -8,20 +8,22 @@ import "./LikedContent.css";
 class LikedContentPage extends React.Component {
   render() {
     const {
-      likedContent,
+      likedContentItems,
       contentMapVikings = getContentMap(Data.vikingsData),
-      OnCloseButtonClick
+      OnCloseButtonClick,
+      OnLikedCount,
     } = this.props;
     return (
       <div>
         <h1 className="h1">Liked Content</h1>
         <div className="likedContentPage">
-          {keys(likedContent).map(contentId => (
+          {keys(likedContentItems).map(contentId => (
             <div className="contentLikedArea" key={contentId}>
               <LikedContentPageItem
                 contentId={contentId}
                 product={contentMapVikings[contentId]}
                 OnCloseButtonClick={OnCloseButtonClick}
+                OnLikedCount={OnLikedCount}
               />
             </div>
           ))}
@@ -30,8 +32,16 @@ class LikedContentPage extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => ({
-  likedContent: state.likedContent
+
+const mapDispatchToProps = dispatch => ({
+  OnCloseButtonClick: (id) =>dispatch({
+    type: "ONCLIKED",
+    contentId: id,
+  }),
+  OnLikedCount: (id) =>dispatch({
+    type: "ONLIKEDCOUNT",
+    contentId: id,
+  }),
 })
-export default connect(mapStateToProps)(LikedContentPage);
+export default connect(null, mapDispatchToProps)(LikedContentPage);
 
