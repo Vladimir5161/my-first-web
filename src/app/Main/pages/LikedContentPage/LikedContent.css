@@ -1,14 +1,18 @@
 .LikedPage {
   display: block;
   justify-content: center;
-  min-height: 260px;
+  min-height: 280px;
 }
 .likedContent {
   width: 360px;
-  height: 300px;
+  max-height: 300px;
   margin: 0 5px 20px 5px;
   position: relative;
   padding: 0 20px;
+  position: relative;
+}
+.likedContentPage .content-list-item-images:hover {
+  border: none;
 }
 .likedContentPage {
   display: grid;
@@ -20,40 +24,53 @@
   max-height: 310px;
   position: relative;
 }
-.likedContent-story {
-  font-family: "Raleway";
-  font-weight: bold;
-  font-size: 16px;
-  color: #000;
-  max-height: 120px;
+.likedContent-button {
+  font-size: 0;
+  height: 135px;
   margin: 5px auto;
   text-align: justify;
-  overflow: auto;
-  position: relative;
-  left: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  top: 120px;
 }
 .likedContent-name {
   font-family: "Raleway";
   font-weight: 700;
   font-size: 20px;
-  color: #a56f41;
+  color: #000000;
   text-align: center;
-  line-height: 30px;
+  position: relative;
+  top: -25px;
 }
 .likedContent-image img {
-  width: 320px;
+  max-width: 300px;
   border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  position: relative;
+  top: -21px;
   max-height: 140px;
 }
 .likedImageContent {
-  width: 360px;
-  margin: 0 5px;
+  max-width: 335px;
+  max-height: 200px;
   text-align: center;
   border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 42;
+  position: relative;
+  margin-top: 40px;
+  z-index: 35;
+}
+.content-list-item-images-liked {
+  overflow: hidden;
+  height: 100%;
+  border-radius: 10px;
+}
+.content-list-item-images-liked img {
+  height: 100%;
 }
 .likedImageContent:hover {
   cursor: pointer;
@@ -89,6 +106,24 @@
 .likedImages {
   position: relative;
 }
+.react-player3 iframe {
+  height: 200px;
+}
+.react-player3 {
+  position: relative;
+  z-index: 30;
+  top: -21px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: #ebebeb 0 0 80px 20px;
+}
+.likedContent .VideoContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 330px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
 @media screen and (max-width: 1024px) {
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -100,9 +135,6 @@
 @media screen and (max-width: 768px) {
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-  .likedImageContent {
-    width: 355px;
   }
   .likedContent {
     width: 350px;
@@ -130,9 +162,6 @@
 @media screen and (max-width: 425px) {
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  }
-  .likedImageContent {
-    width: 400px;
   }
   .likedContent {
     width: 400px;
@@ -163,9 +192,6 @@
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
-  .likedImageContent {
-    width: 345px;
-  }
   .likedContent {
     width: 345px;
     height: 270px;
@@ -194,9 +220,6 @@
 @media screen and (max-width: 325px) {
   .likedContentPage {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  .likedImageContent {
-    width: 290px;
   }
   .likedContent {
     width: 290px;

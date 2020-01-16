@@ -133,7 +133,7 @@ class FirstPage extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  stateContent: state.movieChose1. stateContent,
+  stateContent: state.movieChose1.stateContent,
   logo: state.movieChose1.logo,
   wayVIdeo: state.movieChose1.wayVIdeo,
   wayImage: state.movieChose1.wayImage,

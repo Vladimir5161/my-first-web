@@ -2,20 +2,16 @@ import React from "react";
 import Player from "./../../../../common/Player.js";
 import ButtonClose from "./ButtonClose";
 import ButtonCloseImage from "../mainPage/ButtonCloseImage";
+import { Link } from "react-router-dom";
 
 class LikedContentPageItem extends React.Component {
   state = {
-    contentImageItem: "content-list-item-images",
     imageContent: "imageContent-full",
     fullScreenBlock: "fullScreenBlock",
     ButtonCloseImage: "ButtonCloseImage",
     fullScreenImageFixedBlock: "fullScreenImageFixedBlock"
   };
   OnClickedImage = () => {
-    this.setState(prevState => ({
-      contentImageItem: (prevState.contentImageItem =
-        "content-list-item-images-clicked")
-    }));
     this.setState(prevState => ({
       imageContent: (prevState.imageContent = "imageContent-full-clicked")
     }));
@@ -27,10 +23,6 @@ class LikedContentPageItem extends React.Component {
   };
   OnClickImage = () => {
     this.setState(prevState => ({
-      contentImageItem: (prevState.contentImageItem =
-        "content-list-item-images")
-    }));
-    this.setState(prevState => ({
       imageContent: (prevState.imageContent = "imageContent-full")
     }));
     this.setState({ fullScreenBlock: "fullScreenBlock" });
@@ -38,13 +30,13 @@ class LikedContentPageItem extends React.Component {
     this.setState({ fullScreenImageFixedBlock: "fullScreenImageFixedBlock" });
   };
   render() {
-    const { product,  contentId, } = this.props;
+    const { product,  contentId, playerStyle = "react-player3"} = this.props;
     return (
       <div>
         <ButtonClose
           contentId={contentId}
         />
-        <div className={this.state.contentImageItem}>
+        <div className="content-list-item-images-liked">
           <img
             className="likedImageContent"
             src={product.image}
@@ -68,12 +60,14 @@ class LikedContentPageItem extends React.Component {
         </div>
         <div className="likedContent">
           <h2 className="likedContent-name">{product.name}</h2>
-          <Player video={product.video} />
+          <Player video={product.video} playerStyle={playerStyle}/>
           <div className="likedContent-image">
             <img src={product.imageContent} alt="" />
           </div>
-          <p className="likedContent-story">{product.story}</p>
         </div>
+        <Link to={`/content/${contentId}`} className="likedContent-button">
+                      <button className="Add-content Know-more">Read the Story</button>
+          </Link>
       </div>
     );
   }

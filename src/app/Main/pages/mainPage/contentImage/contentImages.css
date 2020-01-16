@@ -46,6 +46,14 @@
   max-width: 768px;
 
 }
+.content-list-item-images-clicked {
+  width: 100%;
+  overflow: hidden;
+  height: 170px;
+  border-radius: 10px;
+  max-width: 768px;
+
+}
 .content-list-item-images img {
   position: relative;
 }
