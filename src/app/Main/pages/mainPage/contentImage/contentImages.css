@@ -43,12 +43,19 @@
   overflow: hidden;
   height: 170px;
   border-radius: 10px;
+  max-width: 768px;
+
+}
+.content-list-item-images img {
+  position: relative;
 }
 .imageContent {
-  width: 384px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .content-list-item-images:hover {
   border: 3px solid #b8b2b2;
@@ -161,6 +168,9 @@
   .fullScreenImageFixedBlock-clicked {
     max-width: 405px;
   }
+ .content-list-item-images {
+   padding: 5px;
+ }
 }
 @media screen and (max-width: 375px) {
   .imageContent-full-clicked {

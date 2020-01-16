@@ -16,7 +16,7 @@ class AddContent extends React.Component {
     filterImage: false,
     filterVideo: false,
     filterStory: false,
-    addContent: "Add Image",
+    addContent: "Add Content",
     filterContent: "filterContent",
     clicked: false
   };
@@ -56,7 +56,8 @@ class AddContent extends React.Component {
       clicked: false,
       filterVideo: false,
       filterImage: false,
-      filterStory: false
+      filterStory: false,
+      addContent: "Add Content",
     });
   };
   render() {
@@ -167,9 +168,6 @@ class AddContent extends React.Component {
           ) : (
             <button
               className="filterButton"
-              onDoubleClick={() => {
-                this.onDoubleFilterButtonClick();
-              }}
               onClick={() => {
                 this.onClickFilterButton();
               }}

@@ -105,23 +105,26 @@
 .ButtonGoBackDiv {
   padding: 10px 0;
   position: absolute;
-  top: 10px;
+  top: -10px;
 }
 .ButtonGoBack {
-  width: 70px;
-  margin: 0 auto;
-  height: 25px;
+  width: 100px;
+  margin: 20px auto;
+  height: 40px;
+  padding: 10px 0;
   background-image: url(/images/arrow-left.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 2px solid #1d1c1c;
+  border: 3px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
   color: #1d1c1c;
   font-weight: 700;
   line-height: 18px;
-  border-radius: 5px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .ButtonGoBack:hover {
   background-color: #fff;
@@ -141,7 +144,8 @@
   }
   .ButtonGoBack {
     width: 70px;
-    height: 25px;
+    height: 30px;
+    border-radius: 10px;
   }
 }
 @media screen and (max-width: 425px) {
@@ -159,6 +163,12 @@
   }
   .newsState {
     padding-top: 50px;
+  }
+  .ButtonGoBackDiv {
+    top: 10px;
+  }
+  .ButtonGoBack {
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 375px) {

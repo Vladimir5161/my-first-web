@@ -138,21 +138,26 @@
   display: none;
 }
 .ExactContent .VideoContent {
-  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 800px;
   margin: 0 auto;
   border-radius: 20px;
 }
 .ExactContent {
   position: relative;
-  padding: 20px;
+  padding: 20px 40px;
+
 }
 .ExactContentName {
   text-align: center;
   font-family: "Montserrat";
-  font-size: 25px;
-  color: #ffffff;
+  font-size: 30px;
+  color: #272829;
   font-weight: 900;
   padding: 10px;
+  position: relative;
+  top: -30px;
 }
 .ExactContentInfo {
   display: grid;
@@ -179,6 +184,7 @@
 .react-player2 {
   border-radius: 40px;
   overflow: hidden;
+  box-shadow: #ebebeb 0 0 80px 20px;
 
 }
 @media screen and (max-width: 1170px) {
@@ -207,9 +213,6 @@
   .react-player2 iframe {
     height: 300px !important;
   }
-  .ExactContent .VideoContent {
-    width: 600px;
-  }
   .ExactContent {
     padding-bottom: 20px;
   }
@@ -223,8 +226,10 @@
   .react-player2 iframe {
     height: 250px !important;
   }
-  .ExactContent .VideoContent {
-    width: 370px;
+  .ExactContentName {
+    left: 20px;
+    top: -10px;
+    font-size: 25px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -235,8 +240,8 @@
   .react-player2 iframe {
     height: 200px !important;
   }
-  .ExactContent .VideoContent {
-    width: 340px;
+  .ExactContent {
+    padding: 20px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -247,8 +252,10 @@
   .react-player2 iframe {
     height: 200px !important;
   }
-  .ExactContent .VideoContent {
-    width: 280px;
+  .ExactContentName {
+    font-size: 20px;
+    left: 20px;
+    top: -5px;
   }
 }
 
