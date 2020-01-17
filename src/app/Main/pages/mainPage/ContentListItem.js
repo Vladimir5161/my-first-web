@@ -3,17 +3,13 @@ import React from "react";
 import Player from "../../../../common/Player.js";
 import ButtonLike from "./ButtonLike.js";
 
-class ContentListItem extends React.Component {
-  render() {
-    const {
-      image,
-      name,
-      text,
-      story,
-      video,
-      id,
-      playerStyle = "react-player"
-    } = this.props;
+const ContentListItem =({image,
+  name,
+  text,
+  story,
+  video,
+  id,
+  playerStyle = "react-player"})=> {
     return (
       <div className="content-list-item">
         <Player video={video} playerStyle={playerStyle}/>
@@ -29,5 +25,4 @@ class ContentListItem extends React.Component {
       </div>
     );
   }
-}
 export default ContentListItem;

@@ -192,7 +192,7 @@ let Data = {
     },
     {
       id: 29,
-      movieGoTSeason2VIdeo: true,
+      movieGoTSeason2Video: true,
       video: "https://www.youtube.com/watch?v=Iv5o7MxnRfM",
       name: "The Adventures of Tyrion the Imp (Season 2) - Game of Thrones",
       description: "season 2"
@@ -323,31 +323,32 @@ export let addVideo = (
   currentDescription,
   filterWay,
   filterWay1,
-  filterWay2
+  filterWay2,
+
 ) => {
   let newVideo = {
-    id: 101,
+    id: 99,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
     movieVikingsSeason1Video: true
   };
   let newVideo1 = {
-    id: 101,
+    id: 100,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
     movieVikingsSeason2Video: true
   };
   let newVideo2 = {
-    id: 101,
+    id: 102,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
     movieGoTSeason1Video: true
   };
   let newVideo3 = {
-    id: 101,
+    id: 103,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
@@ -366,7 +367,7 @@ export let addVideo = (
       : Data.vikingsData.push(newVideo3);
   };
   chosenAdd();
-  rerenderEntireTree(Data);
+  rerenderEntireTree();
 };
 export let addImage = (currentImage, filterWay, filterWay1, filterWay2) => {
   let newImage = {
@@ -402,7 +403,7 @@ export let addImage = (currentImage, filterWay, filterWay1, filterWay2) => {
       : Data.vikingsData.push(newImage3);
   };
   chosenAdd();
-  rerenderEntireTree(Data);
+  rerenderEntireTree();
 };
 
 export let addStory = (
@@ -454,7 +455,7 @@ export let addStory = (
       : Data.vikingsData.push(newStory3);
   };
   chosenAdd();
-  rerenderEntireTree(Data);
+  rerenderEntireTree();
 };
 
 export let getContentMap = arrey => {

@@ -1,8 +1,6 @@
 import React from "react";
 
-class ButtonCloseImage extends React.Component {
-  render() {
-    const { OnClickImage, ButtonCloseImage } = this.props;
+const ButtonCloseImage = ({OnClickImage, ButtonCloseImage}) => {
     return (
       <button
         className={ButtonCloseImage}
@@ -12,5 +10,5 @@ class ButtonCloseImage extends React.Component {
       ></button>
     );
   }
-}
+
 export default ButtonCloseImage;

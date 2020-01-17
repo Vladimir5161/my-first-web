@@ -7,7 +7,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class UpperHeader extends React.Component {
   state = {
-    colorArrow: images[5].arrowScroll
+    colorArrow: images[5].arrowScroll,
   };
 
   listenScrollEvent = () => {
@@ -36,6 +36,7 @@ class UpperHeader extends React.Component {
       chosen,
       OnClickedOn,
       OnClickedOff,
+      OnRulesClick,
     } = this.props;
     return (
       <div className="upperheader" id="home">
@@ -125,8 +126,8 @@ class UpperHeader extends React.Component {
                 News
               </Link>
             </li>
-            <li className="menuPoints">
-              <AnchorLink className="menuPointsLinks" href="#info">
+            <li className="menuPoints" onClick={() => {OnRulesClick();}}>
+              <AnchorLink className="menuPointsLinks" href="#">
                 Rules&FAQ
               </AnchorLink>
             </li>
@@ -188,7 +189,10 @@ const mapDispatchToProps = dispatch => ({
   }),
   OnGOTS2: () =>dispatch({
     type: "GOTSEASON2",
-  })
+  }),
+  OnRulesClick: ()=> dispatch({
+    type: "ONRULESCLICK",
+  }),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);

@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
 
 
-class ContentListVideo extends React.Component {
-  render() {
-    const {
-      videos,
-      stateContent,
-      wayVIdeo
-    } = this.props;
+const ContentListVideo = ({
+  videos,
+  stateContent,
+  wayVIdeo
+}) => {
     return (
       <div className={videos}>
         <div className="contentBlockName ">Videos</div>
@@ -33,6 +31,6 @@ class ContentListVideo extends React.Component {
       </div>
     );
   }
-}
+
 
 export default ContentListVideo;

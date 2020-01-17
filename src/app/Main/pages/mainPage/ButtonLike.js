@@ -1,18 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-class ButtonLike extends React.Component {
-
-  render() {
-    const {
-      onLikedCount,
-      onLikeCount,
-      id,
-      clicked,
-      onLikeClick,
-      onLikedClick,
-      removeContent,
-      addContent,
-    } = this.props;
+const ButtonLike = ({
+  onLikedCount,
+  onLikeCount,
+  id,
+  clicked,
+  onLikeClick,
+  onLikedClick,
+  removeContent,
+  addContent,})=> {
     return (
       <div>
         {clicked ? (
@@ -37,7 +33,6 @@ class ButtonLike extends React.Component {
       </div>
     );
   }
-}
 
 const mapStateToProps = (state,props) => ({
   clicked: state.likedContent.likedContentState[props.id]

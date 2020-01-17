@@ -28,6 +28,12 @@
 .slick-next {
   right: 20px;
 }
+.sliderClassNo {
+  display: none;
+}
+.sliderClass {
+  display: block;
+}
 .slide {
   max-width: 600px;
   margin: 0 auto;
@@ -36,9 +42,24 @@
 .sliderDiv {
   max-width: 1170px;
   margin: 0 auto;
+  position: relative;
 }
 .sliderDivNo {
   display: none;
+}
+.ButtonOpenSlider {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 40px;
+  height: 40px;
+  background-image: url(/images/plus.png);
+  background-size: cover;
+  background-color: inherit;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+
 }
 .sliderImage img {
   max-width: 100%;

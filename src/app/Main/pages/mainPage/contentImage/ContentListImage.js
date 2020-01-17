@@ -2,13 +2,11 @@ import React from "react";
 
 import ContentListImagesItem from "./ContentListImagesItem.js";
 
-class ContentListImage extends React.Component {
-  render() {
-    const {
-      images,
-      stateContent,
-      wayImage
-    } = this.props;
+const ContentListImage = ({
+  images,
+  stateContent,
+  wayImage
+}) => {
     return (
       <div className={images}>
         <div className="contentBlockName">Images</div>
@@ -25,5 +23,5 @@ class ContentListImage extends React.Component {
       </div>
     );
   }
-}
+
 export default ContentListImage;

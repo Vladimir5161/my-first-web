@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
 
 
-class ContentListStory extends React.Component {
-  render() {
-    const {
-      stories,
-      stateContent,
-      wayStory
-    } = this.props;
-
+const ContentListStory = ({      
+  stories,
+  stateContent,
+  wayStory
+})=> {
     return (
       <div className={stories}>
         <div className="contentBlockName">Stories</div>
@@ -39,6 +36,6 @@ class ContentListStory extends React.Component {
       </div>
     );
   }
-}
+
 
 export default ContentListStory;

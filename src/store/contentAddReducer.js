@@ -2,7 +2,7 @@ import { omit } from "lodash";
 
 
 
-const contentLikeReducer = (state = {}, action) => {
+const contentAddReducer = (state = {}, action) => {
   switch (action.type) {
     case "ONLIKE":
       return {
@@ -17,4 +17,4 @@ const contentLikeReducer = (state = {}, action) => {
       return state;
   }
 };
-export default contentLikeReducer;
+export default contentAddReducer;

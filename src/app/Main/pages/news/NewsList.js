@@ -4,8 +4,7 @@ import NewsListItem from "./NewsListItem";
 import newsData from "../../../../redux/newsData.js";
 
 
-class NewsList extends React.Component {
-  render() {
+const NewsList = () => {
     return (
       <div className="containerMain">
         <h1 className="h1">News</h1>
@@ -24,5 +23,5 @@ class NewsList extends React.Component {
       </div>
     );
   }
-}
+
 export default NewsList;

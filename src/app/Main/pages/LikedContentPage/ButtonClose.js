@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux"
 
-class ButtonClose extends React.Component {
-  render() {
-    const { contentId, deleteContent, onLikedCount} = this.props;
+const  ButtonClose = ({
+  contentId, 
+  deleteContent, 
+  onLikedCount
+}) => {
     return (
       <button
         className="ButtonClose"
@@ -14,7 +16,7 @@ class ButtonClose extends React.Component {
       ></button>
     );
   }
-}
+
 const mapDispatchToProps = (dispatch) => ({
   deleteContent: id =>dispatch({
     type: "ONLIKED",

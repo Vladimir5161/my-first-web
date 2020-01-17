@@ -7,6 +7,7 @@ import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
 
 
+
 class App extends React.Component {
   render() {
     return (

@@ -4,20 +4,17 @@ import "./Header.css";
 import UpperHeader from "./Menu/UpperHeader.js";
 import SearchField from "./SearchField.js";
 
-class Header extends React.Component{
-
-  render() {
-    const {
-      countLike,
-      OnClicked,
-      OnDeClicked,
-      logo,
-      clicked,
-      chosen,
-      searchField,
-      OnClickedOn,
-      OnClickedOff,
-    } = this.props;
+const Header = ({
+  countLike,
+  OnClicked,
+  OnDeClicked,
+  logo,
+  clicked,
+  chosen,
+  searchField,
+  OnClickedOn,
+  OnClickedOff,
+}) => { 
     return (
       <header className="header">
         <div className="container">
@@ -36,7 +33,7 @@ class Header extends React.Component{
       </header>
     );
   }
-}
+
 const mapStateToProps = (store)=>({
   searchField: store.searchField.search,
   clicked: store.isClicked.clicked,

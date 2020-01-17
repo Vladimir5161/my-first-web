@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class NewsListItem extends React.Component {
-  render() {
-    const { newsImage, newsText, newsName, data, time, id } = this.props;
+const NewsListItem = ({
+  newsImage, 
+  newsText, 
+  newsName, 
+  data, 
+  time, 
+  id
+}) => {
     return (
       <div className="newsState">
         <div className="newsTimeData">
@@ -23,5 +28,5 @@ class NewsListItem extends React.Component {
       </div>
     );
   }
-}
+
 export default NewsListItem;

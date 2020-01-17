@@ -17,10 +17,25 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    const { stateSlides} = this.props;
+    const { stateSlides, OnSliderClose, sliderClass, ButtonClose, clicked, OnSliderOpen} = this.props;
     return (
       <div className="sliderDiv">
-        <Slider {...settings}>
+              {clicked ? (
+              <button
+                  className={ButtonClose}
+                   onClick={() => {
+                      OnSliderOpen()
+                               }}
+              ></button>
+              ) : (
+              <button
+                   className={ButtonClose}
+                   onClick={() => {
+                      OnSliderClose()
+               }}
+              ></button>
+              )}
+        <Slider {...settings} className={sliderClass}>
           {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
             <div className="HeaderSlick" key={id}>
               <div className="slide">
@@ -44,5 +59,17 @@ class ReactSlider extends React.Component {
 }
 const mapStateToProps = state => ({
   stateSlides: state.movieChose1.stateSlides,
+  sliderClass: state.Rules.sliderClass,
+  ButtonClose: state.Rules.ButtonClose,
+  clicked: state.Rules.clicked,
 })
-export default connect(mapStateToProps)(ReactSlider);
+const mapDispatchToProps = dispatch => ({
+  OnSliderClose: () => dispatch({
+    type: "ONSLIDERCLOSE",
+  }),
+  OnSliderOpen: () => dispatch({
+    type: "ONSLIDEROPEN",
+  })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReactSlider);

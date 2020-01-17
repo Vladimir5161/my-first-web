@@ -3,13 +3,11 @@ import LikedContentPage from "./LikedContentPage";
 import { connect } from "react-redux"
 import "./LikedContent.css";
 
-class LikedPage extends React.Component {
-  render() {
-    const {
-      OnCloseButtonClick,
-      OnClearAllClick,
-      OnLikedContentClear,
-    } = this.props;
+const LikedPage = ({
+  OnCloseButtonClick,
+  OnClearAllClick,
+  OnLikedContentClear,
+}) => {
     return (
       <div className="containerMain">
         <div className="LikedPage">
@@ -25,7 +23,7 @@ class LikedPage extends React.Component {
       </div>
     );
   }
-}
+
 
 const mapDispatchToProps=(dispatch)=>({
   OnClearAllClick: ()=>dispatch({

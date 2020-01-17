@@ -5,12 +5,10 @@ import LikedContentPageItem from "./LikedContentPageItem";
 import { connect } from "react-redux";
 import "./LikedContent.css";
 
-class LikedContentPage extends React.Component {
-  render() {
-    const {
-      likedContentItems,
-      contentMapVikings = getContentMap(Data.vikingsData),
-    } = this.props;
+const LikedContentPage = ({
+  likedContentItems,
+  contentMapVikings = getContentMap(Data.vikingsData),
+}) => {
     return (
       <div>
         <h1 className="h1">Liked Content</h1>
@@ -27,7 +25,7 @@ class LikedContentPage extends React.Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = store=> ({
   likedContentItems: store.likedContentItems

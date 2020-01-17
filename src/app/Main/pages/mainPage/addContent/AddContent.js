@@ -1,75 +1,39 @@
 import React from "react";
 import "./AddContent.css";
 import {  
+  addImage,
+  addVideo,
+  addStory,
   newTextImage,
   newTextVideo,
   newTextVideoName,
   newTextVideoDescription,
   newTextStoryText,
   newTextStoryImage,
-  newTextStoryName
+  newTextStoryName,
 } from "../../../../../redux/vikingsData";
 import { connect } from "react-redux"
 
-class AddContent extends React.Component {
-  state = {
-    filterImage: false,
-    filterVideo: false,
-    filterStory: false,
-    addContent: "Add Content",
-    filterContent: "filterContent",
-    clicked: false
-  };
-  onFilterImageClick = () => {
-    this.setState({
-      addContent: "Add Image",
-      filterImage: true,
-      filterVideo: false,
-      filterStory: false
-    });
-  };
-  onFilterVideoClick = () => {
-    this.setState({
-      addContent: "Add Video",
-      filterVideo: true,
-      filterImage: false,
-      filterStory: false
-    });
-  };
-  onFilterStoryClick = () => {
-    this.setState({
-      addContent: "Add Story",
-      filterVideo: false,
-      filterImage: false,
-      filterStory: true
-    });
-  };
-  onClickFilterButton = () => {
-    this.setState({
-      filterContent: "filterContentActive",
-      clicked: true
-    });
-  };
-  onDeClickFilterButton = () => {
-    this.setState({
-      filterContent: "filterContent",
-      clicked: false,
-      filterVideo: false,
-      filterImage: false,
-      filterStory: false,
-      addContent: "Add Content",
-    });
-  };
-  render() {
-    const {
-      addImage,
-      addVideo,
-      addStory,
-      filterWay,
-      filterWay1,
-      filterWay2,
-      filterWay3,
-    } = this.props;
+const AddContent = ({
+  addImage,
+  addVideo,
+  addStory,
+  filterWay,
+  filterWay1,
+  filterWay2,
+  filterWay3,
+  filterStory,
+  filterImage,
+  filterVideo,
+  onFilterImageClick,
+  onFilterStoryClick,
+  onFilterVideoClick,
+  addContent,
+  onClickFilterButton,
+  onDeClickFilterButton,
+  clicked,
+  filterContent,
+}) => {
     let newImage = React.createRef();
     let newVideo = React.createRef();
     let newVideoName = React.createRef();
@@ -155,53 +119,53 @@ class AddContent extends React.Component {
     return (
       <div className="filterAddContent">
         <div className="filterButtonHover">
-          {this.state.clicked ? (
+          {clicked ? (
             <button
               className="filterButton"
               onClick={() => {
-                this.onDeClickFilterButton();
+                onDeClickFilterButton();
               }}
             >
               {" "}
-              {this.state.addContent}
+              {addContent}
             </button>
           ) : (
             <button
               className="filterButton"
               onClick={() => {
-                this.onClickFilterButton();
+                onClickFilterButton();
               }}
             >
               {" "}
-              {this.state.addContent}
+              {addContent}
             </button>
           )}
 
-          <ul className={this.state.filterContent}>
+          <ul className={filterContent}>
             <li
               onClick={() => {
-                this.onFilterImageClick();
+                onFilterImageClick();
               }}
             >
               Add Image
             </li>
             <li
               onClick={() => {
-                this.onFilterVideoClick();
+                onFilterVideoClick();
               }}
             >
               Add Video
             </li>
             <li
               onClick={() => {
-                this.onFilterStoryClick();
+                onFilterStoryClick();
               }}
             >
               Add Story
             </li>
           </ul>
         </div>
-        {this.state.filterImage ? (
+        {filterImage ? (
           <div className="addContentTable">
             <div className="addContentH1">Input your link</div>
             <textarea
@@ -216,13 +180,13 @@ class AddContent extends React.Component {
               className="Add-content"
               onClick={() => {
                 addNewImage();
-                this.onFilterImageClick();
+                onFilterImageClick();
               }}
             >
               Add Content
             </button>
           </div>
-        ) : this.state.filterVideo ? (
+        ) : filterVideo ? (
           <div className="addContentTable">
             <div className="addContentH1">Input your link</div>
             <textarea
@@ -255,13 +219,13 @@ class AddContent extends React.Component {
               className="Add-content"
               onClick={() => {
                 addNewVideo();
-                this.onFilterVideoClick();
+                onFilterVideoClick();
               }}
             >
               Add Content
             </button>
           </div>
-        ) : this.state.filterStory ? (
+        ) : filterStory ? (
           <div className="addStory">
             <div className="addContentTable">
               <div className="addContentH1">Input your link</div>
@@ -295,7 +259,7 @@ class AddContent extends React.Component {
                 className="Add-content"
                 onClick={() => {
                   addNewStory();
-                  this.onFilterStoryClick();
+                  onFilterStoryClick();
                 }}
               >
                 Add Content
@@ -308,12 +272,35 @@ class AddContent extends React.Component {
       </div>
     );
   }
-}
 
 const mapStateToProps = state => ({
   filterWay: state.movieChose1.filterWay,
   filterWay1: state.movieChose1.filterWay1,
   filterWay2: state.movieChose1.filterWay2,
-  filterWay3: state.movieChose1.filterWay3
+  filterWay3: state.movieChose1.filterWay3,
+  filterStory: state.AddContent.filterStory,
+  filterVideo: state.AddContent.filterVideo,
+  filterImage: state.AddContent.filterImage,
+  addContent: state.AddContent.addContent,
+  clicked: state.AddContent.clicked,
+  filterContent: state.AddContent.filterContent,
 })
-export default connect(mapStateToProps)(AddContent);
+
+const mapDispatchToProps = (dispatch) => ({
+  onFilterImageClick: () =>dispatch({
+    type: "ONFILTERIMAGECLICK",
+  }),
+  onFilterVideoClick: () =>dispatch({
+    type: "ONFILTERVIDEOCLICK",
+  }),
+  onFilterStoryClick: () =>dispatch({
+    type: "ONFILTERSTORYCLICK",
+  }),
+  onDeClickFilterButton: () =>dispatch({
+    type: "ONDECLICKFILTERBUTTON",
+  }),
+  onClickFilterButton: () =>dispatch({
+    type: "ONCLICKFILTERBUTTON",
+  }),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(AddContent);
