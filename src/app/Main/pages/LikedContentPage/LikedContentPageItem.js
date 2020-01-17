@@ -66,7 +66,7 @@ class LikedContentPageItem extends React.Component {
           </div>
         </div>
         <Link to={`/content/${contentId}`} className="likedContent-button">
-                      <button className="Add-content Know-more">Read the Story</button>
+                      <button className="Add-content Know-more Read-Story">Read the Story</button>
           </Link>
       </div>
     );

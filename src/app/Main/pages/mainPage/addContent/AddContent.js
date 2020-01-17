@@ -15,9 +15,6 @@ import {
 import { connect } from "react-redux"
 
 const AddContent = ({
-  addImage,
-  addVideo,
-  addStory,
   filterWay,
   filterWay1,
   filterWay2,

@@ -37,6 +37,7 @@ class UpperHeader extends React.Component {
       OnClickedOn,
       OnClickedOff,
       OnRulesClick,
+      Season,
     } = this.props;
     return (
       <div className="upperheader" id="home">
@@ -85,7 +86,7 @@ class UpperHeader extends React.Component {
                         }}
                         className="season"
                       >
-                        Season 1
+                        Season 1-4
                       </li>
                       <li
                         onClick={() => {
@@ -93,7 +94,7 @@ class UpperHeader extends React.Component {
                         }}
                         className="season"
                       >
-                        Season 2
+                        {Season}
                       </li>
                     </Link>
                   </div>
@@ -106,7 +107,7 @@ class UpperHeader extends React.Component {
                         }}
                         className="season"
                       >
-                        Season 1
+                        Season 1-4
                       </li>
                       <li
                         onClick={() => {
@@ -114,7 +115,7 @@ class UpperHeader extends React.Component {
                         }}
                         className="season"
                       >
-                        Season 2
+                        {Season}
                       </li>
                     </Link>
                   </div>
@@ -168,7 +169,8 @@ class UpperHeader extends React.Component {
 }
 const mapStateToProps = (store)=>({
   logo: store.movieChose1.logo,
-  chosen: store.movieChose1.chosen
+  chosen: store.movieChose1.chosen,
+  Season: store.movieChose1.Season,
 
 })
 const mapDispatchToProps = dispatch => ({

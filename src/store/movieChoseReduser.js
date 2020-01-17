@@ -12,6 +12,7 @@ const initialState = {
     filterWay1: false,
     filterWay2: false,
     filterWay3: false,
+    Season: "Season 4-6"
 }
 const movieChoseReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -29,6 +30,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = false,
                 filterWay2: state.filterWay2 = false,
                 filterWay3: state.filterWay3 = false,
+                Season: state.Season = "Season 4-8",
             }
             case "MOVIEGROUP2CLICK":
             return {
@@ -44,6 +46,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = false,
                 filterWay2: state.filterWay2 = true,
                 filterWay3: state.filterWay3 = false,
+                Season: state.Season = "Season 4-6"
             }
             case "VIKINGSSEASON1":
             return {
@@ -59,6 +62,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = false,
                 filterWay2: state.filterWay2 = false,
                 filterWay3: state.filterWay3 = false,
+                Season: state.Season = "Season 4-6"
             }
             case "VIKINGSSEASON2":
             return {
@@ -74,6 +78,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = true,
                 filterWay2: state.filterWay2 = false,
                 filterWay3: state.filterWay3 = false,
+                Season: state.Season = "Season 4-6"
             }
             case "GOTSEASON1":
             return {
@@ -89,6 +94,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = false,
                 filterWay2: state.filterWay2 = true,
                 filterWay3: state.filterWay3 = false,
+                Season: state.Season = "Season 4-8"
             }
             case "GOTSEASON2":
             return {
@@ -104,6 +110,7 @@ const movieChoseReducer = (state = initialState, action) => {
                 filterWay1: state.filterWay1 = false,
                 filterWay2: state.filterWay2 = false,
                 filterWay3: state.filterWay3 = true,
+                Season: state.Season = "Season 4-8"
             }
             default:
                 return state;
