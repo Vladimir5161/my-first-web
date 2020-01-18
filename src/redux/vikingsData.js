@@ -148,7 +148,7 @@ let Data = {
       description: "season 2"
     },
     {
-      id: 29,
+      id: 82,
       movieGoTSeason1Video: true,
       video: "https://www.youtube.com/watch?v=Iv5o7MxnRfM",
       name: "The Adventures of Tyrion the Imp (Season 2) - Game of Thrones",
@@ -397,83 +397,86 @@ export let addVideo = (
 
 ) => {
   let newVideo = {
-    id: 99,
+    id: newId(),
+    movieVikingsSeason1Video: true,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
-    movieVikingsSeason1Video: true
+
   };
   let newVideo1 = {
-    id: 100,
+    id: newId(),
+    movieVikingsSeason2Video: true,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
-    movieVikingsSeason2Video: true
+
   };
   let newVideo2 = {
-    id: 102,
+    id: newId(),
+    movieGoTSeason1Video: true,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
-    movieGoTSeason1Video: true
+
   };
   let newVideo3 = {
-    id: 103,
+    id: newId(),
+    movieGoTSeason2Video: true,
     video: currentVideo,
     name: currentName,
     description: currentDescription,
-    movieGoTSeason2Video: true
+
   };
-  let pass = filterWay;
-  let pass1 = filterWay1;
-  let pass2 = filterWay2;
   const chosenAdd = () => {
-    pass
+    filterWay
       ? Data.vikingsData.push(newVideo)
-      : pass1
+      : filterWay1
       ? Data.vikingsData.push(newVideo1)
-      : pass2
+      : filterWay2
       ? Data.vikingsData.push(newVideo2)
       : Data.vikingsData.push(newVideo3);
   };
   chosenAdd();
-  rerenderEntireTree();
+  rerenderEntireTree(Data);
 };
+
 export let addImage = (currentImage, filterWay, filterWay1, filterWay2) => {
   let newImage = {
-    id: 100,
+    id: newId(),
+    movieVikingsSeason1Image: true,
     image: currentImage,
-    movieVikingsSeason1Image: true
+
   };
   let newImage1 = {
-    id: 100,
+    id: newId(),
+    movieVikingsSeason2Image: true,
     image: currentImage,
-    movieVikingsSeason2Image: true
+
   };
   let newImage2 = {
-    id: 100,
+    id: newId(),
+    movieGoTSeason1Image: true,
     image: currentImage,
-    movieGoTSeason2Image: true
+
   };
   let newImage3 = {
-    id: 100,
+    id: newId(),
+    movieGoTSeason2Image: true,
     image: currentImage,
-    movieGoTSeason2Image: true
+
   };
-  let pass = filterWay;
-  let pass1 = filterWay1;
-  let pass2 = filterWay2;
   const chosenAdd = () => {
-    pass
+    filterWay
       ? Data.vikingsData.push(newImage)
-      : pass1
+      : filterWay1
       ? Data.vikingsData.push(newImage1)
-      : pass2
+      : filterWay2
       ? Data.vikingsData.push(newImage2)
       : Data.vikingsData.push(newImage3);
   };
   chosenAdd();
-  rerenderEntireTree();
+  rerenderEntireTree(Data);
 };
 
 export let addStory = (
@@ -485,47 +488,48 @@ export let addStory = (
   filterWay2
 ) => {
   let newStory = {
-    id: 102,
+    id: newId(),
+    movieVikingsSeason1Story: true,
     story: currentStory,
     name: currentName,
     imageContent: currentImage,
-    movieVikingsSeason1Story: true
+
   };
   let newStory1 = {
-    id: 102,
+    id: newId(),
+    movieVikingsSeason2Story: true,
     story: currentStory,
     name: currentName,
     imageContent: currentImage,
-    movieVikingsSeason2Story: true
+
   };
   let newStory2 = {
-    id: 102,
+    id: newId(),
+    movieGoTSeason1Story: true,
     story: currentStory,
     name: currentName,
     imageContent: currentImage,
-    movieGoTSeason1Story: true
+
   };
   let newStory3 = {
-    id: 102,
+    id: newId(),
+    movieGoTSeason2Story: true,
     story: currentStory,
     name: currentName,
     imageContent: currentImage,
-    movieGoTSeason2Story: true
+
   };
-  let pass = filterWay;
-  let pass1 = filterWay1;
-  let pass2 = filterWay2;
   const chosenAdd = () => {
-    pass
+    filterWay
       ? Data.vikingsData.push(newStory)
-      : pass1
+      : filterWay1
       ? Data.vikingsData.push(newStory1)
-      : pass2
+      : filterWay2
       ? Data.vikingsData.push(newStory2)
       : Data.vikingsData.push(newStory3);
   };
   chosenAdd();
-  rerenderEntireTree();
+  rerenderEntireTree(Data);
 };
 
 export let getContentMap = arrey => {
@@ -538,7 +542,14 @@ export let getContentMap = arrey => {
   );
 };
 
-export const reloader = observer => {
+export let reloader = observer => {
   rerenderEntireTree = observer;
 };
+let newId = () => {
+  let idCount = Data.vikingsData.pop();
+  Data.vikingsData.push(idCount);
+  let newId = idCount.id + 1;
+  return newId;
+}
+console.log(Data.vikingsData)
 export default Data;

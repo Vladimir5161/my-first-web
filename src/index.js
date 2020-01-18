@@ -7,9 +7,10 @@ import { createStore } from "redux";
 import Data, { reloader } from "./redux/vikingsData";
 import rootReducer from "./store/rootReducer";
 
-const store = createStore(rootReducer);
+
 
 let rerenderEntireTree = () => {
+  const store = createStore(rootReducer);
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
