@@ -11,7 +11,7 @@ import {
   newTextStoryText,
   newTextStoryImage,
   newTextStoryName,
-} from "../../../../../redux/vikingsData";
+} from "../../../../../redux/Data";
 import { connect } from "react-redux"
 
 const AddContent = ({

@@ -1,4 +1,4 @@
-import Data from "../redux/vikingsData";
+import Data from "../redux/Data";
 
 const initialState = {
     chosen: false,

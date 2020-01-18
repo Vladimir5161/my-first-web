@@ -1,6 +1,6 @@
 import React from "react";
 import { keys } from "lodash";
-import Data, { getContentMap } from "../../../../redux/vikingsData";
+import Data, { getContentMap } from "../../../../redux/Data";
 import LikedContentPageItem from "./LikedContentPageItem";
 import { connect } from "react-redux";
 import "./LikedContent.css";

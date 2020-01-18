@@ -1,5 +1,5 @@
 import React from "react";
-import Data, { getContentMap } from "../../../../redux/vikingsData.js";
+import Data, { getContentMap } from "../../../../redux/Data.js";
 import { Link } from "react-router-dom";
 import Player from "../../../../common/Player.js";
 
@@ -13,7 +13,6 @@ class ExactContentPage extends React.Component {
             {contentMap[match.params.id].name}
           </h3>
           <Player video={contentMap[match.params.id].video} playerStyle={playerStyle}/>
-
           <div className="ButtonGoBackDiv">
             <Link to="/">
               <button className="ButtonGoBack"></button>

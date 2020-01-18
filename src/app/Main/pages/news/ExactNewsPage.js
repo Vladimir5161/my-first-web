@@ -1,6 +1,6 @@
 import React from "react";
 import newsData from "../../../../redux/newsData.js";
-import { getContentMap } from "../../../../redux/vikingsData";
+import { getContentMap } from "../../../../redux/Data";
 import { Link } from "react-router-dom";
 
 class ExactNewsPage extends React.Component {
