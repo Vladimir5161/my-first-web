@@ -1,4 +1,4 @@
-import { omit } from "lodash";
+
 
 const initialState = {
   countLike: 0,

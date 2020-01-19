@@ -2,7 +2,7 @@ import { omit } from "lodash";
 
 
 
-const contentAddReducer = (state = {}, action) => {
+const contentAddReducer = (state = {} , action) => {
   switch (action.type) {
     case "ONLIKE":
       return {
@@ -15,6 +15,8 @@ const contentAddReducer = (state = {}, action) => {
       return  state = {}
     default:
       return state;
+
   }
 };
+console.log(contentAddReducer.state)
 export default contentAddReducer;
