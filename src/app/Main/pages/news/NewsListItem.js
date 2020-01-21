@@ -18,7 +18,7 @@ const NewsListItem = ({
         <h3 className="newsName">{newsName}</h3>
         <div className="news">
           <div className="row">
-            <img className="newsImage" src={newsImage} />
+            <img className="newsImage" src={newsImage} alt=""/>
             <div className="newsText">{newsText}</div>
           </div>
         </div>

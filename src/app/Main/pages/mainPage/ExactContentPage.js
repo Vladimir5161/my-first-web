@@ -1,11 +1,15 @@
 import React from "react";
-import Data, { getContentMap } from "../../../../redux/Data.js";
+import  { getContentMap } from "../../../../redux/Data.js";
 import { Link } from "react-router-dom";
 import Player from "../../../../common/Player.js";
+import { connect } from "react-redux"
 
-class ExactContentPage extends React.Component {
-  render() {
-    const { match, contentMap = getContentMap(Data.vikingsData), playerStyle = "react-player2" } = this.props;
+const ExactContentPage = ({
+  match, 
+  DataArrey,
+  contentMap = getContentMap(DataArrey), 
+  playerStyle = "react-player2"
+}) => {
     return (
       <div className="containerMain">
         <div className="ExactContent">
@@ -22,6 +26,7 @@ class ExactContentPage extends React.Component {
             <img
               className="ExactContentImage"
               src={contentMap[match.params.id].imageContent}
+              alt=""
             />
             <div className="ExactContentText">
               {contentMap[match.params.id].story}
@@ -31,5 +36,9 @@ class ExactContentPage extends React.Component {
       </div>
     );
   }
-}
-export default ExactContentPage;
+
+  const mapStateToProps = state => ({
+    DataArrey: state.Data.Data
+  })
+
+export default connect(mapStateToProps)(ExactContentPage);

@@ -6,6 +6,8 @@ import movieChoseReducer from "./movieChoseReduser"
 import AddContentReducer from "./AddContentReducer"
 import someReducer from "./someReducer"
 import filterReducer from "./filterReducer";
+import newsDataReducer from "./newsDataReducer";
+import DataReducer from "./DataReducer";
 
 const rootReducer = combineReducers({
   likedContentItems: contentAddReducer,
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
   movieChose1 : movieChoseReducer,
   AddContent: AddContentReducer,
   Rules: someReducer,
-  filter: filterReducer
+  filter: filterReducer,
+  newsData: newsDataReducer,
+  Data: DataReducer,
 });
 
 export default rootReducer;

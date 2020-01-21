@@ -8,9 +8,9 @@ import Data, { reloader } from "./redux/Data";
 import rootReducer from "./store/rootReducer";
 
 
-
-let rerenderEntireTree = () => {
-  const store = createStore(rootReducer);
+const store = createStore(rootReducer);
+// let rerenderEntireTree = () => {
+  
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
@@ -19,8 +19,7 @@ let rerenderEntireTree = () => {
     </Provider>,
     document.getElementById("root")
   );
-};
+// };
 
-rerenderEntireTree(Data);
-reloader(rerenderEntireTree);
+// reloader(rerenderEntireTree);
 

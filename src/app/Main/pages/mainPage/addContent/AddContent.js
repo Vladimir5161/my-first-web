@@ -1,17 +1,17 @@
 import React from "react";
 import "./AddContent.css";
-import {  
-  addImage,
-  addVideo,
-  addStory,
-  newTextImage,
-  newTextVideo,
-  newTextVideoName,
-  newTextVideoDescription,
-  newTextStoryText,
-  newTextStoryImage,
-  newTextStoryName,
-} from "../../../../../redux/Data";
+// import {  
+//   addImage,
+//   addVideo,
+//   addStory,
+//   newTextImage,
+//   newTextVideo,
+//   newTextVideoName,
+//   newTextVideoDescription,
+//   newTextStoryText,
+//   newTextStoryImage,
+//   newTextStoryName,
+// } from "../../../../../redux/Data";
 import { connect } from "react-redux"
 
 const AddContent = ({
@@ -30,6 +30,16 @@ const AddContent = ({
   onDeClickFilterButton,
   clicked,
   filterContent,
+  newTextImage,
+  newTextStoryImage,
+  newTextStoryName,
+  newTextStoryText,
+  newTextVideo,
+  newTextVideoName,
+  newTextVideoDescription,
+  addImage,
+  addStory,
+  addVideo,
 }) => {
     let newImage = React.createRef();
     let newVideo = React.createRef();
@@ -76,7 +86,7 @@ const AddContent = ({
     let addNewImage = () => {
       let newImageAdd = newImage.current.value;
 
-      addImage(newImageAdd, pass, pass1, pass2, pass3);
+      addImage(newImageAdd, pass, pass1, pass2);
       newImage.current.value = "";
     };
     let addNewVideo = () => {
@@ -298,6 +308,47 @@ const mapDispatchToProps = (dispatch) => ({
   }),
   onClickFilterButton: () =>dispatch({
     type: "ONCLICKFILTERBUTTON",
+  }),
+  newTextStoryText: (newText) =>dispatch({
+    type: "NEWTEXTSTORYTEXT",
+    newText,
+  }),
+  newTextStoryImage: (newText) =>dispatch({
+    type: "NEWTEXTSTORYIMAGE",
+    newText,
+    }),
+  newTextStoryName: (newText) =>dispatch({
+    type: "NEWTEXTSTORYNAME",
+    newText,
+  }),
+  newTextImage: (newText) => dispatch({
+    type: "NEWTEXTIMAGE",
+    newText,
+  }),
+  newTextVideo: (newText) => dispatch({
+    type: "NEWTEXTVIDEO",
+    newText,
+  }),
+  newTextVideoName: (newText)=>dispatch({
+    type: "NEWTEXTVIDEONAME",
+    newText,
+  }),
+  newTextVideoDescription: (newText)=>dispatch({
+    type: "NEWTEXTVIDEODESCRIPTION",
+    newText,
+  }),
+  addImage: (newImageAdd, pass, pass1, pass2)=>dispatch({
+    type: "ADDIMAGE",
+    newImageAdd,
+    pass,
+    pass1,
+    pass2,
+  }),
+  addVideo: ()=>dispatch({
+    type: "ADDVIDEO",
+  }),
+  addStory: ()=>dispatch({
+    type: "ADDSTORY",
   }),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddContent);

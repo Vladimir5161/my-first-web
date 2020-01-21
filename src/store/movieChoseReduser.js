@@ -1,28 +1,30 @@
-import Data from "../redux/Data";
+
+
+
+let vikingsSlide = "vikingsSlides";
 
 const initialState = {
-    chosen: false,
-    stateSlides: Data.vikingsSlides,
-    logo: "../../images/logo.png",
-    stateContent: Data.vikingsData,
-    wayStory: item => item.movieVikingsSeason1Story,
-    wayVIdeo: item => item.movieVikingsSeason1Video,
-    wayImage: item => item.movieVikingsSeason1Image,
-    filterWay: true,
-    filterWay1: false,
-    filterWay2: false,
-    filterWay3: false,
-    Season: "Season 4-6"
-}
+        chosen: false,
+        stateSlides: vikingsSlide,
+        logo: "../../images/logo.png",
+        wayStory: item => item.movieVikingsSeason1Story,
+        wayVIdeo: item => item.movieVikingsSeason1Video,
+        wayImage: item => item.movieVikingsSeason1Image,
+        filterWay: true,
+        filterWay1: false,
+        filterWay2: false,
+        filterWay3: false,
+        Season: "Season 4-6"
+    }
 const movieChoseReducer = (state = initialState, action) => {
+    const GOTSlide = "GOTSlides";
     switch(action.type) {
         case "MOVIEGROUP1CLICK":
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = Data.GOTSlides,
+                stateSlides: state.stateSlides = GOTSlide,
                 logo: state.logo = "../../images/got.png",
-                stateContent: state.stateContent = Data.vikingsData,
                 wayStory: state.wayStory = (item => item.movieGoTSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason1Video),
                 wayImage: state.wayImage = (item => item.movieGoTSeason1Image),
@@ -36,9 +38,8 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = Data.vikingsSlides,
+                stateSlides: state.stateSlides = vikingsSlide,
                 logo: state.logo = "../../images/logo.png",
-                stateContent: state.stateContent = Data.vikingsData,
                 wayStory: state.wayStory = (item => item.movieVikingsSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason1Video),
                 wayImage: state.wayImage = (item => item.movieVikingsSeason1Image),
@@ -52,8 +53,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = Data.vikingsSlides,
-                stateContent: state.stateContent = Data.vikingsData,
+                stateSlides: state.stateSlides = vikingsSlide,
                 logo: state.logo = "../../images/logo.png",
                 wayStory: state.wayStory = (item => item.movieVikingsSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason1Video),
@@ -68,8 +68,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = Data.vikingsSlides,
-                stateContent: state.stateContent = Data.vikingsData,
+                stateSlides: state.stateSlides = vikingsSlide,
                 logo: state.logo = "../../images/logo.png",
                 wayStory: state.wayStory = (item => item.movieVikingsSeason2Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason2Video),
@@ -84,9 +83,8 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = Data.GOTSlides,
+                stateSlides: state.stateSlides = GOTSlide,
                 logo: state.logo = "../../images/got.png",
-                stateContent: state.stateContent = Data.vikingsData,
                 wayStory: state.wayStory = (item => item.movieGoTSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason1Video),
                 wayImage: state.wayImage = (item => item.movieGoTSeason1Image),
@@ -100,9 +98,8 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = Data.GOTSlides,
+                stateSlides: state.stateSlides = GOTSlide,
                 logo: state.logo = "../../images/got.png",
-                stateContent: state.stateContent = Data.vikingsData,
                 wayStory: state.wayStory = (item => item.movieGoTSeason2Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason2Video),
                 wayImage: state.wayImage = (item => item.movieGoTSeason2Image),

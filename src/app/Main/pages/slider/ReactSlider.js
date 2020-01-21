@@ -17,7 +17,7 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    const { stateSlides, OnSliderClose, sliderClass, ButtonClose, clicked, OnSliderOpen} = this.props;
+    const { stateSlides, OnSliderClose, sliderClass, ButtonClose, clicked, OnSliderOpen, DataArrey} = this.props;
     return (
       <div className="sliderDiv">
               {clicked ? (
@@ -36,7 +36,7 @@ class ReactSlider extends React.Component {
               ></button>
               )}
         <Slider {...settings} className={sliderClass}>
-          {stateSlides.map(({ h1, text, h2, image, button, id, href }) => (
+          {DataArrey[stateSlides].map(({ h1, text, h2, image, button, id, href }) => (
             <div className="HeaderSlick" key={id}>
               <div className="slide">
                 <div className="Slides">
@@ -62,6 +62,7 @@ const mapStateToProps = state => ({
   sliderClass: state.Rules.sliderClass,
   ButtonClose: state.Rules.ButtonClose,
   clicked: state.Rules.clicked,
+  DataArrey: state.Data,
 })
 const mapDispatchToProps = dispatch => ({
   OnSliderClose: () => dispatch({

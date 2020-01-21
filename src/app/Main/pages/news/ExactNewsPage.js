@@ -1,11 +1,12 @@
 import React from "react";
-import newsData from "../../../../redux/newsData.js";
+
 import { getContentMap } from "../../../../redux/Data";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"
 
 class ExactNewsPage extends React.Component {
   render() {
-    const { match, contentMap = getContentMap(newsData) } = this.props;
+    const { match, newsData, contentMap = getContentMap(newsData) } = this.props;
     return (
       <div className="containerMain">
         <div className="newsState">
@@ -26,7 +27,7 @@ class ExactNewsPage extends React.Component {
             <div className="row">
               <img
                 className="ExactNewsImage"
-                src={contentMap[match.params.id].newsImage}
+                src={contentMap[match.params.id].newsImage} alt=""
               />
               <div className="ExactNewsText">
                 {contentMap[match.params.id].newsText}
@@ -38,4 +39,8 @@ class ExactNewsPage extends React.Component {
     );
   }
 }
-export default ExactNewsPage;
+const mapStateToProps = (state) => ({
+  newsData: state.newsData
+})
+
+export default connect(mapStateToProps)( ExactNewsPage);

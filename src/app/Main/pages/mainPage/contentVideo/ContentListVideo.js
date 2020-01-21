@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
+import { connect } from "react-redux"
 
 
 const ContentListVideo = ({
   videos,
-  stateContent,
-  wayVIdeo
+  wayVIdeo,
+  DataArrey,
 }) => {
     return (
       <div className={videos}>
         <div className="contentBlockName ">Videos</div>
         <div className="ContentList">
-          {stateContent
+          {DataArrey
             .filter(wayVIdeo)
             .map(({ name, description, video, id }) => (
               <div className="Content" key={id}>
@@ -31,6 +32,8 @@ const ContentListVideo = ({
       </div>
     );
   }
+const mapStateToProps = state => ({
+  DataArrey: state.Data.Data
+})
 
-
-export default ContentListVideo;
+export default connect(mapStateToProps)(ContentListVideo);
