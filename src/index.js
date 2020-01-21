@@ -4,12 +4,12 @@ import App from "./app/App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import Data, { reloader } from "./redux/Data";
+
 import rootReducer from "./store/rootReducer";
 
 
 const store = createStore(rootReducer);
-// let rerenderEntireTree = () => {
+let rerenderEntireTree = () => {
   
   ReactDOM.render(
     <Provider store={store}>
@@ -19,7 +19,5 @@ const store = createStore(rootReducer);
     </Provider>,
     document.getElementById("root")
   );
-// };
-
-// reloader(rerenderEntireTree);
-
+  }
+  rerenderEntireTree()

@@ -210,5 +210,4 @@ let newId = () => {
   let newId = idCount.id + 1;
   return newId;
 }
-console.log(Data.vikingsData)
 export default Data;

@@ -8,7 +8,9 @@ const ContentListVideo = ({
   videos,
   wayVIdeo,
   DataArrey,
+
 }) => {
+  console.log(DataArrey)
     return (
       <div className={videos}>
         <div className="contentBlockName ">Videos</div>
@@ -32,8 +34,8 @@ const ContentListVideo = ({
       </div>
     );
   }
+  
 const mapStateToProps = state => ({
   DataArrey: state.Data.Data
 })
-
 export default connect(mapStateToProps)(ContentListVideo);

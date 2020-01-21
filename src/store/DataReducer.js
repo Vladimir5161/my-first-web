@@ -341,27 +341,24 @@ const initialState = {
     }
   ],
   AddImage: {
-    newImage: ""
+    newImage: "",
   },
   AddVideo: {
     newVideo: "",
     newVideoName: "",
-    newVideoDescription: ""
+    newVideoDescription: "",
   },
   AddStory: {
     newStoryImage: "",
     newStoryName: "",
-    newStoryText: ""
-  }
+    newStoryText: "",
+  },
+    
 }
-let rerenderEntireTree = () => {
-  console.log("s");
-};
-// export let reloader = observer => {
-//   rerenderEntireTree = observer;
-// };
-const DataReducer = (state = initialState, action) => {
 
+      
+const DataReducer = (state = initialState, action) => {
+  console.log(state.AddImage.newImage)
   let newId = () => {
     let idCount = state.Data.pop();
     state.Data.push(idCount);
@@ -372,57 +369,38 @@ const DataReducer = (state = initialState, action) => {
     case "NEWTEXTIMAGE": 
       return {
         ...state,
-        [action.newText]: state.AddImage.newImage = action.newText
-          // rerenderEntireTree(state);
+       newImage: state.AddImage.newImage = action.TextImage ,
       }
     case "NEWTEXTVIDEO":
       return {
         ...state,
-        newTextVideo: (newText) => {
-          state.AddVideo.newVideo = newText;
-          rerenderEntireTree(state);
+        newVideo: state.AddVideo.newVideo = action.TextVideo,
       }
-    }
     case "NEWTEXTVIDEODESCRIPTION":
       return {
         ...state,
-        newTextVideoDescription: newText => {
-          state.AddVideo.newVideoDescription = newText;
-          rerenderEntireTree(state);
+        newTextVideoDescription: state.AddVideo.newVideoDescription = action.TextVideoDescription,
       }
-    }
     case "NEWTEXTVIDEONAME":
       return {
         ...state,
-        newTextVideoName: newText => {
-          state.AddVideo.newVideoName = newText;
-          rerenderEntireTree(state);
+        newTextVideoName: state.AddVideo.newVideoName = action.TextVideoName,
       }
-    }
     case "NEWTEXTSTORYIMAGE":
       return {
         ...state,
-        newTextStoryImage: newText => {
-          state.AddStory.newStoryImage = newText
-          rerenderEntireTree(state);
+        newTextStoryImage: state.AddStory.newStoryImage = action.TextStoryImage
         }
-      }
     case "NEWTEXTSTORYNAME":
       return {
         ...state,
-        newTextStoryName: newText => {
-          state.AddStory.newStoryName = newText
-          rerenderEntireTree(state);
+        newTextStoryName: state.AddStory.newStoryName = action.TextStoryName
         }
-      }
     case "NEWTEXTSTORYTEXT":
       return {
         ...state,
-        newTextStoryText: newText => {
-          state.AddStory.newStoryText = newText
-          rerenderEntireTree(state);
+        newTextStory: state.AddStory.newStoryText = action.TextStory
         }
-      }
     case "ADDVIDEO":
       let addVideo = (
         currentVideo,
@@ -475,7 +453,6 @@ const DataReducer = (state = initialState, action) => {
                 : state.Data.push(newVideo3);
         };
         chosenAdd();
-        rerenderEntireTree(state);
       };
       return {
         addVideo
@@ -531,51 +508,45 @@ const DataReducer = (state = initialState, action) => {
                 : state.Data.push(newStory3);
         };
         chosenAdd();
-        rerenderEntireTree(state);
       };
       return {
         addStory
       }
-      case "ADDIMAGE":
-        const chosenAdd = (currentImage, filterWay, filterWay1, filterWay2) => {
-          let newImage = {
-            [action.id]: newId(),
-            [action.movieVikingsSeason1Image]: true,
-            [action.image]: currentImage,
-        
-          };
-         let newImage1 = {
-            id: newId(),
-            movieVikingsSeason2Image: true,
-            image: currentImage,
-        
-          };
-          let newImage2 = {
-            [action.id]: newId(),
-            [action.movieGoTSeason1Image]: true,
-            [action.image]: currentImage,
-        
-          };
-          let newImage3 = {
-            id: newId(),
-            movieGoTSeason2Image: true,
-            image: currentImage,
-        
-          };
-          filterWay
-            ? state.Data.push(newImage)
-            : filterWay1
-            ? state.Data.push(newImage1)
-            : filterWay2
-            ? state.Data.push(newImage2)
-            : state.Data.push(newImage3)
-        }
-        return {
+      case "ADDIMAGE":   
+      let newImage = {
+        id: newId(),
+        movieVikingsSeason1Image: true,
+        image: action.currentImage,
+    
+      };
+     let newImage1 = {
+        id: newId(),
+        movieVikingsSeason2Image: true,
+        image: action.currentImage,
+    
+      };
+      let newImage2 = {
+        id: newId(),
+        movieGoTSeason1Image: true,
+        image: action.currentImage,
+    
+      };
+      let newImage3 = {
+        id: newId(),
+        movieGoTSeason2Image: true,
+        image: action.currentImage,
+      };  
+        return  {
           ...state,
-          chosenAdd
-            
-        }
-
+          newImage: [action.filterWay]
+          ? state.Data.push(newImage)
+          : [action.filterWay1]
+          ? state.Data.push(newImage1)
+          : [action.filterWay2]
+          ? state.Data.push(newImage2)
+          : state.Data.push(newImage3)
+       
+      }
     default:
       return state;
   }

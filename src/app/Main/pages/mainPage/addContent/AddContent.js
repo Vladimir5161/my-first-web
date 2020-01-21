@@ -33,7 +33,7 @@ const AddContent = ({
   newTextImage,
   newTextStoryImage,
   newTextStoryName,
-  newTextStoryText,
+  newTextStory,
   newTextVideo,
   newTextVideoName,
   newTextVideoDescription,
@@ -55,28 +55,28 @@ const AddContent = ({
     };
 
     let onTextChangeVideo = newVideo => {
-      let TextVideo = newVideo.current.value;
-      newTextVideo(TextVideo);
+      let newText = newVideo.current.value;
+      newTextVideo(newText);
     };
     let onTextChangeVideoName = newVideoName => {
-      let newTextName = newVideoName.current.value;
-      newTextVideoName(newTextName);
+      let newText = newVideoName.current.value;
+      newTextVideoName(newText);
     };
     let onTextChangeVideoDescription = newVideoDescription => {
-      let TextDescription = newVideoDescription.current.value;
-      newTextVideoDescription(TextDescription);
+      let newText = newVideoDescription.current.value;
+      newTextVideoDescription(newText);
     };
     let onTextChangeStory = newStory => {
-      let TextStory = newStory.current.value;
-      newTextStoryText(TextStory);
+      let newText = newStory.current.value;
+      newTextStory(newText);
     };
     let onTextChangeStoryImage = newStoryImage => {
-      let StoryImage = newStoryImage.current.value;
-      newTextStoryImage(StoryImage);
+      let newText = newStoryImage.current.value;
+      newTextStoryImage(newText);
     };
     let onTextChangeStoryName = newStoryName => {
-      let TextStoryName = newStoryName.current.value;
-      newTextStoryName(TextStoryName);
+      let newText = newStoryName.current.value;
+      newTextStoryName(newText);
     };
 
     let pass = filterWay;
@@ -309,40 +309,40 @@ const mapDispatchToProps = (dispatch) => ({
   onClickFilterButton: () =>dispatch({
     type: "ONCLICKFILTERBUTTON",
   }),
-  newTextStoryText: (newText) =>dispatch({
+  newTextStory: (action) =>dispatch({
     type: "NEWTEXTSTORYTEXT",
-    newText,
+    TextStory: action,
   }),
-  newTextStoryImage: (newText) =>dispatch({
+  newTextStoryImage: (action) =>dispatch({
     type: "NEWTEXTSTORYIMAGE",
-    newText,
+    TextStoryImage: action,
     }),
-  newTextStoryName: (newText) =>dispatch({
+  newTextStoryName: (action) =>dispatch({
     type: "NEWTEXTSTORYNAME",
-    newText,
+    TextStoryName: action,
   }),
-  newTextImage: (newText) => dispatch({
+  newTextImage: (action) => dispatch({
     type: "NEWTEXTIMAGE",
-    newText,
+    TextImage : action,
   }),
-  newTextVideo: (newText) => dispatch({
-    type: "NEWTEXTVIDEO",
-    newText,
+  newTextVideo: (action) => dispatch({
+    type: "NEWTEXTVEO",
+    TextVideo: action,
   }),
-  newTextVideoName: (newText)=>dispatch({
+  newTextVideoName: (action)=>dispatch({
     type: "NEWTEXTVIDEONAME",
-    newText,
+    TextVideoName: action,
   }),
-  newTextVideoDescription: (newText)=>dispatch({
+  newTextVideoDescription: (action)=>dispatch({
     type: "NEWTEXTVIDEODESCRIPTION",
-    newText,
+    TextVideoDescription: action,
   }),
   addImage: (newImageAdd, pass, pass1, pass2)=>dispatch({
     type: "ADDIMAGE",
-    newImageAdd,
-    pass,
-    pass1,
-    pass2,
+    currentImage: newImageAdd,
+    filterWay: pass,
+    filterWay1: pass1,
+    filterWay2: pass2,
   }),
   addVideo: ()=>dispatch({
     type: "ADDVIDEO",
