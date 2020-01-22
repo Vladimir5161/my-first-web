@@ -9,8 +9,6 @@ import rootReducer from "./store/rootReducer";
 
 const store = createStore(rootReducer);
 
-const render = () => {
-
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
@@ -19,5 +17,3 @@ const render = () => {
     </Provider>,
     document.getElementById("root")
   );
-  }
-  render(store);

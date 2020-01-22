@@ -1,3 +1,4 @@
+import { render } from "react-dom";
 
 
 const initialState = {
@@ -366,6 +367,8 @@ const DataReducer = (state = initialState, action) => {
     let newId = idCount.id + 1;
     return newId;
   }
+  let newState = {...state};
+  newState.Data = [...state.Data];
   switch (action.type) {
     case "NEWTEXTIMAGE":
       return {
@@ -409,7 +412,6 @@ const DataReducer = (state = initialState, action) => {
         video: action.currentVideo,
         name: action.currentVideoName,
         description: action.currentVideoDescription,
-
       };
       let newVideo1 = {
         id: newId(),
@@ -435,16 +437,15 @@ const DataReducer = (state = initialState, action) => {
         description: action.currentVideoDescription,
 
       };
-      return {
-        ...state,
-        newVideo: [action.filterWay]
-          ? state.Data.push(newVideo)
+
+      [action.filterWay]
+          ? newState.Data.push(newVideo)
           : [action.filterWay1]
-            ? state.Data.push(newVideo1)
+            ? newState.Data.push(newVideo1)
             : [action.filterWay2]
-              ? state.Data.push(newVideo2)
-              : state.Data.push(newVideo3),
-      }
+              ? newState.Data.push(newVideo2)
+              : newState.Data.push(newVideo3)
+      return newState
     case "ADDSTORY":
       let newStory = {
         id: newId(),
@@ -478,16 +479,14 @@ const DataReducer = (state = initialState, action) => {
         imageContent: action.currenStorytImage,
 
       };
-      return {
-        ...state,
-        newStory: [action.filterWay]
-          ? state.Data.push(newStory)
+      [action.filterWay]
+          ? newState.Data.push(newStory)
           : [action.filterWay1]
-            ? state.Data.push(newStory1)
+            ? newState.Data.push(newStory1)
             : [action.filterWay2]
-              ? state.Data.push(newStory2)
-              : state.Data.push(newStory3),
-      }
+              ? newState.Data.push(newStory2)
+              : newState.Data.push(newStory3)
+      return newState
     case "ADDIMAGE":
       let newImage = {
         id: newId(),
@@ -512,16 +511,14 @@ const DataReducer = (state = initialState, action) => {
         movieGoTSeason2Image: true,
         image: action.currentImage,
       };
-      return {
-        ...state,
-        newImage: [action.filterWay]
-          ? state.Data.push(newImage)
-          : [action.filterWay1]
-            ? state.Data.push(newImage1)
-            : [action.filterWay2]
-              ? state.Data.push(newImage2)
-              : state.Data.push(newImage3),
-      }
+      [action.filterWay]
+      ? newState.Data.push(newImage)
+      : [action.filterWay1]
+        ? newState.Data.push(newImage1)
+        : [action.filterWay2]
+          ? newState.Data.push(newImage2)
+          : newState.Data.push(newImage3)
+      return newState
     default:
       return state;
   }
