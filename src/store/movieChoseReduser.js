@@ -1,11 +1,7 @@
 
-
-
-let vikingsSlide = "vikingsSlides";
-
 const initialState = {
         chosen: false,
-        stateSlides: vikingsSlide,
+        stateSlides: "vikingsSlides",
         logo: "../../images/logo.png",
         wayStory: item => item.movieVikingsSeason1Story,
         wayVIdeo: item => item.movieVikingsSeason1Video,
@@ -17,13 +13,12 @@ const initialState = {
         Season: "Season 4-6"
     }
 const movieChoseReducer = (state = initialState, action) => {
-    const GOTSlide = "GOTSlides";
     switch(action.type) {
         case "MOVIEGROUP1CLICK":
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = GOTSlide,
+                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 wayStory: state.wayStory = (item => item.movieGoTSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason1Video),
@@ -38,7 +33,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = vikingsSlide,
+                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 wayStory: state.wayStory = (item => item.movieVikingsSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason1Video),
@@ -53,7 +48,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = vikingsSlide,
+                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 wayStory: state.wayStory = (item => item.movieVikingsSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason1Video),
@@ -68,7 +63,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = vikingsSlide,
+                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 wayStory: state.wayStory = (item => item.movieVikingsSeason2Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieVikingsSeason2Video),
@@ -83,7 +78,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = GOTSlide,
+                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 wayStory: state.wayStory = (item => item.movieGoTSeason1Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason1Video),
@@ -98,7 +93,7 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = GOTSlide,
+                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 wayStory: state.wayStory = (item => item.movieGoTSeason2Story),
                 wayVIdeo: state.wayVIdeo = (item => item.movieGoTSeason2Video),

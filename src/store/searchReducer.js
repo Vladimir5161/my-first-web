@@ -6,7 +6,6 @@ const initialState = {
 const searchReducer = (state = initialState, action) => {
     switch(action.type) {
         case "SEARCHON":
-
             return {
                 ...state,
                 search: action.newSearch =  "searchFieldActive",
