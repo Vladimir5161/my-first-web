@@ -1,17 +1,5 @@
 import React from "react";
 import "./AddContent.css";
-// import {  
-//   addImage,
-//   addVideo,
-//   addStory,
-//   newTextImage,
-//   newTextVideo,
-//   newTextVideoName,
-//   newTextVideoDescription,
-//   newTextStoryText,
-//   newTextStoryImage,
-//   newTextStoryName,
-// } from "../../../../../redux/Data";
 import { connect } from "react-redux"
 
 const AddContent = ({
@@ -79,45 +67,40 @@ const AddContent = ({
       newTextStoryName(newText);
     };
 
-    let pass = filterWay;
-    let pass1 = filterWay1;
-    let pass2 = filterWay2;
-    let pass3 = filterWay3;
-    let addNewImage = () => {
-      let newImageAdd = newImage.current.value;
 
-      addImage(newImageAdd, pass, pass1, pass2);
+    let addNewImage = () => {
+      let currentImage = newImage.current.value;
+
+      addImage(currentImage, filterWay, filterWay1, filterWay2);
       newImage.current.value = "";
     };
     let addNewVideo = () => {
-      let newVideoAdd = newVideo.current.value;
-      let newVideoNameAdd = newVideoName.current.value;
-      let newVideoDescriptionAdd = newVideoDescription.current.value;
+      let currentVideo = newVideo.current.value;
+      let currentVideoName = newVideoName.current.value;
+      let currentVideoDescription = newVideoDescription.current.value;
       addVideo(
-        newVideoAdd,
-        newVideoNameAdd,
-        newVideoDescriptionAdd,
-        pass,
-        pass1,
-        pass2,
-        pass3
+        currentVideo,
+        currentVideoName,
+        currentVideoDescription,
+        filterWay,
+        filterWay1,
+        filterWay2,
       );
       newVideo.current.value = "";
       newVideoName.current.value = "";
       newVideoDescription.current.value = "";
     };
     let addNewStory = () => {
-      let newImageAdd = newStoryImage.current.value;
-      let newStoryAdd = newStory.current.value;
-      let newStoryNameAdd = newStoryName.current.value;
+      let currentStoryImage = newStoryImage.current.value;
+      let currentStory = newStory.current.value;
+      let currentStoryName = newStoryName.current.value;
       addStory(
-        newStoryAdd,
-        newStoryNameAdd,
-        newImageAdd,
-        pass,
-        pass1,
-        pass2,
-        pass3
+        currentStory,
+        currentStoryName,
+        currentStoryImage,
+        filterWay,
+        filterWay1,
+        filterWay2,
       );
       newStoryName.current.value = "";
       newStoryImage.current.value = "";
@@ -326,7 +309,7 @@ const mapDispatchToProps = (dispatch) => ({
     TextImage : action,
   }),
   newTextVideo: (action) => dispatch({
-    type: "NEWTEXTVEO",
+    type: "NEWTEXTVIDEO",
     TextVideo: action,
   }),
   newTextVideoName: (action)=>dispatch({
@@ -337,18 +320,30 @@ const mapDispatchToProps = (dispatch) => ({
     type: "NEWTEXTVIDEODESCRIPTION",
     TextVideoDescription: action,
   }),
-  addImage: (newImageAdd, pass, pass1, pass2)=>dispatch({
+  addImage: (currentImage, filterWay, filterWay1, filterWay2)=>dispatch({
     type: "ADDIMAGE",
-    currentImage: newImageAdd,
-    filterWay: pass,
-    filterWay1: pass1,
-    filterWay2: pass2,
+    currentImage,
+    filterWay,
+    filterWay1,
+    filterWay2,
   }),
-  addVideo: ()=>dispatch({
+  addVideo: (currentVideo, currentVideoName, currentVideoDescription, filterWay, filterWay1, filterWay2)=>dispatch({
     type: "ADDVIDEO",
+    currentVideo,
+    currentVideoName,
+    currentVideoDescription,
+    filterWay,
+    filterWay1,
+    filterWay2,
   }),
-  addStory: ()=>dispatch({
+  addStory: (currentStory, currentStoryName, currentStoryImage, filterWay, filterWay1, filterWay2)=>dispatch({
     type: "ADDSTORY",
+    currentStory,
+    currentStoryName,
+    currentStoryImage,
+    filterWay,
+    filterWay1,
+    filterWay2,
   }),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddContent);

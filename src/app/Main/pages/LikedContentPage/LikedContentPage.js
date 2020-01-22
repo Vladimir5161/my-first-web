@@ -1,13 +1,23 @@
 import React from "react";
 import { keys } from "lodash";
-import Data, { getContentMap } from "../../../../redux/Data";
 import LikedContentPageItem from "./LikedContentPageItem";
 import { connect } from "react-redux";
 import "./LikedContent.css";
 
+let getContentMap = arrey => {
+  return arrey.reduce(
+    (map, product) => ({
+      ...map,
+      [product.id]: product
+    }),
+    {}
+  );
+};
+
 const LikedContentPage = ({
   likedContentItems,
-  contentMapVikings = getContentMap(Data.vikingsData),
+  DataArrey,
+  contentMapVikings = getContentMap(DataArrey),
 }) => {
     return (
       <div>
@@ -28,8 +38,15 @@ const LikedContentPage = ({
 
 
 const mapStateToProps = store=> ({
-  likedContentItems: store.likedContentItems
+  likedContentItems: store.likedContentItems,
+  DataArrey: store.Data.Data
 })
+// const mapDispatchToProps = dispatch => ({
+//   getContentMap: (arrey) =>dispatch({
+//     type: "GETCONTENTMAP",
+//     arrey: arrey,
+//   })
+// })
 
 export default connect(mapStateToProps)(LikedContentPage);
 

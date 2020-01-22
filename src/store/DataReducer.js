@@ -1,3 +1,5 @@
+
+
 const initialState = {
   Data: [
     {
@@ -353,12 +355,11 @@ const initialState = {
     newStoryName: "",
     newStoryText: "",
   },
-    
+
 }
 
-      
+
 const DataReducer = (state = initialState, action) => {
-  console.log(state.AddImage.newImage)
   let newId = () => {
     let idCount = state.Data.pop();
     state.Data.push(idCount);
@@ -366,10 +367,10 @@ const DataReducer = (state = initialState, action) => {
     return newId;
   }
   switch (action.type) {
-    case "NEWTEXTIMAGE": 
+    case "NEWTEXTIMAGE":
       return {
         ...state,
-       newImage: state.AddImage.newImage = action.TextImage ,
+        newImage: state.AddImage.newImage = action.TextImage,
       }
     case "NEWTEXTVIDEO":
       return {
@@ -390,162 +391,136 @@ const DataReducer = (state = initialState, action) => {
       return {
         ...state,
         newTextStoryImage: state.AddStory.newStoryImage = action.TextStoryImage
-        }
+      }
     case "NEWTEXTSTORYNAME":
       return {
         ...state,
         newTextStoryName: state.AddStory.newStoryName = action.TextStoryName
-        }
+      }
     case "NEWTEXTSTORYTEXT":
       return {
         ...state,
         newTextStory: state.AddStory.newStoryText = action.TextStory
-        }
+      }
     case "ADDVIDEO":
-      let addVideo = (
-        currentVideo,
-        currentName,
-        currentDescription,
-        filterWay,
-        filterWay1,
-        filterWay2,
+      let newVideo = {
+        id: newId(),
+        movieVikingsSeason1Video: true,
+        video: action.currentVideo,
+        name: action.currentVideoName,
+        description: action.currentVideoDescription,
 
-      ) => {
-        let newVideo = {
-          id: newId(),
-          movieVikingsSeason1Video: true,
-          video: currentVideo,
-          name: currentName,
-          description: currentDescription,
+      };
+      let newVideo1 = {
+        id: newId(),
+        movieVikingsSeason2Video: true,
+        video: action.currentVideo,
+        name: action.currentVideoName,
+        description: action.currentVideoDescription,
 
-        };
-        let newVideo1 = {
-          id: newId(),
-          movieVikingsSeason2Video: true,
-          video: currentVideo,
-          name: currentName,
-          description: currentDescription,
+      };
+      let newVideo2 = {
+        id: newId(),
+        movieGoTSeason1Video: true,
+        video: action.currentVideo,
+        name: action.currentVideoName,
+        description: action.currentVideoDescription,
 
-        };
-        let newVideo2 = {
-          id: newId(),
-          movieGoTSeason1Video: true,
-          video: currentVideo,
-          name: currentName,
-          description: currentDescription,
+      };
+      let newVideo3 = {
+        id: newId(),
+        movieGoTSeason2Video: true,
+        video: action.currentVideo,
+        name: action.currentVideoName,
+        description: action.currentVideoDescription,
 
-        };
-        let newVideo3 = {
-          id: newId(),
-          movieGoTSeason2Video: true,
-          video: currentVideo,
-          name: currentName,
-          description: currentDescription,
-
-        };
-        const chosenAdd = () => {
-          filterWay
-            ? state.Data.push(newVideo)
-            : filterWay1
-              ? state.Data.push(newVideo1)
-              : filterWay2
-                ? state.Data.push(newVideo2)
-                : state.Data.push(newVideo3);
-        };
-        chosenAdd();
       };
       return {
-        addVideo
+        ...state,
+        newVideo: [action.filterWay]
+          ? state.Data.push(newVideo)
+          : [action.filterWay1]
+            ? state.Data.push(newVideo1)
+            : [action.filterWay2]
+              ? state.Data.push(newVideo2)
+              : state.Data.push(newVideo3),
       }
     case "ADDSTORY":
-      let addStory = (
-        currentStory,
-        currentName,
-        currentImage,
-        filterWay,
-        filterWay1,
-        filterWay2
-      ) => {
-        let newStory = {
-          id: newId(),
-          movieVikingsSeason1Story: true,
-          story: currentStory,
-          name: currentName,
-          imageContent: currentImage,
+      let newStory = {
+        id: newId(),
+        movieVikingsSeason1Story: true,
+        story: action.currentStory,
+        name: action.currentStoryName,
+        imageContent: action.currentStoryImage,
 
-        };
-        let newStory1 = {
-          id: newId(),
-          movieVikingsSeason2Story: true,
-          story: currentStory,
-          name: currentName,
-          imageContent: currentImage,
+      };
+      let newStory1 = {
+        id: newId(),
+        movieVikingsSeason2Story: true,
+        story: action.currentStory,
+        name: action.currentStoryName,
+        imageContent: action.currentStoryImage,
 
-        };
-        let newStory2 = {
-          id: newId(),
-          movieGoTSeason1Story: true,
-          story: currentStory,
-          name: currentName,
-          imageContent: currentImage,
+      };
+      let newStory2 = {
+        id: newId(),
+        movieGoTSeason1Story: true,
+        story: action.currentStory,
+        name: action.currentStoryName,
+        imageContent: action.currentStoryImage,
 
-        };
-        let newStory3 = {
-          id: newId(),
-          movieGoTSeason2Story: true,
-          story: currentStory,
-          name: currentName,
-          imageContent: currentImage,
+      };
+      let newStory3 = {
+        id: newId(),
+        movieGoTSeason2Story: true,
+        story: action.currentStory,
+        name: action.currenStorytName,
+        imageContent: action.currenStorytImage,
 
-        };
-        const chosenAdd = () => {
-          filterWay
-            ? state.Data.push(newStory)
-            : filterWay1
-              ? state.Data.push(newStory1)
-              : filterWay2
-                ? state.Data.push(newStory2)
-                : state.Data.push(newStory3);
-        };
-        chosenAdd();
       };
       return {
-        addStory
+        ...state,
+        newStory: [action.filterWay]
+          ? state.Data.push(newStory)
+          : [action.filterWay1]
+            ? state.Data.push(newStory1)
+            : [action.filterWay2]
+              ? state.Data.push(newStory2)
+              : state.Data.push(newStory3),
       }
-      case "ADDIMAGE":   
+    case "ADDIMAGE":
       let newImage = {
         id: newId(),
         movieVikingsSeason1Image: true,
         image: action.currentImage,
-    
+
       };
-     let newImage1 = {
+      let newImage1 = {
         id: newId(),
         movieVikingsSeason2Image: true,
         image: action.currentImage,
-    
+
       };
       let newImage2 = {
         id: newId(),
         movieGoTSeason1Image: true,
         image: action.currentImage,
-    
+
       };
       let newImage3 = {
         id: newId(),
         movieGoTSeason2Image: true,
         image: action.currentImage,
-      };  
-        return  {
-          ...state,
-          newImage: [action.filterWay]
+      };
+      return {
+        ...state,
+        newImage: [action.filterWay]
           ? state.Data.push(newImage)
           : [action.filterWay1]
-          ? state.Data.push(newImage1)
-          : [action.filterWay2]
-          ? state.Data.push(newImage2)
-          : state.Data.push(newImage3)
-       
+            ? state.Data.push(newImage1)
+            : [action.filterWay2]
+              ? state.Data.push(newImage2)
+              : state.Data.push(newImage3),
       }
     default:
       return state;

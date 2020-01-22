@@ -7,10 +7,10 @@ import { createStore } from "redux";
 
 import rootReducer from "./store/rootReducer";
 
-
 const store = createStore(rootReducer);
-let rerenderEntireTree = () => {
-  
+
+const render = () => {
+
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
@@ -20,4 +20,4 @@ let rerenderEntireTree = () => {
     document.getElementById("root")
   );
   }
-  rerenderEntireTree()
+  render(store);

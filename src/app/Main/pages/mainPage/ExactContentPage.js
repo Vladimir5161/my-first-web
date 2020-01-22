@@ -1,8 +1,17 @@
 import React from "react";
-import  { getContentMap } from "../../../../redux/Data.js";
 import { Link } from "react-router-dom";
 import Player from "../../../../common/Player.js";
 import { connect } from "react-redux"
+
+let getContentMap = arrey => {
+  return arrey.reduce(
+    (map, product) => ({
+      ...map,
+      [product.id]: product
+    }),
+    {}
+  );
+};
 
 const ExactContentPage = ({
   match, 

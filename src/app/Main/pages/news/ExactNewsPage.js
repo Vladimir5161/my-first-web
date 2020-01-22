@@ -1,8 +1,16 @@
 import React from "react";
-
-import { getContentMap } from "../../../../redux/Data";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
+
+let getContentMap = arrey => {
+  return arrey.reduce(
+    (map, product) => ({
+      ...map,
+      [product.id]: product
+    }),
+    {}
+  );
+};
 
 class ExactNewsPage extends React.Component {
   render() {
