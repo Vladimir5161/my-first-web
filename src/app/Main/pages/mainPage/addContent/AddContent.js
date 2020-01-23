@@ -1,6 +1,7 @@
 import React from "react";
 import "./AddContent.css";
 import { connect } from "react-redux"
+import PasswordAddContent from "./PasswordAddContent"
 
 const AddContent = ({
   filterWay,
@@ -28,6 +29,20 @@ const AddContent = ({
   addImage,
   addStory,
   addVideo,
+  UserPuttedName,
+  UserPuttedPass,
+  OnNameChange,
+  OnPassChange,
+  passwordWindow,
+  OnPassCheckClickSuccess,
+  OnPassCheckClickNot,
+  userName,
+  userPass,
+  userPassClass,
+  userNameClass,
+  OnUserFiledClick,
+  userInfoField,
+  OnPassCheckClick
 }) => {
     let newImage = React.createRef();
     let newVideo = React.createRef();
@@ -130,7 +145,22 @@ const AddContent = ({
               {addContent}
             </button>
           )}
-
+          <PasswordAddContent 
+            UserPuttedName={UserPuttedName}
+            UserPuttedPass={UserPuttedPass} 
+            OnNameChange={OnNameChange} 
+            OnPassChange={OnPassChange} 
+            passwordWindow={passwordWindow}
+            OnPassCheckClickSuccess={OnPassCheckClickSuccess}
+            OnPassCheckClickNot={OnPassCheckClickNot}
+            userName={userName}
+            userPass={userPass}
+            userPassClass={userPassClass}
+            userNameClass={userNameClass}
+            OnUserFiledClick={OnUserFiledClick}
+            userInfoField={userInfoField}
+            OnPassCheckClick={OnPassCheckClick}
+           />
           <ul className={filterContent}>
             <li
               onClick={() => {
@@ -274,6 +304,14 @@ const mapStateToProps = state => ({
   addContent: state.AddContent.addContent,
   clicked: state.AddContent.clicked,
   filterContent: state.AddContent.filterContent,
+  UserPuttedName: state.Pass.Name,
+  UserPuttedPass: state.Pass.Pass,
+  passwordWindow: state.Pass.passwordWindow,
+  userName: state.Pass.userName,
+  userPass: state.Pass.userPass,
+  userPassClass: state.Pass.userPassClass,
+  userNameClass: state.Pass.userNameClass,
+  userInfoField: state.Pass.userInfoField,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -345,5 +383,25 @@ const mapDispatchToProps = (dispatch) => ({
     filterWay1,
     filterWay2,
   }),
+  OnNameChange: (Name) => dispatch({
+    type: "ONNAMECHANGE",
+    Name: Name,
+  }),
+  OnPassChange: (Pass) => dispatch({
+    type: "ONPASSCHANGE",
+    Pass: Pass,
+  }),
+  OnPassCheckClickSuccess: () =>dispatch({
+    type: "ONPASSCHECKCLICKSUCCESS",
+  }),
+  OnPassCheckClickNot: () =>dispatch({
+    type: "ONPASSCHECKCLICKNOT",
+  }),
+  OnUserFiledClick: () =>dispatch({
+    type: "ONUSERFILEDCLICK",
+  }),
+  OnPassCheckClick: ()=>dispatch({
+    type: "ONPASSCHECKCLICK",
+  })
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddContent);

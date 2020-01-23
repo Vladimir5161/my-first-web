@@ -21,6 +21,7 @@ const rootReducer = combineReducers({
   filter: filterReducer,
   newsData: newsDataReducer,
   Data: DataReducer,
+  Pass: AddContentReducer,
 });
 
 export default rootReducer;

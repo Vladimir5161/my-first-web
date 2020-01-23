@@ -74,3 +74,45 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
+.passwordWindow {
+  width: 300px;
+  height: 180px;
+  border: 1px solid rgb(8, 8, 8);
+  background-color: rgba(122, 122, 122, 0.6);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 20px 10px;
+}
+.passwordWindow:hover {
+  border: 1px solid white;
+}
+.passwordWindowNo {
+  display: none;
+}
+.userInfoField {
+  width: 160px;
+  height: 30px;
+  border: 1px solid black;
+  margin: 0 auto;
+  background-color: inherit;
+}
+.userInfoFieldRed {
+  width: 160px;
+  height: 30px;
+  border: 1px solid rgb(204, 6, 6);
+  margin: 0 auto;
+  background-color: inherit;
+}
+.userInfoText {
+  font-size: 18px;
+  color: black;
+  line-height: 20px;
+  text-align: center;
+}
+.Submit {
+  height: 30px;
+  width: 100px;
+  padding: 0;
+  margin: 20px auto;
+}
