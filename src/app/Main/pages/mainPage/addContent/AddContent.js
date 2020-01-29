@@ -7,7 +7,6 @@ const AddContent = ({
   filterWay,
   filterWay1,
   filterWay2,
-  filterWay3,
   filterStory,
   filterImage,
   filterVideo,
@@ -226,7 +225,7 @@ const AddContent = ({
                 onTextChangeVideoName(newVideoName);
               }}
             ></textarea>
-            <div className="addContentH1">Input your description</div>
+            <div className="addContentH1">Input your Video description</div>
             <textarea
               type="text"
               className="inputContent"

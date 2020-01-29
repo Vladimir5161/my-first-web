@@ -18,5 +18,4 @@ const contentAddReducer = (state = {} , action) => {
 
   }
 };
-console.log(contentAddReducer.state)
 export default contentAddReducer;
