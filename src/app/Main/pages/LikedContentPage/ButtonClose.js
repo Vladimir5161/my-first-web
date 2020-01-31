@@ -4,7 +4,8 @@ import { connect } from "react-redux"
 const  ButtonClose = ({
   contentId, 
   deleteContent, 
-  onLikedCount
+  onLikedCount,
+  onLikedClick,
 }) => {
     return (
       <button
@@ -12,6 +13,7 @@ const  ButtonClose = ({
         onClick={() => {
           deleteContent(contentId);
           onLikedCount();
+          onLikedClick(contentId);
         }}
       ></button>
     );
@@ -20,10 +22,14 @@ const  ButtonClose = ({
 const mapDispatchToProps = (dispatch) => ({
   deleteContent: id =>dispatch({
     type: "ONLIKED",
-    id: id,
+    id,
   }),
   onLikedCount: ()=>dispatch({
     type: "ONLIKEDCOUNT",
-  })
+  }),
+  onLikedClick: (id)=>dispatch({
+    type: "ONLIKEDCLICK",
+    id,
+  }),
 })
 export default connect (null, mapDispatchToProps)(ButtonClose);

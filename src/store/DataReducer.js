@@ -1,4 +1,4 @@
-import { render } from "react-dom";
+
 
 
 const initialState = {
@@ -356,7 +356,9 @@ const initialState = {
     newStoryName: "",
     newStoryText: "",
   },
-
+  imagesCount:3,
+  videosCount: 2,
+  storiesCount: 2,
 }
 
 
@@ -519,6 +521,28 @@ const DataReducer = (state = initialState, action) => {
           ? newState.Data.push(newImage2)
           : newState.Data.push(newImage3)
       return newState
+    case "CHANGEIMAGESCOUNT": 
+      return {
+        ...state,
+        imagesCount: state.imagesCount + 3
+      }
+    case "CHANGEVIDEOSCOUNT": 
+      return {
+        ...state,
+        videosCount: state.videosCount + 2
+      }
+    case "CHANGESTORIESCOUNT": 
+      return {
+        ...state,
+        storiesCount: state.storiesCount + 2
+      }
+    case "ONDEFAULTCOUNTS":
+      return {
+        ...state,
+        imagesCount: state.imagesCount = 3,
+        videosCount: state.videosCount = 2,
+        storiesCount: state.storiesCount = 2
+      }
     default:
       return state;
   }

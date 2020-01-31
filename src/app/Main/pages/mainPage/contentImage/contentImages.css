@@ -2,11 +2,14 @@
   padding: 1.5px 3px;
   position: relative;
 }
-
+.Show-more {
+  display: block;
+}
 .ContentList-images {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  position: relative;
 }
 .content-list-item-images .likedNo,
 .content-list-item-images-clicked .likedNo {

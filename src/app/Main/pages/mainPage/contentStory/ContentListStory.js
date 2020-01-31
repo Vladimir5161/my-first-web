@@ -4,17 +4,25 @@ import ContentListItem from "../ContentListItem.js";
 import { connect } from "react-redux"
 
 
-const ContentListStory = ({      
-  stories,
-  DataArrey,
-  wayStory
-})=> {
+class ContentListStory extends React.Component {
+  render() {
+    let firstStoryPage = [];
+    let Stories = this.props.DataArrey.filter(this.props.wayStory);
+    let lastStory = (this.props.storiesCount > Stories.length ? Stories.length : this.props.storiesCount)
+    let newStories = Stories.slice(0, lastStory)
+    for(let i = 0; i < lastStory; i++) {  
+      firstStoryPage.push(newStories.shift())
+    }
+
+    let {      
+      stories,
+      ShowMoreStories,
+    }= this.props
     return (
       <div className={stories}>
         <div className="contentBlockName">Stories</div>
         <div className="ContentList">
-          {DataArrey
-            .filter(wayStory)
+          {firstStoryPage
             .map(
               ({ name, description, text, story, id, imageContent, video }) => (
                 <div className="Content" key={id}>
@@ -34,12 +42,20 @@ const ContentListStory = ({
               )
             )}
         </div>
+        <button className="Add-content Show-more" onClick={()=>{ShowMoreStories()}}>Show more</button>
       </div>
     );
   }
+}
 
   const mapStateToProps = state => ({
-    DataArrey: state.Data.Data
+    DataArrey: state.Data.Data,
+    storiesCount: state.Data.storiesCount,
   })
-  
-  export default connect(mapStateToProps)(ContentListStory);
+  const mapDispatchToProps = dispatch => ({
+    ShowMoreStories: () => dispatch({
+      type: "CHANGESTORIESCOUNT",
+    })
+  })
+
+  export default connect(mapStateToProps, mapDispatchToProps)(ContentListStory);

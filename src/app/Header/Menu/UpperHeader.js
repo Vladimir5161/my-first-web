@@ -38,6 +38,7 @@ class UpperHeader extends React.Component {
       OnClickedOff,
       OnRulesClick,
       Season,
+      onDefaultOpenedContentCount,
     } = this.props;
     return (
       <div className="upperheader" id="home">
@@ -58,6 +59,7 @@ class UpperHeader extends React.Component {
                   <li
                     onClick={() => {
                       OnMovieChose1();
+                      onDefaultOpenedContentCount()
                     }}
                     className="movie"
                   >
@@ -66,6 +68,7 @@ class UpperHeader extends React.Component {
                   <li
                     onClick={() => {
                       OnMovieChose2();
+                      onDefaultOpenedContentCount()
                     }}
                     className="movie"
                   >
@@ -83,6 +86,7 @@ class UpperHeader extends React.Component {
                       <li
                         onClick={() => {
                           OnGOTS1();
+                          onDefaultOpenedContentCount()
                         }}
                         className="season"
                       >
@@ -91,6 +95,7 @@ class UpperHeader extends React.Component {
                       <li
                         onClick={() => {
                           OnGOTS2();
+                          onDefaultOpenedContentCount()
                         }}
                         className="season"
                       >
@@ -104,6 +109,7 @@ class UpperHeader extends React.Component {
                       <li
                         onClick={() => {
                           OnVikingsS1();
+                          onDefaultOpenedContentCount()
                         }}
                         className="season"
                       >
@@ -112,6 +118,7 @@ class UpperHeader extends React.Component {
                       <li
                         onClick={() => {
                           OnVikingsS2();
+                          onDefaultOpenedContentCount()
                         }}
                         className="season"
                       >
@@ -195,6 +202,12 @@ const mapDispatchToProps = dispatch => ({
   OnRulesClick: ()=> dispatch({
     type: "ONRULESCLICK",
   }),
+  onDefaultOpenedContentCount: () =>dispatch({  /* обнюляю колличество открытых фото, видео и т.д. до изначальных значений (3 фото, 2 видео, 2 истории)*/
+    type: "ONDEFAULTCOUNTS",
+  }),
 })
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);

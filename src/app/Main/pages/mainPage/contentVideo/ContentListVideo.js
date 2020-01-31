@@ -4,20 +4,25 @@ import ContentListItem from "../ContentListItem.js";
 import { connect } from "react-redux"
 
 
-const ContentListVideo = ({
-  videos,
-  wayVIdeo,
-  DataArrey,
+class ContentListVideo extends React.Component { 
+  render() {
+    let firstVideoPage = [];
+    let Videos = this.props.DataArrey.filter(this.props.wayVIdeo);
+    let lastVideo = (this.props.videosCount > Videos.length ? (Videos.length) : (this.props.videosCount));
+    let newVideos = Videos.slice(0, lastVideo)
+    for(let i = 0; i < lastVideo; i++) {  
+      firstVideoPage.push(newVideos.shift())
+    }
 
-}) => {
-  console.log(DataArrey)
+    let {
+      videos,
+      ShowMoreVideos,
+     } = this.props
     return (
       <div className={videos}>
         <div className="contentBlockName ">Videos</div>
         <div className="ContentList">
-          {DataArrey
-            .filter(wayVIdeo)
-            .map(({ name, description, video, id }) => (
+          {firstVideoPage.map(({ name, description, video, id }) => (
               <div className="Content" key={id}>
                 <ContentListItem
                   video={video}
@@ -31,11 +36,20 @@ const ContentListVideo = ({
               </div>
             ))}
         </div>
+        <button className="Add-content Show-more" onClick={()=>{ShowMoreVideos()}}>Show more</button>
       </div>
     );
   }
+  }
+
   
 const mapStateToProps = state => ({
-  DataArrey: state.Data.Data
+  DataArrey: state.Data.Data,
+  videosCount: state.Data.videosCount,
 })
-export default connect(mapStateToProps)(ContentListVideo);
+const mapDispatchToProps = dispatch => ({
+  ShowMoreVideos: () => dispatch({
+    type: "CHANGEVIDEOSCOUNT",
+  })
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ContentListVideo);
