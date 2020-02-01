@@ -4,15 +4,14 @@ import "./MainPage.css";
 import "./contentImage/contentImages.css";
 import AddContent from "./addContent/AddContent";
 import Filter from "./Filter";
-import ContentListImage from "./contentImage/ContentListImage";
-import ContentListVideo from "./contentVideo/ContentListVideo";
-import ContentListStory from "./contentStory/ContentListStory";
+import ContentImageContainer from "./contentImage/ContentImageContainer";
+import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
+import ContentStoryContainer from "./contentStory/ContentStoryContainer";
 
 const FirstPage = ({
   images,
   stories,
   videos,
-  stateContent,
   wayVIdeo,
   wayImage,
   wayStory,
@@ -32,19 +31,16 @@ const FirstPage = ({
             <Filter />
           </div>
           <div className="Products" id="content">
-            <ContentListImage
+            <ContentImageContainer
               images={images}
-              stateContent={stateContent}
               wayImage={wayImage}
             />
-            <ContentListVideo
+            <ContentVideoContainer
               videos={videos}
-              stateContent={stateContent}
               wayVIdeo={wayVIdeo}
             />
-            <ContentListStory
+            <ContentStoryContainer
               stories={stories}
-              stateContent={stateContent}
               wayStory={wayStory}
             />
           </div>
@@ -53,7 +49,6 @@ const FirstPage = ({
     );
   }
 const mapStateToProps = state => ({
-  stateContent: state.movieChose1.stateContent,
   logo: state.movieChose1.logo,
   wayVIdeo: state.movieChose1.wayVIdeo,
   wayImage: state.movieChose1.wayImage,

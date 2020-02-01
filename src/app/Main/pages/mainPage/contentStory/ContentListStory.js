@@ -1,23 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
-import { connect } from "react-redux"
 
 
-class ContentListStory extends React.Component {
-  render() {
-    let firstStoryPage = [];
-    let Stories = this.props.DataArrey.filter(this.props.wayStory);
-    let lastStory = (this.props.storiesCount > Stories.length ? Stories.length : this.props.storiesCount)
-    let newStories = Stories.slice(0, lastStory)
-    for(let i = 0; i < lastStory; i++) {  
-      firstStoryPage.push(newStories.shift())
-    }
-
-    let {      
-      stories,
-      ShowMoreStories,
-    }= this.props
+const ContentListStory = ({stories,
+  ShowMoreStories, firstStoryPage}) => {
     return (
       <div className={stories}>
         <div className="contentBlockName">Stories</div>
@@ -46,16 +33,5 @@ class ContentListStory extends React.Component {
       </div>
     );
   }
-}
 
-  const mapStateToProps = state => ({
-    DataArrey: state.Data.Data,
-    storiesCount: state.Data.storiesCount,
-  })
-  const mapDispatchToProps = dispatch => ({
-    ShowMoreStories: () => dispatch({
-      type: "CHANGESTORIESCOUNT",
-    })
-  })
-
-  export default connect(mapStateToProps, mapDispatchToProps)(ContentListStory);
+  export default ContentListStory;
