@@ -57,7 +57,7 @@ const Filter = ({
 
 const mapDispatchToProps = dispatch => ({
     OnClickImage: () =>dispatch({
-        type: "ONCLICKIMAGE",
+        type: "ONCLICKPHOTO",
     }),
     OnClickVideo: () =>dispatch({
         type: "ONCLICKVIDEO",
