@@ -20,6 +20,9 @@ class ContentStoryContainer extends React.Component {
   const mapStateToProps = state => ({
     DataArrey: state.Data.Data,
     storiesCount: state.Data.storiesCount,
+    wayStory: state.movieChose1.wayStory,
+    stories: state.filter.stories,
+
   })
   const mapDispatchToProps = dispatch => ({
     ShowMoreStories: () => dispatch({

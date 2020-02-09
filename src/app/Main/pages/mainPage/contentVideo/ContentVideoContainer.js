@@ -23,6 +23,9 @@ class ContentVideoContainer extends React.Component {
 const mapStateToProps = state => ({
   DataArrey: state.Data.Data,
   videosCount: state.Data.videosCount,
+  wayVIdeo: state.movieChose1.wayVIdeo,
+  videos: state.filter.videos,
+
 })
 const mapDispatchToProps = dispatch => ({
   ShowMoreVideos: () => dispatch({

@@ -19,6 +19,8 @@ class ContentImageContainer extends React.Component {
   const mapStateToProps = state => ({
     DataArrey: state.Data.Data,
     imagesCount: state.Data.imagesCount,
+    wayImage: state.movieChose1.wayImage,
+    images: state.filter.images,
   })
   const mapDispatchToProps = dispatch => ({
     ShowMoreImages: () => dispatch({

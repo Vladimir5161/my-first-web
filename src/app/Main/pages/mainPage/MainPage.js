@@ -8,14 +8,7 @@ import ContentImageContainer from "./contentImage/ContentImageContainer";
 import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
 import ContentStoryContainer from "./contentStory/ContentStoryContainer";
 
-const FirstPage = ({
-  images,
-  stories,
-  videos,
-  wayVIdeo,
-  wayImage,
-  wayStory,
-}) => {
+const FirstPage = () => {
     return (
       <div className="containerMain">
         <div className="wrapper">
@@ -32,16 +25,10 @@ const FirstPage = ({
           </div>
           <div className="Products" id="content">
             <ContentImageContainer
-              images={images}
-              wayImage={wayImage}
             />
             <ContentVideoContainer
-              videos={videos}
-              wayVIdeo={wayVIdeo}
             />
             <ContentStoryContainer
-              stories={stories}
-              wayStory={wayStory}
             />
           </div>
         </div>
@@ -50,12 +37,6 @@ const FirstPage = ({
   }
 const mapStateToProps = state => ({
   logo: state.movieChose1.logo,
-  wayVIdeo: state.movieChose1.wayVIdeo,
-  wayImage: state.movieChose1.wayImage,
-  wayStory: state.movieChose1.wayStory,
-  stories: state.filter.stories,
-  videos: state.filter.videos,
-  images: state.filter.images,
 })
 
 export default connect(mapStateToProps)(FirstPage);
