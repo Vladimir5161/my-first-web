@@ -11,10 +11,12 @@ const initialState = {
     Pass: "",
     userName: "",
     userPass: "",
+
     userInfoField: "userInfoField",
 
 }
 const AddContentReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case "ONFILTERIMAGECLICK":
             return {

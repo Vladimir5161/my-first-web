@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
 
 
+
 const ContentListStory = ({ stories,
   firstContent, onComponentChange }) => {
   let additionalCount = 2
@@ -36,3 +37,4 @@ const ContentListStory = ({ stories,
 }
 
 export default ContentListStory;
+

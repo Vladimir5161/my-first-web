@@ -26,3 +26,4 @@ const ContentListImage = ({ firstContent,
 }
 
 export default ContentListImage;
+
