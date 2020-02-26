@@ -1,0 +1,231 @@
+.upperheader {
+  display: grid;
+  grid-template-columns: 3fr 6fr 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  width: 1170px;
+  z-index: 40;
+  width: 100%;
+  position: relative;
+}
+.logo img {
+  padding: 0 10px;
+  max-width: 300px;
+  min-height: 130px;
+}
+.searcharea {
+  margin: 0 auto;
+}
+.navigationMenu:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.menu {
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+.menuPoints {
+  float: left;
+  margin: 0 13px;
+}
+.menuPoints:hover .contentSubMenu {
+  display: block;
+  line-height: 30px;
+}
+.MoviesSubMenu {
+  display: none;
+  position: absolute;
+  z-index: 30;
+}
+.menuPoints:hover .MoviesSubMenu {
+  display: block;
+  line-height: 30px;
+}
+.menuPoints a {
+  text-decoration: none;
+}
+.menuPoints a:hover {
+  color: #9e8f7c;
+}
+.menuPointsLinks {
+  display: block;
+  color: #fff;
+  font-family: "Monserrat";
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 30px;
+}
+.contentMenu {
+  display: block;
+  color: #fff;
+  font-family: "Monserrat";
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 30px;
+  position: relative;
+  z-index: 30;
+}
+.contentMenu:hover {
+  color: #9e8f7c;
+}
+.contentSubMenu {
+  display: none;
+  position: absolute;
+  z-index: 30;
+}
+.season,
+.movie {
+  display: block;
+  color: #fff;
+  font-family: "Monserrat";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.season:hover,
+.movie:hover {
+  color: #9e8f7c;
+}
+.searcharea {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+  position: relative;
+}
+.cart {
+  background-image: url(/images/likeW.png);
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 30px;
+  background-color: inherit;
+  margin: 0 13px;
+}
+.search {
+  background-image: url(/images/iconSearch.png);
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 26px;
+  width: 25px;
+  background-color: inherit;
+  margin: 0 13px;
+}
+
+.cart:hover,
+.search:hover {
+  cursor: pointer;
+}
+.countLike {
+  position: relative;
+  top: 10px;
+  left: 12px;
+  color: #fff;
+}
+.arrowScroll {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+.arrowScroll img {
+  height: 40px;
+  width: 70px;
+}
+@media screen and (max-width: 767px) {
+  .upperheader {
+    grid-template-rows: 4fr 7fr 2fr;
+    grid-template-columns: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .navigationMenu {
+    display: grid;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .searchFieldActive {
+    width: 410px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .searchFieldActive {
+    width: 300px;
+  }
+  .searchFieldActive input {
+    width: 180px;
+    font-size: 15px;
+  }
+  .menuPoints:hover .contentSubMenu,
+  .MoviesSubMenu {
+    top: 100px;
+    left: 85px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 400px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  .menuPoints:hover .contentSubMenu,
+  .MoviesSubMenu {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 350px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  .menuPoints:hover .contentSubMenu,
+  .MoviesSubMenu {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .searchFieldActive {
+    bottom: -110px;
+    width: 280px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  .searchFieldActive input {
+    width: 155px;
+    font-size: 15px;
+  }
+  .menuPoints:hover .contentSubMenu,
+  .MoviesSubMenu {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
