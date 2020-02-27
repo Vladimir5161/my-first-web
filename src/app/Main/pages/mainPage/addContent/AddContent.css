@@ -1,27 +1,5 @@
-.addContentTable {
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-}
-.inputImage {
-  width: 300px;
-  height: 40px;
-  margin: 0 auto;
-}
-.addContentH1 {
-  font-family: "Montserrat";
-  font-size: 16px;
-  color: #1d1c1c;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: center;
-  margin: 2px 0;
-}
-.inputContent {
-  margin: 0 auto;
-  width: 300px;
-  height: 25px;
-}
+
+
 .filterAddContent {
   justify-content: center;
   margin: 0 auto;
@@ -76,13 +54,13 @@
 }
 .passwordWindow {
   width: 300px;
-  height: 180px;
+  height: 160px;
   border: 1px solid rgb(8, 8, 8);
   background-color: rgba(122, 122, 122, 0.6);
   display: grid;
   justify-content: center;
   align-items: center;
-  padding: 10px 10px 20px 10px;
+  padding: 10px;
 }
 .passwordWindow:hover {
   border: 1px solid white;
@@ -90,29 +68,44 @@
 .passwordWindowNo {
   display: none;
 }
-.userInfoField {
-  width: 160px;
-  height: 30px;
-  border: 1px solid black;
-  margin: 0 auto;
-  background-color: inherit;
-}
-.userInfoFieldRed {
-  width: 160px;
-  height: 30px;
-  border: 1px solid rgb(204, 6, 6);
-  margin: 0 auto;
-  background-color: inherit;
-}
-.userInfoText {
-  font-size: 18px;
-  color: black;
-  line-height: 20px;
-  text-align: center;
-}
 .Submit {
+  display: block;
   height: 30px;
   width: 100px;
   padding: 0;
   margin: 20px auto;
+}
+.addContentInput input{
+  margin: 2px auto;
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: inherit;
+  color: black;
+}
+.addContentInput input::placeholder {
+  color: black;
+}
+.addContentButton {
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #c9c4c0;
+  border: 2px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+.inputError {
+  display: flex;
+  justify-content: center;
+  color: red;
+  margin: 0 auto;
+}
+.inputFieldError {
+  border-color: red;
 }

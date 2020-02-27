@@ -385,19 +385,6 @@ const initialState = {
       button: "Press to buy now"
     }
   ],
-  AddImage: {
-    newImage: "",
-  },
-  AddVideo: {
-    newVideo: "",
-    newVideoName: "",
-    newVideoDescription: "",
-  },
-  AddStory: {
-    newStoryImage: "",
-    newStoryName: "",
-    newStoryText: "",
-  },
   imagesCount: 3,
   videosCount: 2,
   storiesCount: 2,
@@ -419,75 +406,36 @@ const DataReducer = (state = initialState, action) => {
   let newState = { ...state };
   newState.Data = [...state.Data];
   switch (action.type) {
-    case "NEWTEXTIMAGE":
-      return {
-        ...state,
-        newImage: state.AddImage.newImage = action.TextImage,
-      }
-    case "NEWTEXTVIDEO":
-      return {
-        ...state,
-        newVideo: state.AddVideo.newVideo = action.TextVideo,
-      }
-    case "NEWTEXTVIDEODESCRIPTION":
-      return {
-        ...state,
-        newTextVideoDescription: state.AddVideo.newVideoDescription = action.TextVideoDescription,
-      }
-    case "NEWTEXTVIDEONAME":
-      return {
-        ...state,
-        newTextVideoName: state.AddVideo.newVideoName = action.TextVideoName,
-      }
-    case "NEWTEXTSTORYIMAGE":
-      return {
-        ...state,
-        newTextStoryImage: state.AddStory.newStoryImage = action.TextStoryImage
-      }
-    case "NEWTEXTSTORYNAME":
-      return {
-        ...state,
-        newTextStoryName: state.AddStory.newStoryName = action.TextStoryName
-      }
-    case "NEWTEXTSTORYTEXT":
-      return {
-        ...state,
-        newTextStory: state.AddStory.newStoryText = action.TextStory
-      }
     case "ADDCONTENT":
       if (action.contentType === "image") {
         let newImage = {
           id: newId(),
           season: action.season,
           movie: action.movie,
-          image: state.AddImage.newImage,
+          image: action.addImage,
         };
-        debugger;
         newState.Data.push(newImage)
         debugger;
         return newState
-
-
       } else if (action.contentType === "video") {
         let newVideo = {
           id: newId(),
           season: action.season,
           movie: action.movie,
-          video: state.AddVideo.newVideo,
-          name: state.AddVideo.newVideoName,
-          description: state.AddVideo.newVideoDescription,
+          video: action.addVideo,
+          name: action.addVideoName,
+          description: action.addVideoDescription,
         };
         newState.Data.push(newVideo)
-
         return newState
       } else if (action.contentType === "story") {
         let newStory = {
           id: newId(),
           season: action.season,
           movie: action.movie,
-          story: state.AddStory.newStoryText,
-          name: state.AddStory.newStoryName,
-          imageContent: state.AddStory.newStoryImage,
+          story: action.addStory,
+          name: action.addStoryText,
+          imageContent: action.addStoryImage,
         };
         newState.Data.push(newStory)
         return newState
@@ -553,13 +501,28 @@ export const uploadContent = (season, itemsCount, movie, contentType) => ({ type
 export const addContent = (
   movie,
   season,
+  addImage,
+  addVideo,
+  addVideoName,
+  addVideoDescription,
+  addStory,
+  addStoryText,
+  addStoryImage,
   contentType) => (
     {
       type: "ADDCONTENT",
       movie,
       season,
+      addImage,
+      addVideo,
+      addVideoName,
+      addVideoDescription,
+      addStory,
+      addStoryText,
+      addStoryImage,
       contentType
     })
+
 
 
 export default DataReducer

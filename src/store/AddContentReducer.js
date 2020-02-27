@@ -1,19 +1,12 @@
 
 const initialState = {
-    filterImage: false,
-    filterVideo: false,
-    filterStory: false,
-    addContent: "Add Content",
-    filterContent: "filterContent",
+    contentType: null,
+    addContentClassName: "Add Content",
+    filterContentClassName: "filterContent",
     clicked: false,
     passwordWindow: "passwordWindowNo",
-    Name: "",
-    Pass: "",
-    userName: "",
-    userPass: "",
-
-    userInfoField: "userInfoField",
-
+    userName: 'n',
+    userPass: 'n'
 }
 const AddContentReducer = (state = initialState, action) => {
 
@@ -21,26 +14,20 @@ const AddContentReducer = (state = initialState, action) => {
         case "ONFILTERIMAGECLICK":
             return {
                 ...state,
-                addContent: state.addContent = "Add Image",
-                filterImage: state.filterImage = true,
-                filterVideo: state.filterVideo = false,
-                filterStory: state.filterStory = false,
+                addContentClassName: state.addContent = "Add Image",
+                contentType: state.contentType = "image",
             }
         case "ONFILTERVIDEOCLICK":
             return {
                 ...state,
-                addContent: state.addContent = "Add Video",
-                filterImage: state.filterImage = false,
-                filterVideo: state.filterVideo = true,
-                filterStory: state.filterStory = false,
+                addContentClassName: state.addContent = "Add Video",
+                contentType: state.contentType = "video",
             }
         case "ONFILTERSTORYCLICK":
             return {
                 ...state,
-                addContent: state.addContent = "Add Story",
-                filterImage: state.filterImage = false,
-                filterVideo: state.filterVideo = false,
-                filterStory: state.filterStory = true,
+                addContentClassName: state.addContent = "Add Story",
+                contentType: state.contentType = "story",
             }
         case "ONCLICKFILTERBUTTON":
             return {
@@ -52,55 +39,32 @@ const AddContentReducer = (state = initialState, action) => {
             return {
                 ...state,
                 passwordWindow: state.passwordWindow = "passwordWindowNo",
-                filterContent: state.filterContent = "filterContent",
+                filterContentClassName: state.filterContent = "filterContent",
                 clicked: state.clicked = false,
-                filterVideo: state.filterVideo = false,
-                filterImage: state.filterImage = false,
-                filterStory: state.filterStory = false,
-                addContent: state.addContent = "Add Content",
-                userInfoField: state.userInfoField = "userInfoField",
-                Name: state.Name = "",
-                Pass: state.Pass = "",
+                contentType: state.contentType = null,
+                addContentClassName: state.addContent = "Add Content",
             }
-        case "ONNAMECHANGE":
-            return {
-                ...state,
-                Name: state.Name = action.Name
-            }
-        case "ONPASSCHANGE":
-            return {
-                ...state,
-                Pass: state.Pass = action.Pass
-            }
-        case "ONUSERFILEDCLICK":
-            return {
-                ...state,
-                userInfoField: state.userInfoField = "userInfoField"
-            }
-        case "ONPASSCHECKCLICKSUCCESS":
+        case "ONPASSCHECKSUCCESS":
             return {
                 ...state,
                 passwordWindow: state.passwordWindow = "passwordWindowNo",
-                filterContent: state.filterContent = "filterContentActive",
-                Name: state.Name = "",
-                Pass: state.Pass = "",
-
-            }
-        case "ONPASSCHECKCLICKNOT":
-            return {
-                ...state,
-                userInfoField: state.userInfoField = "userInfoFieldRed",
-                Name: state.Name = "",
-                Pass: state.Pass = "",
-            }
-        case "ONPASSCHECKCLICK":
-            return {
-                ...state,
-                Name: state.Name = "",
-                Pass: state.Pass = "",
+                filterContentClassName: state.filterContent = "filterContentActive",
             }
         default:
             return state
+    }
+}
+export const onPassCheckSuccess = () => ({ type: "ONPASSCHECKSUCCESS" })
+export const onDeClickFilterButton = () => ({ type: "ONDECLICKFILTERBUTTON" })
+export const onClickFilterButton = () => ({ type: "ONCLICKFILTERBUTTON" })
+export const onFilterImageClick = () => ({ type: "ONFILTERIMAGECLICK" })
+export const onFilterVideoClick = () => ({ type: "ONFILTERVIDEOCLICK" })
+export const onFilterStoryClick = () => ({ type: "ONFILTERSTORYCLICK" })
+
+
+export const onPassCheckClick = (addLogin, addPassword, userName, userPass) => (dispatch) => {
+    if (addLogin === userName && addPassword === userPass) {
+        dispatch(onPassCheckSuccess())
     }
 }
 
