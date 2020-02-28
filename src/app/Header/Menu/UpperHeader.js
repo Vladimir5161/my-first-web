@@ -27,15 +27,10 @@ class UpperHeader extends React.Component {
       OnVikingsS2,
       OnGOTS1,
       OnGOTS2,
-      OnClicked,
-      OnDeClicked,
       OnMovieChose1,
       OnMovieChose2,
-      clicked,
       logo,
       chosen,
-      OnClickedOn,
-      OnClickedOff,
       OnRulesClick,
       Season,
       onDefaultOpenedContentCount,
@@ -104,29 +99,29 @@ class UpperHeader extends React.Component {
                     </Link>
                   </div>
                 ) : (
-                  <div>
-                    <Link to="/">
-                      <li
-                        onClick={() => {
-                          OnVikingsS1();
-                          onDefaultOpenedContentCount()
-                        }}
-                        className="season"
-                      >
-                        Season 1-4
+                    <div>
+                      <Link to="/">
+                        <li
+                          onClick={() => {
+                            OnVikingsS1();
+                            onDefaultOpenedContentCount()
+                          }}
+                          className="season"
+                        >
+                          Season 1-4
                       </li>
-                      <li
-                        onClick={() => {
-                          OnVikingsS2();
-                          onDefaultOpenedContentCount()
-                        }}
-                        className="season"
-                      >
-                        {Season}
-                      </li>
-                    </Link>
-                  </div>
-                )}
+                        <li
+                          onClick={() => {
+                            OnVikingsS2();
+                            onDefaultOpenedContentCount()
+                          }}
+                          className="season"
+                        >
+                          {Season}
+                        </li>
+                      </Link>
+                    </div>
+                  )}
               </ul>
             </li>
             <li className="menuPoints">
@@ -134,7 +129,7 @@ class UpperHeader extends React.Component {
                 News
               </Link>
             </li>
-            <li className="menuPoints" onClick={() => {OnRulesClick();}}>
+            <li className="menuPoints" onClick={() => { OnRulesClick(); }}>
               <AnchorLink className="menuPointsLinks" href="#">
                 Rules&FAQ
               </AnchorLink>
@@ -147,23 +142,6 @@ class UpperHeader extends React.Component {
               <div className="countLike">{countLike}</div>
             </Link>
           </button>
-          {clicked ? (
-            <button
-              className="search"
-              onClick={() => {
-                OnDeClicked();
-                OnClickedOff();
-              }}
-            ></button>
-          ) : (
-            <button
-              className="search"
-              onClick={() => {
-                OnClicked();
-                OnClickedOn();
-              }}
-            ></button>
-          )}
         </div>
         <div className="scroll">
           <AnchorLink className="arrowScroll" href="#home">
@@ -174,35 +152,35 @@ class UpperHeader extends React.Component {
     );
   }
 }
-const mapStateToProps = (store)=>({
+const mapStateToProps = (store) => ({
   logo: store.movieChose1.logo,
   chosen: store.movieChose1.chosen,
   Season: store.movieChose1.Season,
 
 })
 const mapDispatchToProps = dispatch => ({
-  OnMovieChose1: () =>dispatch({
+  OnMovieChose1: () => dispatch({
     type: "MOVIEGROUP1CLICK",
   }),
-  OnMovieChose2: () =>dispatch({
+  OnMovieChose2: () => dispatch({
     type: "MOVIEGROUP2CLICK",
   }),
-  OnVikingsS1: () =>dispatch({
+  OnVikingsS1: () => dispatch({
     type: "VIKINGSSEASON1",
   }),
-  OnVikingsS2: () =>dispatch({
+  OnVikingsS2: () => dispatch({
     type: "VIKINGSSEASON2",
   }),
-  OnGOTS1: () =>dispatch({
+  OnGOTS1: () => dispatch({
     type: "GOTSEASON1",
   }),
-  OnGOTS2: () =>dispatch({
+  OnGOTS2: () => dispatch({
     type: "GOTSEASON2",
   }),
-  OnRulesClick: ()=> dispatch({
+  OnRulesClick: () => dispatch({
     type: "ONRULESCLICK",
   }),
-  onDefaultOpenedContentCount: () =>dispatch({  /* обнюляю колличество открытых фото, видео и т.д. до изначальных значений (3 фото, 2 видео, 2 истории)*/
+  onDefaultOpenedContentCount: () => dispatch({  /* обнюляю колличество открытых фото, видео и т.д. до изначальных значений (3 фото, 2 видео, 2 истории)*/
     type: "ONDEFAULTCOUNTS",
   }),
 })

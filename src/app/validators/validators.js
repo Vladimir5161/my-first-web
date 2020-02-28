@@ -15,3 +15,9 @@ export const correctLink = value => {
         } return undefined;
     }
 }
+
+export const incorrectLoginPass = (login, pass) => (value) => {
+    if (login !== value.addLogin || pass !== value.addPassword) {
+        return "incorrect Login or Password"
+    } return undefined;
+}

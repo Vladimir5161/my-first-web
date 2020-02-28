@@ -14,42 +14,33 @@ const Header = ({
   searchField,
   OnClickedOn,
   OnClickedOff,
-}) => { 
-    return (
-      <header className="header">
-        <div className="container">
-          <UpperHeader
-            countLike={countLike}
-            logo={logo}
-            chosen={chosen}
-            clicked={clicked}
-            OnClicked={OnClicked}
-            OnDeClicked={OnDeClicked}
-            OnClickedOn={OnClickedOn}
-            OnClickedOff={OnClickedOff}
-          />
-          <SearchField  searchField={searchField}/>
-        </div>
-      </header>
-    );
-  }
+}) => {
+  return (
+    <header className="header">
+      <div className="container">
+        <UpperHeader
+          countLike={countLike}
+          logo={logo}
+          chosen={chosen}
+          clicked={clicked}
+          OnClicked={OnClicked}
+          OnDeClicked={OnDeClicked}
+          OnClickedOn={OnClickedOn}
+          OnClickedOff={OnClickedOff}
+        />
+      </div>
+    </header>
+  );
+}
 
-const mapStateToProps = (store)=>({
-  searchField: store.searchField.search,
-  clicked: store.isClicked.clicked,
+const mapStateToProps = (store) => ({
   countLike: store.isLiked.countLike
 })
 const mapDispatchToProps = dispatch => ({
-  OnClickedOn: ()=>dispatch({
-    type: "SEARCHON",
-  }),
-  OnClickedOff: ()=>dispatch({
-    type: "SEARCHOFF",
-  }),
-  OnClicked: ()=>dispatch({
+  OnClicked: () => dispatch({
     type: "CLICKEDON"
   }),
-  OnDeClicked: ()=>dispatch({
+  OnDeClicked: () => dispatch({
     type: "CLIKEDOFF"
   }),
 })

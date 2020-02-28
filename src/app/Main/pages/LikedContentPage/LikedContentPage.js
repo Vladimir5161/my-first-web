@@ -19,26 +19,26 @@ const LikedContentPage = ({
   DataArrey,
   contentMapVikings = getContentMap(DataArrey),
 }) => {
-    return (
-      <div>
-        <h1 className="h1">Liked Content</h1>
-        <div className="likedContentPage">
-          {keys(likedContentItems).map(contentId => (
-            <div className="contentLikedArea" key={contentId}>
-              <LikedContentPageItem
-                contentId={contentId}
-                product={contentMapVikings[contentId]}
-              />
-            </div>
-          ))}
-        </div>
+  return (
+    <div>
+      <h1 className="h1">Liked Content</h1>
+      <div className="likedContentPage">
+        {keys(likedContentItems).map(contentId => (
+          <div className="contentLikedArea" key={contentId}>
+            <LikedContentPageItem
+              contentId={contentId}
+              product={contentMapVikings[contentId]}
+            />
+          </div>
+        ))}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 
-const mapStateToProps = store=> ({
-  likedContentItems: store.likedContentItems,
+const mapStateToProps = store => ({
+  likedContentItems: store.likedContentItems.likedContentIdArrey,
   DataArrey: store.Data.Data
 })
 // const mapDispatchToProps = dispatch => ({
