@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux"
 import "./Header.css";
 import UpperHeader from "./Menu/UpperHeader.js";
-import SearchField from "./SearchField.js";
 
 const Header = ({
   countLike,

@@ -11,10 +11,11 @@ class UpperHeader extends React.Component {
   };
 
   listenScrollEvent = () => {
-    if (window.scrollY > 10) {
-      this.setState({ colorArrow: images[6].arrowBlackScroll });
-    } else {
+    if (window.scrollY < 100 || window.scrollY > 2100) {
       this.setState({ colorArrow: images[5].arrowScroll });
+
+    } else {
+      this.setState({ colorArrow: images[6].arrowBlackScroll });
     }
   };
   componentDidMount() {

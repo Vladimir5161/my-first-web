@@ -2,15 +2,15 @@
   background-image: url(/images/photo.png);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 305px;
 }
 .containerFooter {
   display: grid;
-  height: 100%;
+  padding-top: 20px;
 }
 .footerImage img {
-  padding: 10px;
-  width: 100%;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
 .footerLogos {
   display: grid;
