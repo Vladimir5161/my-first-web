@@ -1,4 +1,4 @@
-
+import { stopSubmit, reset } from "redux-form"
 const initialState = {
     contentType: null,
     addContentClassName: "Add Content",
@@ -55,17 +55,26 @@ const AddContentReducer = (state = initialState, action) => {
     }
 }
 export const onPassCheckSuccess = () => ({ type: "ONPASSCHECKSUCCESS" })
-export const onDeClickFilterButton = () => ({ type: "ONDECLICKFILTERBUTTON" })
+export const onDeClickFilterButtonFunc = () => ({ type: "ONDECLICKFILTERBUTTON" })
 export const onClickFilterButton = () => ({ type: "ONCLICKFILTERBUTTON" })
 export const onFilterImageClick = () => ({ type: "ONFILTERIMAGECLICK" })
 export const onFilterVideoClick = () => ({ type: "ONFILTERVIDEOCLICK" })
 export const onFilterStoryClick = () => ({ type: "ONFILTERSTORYCLICK" })
-
-
+export const outSideClickFunc = () => dispatch => {
+    dispatch(reset('addContent'))
+}
+export const onDeClickFilterButton = () => dispatch => {
+    dispatch(reset('inputPassword'));
+    dispatch(reset('addContent'));
+    dispatch(onDeClickFilterButtonFunc())
+}
 export const onPassCheckClick = (addLogin, addPassword, userName, userPass) => (dispatch) => {
     if (addLogin === userName && addPassword === userPass) {
         dispatch(onPassCheckSuccess())
+        dispatch(reset('inputPassword'));
+        dispatch(reset('addContent'));
     }
+    dispatch(stopSubmit("inputPassword", { _error: "wrong login or password" }))
 }
 
 export default AddContentReducer

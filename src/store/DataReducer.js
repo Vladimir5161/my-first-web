@@ -1,4 +1,4 @@
-
+import { stopSubmit, reset } from "redux-form"
 const initialState = {
   Data: [
     {
@@ -392,7 +392,8 @@ const initialState = {
     images: [],
     videos: [],
     stories: []
-  }
+  },
+  canPush: false
 }
 
 
@@ -495,10 +496,9 @@ const DataReducer = (state = initialState, action) => {
   }
 
 }
-
 export const ShowMore = (additionalCount, contentType) => ({ type: "CHANGECONTENTSCOUNT", additionalCount, contentType })
 export const uploadContent = (season, itemsCount, movie, contentType) => ({ type: "UPLOADCONTENT", season, itemsCount, movie, contentType })
-export const addContent = (
+export const addNewContent = (
   movie,
   season,
   addImage,
@@ -508,7 +508,7 @@ export const addContent = (
   addStory,
   addStoryText,
   addStoryImage,
-  contentType) => (
+  contentType, canPush) => (
     {
       type: "ADDCONTENT",
       movie,
@@ -520,9 +520,50 @@ export const addContent = (
       addStory,
       addStoryText,
       addStoryImage,
-      contentType
+      contentType,
+      canPush
     })
 
 
-
+export const addContent = (
+  movie,
+  season,
+  addImage,
+  addVideo,
+  addVideoName,
+  addVideoDescription,
+  addStory,
+  addStoryText,
+  addStoryImage,
+  contentType) => (dispatch, getState) => {
+    let Data = getState().Data.Data
+    debugger
+    let Arrey = []
+    Data.filter(item => item[contentType]).map(i => {
+      debugger
+      if ((i.image === addImage && i.image !== undefined) ||
+        (i.video === addVideo && i.video !== undefined) ||
+        (i.storyImage === addStoryImage && i.storyImage !== undefined)) {
+        let ids = 1
+        Arrey.push(ids++)
+      } return undefined
+    })
+    console.log(Arrey.length)
+    if (Arrey.length > 0) {
+      dispatch(stopSubmit("addContent", { _error: "Dublicate content" }))
+    } else {
+      dispatch(addNewContent(
+        movie,
+        season,
+        addImage,
+        addVideo,
+        addVideoName,
+        addVideoDescription,
+        addStory,
+        addStoryText,
+        addStoryImage,
+        contentType))
+      dispatch(reset('addContent'))
+    }
+  }
 export default DataReducer

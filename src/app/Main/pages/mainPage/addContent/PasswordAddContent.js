@@ -6,7 +6,7 @@ const PasswordAddContent = ({
     passwordWindow,
     onPassCheckClick,
     userName,
-    userPass
+    userPass,
 }) => {
 
     let onSubmit = (formData) => {

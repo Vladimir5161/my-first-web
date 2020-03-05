@@ -29,10 +29,11 @@ const AddContent = ({
   onFilterStoryClick,
   userName,
   userPass,
-  addContent
+  addContent,
+  arrey,
+  outSideClickFunc
 }) => {
   let onSubmit = (formData) => {
-    debugger;
     addContent(
 
       movie,
@@ -67,12 +68,14 @@ const AddContent = ({
       <AddContentReduxForm
         contentType={contentType}
         onSubmit={onSubmit}
+        arrey={arrey}
       />
     </div >
   );
 }
 
 const mapStateToProps = state => ({
+  arrey: state.Data.Data,
   contentType: state.AddContent.contentType,
   addContentClassName: state.AddContent.addContentClassName,
   clicked: state.AddContent.clicked,

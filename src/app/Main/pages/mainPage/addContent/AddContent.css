@@ -38,7 +38,7 @@
   margin: 0 auto;
   height: 40px;
   background-color: #c9c4c0;
-  border: 2px solid #1d1c1c;
+  border: 1px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
   color: #1d1c1c;
@@ -54,13 +54,13 @@
 }
 .passwordWindow {
   width: 300px;
-  height: 160px;
+  height: 100%;
   border: 1px solid rgb(8, 8, 8);
-  background-color: rgba(122, 122, 122, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   display: grid;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
 }
 .passwordWindow:hover {
   border: 1px solid white;
@@ -76,22 +76,25 @@
   margin: 20px auto;
 }
 .addContentInput input{
-  margin: 2px auto;
+  margin:12px auto;
   width: 200px;
   height: 30px;
   padding: 0 10px;
   background-color: inherit;
+  background-color: rgba(255, 255, 255, 0.3);
   color: black;
 }
 .addContentInput input::placeholder {
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
 }
 .addContentButton {
   display: block;
   width: 100px;
   height: 30px;
   background-color: #c9c4c0;
-  border: 2px solid #1d1c1c;
+  border:1px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
   color: #1d1c1c;
@@ -100,11 +103,20 @@
   border-radius: 5px;
   margin: 10px auto;
 }
+.addContentButton:hover {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+}
 .inputError {
+  position: absolute;
   display: flex;
   justify-content: center;
-  color: red;
+  color: rgb(255, 1, 1);
   margin: 0 auto;
+  left: 0;
+  right: 0;
+  line-height: 5px;
 }
 .inputFieldError {
   border-color: red;

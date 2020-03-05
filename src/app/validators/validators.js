@@ -4,7 +4,6 @@ export const required = value => {
 }
 
 export const correctLink = value => {
-    debugger;
     if (value !== undefined) {
         let newValue = value.split('');
         let splitedValue = newValue.slice(0, 4);
@@ -16,8 +15,11 @@ export const correctLink = value => {
     }
 }
 
-export const incorrectLoginPass = (login, pass) => (value) => {
-    if (login !== value.addLogin || pass !== value.addPassword) {
-        return "incorrect Login or Password"
-    } return undefined;
+export const dublicateLink = (arrey) => (value) => {
+    debugger;
+    arrey.map(link => {
+        if (link.image || link.video || link.storyImage === value) {
+            return "dublicate Link"
+        } else return undefined
+    })
 }

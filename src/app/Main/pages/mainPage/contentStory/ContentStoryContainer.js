@@ -10,6 +10,7 @@ class ContentStoryContainer extends React.Component {
   }
   componentDidMount() {
     this.refreshContent()
+
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.season !== prevProps.season ||

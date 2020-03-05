@@ -43,8 +43,10 @@
   cursor: pointer;
 }
 .buttonFilter:hover {
-  background-color: #998675;
-  color: #fff;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+  border: 1px solid black
 }
 .ContentList {
   display: grid;
