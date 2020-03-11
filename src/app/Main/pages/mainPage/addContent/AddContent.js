@@ -31,7 +31,6 @@ const AddContent = ({
   userPass,
   addContent,
   arrey,
-  outSideClickFunc
 }) => {
   let onSubmit = (formData) => {
     addContent(
