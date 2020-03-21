@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
+import { compose } from "redux"
+import  {ControlButtonHoc} from "../../../../hoc/ControlButtonHoc"
 
 
 const ContentListVideo = ({ videos,
-  firstContent, onComponentChangeVideo }) => {
+  firstContent, onComponentChangeVideo, ...props }) => {
   let additionalCount = 2
+  let [buttonName, changeButtonName] =useState("Show All")
+  let on = (type, contentType, additionalCount) => {
+    props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
+  }
   return (
     <div className={videos}>
       <div className="contentBlockName ">Videos</div>
@@ -24,9 +30,9 @@ const ContentListVideo = ({ videos,
           </div>
         ))}
       </div>
-      <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount) }}>Show more</button>
+      <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount); on('videos', 'video', additionalCount)  }}>{buttonName}</button>
     </div>
   );
 }
 
-export default ContentListVideo;
+export default compose(ControlButtonHoc)(ContentListVideo)

@@ -8,7 +8,7 @@ const addContentForm = ({ contentType, ...props }) => {
     return (
         <form onSubmit={props.handleSubmit}>
             {props.error && <div className="inputError">{props.error}</div>}
-            {contentType === "image" ? <div className="addContentInput">{createField("add image link", "addImage", [correctLink, required], Input, { error: props.error })}
+            {contentType === "image" ? <div className="addContentInput" >{createField("add image link", "addImage", [correctLink, required], Input, { error: props.error })}
                 <button className="addContentButton">Add</button></div>
                 :
                 contentType === "video" ? <div>
@@ -29,5 +29,5 @@ const addContentForm = ({ contentType, ...props }) => {
     )
 }
 
-const addContentReduxForm = reduxForm({ form: "addContent" })(addContentForm)
+const addContentReduxForm = reduxForm({ form: "addContent"})(addContentForm)
 export default addContentReduxForm

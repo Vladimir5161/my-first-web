@@ -14,7 +14,8 @@ export const createField = (placeholder, name, validators, component, props = {}
 
 export const Input = ({ error, ...props }) => {
     const { input, meta, ...restProps } = props;
-    const hasError = meta.error && meta.touched
+    console.log(meta.error)
+    const hasError = meta.error  && meta.touched
     return (<div>
         {hasError ? <div className="inputError">{meta.error}</div> : null}
         <input type="text" {...input}{...restProps} className={(hasError || error) ? "inputFieldError" : "inputField"} />

@@ -15,7 +15,7 @@ class ContentImageContainer extends React.Component {
     if (this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
       this.props.itemsCount !== prevProps.itemsCount ||
-      this.props.DataArrey !== prevProps.DataArrey
+      this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
     ) {
 
       this.refreshContent()
@@ -23,16 +23,22 @@ class ContentImageContainer extends React.Component {
   }
 
   onComponentChange = (additionalCount) => {
-    this.props.ShowMore(additionalCount, "image")
+    this.props.ShowMore(additionalCount, this.props.season, this.props.movie, "image")
   }
   render() {
     return (
-      <ContentListImage onComponentChange={this.onComponentChange} firstContent={this.props.firstContent} images={this.props.images} />
+      <ContentListImage onComponentChange={this.onComponentChange} 
+      DataArrey={this.props.DataArrey} 
+      firstContent={this.props.firstContent} 
+      images={this.props.images} 
+      movie={this.props.movie}
+      season={this.props.season}
+      />
     );
   }
 }
 const mapStateToProps = state => ({
-  DataArrey: state.Data.Data.length,
+  DataArrey: state.Data,
   itemsCount: state.Data.imagesCount,
   season: state.movieChose1.season,
   images: state.filter.images,

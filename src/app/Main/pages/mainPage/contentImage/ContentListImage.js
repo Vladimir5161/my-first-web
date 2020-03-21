@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import ContentListImagesItem from "./ContentListImagesItem.js";
-
+import { compose } from "redux"
+import  {ControlButtonHoc} from "../../../../hoc/ControlButtonHoc"
 
 const ContentListImage = ({ firstContent,
-  images, onComponentChange }) => {
+  images, onComponentChange, ...props}) => {
   let additionalCount = 3
-
+  let [buttonName, changeButtonName] =useState("Show All")
+  let on = (type, contentType, additionalCount) => {
+    props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
+  }
 
   return (
     <div className={images}>
@@ -20,10 +24,10 @@ const ContentListImage = ({ firstContent,
           </div>
         ))}
       </div>
-      <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount) }}>Show more</button>
+        <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('images', 'image', additionalCount); }}>{buttonName}</button>
     </div>
   );
 }
 
-export default ContentListImage;
+export default compose(ControlButtonHoc)(ContentListImage);
 

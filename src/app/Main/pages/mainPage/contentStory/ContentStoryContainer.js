@@ -21,7 +21,7 @@ class ContentStoryContainer extends React.Component {
     }
   }
   onComponentChange = (additionalCount) => {
-    this.props.ShowMore(additionalCount, "story")
+    this.props.ShowMore(additionalCount, this.props.season, this.props.movie,  "story")
   }
   render() {
     return (

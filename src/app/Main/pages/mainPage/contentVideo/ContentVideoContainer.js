@@ -20,7 +20,7 @@ class ContentVideoContainer extends React.Component {
     }
   }
   onComponentChangeVideo = (additionalCount) => {
-    this.props.ShowMore(additionalCount, "video")
+    this.props.ShowMore(additionalCount, this.props.season, this.props.movie,  "video")
   }
   render() {
     return (

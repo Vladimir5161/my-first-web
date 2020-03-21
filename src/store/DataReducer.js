@@ -76,6 +76,13 @@ const initialState = {
         "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/02/vikings_tv_review_a_l.jpg"
     },
     {
+      id: 123,
+      season: 1,
+      movie: "vikings",
+      image:
+        "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/02/vikings_tv_review_a_l.jpg"
+    },
+    {
       id: 19,
       season: 1,
       movie: "vikings",
@@ -442,20 +449,27 @@ const DataReducer = (state = initialState, action) => {
         return newState
       } else return state
     case "CHANGECONTENTSCOUNT":
+      let Content = newState.Data.filter(item => item.movie === action.movie)
+      let ContentSeasons = Content.filter(item => item.season === action.season)
+      let ContentTypes = ContentSeasons.filter(item => item[action.contentType])
+      let countFunc = (type, CountType) => {
+        let count = newState.firstContent[type].length === newState[CountType] && newState.firstContent[type].length  !== ContentTypes.length ? (newState[CountType] + action.additionalCount) : action.additionalCount 
+        return count
+      }
       if (action.contentType === "image") {
         return {
           ...state,
-          imagesCount: state.imagesCount + action.additionalCount
+          imagesCount: state.imagesCount = countFunc(`images`, `imagesCount`)
         }
       } else if (action.contentType === "video") {
         return {
           ...state,
-          videosCount: state.videosCount + action.additionalCount
+          videosCount: state.videosCount = countFunc(`videos`, `videosCount`)
         }
       } else if (action.contentType === "story") {
         return {
           ...state,
-          storiesCount: state.storiesCount + action.additionalCount
+          storiesCount: state.storiesCount = countFunc(`stories`, `storiesCount`)
         }
       } else return state
     case "ONDEFAULTCOUNTS":
@@ -496,7 +510,7 @@ const DataReducer = (state = initialState, action) => {
   }
 
 }
-export const ShowMore = (additionalCount, contentType) => ({ type: "CHANGECONTENTSCOUNT", additionalCount, contentType })
+export const ShowMore = (additionalCount, season, movie, contentType) => ({ type: "CHANGECONTENTSCOUNT", additionalCount, season, movie, contentType })
 export const uploadContent = (season, itemsCount, movie, contentType) => ({ type: "UPLOADCONTENT", season, itemsCount, movie, contentType })
 export const addNewContent = (
   movie,
@@ -566,4 +580,5 @@ export const addContent = (
       dispatch(reset('addContent'))
     }
   }
+  
 export default DataReducer

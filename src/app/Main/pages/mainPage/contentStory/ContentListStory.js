@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
+import { compose } from "redux"
+import  {ControlButtonHoc} from "../../../../hoc/ControlButtonHoc"
 
 
 
 const ContentListStory = ({ stories,
-  firstContent, onComponentChange }) => {
+  firstContent, onComponentChange, ...props }) => {
   let additionalCount = 2
+  let [buttonName, changeButtonName] =useState("Show All")
+  let on = (type, contentType, additionalCount) => {
+    props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
+  }
+
   return (
     <div className={stories}>
       <div className="contentBlockName">Stories</div>
@@ -31,10 +38,10 @@ const ContentListStory = ({ stories,
             )
           )}
       </div>
-      <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount) }}>Show more</button>
+      <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('stories', 'story', additionalCount) }}>{buttonName}</button>
     </div>
   );
 }
 
-export default ContentListStory;
+export default compose(ControlButtonHoc)(ContentListStory)
 
