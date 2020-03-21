@@ -13,9 +13,12 @@ export const ControlButtonHoc = (Component) => {
         let Content = this.props.DataArrey.Data.filter(item => item.movie === this.props.movie)
         let ContentSeasons = Content.filter(item => item.season === this.props.season)
         let ContentTypes = ContentSeasons.filter(item => item[contentType])
-        return ContentTypes.length  <= this.props.DataArrey.firstContent[type].length + additionalCount ?
-        true : false
-      }
+        if((ContentTypes.length  <= this.props.DataArrey.firstContent[type].length + additionalCount) && (ContentTypes.length  !== this.props.DataArrey.firstContent[type].length)) {
+          debugger
+          return true
+        }  else {
+          return false
+        }}
       render(){
     return <Component {...this.props} funcControlButtonName={this.funcControlButtonName}/>
     }}
