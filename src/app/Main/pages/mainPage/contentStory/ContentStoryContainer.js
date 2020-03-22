@@ -25,12 +25,18 @@ class ContentStoryContainer extends React.Component {
   }
   render() {
     return (
-      <ContentListStory onComponentChange={this.onComponentChange} stories={this.props.stories} firstContent={this.props.firstContent} />
+      <ContentListStory onComponentChange={this.onComponentChange} 
+      stories={this.props.stories} 
+      firstContent={this.props.firstContent} 
+      season={this.props.season}
+      movie={this.props.movie}
+      DataArrey={this.props.DataArrey}
+      />
     );
   }
 }
 const mapStateToProps = state => ({
-  DataArrey: state.Data.Data,
+  DataArrey: state.Data,
   itemsCount: state.Data.storiesCount,
   season: state.movieChose1.season,
   stories: state.filter.stories,

@@ -5,6 +5,7 @@ import { compose } from "redux"
 import  {ControlButtonHoc} from "../../../../hoc/ControlButtonHoc"
 
 
+
 const ContentListVideo = ({ videos,
   firstContent, onComponentChangeVideo, ...props }) => {
   let additionalCount = 2
@@ -12,6 +13,7 @@ const ContentListVideo = ({ videos,
   let on = (type, contentType, additionalCount) => {
     props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
   }
+  let contentType = props.getContentType("video", props.movie, props.season, props.DataArrey)
   return (
     <div className={videos}>
       <div className="contentBlockName ">Videos</div>
@@ -30,7 +32,7 @@ const ContentListVideo = ({ videos,
           </div>
         ))}
       </div>
-      <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount); on('videos', 'video', additionalCount)  }}>{buttonName}</button>
+      {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount); on('videos', 'video', additionalCount)  }}>{buttonName}</button>}
     </div>
   );
 }

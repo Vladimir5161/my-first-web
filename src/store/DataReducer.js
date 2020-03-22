@@ -580,5 +580,4 @@ export const addContent = (
       dispatch(reset('addContent'))
     }
   }
-  
 export default DataReducer

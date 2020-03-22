@@ -24,14 +24,20 @@ class ContentVideoContainer extends React.Component {
   }
   render() {
     return (
-      <ContentListVideo onComponentChangeVideo={this.onComponentChangeVideo} videos={this.props.videos} firstContent={this.props.firstContent} />
+      <ContentListVideo onComponentChangeVideo={this.onComponentChangeVideo} 
+      videos={this.props.videos} 
+      season={this.props.season}
+      movie={this.props.movie}
+      firstContent={this.props.firstContent} 
+      DataArrey={this.props.DataArrey}
+      />
     );
   }
 }
 
 
 const mapStateToProps = state => ({
-  DataArrey: state.Data.Data,
+  DataArrey: state.Data,
   itemsCount: state.Data.videosCount,
   season: state.movieChose1.season,
   videos: state.filter.videos,
