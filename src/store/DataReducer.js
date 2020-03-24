@@ -67,7 +67,6 @@ const initialState = {
 
 
 const DataReducer = (state = initialState, action) => {
-
   let newState = { ...state };
   newState.Data = [...state.Data];
   switch (action.type) {
@@ -154,10 +153,12 @@ export const DeleteContent = (id) => ({type: "DELETECONTENT", id})
 
 export const deleteContent = (keyFirebase, id) =>async(dispatch) => {
   try {
-    await webAPI.deleteContent(keyFirebase)
-    dispatch(DeleteContent(id))
-  }
-  catch {
+    await webAPI.deleteContent(keyFirebase);
+
+    setTimeout(()=>dispatch(DeleteContent(id)), 1000)
+       
+
+  } catch {
     return "something went wrong"
   }
 

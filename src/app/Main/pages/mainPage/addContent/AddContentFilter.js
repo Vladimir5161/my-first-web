@@ -11,8 +11,7 @@ const AddContentFilter = (props) => {
                         props.onDeClickFilterButton();
                     }}
                 >
-                    {" "}
-                    {props.addContentClassName}
+                    {!props.addContentSecondText ? props.addContentClassName : props.addContentSecondText }
                 </button>
             ) : (
                     <button
@@ -22,7 +21,7 @@ const AddContentFilter = (props) => {
                         }}
                     >
                         {" "}
-                        {props.addContentClassName}
+                        {!props.addContentSecondText ? props.addContentClassName : props.addContentSecondText }
                     </button>
                 )}
             <PasswordAddContent

@@ -6,6 +6,7 @@
   text-align: center;
   padding: 10px 0;
 }
+
 .introPage p {
   text-align: center;
   font-family: "Montserrat";
@@ -14,19 +15,24 @@
   font-weight: 700;
   padding: 10px 0;
 }
+
 .introPage {
   height: 120px;
 }
+
 .filter ul {
   display: inline;
 }
+
 .filter {
   text-align: center;
 }
+
 .filter ul li {
   display: inline-block;
   margin: 20px;
 }
+
 .buttonFilter {
   display: block;
   border: 1px solid #ebebeb;
@@ -42,18 +48,21 @@
   text-decoration: none;
   cursor: pointer;
 }
+
 .buttonFilter:hover {
   cursor: pointer;
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
   border: 1px solid black
 }
+
 .ContentList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(565px, 1fr));
   grid-column-gap: 20px;
   padding: 10px;
 }
+
 .Content {
   width: 100%;
   text-align: center;
@@ -63,9 +72,11 @@
   margin: 10px auto;
   position: relative;
 }
+
 .Content:hover {
   box-shadow: 0 0 5px 5px #b8b2b2;
 }
+
 .contentBlockName {
   text-align: center;
   font-family: "Abril Fatface", cursive;
@@ -74,18 +85,22 @@
   color: #252525;
   padding: 20px;
 }
+
 .react-player {
   margin: 0 auto;
 }
+
 .react-player div:first-child {
   height: 270px !important;
 }
+
 .content-image img {
   padding: 0 40px;
   width: 100%;
   max-height: 200px;
   margin: 0 0 10px 0;
 }
+
 .content-name {
   font-family: "Raleway";
   font-weight: 400;
@@ -93,6 +108,7 @@
   color: #000;
   margin-bottom: 10px;
 }
+
 .content-story {
   font-family: "Raleway";
   font-weight: 400;
@@ -103,6 +119,7 @@
   text-align: justify;
   overflow: auto;
 }
+
 .content-list-item .likedNo {
   border: none;
   background-color: inherit;
@@ -114,10 +131,12 @@
   right: 20px;
   bottom: 30px;
 }
+
 .content-list-item .likedNo:hover {
   background-image: url(/images/liked.png);
   cursor: pointer;
 }
+
 .content-list-item .liked {
   background-image: url(/images/liked.png);
   border: none;
@@ -131,14 +150,17 @@
   height: 30px;
   width: 30px;
 }
+
 .images,
 .stories,
 .videos {
   display: block;
 }
+
 .activeNo {
   display: none;
 }
+
 .ExactContent .VideoContent {
   display: grid;
   grid-template-columns: 1fr;
@@ -146,11 +168,13 @@
   margin: 0 auto;
   border-radius: 20px;
 }
+
 .ExactContent {
   position: relative;
   padding: 20px 40px;
 
 }
+
 .ExactContentName {
   text-align: center;
   font-family: "Montserrat";
@@ -161,10 +185,12 @@
   position: relative;
   top: -30px;
 }
+
 .ExactContentInfo {
   display: grid;
   justify-content: center;
 }
+
 .ExactContentImage {
   max-height: 250px;
   max-width: 400px;
@@ -172,6 +198,7 @@
   margin: auto;
   padding-bottom: 10px;
 }
+
 .ExactContentText {
   font-family: "Montserrat";
   font-size: 17px;
@@ -180,41 +207,50 @@
   line-height: 25px;
   text-align: justify;
 }
+
 .react-player2 iframe {
   height: 400px !important;
 }
+
 .react-player2 {
   border-radius: 40px;
   overflow: hidden;
   box-shadow: #ebebeb 0 0 80px 20px;
 
 }
+
 @media screen and (max-width: 1170px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(492px, 1fr));
     padding: 10px;
   }
+
   .ExactContent {
     padding-bottom: 20px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     padding: 10px;
   }
+
   .ExactContent {
     padding-bottom: 20px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     padding: 10px;
   }
+
   .react-player2 iframe {
     height: 300px !important;
   }
+
   .ExactContent {
     padding-bottom: 20px;
   }
@@ -225,39 +261,46 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
+
   .react-player2 iframe {
     height: 250px !important;
   }
+
   .ExactContentName {
     left: 20px;
     top: -10px;
     font-size: 25px;
   }
 }
+
 @media screen and (max-width: 375px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
+
   .react-player2 iframe {
     height: 200px !important;
   }
+
   .ExactContent {
     padding: 20px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .ContentList {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
+
   .react-player2 iframe {
     height: 200px !important;
   }
+
   .ExactContentName {
     font-size: 20px;
     left: 20px;
     top: -5px;
   }
 }
-

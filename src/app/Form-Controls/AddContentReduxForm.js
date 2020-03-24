@@ -18,9 +18,9 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button className="addContentButton">Add</button>
                 </div> :
                     contentType === "story" ? <div>
-                        <div className="addContentInput">{createField("add story ", "addStory", [], Input)}</div>
-                        <div className="addContentInput">{createField("add story text", "addStoryText", [], Input)}</div>
-                        <div className="addContentInput">{createField("add image image", "addStoryImage", [correctLink, required], Input, { error: props.error })}</div>
+                        <div className="addContentInput">{createField("add story text", "addStory", [], Input)}</div>
+                        <div className="addContentInput">{createField("add story name", "addStoryText", [], Input)}</div>
+                        <div className="addContentInput">{createField("add story image", "addStoryImage", [correctLink, required], Input, { error: props.error })}</div>
                         <button className="addContentButton">Add</button>
                     </div> : null
             }

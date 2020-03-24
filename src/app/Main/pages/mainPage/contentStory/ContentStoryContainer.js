@@ -1,7 +1,7 @@
 import React from "react";
 import ContentListStory from "./ContentListStory.js";
 import { connect } from "react-redux"
-import { ShowMore, getContents } from "../../../../../store/DataReducer"
+import { ShowMore, getContents, deleteContent } from "../../../../../store/DataReducer"
 import { getContentArreyStories } from "../../../../selectors/content-selectors"
 
 class ContentStoryContainer extends React.Component {
@@ -15,7 +15,8 @@ class ContentStoryContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
-      this.props.itemsCount !== prevProps.itemsCount
+      this.props.itemsCount !== prevProps.itemsCount ||
+      this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
     ) {
       this.refreshContent()
     }
@@ -31,6 +32,8 @@ class ContentStoryContainer extends React.Component {
       season={this.props.season}
       movie={this.props.movie}
       DataArrey={this.props.DataArrey}
+      deleteContent={this.props.deleteContent}
+      editMode={this.props.editMode}
       />
     );
   }
@@ -41,12 +44,14 @@ const mapStateToProps = state => ({
   season: state.movieChose1.season,
   stories: state.filter.stories,
   movie: state.movieChose1.movie,
-  firstContent: getContentArreyStories(state)
+  firstContent: getContentArreyStories(state),
+  editMode: state.AddContent.editMode
 
 })
 
 export default connect(mapStateToProps, {
   ShowMore,
-  getContents
+  getContents,
+  deleteContent
 })(ContentStoryContainer);
 

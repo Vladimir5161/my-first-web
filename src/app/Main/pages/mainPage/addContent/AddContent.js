@@ -31,6 +31,7 @@ const AddContent = ({
   userPass,
   addContent,
   arrey,
+  addContentSecondText
 }) => {
   let onSubmit = (formData) => {
     addContent(
@@ -63,6 +64,7 @@ const AddContent = ({
         onFilterStoryClick={onFilterStoryClick}
         userName={userName}
         userPass={userPass}
+        addContentSecondText={addContentSecondText}
       />
       <AddContentReduxForm
         contentType={contentType}
@@ -83,7 +85,8 @@ const mapStateToProps = state => ({
   movie: state.movieChose1.movie,
   season: state.movieChose1.season,
   userName: state.AddContent.userName,
-  userPass: state.AddContent.userPass
+  userPass: state.AddContent.userPass,
+  addContentSecondText: state.AddContent.addContentSecondText
 })
 
 

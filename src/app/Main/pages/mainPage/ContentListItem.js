@@ -2,7 +2,7 @@ import React from "react";
 
 import Player from "../../../../common/Player.js";
 import ButtonLike from "./ButtonLike.js";
-import ButtonCloseImage from "./ButtonCloseImage"
+
 
 const ContentListItem =({image,
   name,
@@ -11,10 +11,13 @@ const ContentListItem =({image,
   video,
   id,
   editMode,
+  deleteContent,
+  keyFirebase,
+  editModeClass,
   playerStyle = "react-player"})=> {
     return (
       <div className="content-list-item">
-        {editMode? <ButtonCloseImage /> : null}
+        {editMode? <button className={editModeClass} onClick={() => {deleteContent(keyFirebase, id)}}></button> : null}
         <Player video={video} playerStyle={playerStyle}/>
         <div className="content-text">{text} </div>
         <h2 className="content-name">{name}</h2>

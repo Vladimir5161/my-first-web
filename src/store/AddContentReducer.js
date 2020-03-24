@@ -1,12 +1,13 @@
 import { stopSubmit, reset } from "redux-form"
 const initialState = {
     contentType: null,
-    addContentClassName: "Add Content",
+    addContentClassName: "Edit Mode",
+    addContentSecondText: null,
     filterContentClassName: "filterContent",
     clicked: false,
     passwordWindow: "passwordWindowNo",
-    userName: ' ',
-    userPass: ' ',
+    userName: 'me',
+    userPass: 'pass',
     editMode: false
 }
 const AddContentReducer = (state = initialState, action) => {
@@ -44,13 +45,15 @@ const AddContentReducer = (state = initialState, action) => {
                 clicked: state.clicked = false,
                 contentType: state.contentType = null,
                 addContentClassName: state.addContent = "Add Content",
-                editMode: state.editMode = false
+                editMode: state.editMode = false,
+                addContentSecondText: state.addContentSecondText = null
             }
         case "ONPASSCHECKSUCCESS":
             return {
                 ...state,
                 passwordWindow: state.passwordWindow = "passwordWindowNo",
-                filterContentClassName: state.filterContent = "filterContentActive",
+                filterContentClassName: state.filterContent = 'filterContentActive',
+                addContentSecondText: state.addContentSecondText = "Close Edit Mode",
                 editMode: state.editMode = true,
             }
         default:

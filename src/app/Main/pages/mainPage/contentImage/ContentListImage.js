@@ -12,7 +12,9 @@ const ContentListImage = ({ firstContent,
     props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
   }
   let contentType = props.getContentType("image", props.movie, props.season, props.DataArrey)
-
+  if(firstContent.length === 0) {
+    return null
+  }
   return (
     <div className={images}>
       <div className="contentBlockName">Images</div>
@@ -26,6 +28,7 @@ const ContentListImage = ({ firstContent,
               deleteContent={props.deleteContent}
               DataArrey={props.DataArrey}
               editMode={props.editMode}
+              editModeClass="ButtonCloseImage-clickedEdit"
             />
           </div>
         ))}

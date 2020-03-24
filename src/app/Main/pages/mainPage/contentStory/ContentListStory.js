@@ -16,13 +16,16 @@ const ContentListStory = ({ stories,
     props.funcControlButtonName(type, contentType, additionalCount) ? changeButtonName("Close All") : changeButtonName("Show All")
   }
   let contentType = props.getContentType("story", props.movie, props.season, props.DataArrey)
+  if(firstContent.length === 0) {
+    return null
+  }
   return (
     <div className={stories}>
       <div className="contentBlockName">Stories</div>
       <div className="ContentList">
         {firstContent
           .map(
-            ({ name, description, text, story, id, imageContent, video }) => (
+            ({ name, description, text, story, id, imageContent, video, keyFirebase }) => (
               <div className="Content" key={id}>
                 <ContentListItem
                   video={video}
@@ -32,6 +35,10 @@ const ContentListStory = ({ stories,
                   description={description}
                   story={story}
                   id={id}
+                  keyFirebase={keyFirebase}
+                  deleteContent={props.deleteContent}
+                  editMode={props.editMode}
+                  editModeClass="ButtonCloseImage-clickedEditBlack"
                 />
                 <Link to={`/content/${id}`}>
                   <button className="Add-content Know-more">Know More</button>

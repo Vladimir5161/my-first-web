@@ -1,7 +1,7 @@
 import React from "react";
 import ContentListVideo from "./ContentListVideo.js";
 import { connect } from "react-redux"
-import { ShowMore, getContents } from "../../../../../store/DataReducer"
+import { ShowMore, getContents, deleteContent } from "../../../../../store/DataReducer"
 import { getContentArreyVideos } from '../../../../selectors/content-selectors'
 
 class ContentVideoContainer extends React.Component {
@@ -14,7 +14,8 @@ class ContentVideoContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
-      this.props.itemsCount !== prevProps.itemsCount
+      this.props.itemsCount !== prevProps.itemsCount ||
+      this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
     ) {
       this.refreshContent()
     }
@@ -30,6 +31,8 @@ class ContentVideoContainer extends React.Component {
       movie={this.props.movie}
       firstContent={this.props.firstContent} 
       DataArrey={this.props.DataArrey}
+      deleteContent={this.props.deleteContent}
+      editMode={this.props.editMode}
       />
     );
   }
@@ -42,10 +45,12 @@ const mapStateToProps = state => ({
   season: state.movieChose1.season,
   videos: state.filter.videos,
   movie: state.movieChose1.movie,
-  firstContent: getContentArreyVideos(state)
+  firstContent: getContentArreyVideos(state),
+  editMode: state.AddContent.editMode
 })
 
 export default connect(mapStateToProps, {
   ShowMore,
-  getContents
+  getContents,
+  deleteContent,
 })(ContentVideoContainer);

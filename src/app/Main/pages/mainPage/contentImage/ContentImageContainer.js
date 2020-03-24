@@ -36,6 +36,7 @@ class ContentImageContainer extends React.Component {
       season={this.props.season}
       deleteContent={this.props.deleteContent}
       editMode={this.props.editMode}
+
       />
     );
   }
