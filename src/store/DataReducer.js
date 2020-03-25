@@ -11,6 +11,7 @@ const initialState = {
       h2: "The best story of all times",
       text: "HBO Chanel",
       h1: "Which side will you choose?",
+      movie: "got",
       button: "Get Started"
     },
     {
@@ -21,6 +22,7 @@ const initialState = {
       text: "HBO Chanel",
       h1: "Become a part of an action",
       button: "Watch on Youtube",
+      movie: "got",
       href: "https://www.youtube.com/watch?v=gy_4WOQidjI&t=3s"
     }
   ],
@@ -32,6 +34,7 @@ const initialState = {
       h2: "The Story of Ragnar Lothbrok",
       h1: "The History chanel presents",
       text: "The most impressive story of all times.",
+      movie: "vikings",
       button: "Get Started"
     },
     {
@@ -41,6 +44,7 @@ const initialState = {
       h1: "They are coming",
       text: "Become a part of an action",
       button: "Watch on Youtube",
+      movie: "vikings",
       href: "https://www.youtube.com/watch?v=Y7d0A5re7-0&t=2s"
     },
     {
@@ -51,6 +55,7 @@ const initialState = {
       h1: "Vikings total war",
       text:
         "Thy the only one game where you can conquer England playing for vikings.",
+        movie: "vikings",
       button: "Press to buy now"
     }
   ],
@@ -70,11 +75,6 @@ const DataReducer = (state = initialState, action) => {
   let newState = { ...state };
   newState.Data = [...state.Data];
   switch (action.type) {
-    case "ADDCONTENT":
-      return {
-        ...state,
-        Data: [...state.Data, action.content]
-      }
     case "CHANGECONTENTSCOUNT":
       let ContentAll = newState.Data.filter(item => item.movie === action.movie)
       let ContentType = ContentAll.filter(item => item.season === action.season)
@@ -129,10 +129,12 @@ const DataReducer = (state = initialState, action) => {
           } else if(newState.Data.some((element) =>element.id === item.id)) {
               return state
             } else array.push(item) 
+            console.log(state.Data)
         }
                   return {
                     ...state,
-                    Data: [...state.Data.concat(array)]
+                    Data: state.Data.concat(array)
+                    
                   }
       case "DELETECONTENT": 
         return {
@@ -147,7 +149,6 @@ const DataReducer = (state = initialState, action) => {
 export const ShowMore = (additionalCount, season, movie, contentType) => ({ type: "CHANGECONTENTSCOUNT", additionalCount, season, movie, contentType })
 export const uploadContent = (season, itemsCount, movie, contentType) => ({ type: "UPLOADCONTENT", season, itemsCount, movie, contentType })
 export const downloadContent = (responce) => ({ type: "DOWNLOADCONTENT", responce})
-export const addNewContent = (content) => ({ type: "ADDCONTENT",content})
 export const DeleteContent = (id) => ({type: "DELETECONTENT", id})
 
 export const deleteContent = (keyFirebase, id, contentType) =>async(dispatch) => {
@@ -166,7 +167,15 @@ export const getContents = (season, itemsCount, movie, contentType) => async (di
       contentArray.map(item => (
         item[1].keyFirebase = item[0]
       ))
-        await dispatch(downloadContent(Object.values(responce))).then(dispatch(uploadContent(season, itemsCount, movie, contentType)))
+      contentArray.map(item => (
+        item[1].id = item[0]
+      ))
+        await dispatch(downloadContent(Object.values(responce)))
+        await dispatch(uploadContent(season, itemsCount, movie, contentType))
+        getState().Data.vikingsSlides.map(i => (
+          webAPI.pushSlides(i)
+        ))
+
     } catch {
       return "something went wrong"
     }
@@ -184,7 +193,7 @@ export const addContent = (
     let Data = getState().Data.Data
     let newId = () => {
       if(Data.length < 1) {
-        return `1A`
+        return `1`
       } else {
       let idCount = Data.pop();
       Data.push(idCount);
@@ -211,7 +220,7 @@ export const addContent = (
           image: addImage,
         };
         try {await webAPI.addContent(newImage, contentType)
-          dispatch(addNewContent(newImage))
+          await webAPI.getContent(contentType)
           dispatch(reset('addContent'))
         }
         catch {
@@ -226,7 +235,7 @@ export const addContent = (
           name: addVideoName,
         };
         try {await webAPI.addContent(newVideo, contentType)
-          dispatch(addNewContent(newVideo))
+          await webAPI.getContent(contentType)
           dispatch(reset('addContent'))
         }
         catch {
@@ -242,7 +251,7 @@ export const addContent = (
           imageContent: addStoryImage,
         };
         try {await webAPI.addContent(newStory, contentType)
-          dispatch(addNewContent(newStory))
+          await webAPI.getContent(contentType)
           dispatch(reset('addContent'))
         }
         catch {
