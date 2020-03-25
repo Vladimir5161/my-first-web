@@ -29,11 +29,12 @@ const ContentListImage = ({ firstContent,
               DataArrey={props.DataArrey}
               editMode={props.editMode}
               editModeClass="ButtonCloseImage-clickedEdit"
+              contentType={'image'}
             />
           </div>
         ))}
       </div>
-        {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('images', 'image', additionalCount); }}>{buttonName}</button>}
+        {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('image', additionalCount); }}>{buttonName}</button>}
     </div>
   );
 }

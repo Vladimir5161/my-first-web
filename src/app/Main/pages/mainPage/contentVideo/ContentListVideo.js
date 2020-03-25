@@ -32,6 +32,7 @@ const ContentListVideo = ({ videos,
               deleteContent={props.deleteContent}
               editMode={props.editMode}
               editModeClass="ButtonCloseImage-clickedEdit"
+              contentType = {`video`}
             />
             <Link to={`/content/${id}`}>
               <button className="Add-content Know-more">Know More</button>
@@ -39,7 +40,7 @@ const ContentListVideo = ({ videos,
           </div>
         ))}
       </div>
-      {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount); on('videos', 'video', additionalCount)  }}>{buttonName}</button>}
+      {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChangeVideo(additionalCount); on('video', additionalCount)  }}>{buttonName}</button>}
     </div>
   );
         }

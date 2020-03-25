@@ -14,10 +14,11 @@ const ContentListItem =({image,
   deleteContent,
   keyFirebase,
   editModeClass,
+  contentType,
   playerStyle = "react-player"})=> {
     return (
       <div className="content-list-item">
-        {editMode? <button className={editModeClass} onClick={() => {deleteContent(keyFirebase, id)}}></button> : null}
+        {editMode? <button className={editModeClass} onClick={() => {deleteContent(keyFirebase, id, contentType)}}></button> : null}
         <Player video={video} playerStyle={playerStyle}/>
         <div className="content-text">{text} </div>
         <h2 className="content-name">{name}</h2>

@@ -41,7 +41,6 @@ const AddContent = ({
       formData.addImage,
       formData.addVideo,
       formData.addVideoName,
-      formData.addVideoDescription,
       formData.addStory,
       formData.addStoryText,
       formData.addStoryImage,

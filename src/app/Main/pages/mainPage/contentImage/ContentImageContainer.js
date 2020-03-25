@@ -12,11 +12,11 @@ class ContentImageContainer extends React.Component {
     this.refreshContent()
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.season !== prevProps.season ||
+    if ((this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
       this.props.itemsCount !== prevProps.itemsCount ||
       this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
-    ) {
+    ) && this.props.DataArrey.Data.length !== 0) {
 
       this.refreshContent()
     }

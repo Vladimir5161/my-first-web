@@ -58,9 +58,9 @@ const initialState = {
   videosCount: 2,
   storiesCount: 2,
   firstContent: {
-    images: [],
-    videos: [],
-    stories: []
+    image: [],
+    video: [],
+    story: []
   },
   canPush: false
 }
@@ -76,27 +76,27 @@ const DataReducer = (state = initialState, action) => {
         Data: [...state.Data, action.content]
       }
     case "CHANGECONTENTSCOUNT":
-      let Content = newState.Data.filter(item => item.movie === action.movie)
-      let ContentSeasons = Content.filter(item => item.season === action.season)
-      let ContentTypes = ContentSeasons.filter(item => item[action.contentType])
-      let countFunc = (type, CountType) => {
-        let count = newState.firstContent[type].length === newState[CountType] && newState.firstContent[type].length  !== ContentTypes.length ? (newState[CountType] + action.additionalCount) : action.additionalCount 
+      let ContentAll = newState.Data.filter(item => item.movie === action.movie)
+      let ContentType = ContentAll.filter(item => item.season === action.season)
+      let Content = ContentType.filter(item => item[action.contentType])
+      let countFunc = (CountType, contentType) => {
+        let count = newState.firstContent[contentType].length === newState[CountType] && newState.firstContent[contentType].length  !== Content.length ? (newState[CountType] + action.additionalCount) : action.additionalCount 
         return count
       }
       if (action.contentType === "image") {
         return {
           ...state,
-          imagesCount: state.imagesCount = countFunc(`images`, `imagesCount`)
+          imagesCount: state.imagesCount = countFunc(`imagesCount`, action.contentType)
         }
       } else if (action.contentType === "video") {
         return {
           ...state,
-          videosCount: state.videosCount = countFunc(`videos`, `videosCount`)
+          videosCount: state.videosCount = countFunc(`videosCount`, action.contentType)
         }
       } else if (action.contentType === "story") {
         return {
           ...state,
-          storiesCount: state.storiesCount = countFunc(`stories`, `storiesCount`)
+          storiesCount: state.storiesCount = countFunc(`storiesCount`, action.contentType)
         }
       } else return state
     case "ONDEFAULTCOUNTS":
@@ -108,36 +108,35 @@ const DataReducer = (state = initialState, action) => {
       }
     case "UPLOADCONTENT":
       let currentContent = []
-      let ContentAll = newState.Data.filter(item => item.movie === action.movie)
-      let ContentSeason = ContentAll.filter(item => item.season === action.season)
-      let ContentType = ContentSeason.filter(item => item[action.contentType])
-      let lastItem = (action.itemsCount > ContentType.length ? ContentType.length : action.itemsCount)
-      let newItems = ContentType.slice(0, lastItem)
+      let ContentNew = newState.Data.filter(item => item.movie === action.movie)
+      let ContentTypes = ContentNew.filter(item => item.season === action.season)
+      let ContentOf = ContentTypes.filter(item => item[action.contentType])
+      let lastItem = (action.itemsCount > ContentOf.length ? ContentOf.length : action.itemsCount)
+      let newItems = ContentOf.slice(0, lastItem)
       for (let i = 0; i < lastItem; i++) {
         let item = newItems.shift()
 
         currentContent.push(item)
       }
-      if (action.contentType === "video") {
         return {
-          ...newState, firstContent: { ...newState.firstContent, videos: currentContent }
+          ...newState, firstContent: { ...newState.firstContent, [action.contentType]: currentContent }
         }
-      } else if (action.contentType === "image") {
-        return {
-          ...newState, firstContent: { ...newState.firstContent, images: currentContent }
-        }
-      } else if (action.contentType === "story") {
-        return {
-          ...newState, firstContent: { ...newState.firstContent, stories: currentContent }
-        }
-      } else return state
       case "DOWNLOADCONTENT":
-        return {
-          ...state, Data: [...action.responce]
+        let array = [];
+        for(let item of action.responce) {
+          if(newState.Data.length === 0) {
+            array.push(item)
+          } else if(newState.Data.some((element) =>element.id === item.id)) {
+              return state
+            } else array.push(item) 
         }
+                  return {
+                    ...state,
+                    Data: [...state.Data.concat(array)]
+                  }
       case "DELETECONTENT": 
         return {
-          ...state, Data: [ state.Data.filter(id => id !== action.id)]
+          ...state, Data: [ ...state.Data.filter(id => id !== action.id)]
         }
     default:
       return state;
@@ -151,31 +150,23 @@ export const downloadContent = (responce) => ({ type: "DOWNLOADCONTENT", responc
 export const addNewContent = (content) => ({ type: "ADDCONTENT",content})
 export const DeleteContent = (id) => ({type: "DELETECONTENT", id})
 
-export const deleteContent = (keyFirebase, id) =>async(dispatch) => {
+export const deleteContent = (keyFirebase, id, contentType) =>async(dispatch) => {
   try {
-    await webAPI.deleteContent(keyFirebase);
-
+    await webAPI.deleteContent(keyFirebase, contentType);
     setTimeout(()=>dispatch(DeleteContent(id)), 1000)
-       
-
   } catch {
     return "something went wrong"
   }
-
 }
 
 export const getContents = (season, itemsCount, movie, contentType) => async (dispatch, getState) => {
     try {
-      let Data = getState().Data.Data
-      let responce = await webAPI.getContent()
+      let responce = await webAPI.getContent(contentType)
       let contentArray = Object.entries(responce)
       contentArray.map(item => (
         item[1].keyFirebase = item[0]
       ))
-      if(Object.values(responce).length !== Data.length) {
-      dispatch(downloadContent(Object.values(responce)))
-      }
-      dispatch(uploadContent(season, itemsCount, movie, contentType))
+        await dispatch(downloadContent(Object.values(responce))).then(dispatch(uploadContent(season, itemsCount, movie, contentType)))
     } catch {
       return "something went wrong"
     }
@@ -186,18 +177,20 @@ export const addContent = (
   addImage,
   addVideo,
   addVideoName,
-  addVideoDescription,
   addStory,
   addStoryText,
   addStoryImage,
   contentType) => async(dispatch, getState) => {
     let Data = getState().Data.Data
     let newId = () => {
+      if(Data.length < 1) {
+        return `1A`
+      } else {
       let idCount = Data.pop();
       Data.push(idCount);
       let newId = idCount.id + 1;
       return newId;
-    }
+    }}
     let Arrey = []
     Data.filter(item => item[contentType]).map(i => {
       if ((i.image === addImage && i.image !== undefined) ||
@@ -217,7 +210,7 @@ export const addContent = (
           movie: movie,
           image: addImage,
         };
-        try {await webAPI.addContent(newImage)
+        try {await webAPI.addContent(newImage, contentType)
           dispatch(addNewContent(newImage))
           dispatch(reset('addContent'))
         }
@@ -231,14 +224,13 @@ export const addContent = (
           movie: movie,
           video: addVideo,
           name: addVideoName,
-          description: addVideoDescription,
         };
-        try {await webAPI.addContent(newVideo)
+        try {await webAPI.addContent(newVideo, contentType)
           dispatch(addNewContent(newVideo))
           dispatch(reset('addContent'))
         }
         catch {
-          return "some error"
+          return "some error" 
         }
       } else if (contentType === "story") {
         let newStory = {
@@ -249,7 +241,7 @@ export const addContent = (
           name: addStoryText,
           imageContent: addStoryImage,
         };
-        try {await webAPI.addContent(newStory)
+        try {await webAPI.addContent(newStory, contentType)
           dispatch(addNewContent(newStory))
           dispatch(reset('addContent'))
         }

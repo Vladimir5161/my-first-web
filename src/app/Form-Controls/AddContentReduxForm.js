@@ -14,7 +14,6 @@ const addContentForm = ({ contentType, ...props }) => {
                 contentType === "video" ? <div>
                     <div className="addContentInput">{createField("add video link", "addVideo", [correctLink, required], Input, { error: props.error })}</div>
                     <div className="addContentInput">{createField("add video name", "addVideoName", [], Input)}</div>
-                    <div className="addContentInput">{createField("add video description", "addVideoDescription", [], Input)}</div>
                     <button className="addContentButton">Add</button>
                 </div> :
                     contentType === "story" ? <div>

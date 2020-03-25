@@ -50,10 +50,11 @@ class ContentListImagesItem extends React.Component {
       OnLikeClick,
       editMode,
       deleteContent,
+      contentType,
     } = this.props;
     return (
       <div>
-        {editMode? <button className="ButtonCloseImage-clickedEdit" onClick={() => {deleteContent(keyFirebase, id)}}></button> : null}
+        {editMode? <button className="ButtonCloseImage-clickedEdit" onClick={() => {deleteContent(keyFirebase, id, contentType)}}></button> : null}
         <div className={this.state.contentImageItem}>
           <img
             className="imageContent"

@@ -39,6 +39,7 @@ const ContentListStory = ({ stories,
                   deleteContent={props.deleteContent}
                   editMode={props.editMode}
                   editModeClass="ButtonCloseImage-clickedEditBlack"
+                  contentType={`story`}
                 />
                 <Link to={`/content/${id}`}>
                   <button className="Add-content Know-more">Know More</button>
@@ -47,7 +48,7 @@ const ContentListStory = ({ stories,
             )
           )}
       </div>
-      {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('stories', 'story', additionalCount) }}>{buttonName}</button>}
+      {contentType.length <= additionalCount ? null : <button className="Add-content Show-more" onClick={() => { onComponentChange(additionalCount); on('story', additionalCount) }}>{buttonName}</button>}
     </div>
   );
 }

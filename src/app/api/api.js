@@ -1,5 +1,5 @@
 import * as axios from "axios"
-import { downloadContent } from "../../store/DataReducer"
+
 
 const instance = axios.create({
     withCreadentials : true,
@@ -10,13 +10,13 @@ const instance = axios.create({
 }) 
 
 export const webAPI = {
-    getContent() {
-         return instance.get('/content.json').then(res => {return res.data})
+    getContent(contentType) {
+         return instance.get(`/content/${contentType}.json`).then(res => {return res.data})
     },
-    addContent(content) {
-        return instance.post('/content.json', content).then(res => {return res.data})
+    addContent(content, contentType) {
+        return instance.post(`/content/${contentType}.json`, content).then(res => {return res.data})
     },
-    deleteContent(key) {
-        return instance.delete(`/content/${key}.json`)
+    deleteContent(keyFirebase, contentType) {
+        return instance.delete(`/content/${contentType}/${keyFirebase}.json`)
     }
 }

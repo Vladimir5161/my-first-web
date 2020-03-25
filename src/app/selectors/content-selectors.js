@@ -1,9 +1,9 @@
 export const getContentArreyImages = state => {
-    return state.Data.firstContent.images
+    return state.Data.firstContent.image
 }
 export const getContentArreyVideos = state => {
-    return state.Data.firstContent.videos
+    return state.Data.firstContent.video
 }
 export const getContentArreyStories = state => {
-    return state.Data.firstContent.stories
+    return state.Data.firstContent.story
 }
