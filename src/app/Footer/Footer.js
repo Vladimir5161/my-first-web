@@ -8,7 +8,6 @@ const Footer = () => {
   return (
     <div className="footer">
       <FooterLogos />
-      <div className="footerLinks"></div>
       <FooterFlor />
     </div>
   );

@@ -5,7 +5,7 @@ import "../Footer.css";
 const FooterFlor = () => {
   return (
     <div className="FooterFlor" id="info">
-      <div className="container containerFooter">
+      <div className="containerFooter">
         <div className="FooterFlorGrid">
           <div className="florBlock">
             <div className="link">

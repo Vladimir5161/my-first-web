@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css";
 import SlickSlides from "./SlickSlides";
 import Slider from "react-slick";
+import { getSlides } from "../../../selectors/sliderSelectors"
 
 class ReactSlider extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class ReactSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    const { stateSlides, OnSliderClose, sliderClass, ButtonClose, clicked, OnSliderOpen, DataArrey} = this.props;
+    const { OnSliderClose, sliderClass, ButtonClose, clicked, OnSliderOpen} = this.props;
     return (
       <div className="sliderDiv">
               {clicked ? (
@@ -36,7 +37,7 @@ class ReactSlider extends React.Component {
               ></button>
               )}
         <Slider {...settings} className={sliderClass}>
-          {DataArrey[stateSlides].map(({ h1, text, h2, image, button, id, href }) => (
+          {this.props.Sliders.map(({ h1, text, h2, image, button, id, href }) => (
             <div className="HeaderSlick" key={id}>
               <div className="slide">
                 <div className="Slides">
@@ -58,11 +59,10 @@ class ReactSlider extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  stateSlides: state.movieChose1.stateSlides,
   sliderClass: state.Rules.sliderClass,
   ButtonClose: state.Rules.ButtonClose,
   clicked: state.Rules.clicked,
-  DataArrey: state.Data,
+  Sliders: getSlides(state)
 })
 const mapDispatchToProps = dispatch => ({
   OnSliderClose: () => dispatch({

@@ -19,7 +19,7 @@ export const webAPI = {
     deleteContent(keyFirebase, contentType) {
         return instance.delete(`/content/${contentType}/${keyFirebase}.json`)
     },
-    pushSlides(i) {
-        return instance.post(`/content/slides.json`, i)
+    getSlides() {
+        return instance.get(`/content/slides.json`).then(resp => { return resp.data})
     }
 }

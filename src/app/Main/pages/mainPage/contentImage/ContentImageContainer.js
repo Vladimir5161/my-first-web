@@ -15,13 +15,12 @@ class ContentImageContainer extends React.Component {
     if ((this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
       this.props.itemsCount !== prevProps.itemsCount ||
-      this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
-    ) && this.props.DataArrey.Data.length !== 0) {
+      this.props.DataArrey.Data.filter(item => item['image']).length !== prevProps.DataArrey.Data.filter(item => item['image']).length
+    ) && this.props.DataArrey.Data.filter(item => item['image']).length !== 0) {
 
       this.refreshContent()
     }
   }
-
   onComponentChange = (additionalCount) => {
     this.props.ShowMore(additionalCount, this.props.season, this.props.movie, "image")
   }

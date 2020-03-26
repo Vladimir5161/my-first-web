@@ -16,7 +16,7 @@ class ContentStoryContainer extends React.Component {
     if (this.props.season !== prevProps.season ||
       this.props.movie !== prevProps.movie ||
       this.props.itemsCount !== prevProps.itemsCount ||
-      this.props.DataArrey.Data.length !== prevProps.DataArrey.Data.length
+      this.props.DataArrey.Data.filter(item => item['story']).length !== prevProps.DataArrey.Data.filter(item => item['story']).length
     ) {
       this.refreshContent()
     }

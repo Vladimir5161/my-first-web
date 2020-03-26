@@ -1,7 +1,6 @@
 
 const initialState = {
     chosen: false,
-    stateSlides: "vikingsSlides",
     logo: "../../images/logo.png",
     season: 1,
     movie: "vikings",
@@ -13,7 +12,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 season: 1,
                 movie: "got",
@@ -23,7 +21,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 season: 1,
                 movie: "vikings",
@@ -33,7 +30,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 season: 1,
                 movie: "vikings",
@@ -43,7 +39,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = false,
-                stateSlides: state.stateSlides = "vikingsSlides",
                 logo: state.logo = "../../images/logo.png",
                 season: 2,
                 movie: "vikings",
@@ -53,7 +48,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 season: 1,
                 movie: "got",
@@ -63,7 +57,6 @@ const movieChoseReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chosen: state.chosen = true,
-                stateSlides: state.stateSlides = "GOTSlides",
                 logo: state.logo = "../../images/got.png",
                 season: 2,
                 movie: "got",

@@ -3,62 +3,7 @@ import { webAPI} from "../app/api/api"
 
 const initialState = {
   Data: [],
-  GOTSlides: [
-    {
-      id: 40,
-      image:
-        "https://theholyshrine.files.wordpress.com/2013/08/game-of-thrones-01.jpg",
-      h2: "The best story of all times",
-      text: "HBO Chanel",
-      h1: "Which side will you choose?",
-      movie: "got",
-      button: "Get Started"
-    },
-    {
-      id: 41,
-      image:
-        "https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Fwinteriscoming.net%2Ffiles%2F2018%2F04%2FIron-Throne-promotional-season-1.jpg&c=sc&w=736&h=485",
-      h2: "GOT",
-      text: "HBO Chanel",
-      h1: "Become a part of an action",
-      button: "Watch on Youtube",
-      movie: "got",
-      href: "https://www.youtube.com/watch?v=gy_4WOQidjI&t=3s"
-    }
-  ],
-  vikingsSlides: [
-    {
-      id: 37,
-      image:
-        "https://i.pinimg.com/originals/98/57/fa/9857fa2582acee2a3e36ebcdf6ccf3c6.jpg",
-      h2: "The Story of Ragnar Lothbrok",
-      h1: "The History chanel presents",
-      text: "The most impressive story of all times.",
-      movie: "vikings",
-      button: "Get Started"
-    },
-    {
-      id: 38,
-      image: "https://images3.alphacoders.com/691/thumb-1920-691818.jpg",
-      h2: "Vikings invasion",
-      h1: "They are coming",
-      text: "Become a part of an action",
-      button: "Watch on Youtube",
-      movie: "vikings",
-      href: "https://www.youtube.com/watch?v=Y7d0A5re7-0&t=2s"
-    },
-    {
-      id: 39,
-      image:
-        "https://cdns.kinguin.net/media/category/s/s/ss_97648b570dd8e7061e32b2e623cfed4c5c20fce9.1920x1080_1517652254.jpg",
-      h2: "Total war Thrones of britannia",
-      h1: "Vikings total war",
-      text:
-        "Thy the only one game where you can conquer England playing for vikings.",
-        movie: "vikings",
-      button: "Press to buy now"
-    }
-  ],
+  SlidesData: [],
   imagesCount: 3,
   videosCount: 2,
   storiesCount: 2,
@@ -129,13 +74,26 @@ const DataReducer = (state = initialState, action) => {
           } else if(newState.Data.some((element) =>element.id === item.id)) {
               return state
             } else array.push(item) 
-            console.log(state.Data)
         }
                   return {
                     ...state,
                     Data: state.Data.concat(array)
                     
                   }
+        case "DOWNLOADSLIDES" :
+          let arraySlides = [];
+          for(let i of action.slides) {
+            if(newState.SlidesData.length === 0) {
+              arraySlides.push(i)
+            } else if(newState.SlidesData.some((element) =>element.id === i.id)) {
+                return state
+              } else arraySlides.push(i) 
+          }
+                    return {
+                      ...state,
+                      SlidesData: state.SlidesData.concat(arraySlides)
+                      
+                    }
       case "DELETECONTENT": 
         return {
           ...state, Data: [ ...state.Data.filter(id => id !== action.id)]
@@ -149,6 +107,7 @@ const DataReducer = (state = initialState, action) => {
 export const ShowMore = (additionalCount, season, movie, contentType) => ({ type: "CHANGECONTENTSCOUNT", additionalCount, season, movie, contentType })
 export const uploadContent = (season, itemsCount, movie, contentType) => ({ type: "UPLOADCONTENT", season, itemsCount, movie, contentType })
 export const downloadContent = (responce) => ({ type: "DOWNLOADCONTENT", responce})
+export const downloadSlides = (slides) => ({type: "DOWNLOADSLIDES", slides})
 export const DeleteContent = (id) => ({type: "DELETECONTENT", id})
 
 export const deleteContent = (keyFirebase, id, contentType) =>async(dispatch) => {
@@ -163,6 +122,7 @@ export const deleteContent = (keyFirebase, id, contentType) =>async(dispatch) =>
 export const getContents = (season, itemsCount, movie, contentType) => async (dispatch, getState) => {
     try {
       let responce = await webAPI.getContent(contentType)
+      let slides = await webAPI.getSlides()
       let contentArray = Object.entries(responce)
       contentArray.map(item => (
         item[1].keyFirebase = item[0]
@@ -171,11 +131,8 @@ export const getContents = (season, itemsCount, movie, contentType) => async (di
         item[1].id = item[0]
       ))
         await dispatch(downloadContent(Object.values(responce)))
+        await dispatch(downloadSlides(Object.values(slides)))
         await dispatch(uploadContent(season, itemsCount, movie, contentType))
-        getState().Data.vikingsSlides.map(i => (
-          webAPI.pushSlides(i)
-        ))
-
     } catch {
       return "something went wrong"
     }

@@ -11,12 +11,10 @@ class UpperHeader extends React.Component {
   };
 
   listenScrollEvent = () => {
-    if (window.scrollY < 100 || window.scrollY > 2100) {
+    if (window.scrollY > 100 || window.scrollY < 2100) {
       this.setState({ colorArrow: images[5].arrowScroll });
 
-    } else {
-      this.setState({ colorArrow: images[6].arrowBlackScroll });
-    }
+    } 
   };
   componentDidMount() {
     window.addEventListener("scroll", this.listenScrollEvent);
@@ -144,11 +142,12 @@ class UpperHeader extends React.Component {
             </Link>
           </button>
         </div>
+        {window.scrollY > 100 ? 
         <div className="scroll">
           <AnchorLink className="arrowScroll" href="#home">
             <img src={this.state.colorArrow} alt="" />
           </AnchorLink>
-        </div>
+        </div> : null }
       </div>
     );
   }
