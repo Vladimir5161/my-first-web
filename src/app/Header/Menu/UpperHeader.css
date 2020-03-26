@@ -1,6 +1,6 @@
 .upperheader {
   display: grid;
-  grid-template-columns: 3fr 6fr 1fr;
+  grid-template-columns: 3fr 6fr 2fr;
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   width: 1170px;
   z-index: 40;
@@ -12,10 +12,6 @@
   padding: 0 10px;
   max-width: 300px;
   min-height: 130px;
-}
-
-.searcharea {
-  margin: 0 auto;
 }
 
 .navigationMenu:after {
@@ -62,26 +58,11 @@
 .menuPointsLinks {
   display: block;
   color: #fff;
-  font-family: "Monserrat";
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   text-decoration: none;
   line-height: 30px;
-}
-
-.contentMenu {
-  display: block;
-  color: #fff;
-  font-family: "Monserrat";
-  font-size: 20px;
-  cursor: pointer;
-  line-height: 30px;
-  position: relative;
-  z-index: 30;
-}
-
-.contentMenu:hover {
-  color: #9e8f7c;
 }
 
 .contentSubMenu {
@@ -90,30 +71,38 @@
   z-index: 30;
 }
 
-.season,
-.movie {
+.headerBtn {
   display: block;
   color: #fff;
-  font-family: "Monserrat";
-  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  cursor: pointer;
-  text-decoration: none;
+  border: none;
+  background-color: inherit;
+  text-decoration-line: none;
 }
 
-.season:hover,
-.movie:hover {
+.headerBtn:hover {
   color: #9e8f7c;
+  cursor: pointer;
 }
 
-.searcharea {
+.loginArea {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: 2fr 1fr;
+  padding: 0 20px 0 40px;
   position: relative;
 }
+
+.loginArea a,
+.loginArea button {
+  text-decoration-line: none;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 
 .cart {
   background-image: url(/images/likeW.png);
@@ -175,19 +164,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .searchFieldActive {
-    width: 410px;
+  .loginArea {
+    padding: 0;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .searchFieldActive {
-    width: 300px;
-  }
-
-  .searchFieldActive input {
-    width: 180px;
-    font-size: 15px;
+  .loginArea {
+    padding: 0 20px;
+    grid-template-columns: 1fr 1fr;
   }
 
   .menuPoints:hover .contentSubMenu,
@@ -198,13 +184,6 @@
 }
 
 @media screen and (max-width: 425px) {
-  .searchFieldActive {
-    bottom: -110px;
-    width: 400px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
 
   .menuPoints:hover .contentSubMenu,
   .MoviesSubMenu {
@@ -220,13 +199,6 @@
 }
 
 @media screen and (max-width: 375px) {
-  .searchFieldActive {
-    bottom: -110px;
-    width: 350px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
 
   .menuPoints:hover .contentSubMenu,
   .MoviesSubMenu {
@@ -242,18 +214,6 @@
 }
 
 @media screen and (max-width: 320px) {
-  .searchFieldActive {
-    bottom: -110px;
-    width: 280px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
-
-  .searchFieldActive input {
-    width: 155px;
-    font-size: 15px;
-  }
 
   .menuPoints:hover .contentSubMenu,
   .MoviesSubMenu {

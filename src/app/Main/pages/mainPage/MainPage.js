@@ -14,10 +14,6 @@ const FirstPage = () => {
       <div className="wrapper">
         <div className="introPage">
           <h2>Our Content</h2>
-          <p>
-            Here you can find photo, video, story or you can add your own
-            content by clicking the button below
-            </p>
         </div>
         <div className="addContent">
           <AddContent />

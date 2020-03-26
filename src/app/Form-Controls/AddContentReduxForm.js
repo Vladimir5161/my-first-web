@@ -8,18 +8,18 @@ const addContentForm = ({ contentType, ...props }) => {
     return (
         <form onSubmit={props.handleSubmit}>
             {props.error && <div className="inputError">{props.error}</div>}
-            {contentType === "image" ? <div className="addContentInput" >{createField("add image link", "addImage", [correctLink, required], Input, { error: props.error })}
+            {contentType === "image" ? <div className="addContentInput" >{createField("add image link", "addImage", [correctLink, required], Input, { error: props.error, type: "text" })}
                 <button className="addContentButton">Add</button></div>
                 :
                 contentType === "video" ? <div>
-                    <div className="addContentInput">{createField("add video link", "addVideo", [correctLink, required], Input, { error: props.error })}</div>
-                    <div className="addContentInput">{createField("add video name", "addVideoName", [], Input)}</div>
+                    <div className="addContentInput">{createField("add video link", "addVideo", [correctLink, required], Input, { error: props.error, type: "text" })}</div>
+                    <div className="addContentInput">{createField("add video name", "addVideoName", [], Input, {type: "text"})}</div>
                     <button className="addContentButton">Add</button>
                 </div> :
                     contentType === "story" ? <div>
-                        <div className="addContentInput">{createField("add story text", "addStory", [], Input)}</div>
-                        <div className="addContentInput">{createField("add story name", "addStoryText", [], Input)}</div>
-                        <div className="addContentInput">{createField("add story image", "addStoryImage", [correctLink, required], Input, { error: props.error })}</div>
+                        <div className="addContentInput">{createField("add story text", "addStory", [], Input, {type: "text"})}</div>
+                        <div className="addContentInput">{createField("add story name", "addStoryText", [], Input, {type: "text"})}</div>
+                        <div className="addContentInput">{createField("add story image", "addStoryImage", [correctLink, required], Input, { error: props.error, type: "text" })}</div>
                         <button className="addContentButton">Add</button>
                     </div> : null
             }

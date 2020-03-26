@@ -48,14 +48,14 @@ class UpperHeader extends React.Component {
             </li>
             <li className="menuPoints">
               <Link to="/">
-                <div className="contentMenu">Movies</div>
+                <div className="headerBtn">Movies</div>
                 <ul className="MoviesSubMenu">
                   <li
                     onClick={() => {
                       OnMovieChose1();
                       onDefaultOpenedContentCount()
                     }}
-                    className="movie"
+                    className="headerBtn"
                   >
                     Game of Thrones
                   </li>
@@ -64,7 +64,7 @@ class UpperHeader extends React.Component {
                       OnMovieChose2();
                       onDefaultOpenedContentCount()
                     }}
-                    className="movie"
+                    className="headerBtn"
                   >
                     Vikings
                   </li>
@@ -72,7 +72,7 @@ class UpperHeader extends React.Component {
               </Link>
             </li>
             <li className="menuPoints">
-              <div className="contentMenu">Content</div>
+              <div className="headerBtn">Content</div>
               <ul className="contentSubMenu">
                 {chosen ? (
                   <div>
@@ -82,7 +82,7 @@ class UpperHeader extends React.Component {
                           OnGOTS1();
                           onDefaultOpenedContentCount()
                         }}
-                        className="season"
+                        className="headerBtn"
                       >
                         Season 1-4
                       </li>
@@ -91,7 +91,7 @@ class UpperHeader extends React.Component {
                           OnGOTS2();
                           onDefaultOpenedContentCount()
                         }}
-                        className="season"
+                        className="headerBtn"
                       >
                         {Season}
                       </li>
@@ -105,7 +105,7 @@ class UpperHeader extends React.Component {
                             OnVikingsS1();
                             onDefaultOpenedContentCount()
                           }}
-                          className="season"
+                          className="headerBtn"
                         >
                           Season 1-4
                       </li>
@@ -114,7 +114,7 @@ class UpperHeader extends React.Component {
                             OnVikingsS2();
                             onDefaultOpenedContentCount()
                           }}
-                          className="season"
+                          className="headerBtn"
                         >
                           {Season}
                         </li>
@@ -135,7 +135,10 @@ class UpperHeader extends React.Component {
             </li>
           </ul>
         </nav>
-        <div className="searcharea">
+        <div className="loginArea">
+        <Link to="/login">
+          {this.props.isAuth? <button className="headerBtn" onClick={() => {this.props.LogOut()}}>Log Out</button> : <button className="headerBtn"> Login </button>}
+        </Link>
           <button className="cart">
             <Link to="/likedContentPage">
               <div className="countLike">{countLike}</div>

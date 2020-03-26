@@ -2,17 +2,17 @@ import React from "react";
 import { connect } from "react-redux"
 import "./Header.css";
 import UpperHeader from "./Menu/UpperHeader.js";
+import {LogOut} from '../.././store/AddContentReducer'
 
 const Header = ({
   countLike,
-  OnClicked,
-  OnDeClicked,
   logo,
   clicked,
   chosen,
-  searchField,
   OnClickedOn,
   OnClickedOff,
+  isAuth,
+  LogOut
 }) => {
   return (
     <header className="header">
@@ -22,10 +22,10 @@ const Header = ({
           logo={logo}
           chosen={chosen}
           clicked={clicked}
-          OnClicked={OnClicked}
-          OnDeClicked={OnDeClicked}
           OnClickedOn={OnClickedOn}
           OnClickedOff={OnClickedOff}
+          isAuth={isAuth}
+          LogOut={LogOut}
         />
       </div>
     </header>
@@ -33,14 +33,8 @@ const Header = ({
 }
 
 const mapStateToProps = (store) => ({
-  countLike: store.isLiked.countLike
+  countLike: store.isLiked.countLike,
+  isAuth: store.AddContent.isAuth
 })
-const mapDispatchToProps = dispatch => ({
-  OnClicked: () => dispatch({
-    type: "CLICKEDON"
-  }),
-  OnDeClicked: () => dispatch({
-    type: "CLIKEDOFF"
-  }),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+export default connect(mapStateToProps, {LogOut})(Header);

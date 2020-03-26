@@ -18,7 +18,7 @@ export const Input = ({ error, ...props }) => {
     const hasError = meta.error  && meta.touched
     return (<div>
         {hasError ? <div className="inputError">{meta.error}</div> : null}
-        <input type="text" {...input}{...restProps} className={(hasError || error) ? "inputFieldError" : "inputField"} />
+        <input type={props.type} {...input}{...restProps} className={(hasError || error) ? "inputFieldError" : "inputField"} />
     </div>
     )
 }

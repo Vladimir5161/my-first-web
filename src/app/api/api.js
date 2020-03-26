@@ -21,5 +21,8 @@ export const webAPI = {
     },
     getSlides() {
         return instance.get(`/content/slides.json`).then(resp => { return resp.data})
-    }
+    },
+    getNews() {
+        return instance.get(`/content/news.json`).then(resp => { return resp.data})
+    } 
 }

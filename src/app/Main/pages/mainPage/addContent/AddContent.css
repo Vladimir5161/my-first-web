@@ -1,14 +1,18 @@
-
-
 .filterAddContent {
   justify-content: center;
   margin: 0 auto;
   display: grid;
 }
+
+.filterAddContent form {
+  margin: 0 auto;
+}
+
 .filterButtonHover {
   display: grid;
   justify-content: center;
 }
+
 .filterContentActive {
   display: block;
   font-family: "Montserrat";
@@ -19,9 +23,11 @@
   margin: 0 auto;
   padding: 10px 0;
 }
+
 .filterContent {
   display: none;
 }
+
 .filterContentActive li {
   padding: 10px 0;
   padding: 10px;
@@ -29,10 +35,12 @@
   text-align: center;
   width: 200px;
 }
+
 .filterContentActive li:hover {
   background-color: #c9c4c0;
   cursor: pointer;
 }
+
 .filterButton {
   width: 200px;
   margin: 0 auto;
@@ -47,27 +55,13 @@
   border-radius: 5px;
   margin: 20px auto;
 }
+
 .filterButton:hover {
   cursor: pointer;
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
-.passwordWindow {
-  width: 300px;
-  height: 100%;
-  border: 1px solid rgb(8, 8, 8);
-  background-color: rgba(255, 255, 255, 0.6);
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-.passwordWindow:hover {
-  border: 1px solid white;
-}
-.passwordWindowNo {
-  display: none;
-}
+
 .Submit {
   display: block;
   height: 30px;
@@ -75,8 +69,9 @@
   padding: 0;
   margin: 20px auto;
 }
-.addContentInput input{
-  margin:12px auto;
+
+.addContentInput input {
+  margin: 12px auto;
   width: 200px;
   height: 30px;
   padding: 0 10px;
@@ -84,17 +79,19 @@
   background-color: rgba(255, 255, 255, 0.3);
   color: black;
 }
+
 .addContentInput input::placeholder {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
+
 .addContentButton {
   display: block;
   width: 100px;
   height: 30px;
   background-color: #c9c4c0;
-  border:1px solid #1d1c1c;
+  border: 1px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
   color: #1d1c1c;
@@ -103,11 +100,13 @@
   border-radius: 5px;
   margin: 10px auto;
 }
+
 .addContentButton:hover {
   cursor: pointer;
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
+
 .inputError {
   position: absolute;
   display: flex;
@@ -118,6 +117,7 @@
   right: 0;
   line-height: 5px;
 }
+
 .inputFieldError {
   border-color: red;
 }

@@ -13,5 +13,5 @@ export const exactContentId = (state) => {
 }
 
 export const newsDataIdSelector = state => {
-    return getContentMap(state.newsData)
+    return getContentMap(state.newsData.NewsData)
 }

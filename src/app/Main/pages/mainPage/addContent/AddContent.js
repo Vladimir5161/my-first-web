@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 import AddContentFilter from "./AddContentFilter"
 import AddContentReduxForm from "../../../../Form-Controls/AddContentReduxForm";
 import {
-  onPassCheckClick,
   onDeClickFilterButton,
   onClickFilterButton,
   onFilterImageClick,
@@ -18,20 +17,17 @@ const AddContent = ({
   onClickFilterButton,
   onDeClickFilterButton,
   clicked,
-  passwordWindow,
   filterContentClassName,
-  onPassCheckClick,
   movie,
   season,
   contentType,
   onFilterImageClick,
   onFilterVideoClick,
   onFilterStoryClick,
-  userName,
-  userPass,
   addContent,
   arrey,
-  addContentSecondText
+  addContentSecondText,
+  isAuth
 }) => {
   let onSubmit = (formData) => {
     addContent(
@@ -56,14 +52,11 @@ const AddContent = ({
         onDeClickFilterButton={onDeClickFilterButton}
         clicked={clicked}
         filterContentClassName={filterContentClassName}
-        onPassCheckClick={onPassCheckClick}
-        passwordWindow={passwordWindow}
         onFilterImageClick={onFilterImageClick}
         onFilterVideoClick={onFilterVideoClick}
         onFilterStoryClick={onFilterStoryClick}
-        userName={userName}
-        userPass={userPass}
         addContentSecondText={addContentSecondText}
+        isAuth={isAuth}
       />
       <AddContentReduxForm
         contentType={contentType}
@@ -77,21 +70,18 @@ const AddContent = ({
 const mapStateToProps = state => ({
   arrey: state.Data.Data,
   contentType: state.AddContent.contentType,
+  isAuth: state.AddContent.isAuth,
   addContentClassName: state.AddContent.addContentClassName,
   clicked: state.AddContent.clicked,
   filterContentClassName: state.AddContent.filterContentClassName,
-  passwordWindow: state.Pass.passwordWindow,
   movie: state.movieChose1.movie,
   season: state.movieChose1.season,
-  userName: state.AddContent.userName,
-  userPass: state.AddContent.userPass,
   addContentSecondText: state.AddContent.addContentSecondText
 })
 
 
 export default connect(mapStateToProps, {
   addContent,
-  onPassCheckClick,
   onClickFilterButton,
   onDeClickFilterButton,
   onFilterImageClick,
