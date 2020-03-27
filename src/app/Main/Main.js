@@ -7,40 +7,36 @@ import ReactSlider from "./pages/slider/ReactSlider.js";
 import NewsList from "./pages/news/NewsList";
 import ExactNewsPage from "./pages/news/ExactNewsPage";
 import ExactContentPage from "./pages/mainPage/ExactContentPage";
-import MyAlert from "./pages/myAlert"
-import Login from "./pages/Login/Login"
+import MyAlert from "./pages/myAlert";
+import Login from "./pages/Login/Login";
 
 const Main = () => {
-  return (
-    <main className="main">
-      <div className="container">
-        <Route
-          path="/"
-          exact
-          render={() => (
-            <div>
-              <ReactSlider  />
-              <MainPage   />
+    return (
+        <main className="main">
+            <div className="container">
+                <Route
+                    path="/"
+                    exact
+                    render={() => (
+                        <div>
+                            <ReactSlider />
+                            <MainPage />
+                        </div>
+                    )}
+                />
+                <Route path="/news" exact render={() => <NewsList />} />
+                <Route
+                    path="/likedContentPage"
+                    exact
+                    render={() => <LikedPage />}
+                />
+                <Route path="/news/:id" exact component={ExactNewsPage} />
+                <Route path="/content/:id" exact component={ExactContentPage} />
+                <Route path="/login" exact component={Login} />
+                <MyAlert />
             </div>
-          )}
-        />
-        <Route path="/news" exact render={() => <NewsList />} />
-        <Route
-          path="/likedContentPage"
-          exact
-          render={() => (
-            <LikedPage/>
-          )}
-        />
-        <Route path="/news/:id" exact component={ExactNewsPage} />
-        <Route path="/content/:id" exact component={ExactContentPage} />
-        <Route path="/login" exact component={Login} />
-        <MyAlert />
-      </div>
-    </main>
-  );
+        </main>
+    );
 };
 
-
-
-export default Main
+export default Main;
