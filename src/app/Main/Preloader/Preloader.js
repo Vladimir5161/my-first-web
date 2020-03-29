@@ -1,17 +1,23 @@
 import React from "react";
+import "./loader.css";
 
 const Preloader = () => {
     return (
-        <div>
-            <img
-                alt=""
-                src="/images/25.gif"
-                style={{
-                    textAlign: "center",
-                    margin: `400px auto`,
-                    display: "block"
-                }}
-            />
+        <div className="spinner">
+            <div className="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     );
 };
