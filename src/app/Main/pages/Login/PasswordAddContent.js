@@ -1,21 +1,15 @@
-import React from "react"
-import PasswordReduxForm from "../../../Form-Controls/PasswordReduxFrom"
+import React from "react";
+import PasswordReduxForm from "../../../Form-Controls/PasswordReduxFrom";
 
-
-const PasswordAddContent = ({
-    onPassCheckClick,
-    userName,
-    userPass,
-}) => {
-
-    let onSubmit = (formData) => {
-        onPassCheckClick(formData.addLogin, formData.addPassword, userName, userPass)
-    }
+const PasswordAddContent = ({ onPassCheckClick, ...props }) => {
+    let onSubmit = formData => {
+        onPassCheckClick(formData.addLogin, formData.addPassword);
+    };
     return (
         <div className="passwordWindow">
-            <PasswordReduxForm onSubmit={onSubmit} />
+            <PasswordReduxForm onSubmit={onSubmit} {...props} />
         </div>
-    )
-}
+    );
+};
 
 export default PasswordAddContent;

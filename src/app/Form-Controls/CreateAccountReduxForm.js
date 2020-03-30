@@ -3,17 +3,17 @@ import { reduxForm } from "redux-form";
 import { Input, createField } from "./FormContrlos";
 import { required } from "../validators/validators";
 
-const PasswordForm = props => {
+const CreateAccount = props => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div className="loginName">Your Login</div>
+            <div className="loginName">Create Your Login</div>
             <div className={props.inputField}>
                 {createField("Input Login", "addLogin", [required], Input, {
                     error: props.error,
                     type: "text"
                 })}
             </div>
-            <div className="loginName">Your Password</div>
+            <div className="loginName">Create Your Password</div>
             <div className={props.inputField}>
                 {createField(
                     "Input Password",
@@ -22,15 +22,17 @@ const PasswordForm = props => {
                     Input,
                     {
                         error: props.error,
-                        type: "password"
+                        type: "text"
                     }
                 )}
             </div>
-            <button className="addContentButton">Send</button>
+            <button className="Add-content Show-more">Create Account</button>
             {props.error && <div className="inputError">{props.error}</div>}
         </form>
     );
 };
 
-const PasswordReduxForm = reduxForm({ form: "inputPassword" })(PasswordForm);
-export default PasswordReduxForm;
+const CreateAccountReduxForm = reduxForm({ form: "create account" })(
+    CreateAccount
+);
+export default CreateAccountReduxForm;

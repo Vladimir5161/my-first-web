@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { onPassCheckClick } from "../../store/AddContentReducer";
+import {
+    onPassCheckClick,
+    CreateAccount,
+    CreatedOnDefault
+} from "../../store/AuthReducer";
 
 let mapStateToProps = state => ({
-    isAuth: state.AddContent.isAuth,
-    userName: state.AddContent.userName,
-    userPass: state.AddContent.userPass
+    isAuth: state.auth.isAuth,
+    isCreated: state.auth.isCreated,
+    inputField: state.auth.inputField
 });
 
 export const LoggedInRedirect = Component => {
@@ -27,7 +31,9 @@ export const LoggedInRedirect = Component => {
     }
 
     let connectedRedirectedComponent = connect(mapStateToProps, {
-        onPassCheckClick
+        onPassCheckClick,
+        CreateAccount,
+        CreatedOnDefault
     })(RedirectComponent);
 
     return connectedRedirectedComponent;

@@ -9,6 +9,7 @@ import ExactNewsPage from "./pages/news/ExactNewsPage";
 import ExactContentPage from "./pages/mainPage/ExactContentPage";
 import MyAlert from "./pages/myAlert";
 import Login from "./pages/Login/Login";
+import CreateAccount from "./pages/Login/CreateAccount";
 
 const Main = () => {
     return (
@@ -33,6 +34,7 @@ const Main = () => {
                 <Route path="/news/:id" exact component={ExactNewsPage} />
                 <Route path="/content/:id" exact component={ExactContentPage} />
                 <Route path="/login" exact component={Login} />
+                <Route path="/createAccount" exact component={CreateAccount} />
                 <MyAlert />
             </div>
         </main>

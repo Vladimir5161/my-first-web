@@ -36,3 +36,29 @@ export const webAPI = {
         });
     }
 };
+
+export const authAPI = {
+    createAccount(accountData) {
+        return instance.post(`/accounts.json`, accountData).then(resp => {
+            return resp.data;
+        });
+    },
+    getAccounts() {
+        return instance.get(`/accounts.json`).then(resp => {
+            return resp.data;
+        });
+    },
+    isLogged() {
+        return instance.get(`/account.json`).then(resp => {
+            return resp.data;
+        });
+    },
+    loginIn(account) {
+        return instance.post(`/account.json`, account).then(resp => {
+            return resp.data;
+        });
+    },
+    logOut(keyFirebase) {
+        return instance.delete(`/account/${keyFirebase}.json`);
+    }
+};

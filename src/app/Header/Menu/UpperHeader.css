@@ -1,6 +1,6 @@
 .upperheader {
   display: grid;
-  grid-template-columns: 3fr 6fr 2fr;
+  grid-template-columns: 3fr 6fr 4fr;
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   width: 1170px;
   z-index: 40;
@@ -92,7 +92,7 @@
   display: grid;
   align-items: center;
   grid-template-columns: 2fr 1fr;
-  padding: 0 20px 0 40px;
+  padding: 0 20px 0 20px;
   position: relative;
 }
 
@@ -101,6 +101,11 @@
   text-decoration-line: none;
   justify-content: center;
   margin: 0 auto;
+}
+.loginBlock {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
 }
 
 
@@ -149,19 +154,6 @@
   width: 70px;
 }
 
-@media screen and (max-width: 767px) {
-  .upperheader {
-    grid-template-rows: 4fr 7fr 2fr;
-    grid-template-columns: none;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .navigationMenu {
-    display: grid;
-    justify-content: center;
-  }
-}
 
 @media screen and (max-width: 1024px) {
   .loginArea {
@@ -173,13 +165,29 @@
 @media screen and (max-width: 768px) {
   .loginArea {
     padding: 0 20px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 20px;
   }
-
+  .upperheader {
+    grid-template-rows: 4fr 5fr 2fr;
+    grid-template-columns: none;
+    margin: 0 auto;
+    text-align: center;
+  }
   .menuPoints:hover .contentSubMenu,
   .MoviesSubMenu {
     top: 100px;
     left: 85px;
+  }
+  .navigationMenu {
+    display: grid;
+    justify-content: center;
+  }
+  .loginBlock:first-child {
+    margin-left: auto;
+  }
+  .loginBlock:last-child {
+    margin-right: auto;
   }
 }
 

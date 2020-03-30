@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import PasswordAddContent from "./PasswordAddContent";
-import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
-import { withRouter } from "react-router-dom";
 import { compose } from "redux";
+import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
+import CreateAccountReduxForm from "../../../Form-Controls/CreateAccountReduxForm";
 import Alert from "../../CommonComonents/Alert";
 import "./login.css";
 
-const Login = props => {
+const CreateAccount = props => {
     let [alertText, changeAlertText] = useState(
-        "you are successfully logged in"
+        "your account has been created"
     );
+    const onSubmit = formData => {
+        props.CreateAccount(formData.addLogin, formData.addPassword);
+    };
     return (
         <div>
-            {props.isAuth ? (
+            {props.isCreated ? (
                 <div style={{ position: "relative" }}>
                     <Alert text={alertText} {...props} />
                     <div className="timer">
@@ -23,12 +25,14 @@ const Login = props => {
                     </div>
                 </div>
             ) : null}
-            <PasswordAddContent
-                onPassCheckClick={props.onPassCheckClick}
-                {...props}
-            />
+            <div className="passwordWindow">
+                <CreateAccountReduxForm
+                    onSubmit={onSubmit}
+                    inputField={props.inputField}
+                />
+            </div>
         </div>
     );
 };
 
-export default compose(LoggedInRedirect, withRouter)(Login);
+export default compose(LoggedInRedirect)(CreateAccount);

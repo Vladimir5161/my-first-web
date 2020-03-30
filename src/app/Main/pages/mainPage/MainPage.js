@@ -8,11 +8,13 @@ import ContentImageContainer from "./contentImage/ContentImageContainer";
 import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
 import ContentStoryContainer from "./contentStory/ContentStoryContainer";
 import { initializeApp } from "../../../../store/InitializeReducer";
+import { Auth } from "../../../../store/AuthReducer";
 import Preloader from "../../CommonComonents/Preloader";
 
 class FirstPage extends React.Component {
     componentDidMount() {
         this.props.initializeApp();
+        this.props.Auth();
     }
     render() {
         if (this.props.initialized === false) {
@@ -44,4 +46,4 @@ const mapStateToProps = state => ({
     initialized: state.initializeApp.initialized
 });
 
-export default connect(mapStateToProps, { initializeApp })(FirstPage);
+export default connect(mapStateToProps, { initializeApp, Auth })(FirstPage);

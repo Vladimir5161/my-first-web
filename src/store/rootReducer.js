@@ -8,6 +8,7 @@ import newsDataReducer from "./newsDataReducer";
 import DataReducer from "./DataReducer";
 import { reducer as formReducer } from "redux-form";
 import InitializeReducer from "./InitializeReducer";
+import AuthReducer from "./AuthReducer";
 
 const rootReducer = combineReducers({
     likedContentItems: contentLikeReducer,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     Data: DataReducer,
     Pass: AddContentReducer,
     form: formReducer,
-    initializeApp: InitializeReducer
+    initializeApp: InitializeReducer,
+    auth: AuthReducer
 });
 
 export default rootReducer;
