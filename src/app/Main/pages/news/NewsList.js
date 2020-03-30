@@ -4,10 +4,12 @@ import NewsListItem from "./NewsListItem";
 import { connect } from "react-redux";
 import { getNews } from "../../../../store/newsDataReducer";
 import Preloader from "../../CommonComonents/Preloader";
+import { Auth } from "../../../../store/AuthReducer";
 
 class NewsList extends React.Component {
     componentDidMount() {
         this.props.getNews();
+        this.props.Auth();
     }
 
     render() {
@@ -41,4 +43,4 @@ const mapStateToProps = state => ({
     newsData: state.newsData.NewsData
 });
 
-export default connect(mapStateToProps, { getNews })(NewsList);
+export default connect(mapStateToProps, { getNews, Auth })(NewsList);
