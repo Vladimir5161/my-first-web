@@ -8,7 +8,7 @@ import ContentImageContainer from "./contentImage/ContentImageContainer";
 import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
 import ContentStoryContainer from "./contentStory/ContentStoryContainer";
 import { initializeApp } from "../../../../store/InitializeReducer";
-import Preloader from "../../../Main/Preloader/Preloader";
+import Preloader from "../../CommonComonents/Preloader";
 
 class FirstPage extends React.Component {
     componentDidMount() {

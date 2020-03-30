@@ -3,7 +3,7 @@ import "./News.css";
 import NewsListItem from "./NewsListItem";
 import { connect } from "react-redux";
 import { getNews } from "../../../../store/newsDataReducer";
-import Preloader from "../../Preloader/Preloader";
+import Preloader from "../../CommonComonents/Preloader";
 
 class NewsList extends React.Component {
     componentDidMount() {
