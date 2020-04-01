@@ -1,5 +1,6 @@
 import { stopSubmit, reset } from "redux-form";
 import { webAPI } from "../app/api/api";
+import { initialize } from "../store/InitializeReducer";
 
 const initialState = {
     Data: [],
@@ -97,19 +98,32 @@ const DataReducer = (state = initialState, action) => {
                 }
             };
         case "DOWNLOADCONTENT":
-            let array = [];
-            for (let item of action.responce) {
-                if (newState.Data.length === 0) {
-                    array.push(item);
+            let arrayNew = [
+                ...state.Data.filter(item => item[action.contentType])
+            ];
+            for (let content of action.responce) {
+                if (arrayNew.length === 0) {
+                    arrayNew.push(content);
                 } else if (
-                    newState.Data.some(element => element.id === item.id)
+                    arrayNew.some(element => element.id === content.id)
                 ) {
-                    return state;
-                } else array.push(item);
+                    let element = [
+                        ...arrayNew.filter(item => item.id === content.id)
+                    ];
+                    if (!element[0].hasOwnProperty("keyFirebase")) {
+                        let itemForDelete = arrayNew.indexOf(element[0]);
+                        arrayNew.splice(itemForDelete, 1, content);
+                    }
+                } else {
+                    arrayNew.push(content);
+                }
             }
             return {
                 ...state,
-                Data: state.Data.concat(array)
+                Data: [
+                    ...state.Data.filter(item => !item[action.contentType]),
+                    ...arrayNew
+                ]
             };
         case "DOWNLOADSLIDES":
             let arraySlides = [];
@@ -129,12 +143,18 @@ const DataReducer = (state = initialState, action) => {
         case "DELETECONTENT":
             return {
                 ...state,
-                Data: [...state.Data.filter(id => id !== action.id)]
+                Data: state.Data.filter(item => item.id !== action.id)
+            };
+        case "ADDCONTENT":
+            return {
+                ...state,
+                Data: [...state.Data, action.content]
             };
         default:
             return state;
     }
 };
+export const addContentNew = content => ({ type: "ADDCONTENT", content });
 export const ShowMore = (additionalCount, season, movie, contentType) => ({
     type: "CHANGECONTENTSCOUNT",
     additionalCount,
@@ -149,21 +169,22 @@ export const uploadContent = (season, itemsCount, movie, contentType) => ({
     movie,
     contentType
 });
-export const downloadContent = responce => ({
+export const downloadContent = (responce, contentType) => ({
     type: "DOWNLOADCONTENT",
-    responce
+    responce,
+    contentType
 });
 export const downloadSlides = slides => ({ type: "DOWNLOADSLIDES", slides });
 export const DeleteContent = id => ({ type: "DELETECONTENT", id });
 
 export const deleteContent = (
-    keyFirebase,
     id,
+    keyFirebase,
     contentType
 ) => async dispatch => {
     try {
         await webAPI.deleteContent(keyFirebase, contentType);
-        setTimeout(() => dispatch(DeleteContent(id)), 1000);
+        await dispatch(DeleteContent(id));
     } catch {
         return "something went wrong";
     }
@@ -176,18 +197,19 @@ export const getContents = (
     contentType
 ) => async dispatch => {
     try {
+        debugger;
         let responce = await webAPI.getContent(contentType);
         let slides = await webAPI.getSlides();
         let contentArray = Object.entries(responce);
         contentArray.map(item => (item[1].keyFirebase = item[0]));
-        contentArray.map(item => (item[1].id = item[0]));
-        await dispatch(downloadContent(Object.values(responce)));
+        await dispatch(downloadContent(Object.values(responce), contentType));
         await dispatch(downloadSlides(Object.values(slides)));
         await dispatch(uploadContent(season, itemsCount, movie, contentType));
     } catch {
         return "something went wrong";
     }
 };
+
 export const addContent = (
     movie,
     season,
@@ -234,7 +256,7 @@ export const addContent = (
             };
             try {
                 await webAPI.addContent(newImage, contentType);
-                await webAPI.getContent(contentType);
+                await dispatch(addContentNew(newImage));
                 dispatch(reset("addContent"));
             } catch {
                 return "some error";
@@ -249,7 +271,7 @@ export const addContent = (
             };
             try {
                 await webAPI.addContent(newVideo, contentType);
-                await webAPI.getContent(contentType);
+                await dispatch(addContentNew(newVideo));
                 dispatch(reset("addContent"));
             } catch {
                 return "some error";
@@ -265,7 +287,7 @@ export const addContent = (
             };
             try {
                 await webAPI.addContent(newStory, contentType);
-                await webAPI.getContent(contentType);
+                await dispatch(addContentNew(newStory));
                 dispatch(reset("addContent"));
             } catch {
                 return "some error";

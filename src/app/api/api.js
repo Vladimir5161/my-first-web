@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import { deleteNews } from "../../store/newsDataReducer";
 
 const instance = axios.create({
     withCreadentials: true,
@@ -34,6 +35,14 @@ export const webAPI = {
         return instance.get(`/content/news.json`).then(resp => {
             return resp.data;
         });
+    },
+    addNews(news) {
+        return instance.post(`/content/news.json`, news).then(resp => {
+            return resp.data;
+        });
+    },
+    deleteNews(keyFirebase) {
+        return instance.delete(`/content/news/${keyFirebase}.json`);
     }
 };
 

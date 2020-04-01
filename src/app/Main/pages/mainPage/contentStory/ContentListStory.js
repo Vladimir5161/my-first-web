@@ -41,7 +41,7 @@ const ContentListStory = ({
                         video,
                         keyFirebase
                     }) => (
-                        <div className="Content" key={keyFirebase}>
+                        <div className="Content" key={id}>
                             <ContentListItem
                                 video={video}
                                 image={imageContent}
@@ -49,8 +49,8 @@ const ContentListStory = ({
                                 text={text}
                                 description={description}
                                 story={story}
-                                id={id}
                                 keyFirebase={keyFirebase}
+                                id={id}
                                 deleteContent={props.deleteContent}
                                 editMode={props.editMode}
                                 editModeClass="ButtonCloseImage-clickedEditBlack"

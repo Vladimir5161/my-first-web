@@ -7,9 +7,6 @@ import { initializeApp } from "../../../../store/InitializeReducer";
 import Preloader from "../../CommonComonents/Preloader";
 
 class ExactContentPage extends React.Component {
-    componentDidMount() {
-        this.props.initializeApp();
-    }
     render() {
         let {
             match,

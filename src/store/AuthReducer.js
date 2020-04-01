@@ -10,7 +10,6 @@ const initialState = {
 const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ONPASSCHECKSUCCESS":
-            debugger;
             return {
                 ...state,
                 isAuth: (state.isAuth = true),

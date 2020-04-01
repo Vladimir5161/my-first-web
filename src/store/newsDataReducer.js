@@ -1,46 +1,117 @@
 import { webAPI } from "../app/api/api";
+import { stopSubmit, reset } from "redux-form";
 
 const initialState = {
-  NewsData: []
-}
+    NewsData: [],
+    clickedNewsButton: false,
+    editModeNews: false
+};
 
-const newsDataReducer = (state = initialState, action ) => {
-  let newState = {...state}
-    switch(action.type) {
-      case "SETNEWS":
-          let arrayNews = [];
-          for(let i of action.news) {
-            if(newState.NewsData.length === 0) {
-              arrayNews.push(i)
-            } else if(newState.NewsData.some((element) =>element.id === i.id)) {
-                return state
-              } else arrayNews.push(i) 
-          }
-                    return {
-                      ...state,
-                      NewsData: state.NewsData.concat(arrayNews)
-                      
+const newsDataReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "UPLOAD":
+            let arrayNew = [...state.NewsData];
+            for (let i of action.news) {
+                if (arrayNew.length === 0) {
+                    arrayNew.push(i);
+                } else if (arrayNew.some(element => element.id === i.id)) {
+                    let element = [
+                        ...arrayNew.filter(item => item.id === i.id)
+                    ];
+                    if (!element[0].hasOwnProperty("keyFirebase")) {
+                        let itemForDelete = arrayNew.indexOf(element[0]);
+                        arrayNew.splice(itemForDelete, 1, i);
+                        console.log(itemForDelete);
                     }
-        default: 
+                } else {
+                    arrayNew.push(i);
+                }
+            }
+            return {
+                ...state,
+                NewsData: (state.NewsData = arrayNew)
+            };
+        case "SHOWADDNEWS":
+            return {
+                ...state,
+                clickedNewsButton: (state.clickedNewsButton = true),
+                editModeNews: (state.editModeNews = true)
+            };
+        case "HIDEADDNEWS":
+            return {
+                ...state,
+                clickedNewsButton: (state.clickedNewsButton = false),
+                editModeNews: (state.editModeNews = false)
+            };
+        case "DELETENEWS":
+            return {
+                ...state,
+                NewsData: state.NewsData.filter(item => item.id !== action.id)
+            };
+        case "ADDNEWS":
+            return {
+                ...state,
+                NewsData: [...state.NewsData, action.news]
+            };
+        default:
             return state;
     }
-}
-export const setNews = (news) => ({type: 'SETNEWS', news})
+};
+export const uploadNews = news => ({ type: "UPLOAD", news });
+export const showAddNews = () => ({ type: "SHOWADDNEWS" });
+export const hideAddNews = () => ({ type: "HIDEADDNEWS" });
+export const addNewsItem = news => ({ type: "ADDNEWS", news });
+export const deleteNewsItem = id => ({ type: "DELETENEWS", id });
+
+export const addNews = (newsName, newsText, newsImage) => async (
+    dispatch,
+    getState
+) => {
+    let Data = getState().newsData.NewsData;
+    let newId = () => {
+        if (Data.length < 1) {
+            return `1`;
+        } else {
+            let idCount = Data.pop();
+            Data.push(idCount);
+            let newId = idCount.id + 1;
+            return newId;
+        }
+    };
+    let news = {
+        data: new Date().toLocaleString(),
+        id: newId(),
+        newsImage: newsImage || "",
+        newsName,
+        newsText
+    };
+    try {
+        await webAPI.addNews(news);
+        await dispatch(addNewsItem(news));
+        dispatch(reset("addNews"));
+    } catch {
+        dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
+    }
+};
+export const deleteNewsThunk = (id, keyFirebase) => async dispatch => {
+    try {
+        await webAPI.deleteNews(keyFirebase);
+        await dispatch(deleteNewsItem(id));
+        debugger;
+    } catch {
+        return "something went wrong";
+    }
+};
 
 export const getNews = () => async dispatch => {
- try {
-    let responce = await webAPI.getNews()
-    debugger
-  let contentArray = Object.entries(responce)
-  contentArray.map(item => (
-    item[1].keyFirebase = item[0]
-  ))
-  contentArray.map(item => (
-    item[1].id = item[0]
-  ))
-  await dispatch(setNews(Object.values(responce)))
- } catch {
-    return "something went wrong"
- }
-} 
-export default newsDataReducer
+    try {
+        debugger;
+        let responce = await webAPI.getNews();
+        let arrayNews = Object.entries(responce);
+        arrayNews.map(item => (item[1].keyFirebase = item[0]));
+        await dispatch(uploadNews(Object.values(responce)));
+    } catch {
+        return "something went wrong";
+    }
+};
+export default newsDataReducer;

@@ -38,3 +38,21 @@ export const Input = ({ error, ...props }) => {
         </div>
     );
 };
+
+export const Textarea = ({ error, ...props }) => {
+    const { input, meta, ...restProps } = props;
+    console.log(meta.error);
+    console.log(props.inputField);
+    const hasError = meta.error && meta.touched;
+    return (
+        <div>
+            {hasError ? <div className="inputError">{meta.error}</div> : null}
+            <textarea
+                type={props.type}
+                {...input}
+                {...restProps}
+                className={hasError || error ? "inputFieldError" : "inputField"}
+            />
+        </div>
+    );
+};
