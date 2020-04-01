@@ -34,7 +34,12 @@ const addNewsForm = ({ ...props }) => {
                     { error: props.error, type: "text" }
                 )}
             </div>
-            <button className="addContentButton">Add</button>
+            <button
+                className="addContentButton"
+                disabled={props.isFetching.some(id => id === "addNews")}
+            >
+                Add
+            </button>
         </form>
     );
 };

@@ -38,6 +38,7 @@ const ContentListImage = ({
                             deleteContent={props.deleteContent}
                             DataArrey={props.DataArrey}
                             editMode={props.editMode}
+                            isFetching={props.isFetching}
                             editModeClass="ButtonCloseImage-clickedEdit"
                             contentType={"image"}
                         />

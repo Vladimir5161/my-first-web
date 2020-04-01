@@ -4,6 +4,7 @@ import { Input, createField, Textarea } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
 
 const addContentForm = ({ contentType, ...props }) => {
+    console.log(props.isFetching.some(item => item === "addContent"));
     return (
         <form onSubmit={props.handleSubmit}>
             {props.error && <div className="inputError">{props.error}</div>}
@@ -16,7 +17,14 @@ const addContentForm = ({ contentType, ...props }) => {
                         Input,
                         { error: props.error, type: "text" }
                     )}
-                    <button className="addContentButton">Add</button>
+                    <button
+                        className="addContentButton"
+                        disabled={props.isFetching.some(
+                            item => item === "addContent"
+                        )}
+                    >
+                        Add
+                    </button>
                 </div>
             ) : contentType === "video" ? (
                 <div>
@@ -38,7 +46,14 @@ const addContentForm = ({ contentType, ...props }) => {
                             { type: "text" }
                         )}
                     </div>
-                    <button className="addContentButton">Add</button>
+                    <button
+                        className="addContentButton"
+                        disabled={props.isFetching.some(
+                            item => item === "addContent"
+                        )}
+                    >
+                        Add
+                    </button>
                 </div>
             ) : contentType === "story" ? (
                 <div>
@@ -65,7 +80,14 @@ const addContentForm = ({ contentType, ...props }) => {
                             { error: props.error, type: "text" }
                         )}
                     </div>
-                    <button className="addContentButton">Add</button>
+                    <button
+                        className="addContentButton"
+                        disabled={props.isFetching.some(
+                            item => item === "addContent"
+                        )}
+                    >
+                        Add
+                    </button>
                 </div>
             ) : null}
         </form>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import AddNewsReduxFrom from "../../../../Form-Controls/AddNewsReduxForm";
 import { addNews } from "../../../../../store/newsDataReducer";
 
-const AddNews = ({ addNews }) => {
+const AddNews = ({ addNews, isFetching }) => {
     let onSubmit = formData => {
         addNews(
             formData.addNewsName,
@@ -12,11 +12,12 @@ const AddNews = ({ addNews }) => {
             formData.addNewsImage
         );
     };
-    return <AddNewsReduxFrom onSubmit={onSubmit} />;
+    return <AddNewsReduxFrom onSubmit={onSubmit} isFetching={isFetching} />;
 };
 
 const mapStateToProps = state => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    isFetching: state.newsData.isFetching
 });
 
 export default connect(mapStateToProps, {

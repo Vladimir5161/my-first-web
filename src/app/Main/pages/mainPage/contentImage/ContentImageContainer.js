@@ -51,6 +51,7 @@ class ContentImageContainer extends React.Component {
                 season={this.props.season}
                 deleteContent={this.props.deleteContent}
                 editMode={this.props.editMode}
+                isFetching={this.props.isFetching}
             />
         );
     }
@@ -62,7 +63,8 @@ const mapStateToProps = state => ({
     images: state.filter.images,
     movie: state.movieChose1.movie,
     firstContent: getContentArreyImages(state),
-    editMode: state.AddContent.editMode
+    editMode: state.AddContent.editMode,
+    isFetching: state.Data.isFetching
 });
 export default connect(mapStateToProps, {
     ShowMore,

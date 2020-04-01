@@ -52,12 +52,15 @@ class ContentListImagesItem extends React.Component {
             editMode,
             deleteContent,
             contentType,
-            keyFirebase
+            keyFirebase,
+            isFetching
         } = this.props;
+        let uId = id;
         return (
             <div>
                 {editMode ? (
                     <button
+                        disabled={isFetching.some(id => id === uId)}
                         className="ButtonCloseImage-clickedEdit"
                         onClick={() => {
                             deleteContent(id, keyFirebase, contentType);

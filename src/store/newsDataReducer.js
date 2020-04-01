@@ -4,7 +4,8 @@ import { stopSubmit, reset } from "redux-form";
 const initialState = {
     NewsData: [],
     clickedNewsButton: false,
-    editModeNews: false
+    editModeNews: false,
+    isFetching: []
 };
 
 const newsDataReducer = (state = initialState, action) => {
@@ -53,10 +54,18 @@ const newsDataReducer = (state = initialState, action) => {
                 ...state,
                 NewsData: [...state.NewsData, action.news]
             };
+        case "ISFETCHING":
+            return {
+                ...state,
+                isFetching: action.status
+                    ? [...state.isFetching, action.id]
+                    : state.isFetching.filter(id => id !== action.id)
+            };
         default:
             return state;
     }
 };
+export const Fetching = (status, id) => ({ type: "ISFETCHING", status, id });
 export const uploadNews = news => ({ type: "UPLOAD", news });
 export const showAddNews = () => ({ type: "SHOWADDNEWS" });
 export const hideAddNews = () => ({ type: "HIDEADDNEWS" });
@@ -86,18 +95,21 @@ export const addNews = (newsName, newsText, newsImage) => async (
         newsText
     };
     try {
+        dispatch(Fetching(true, "addNews"));
         await webAPI.addNews(news);
-        await dispatch(addNewsItem(news));
+        dispatch(addNewsItem(news));
         dispatch(reset("addNews"));
+        dispatch(Fetching(false, "addNews"));
     } catch {
         dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
     }
 };
 export const deleteNewsThunk = (id, keyFirebase) => async dispatch => {
     try {
+        dispatch(Fetching(true, id));
         await webAPI.deleteNews(keyFirebase);
-        await dispatch(deleteNewsItem(id));
-        debugger;
+        dispatch(deleteNewsItem(id));
+        dispatch(Fetching(false, id));
     } catch {
         return "something went wrong";
     }
@@ -105,11 +117,10 @@ export const deleteNewsThunk = (id, keyFirebase) => async dispatch => {
 
 export const getNews = () => async dispatch => {
     try {
-        debugger;
         let responce = await webAPI.getNews();
         let arrayNews = Object.entries(responce);
         arrayNews.map(item => (item[1].keyFirebase = item[0]));
-        await dispatch(uploadNews(Object.values(responce)));
+        dispatch(uploadNews(Object.values(responce)));
     } catch {
         return "something went wrong";
     }

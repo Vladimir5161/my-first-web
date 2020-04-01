@@ -27,7 +27,8 @@ const AddContent = ({
     addContent,
     arrey,
     addContentSecondText,
-    isAuth
+    isAuth,
+    isFetching
 }) => {
     let onSubmit = formData => {
         addContent(
@@ -60,6 +61,7 @@ const AddContent = ({
                 contentType={contentType}
                 onSubmit={onSubmit}
                 arrey={arrey}
+                isFetching={isFetching}
             />
         </div>
     );
@@ -74,7 +76,8 @@ const mapStateToProps = state => ({
     filterContentClassName: state.AddContent.filterContentClassName,
     movie: state.movieChose1.movie,
     season: state.movieChose1.season,
-    addContentSecondText: state.AddContent.addContentSecondText
+    addContentSecondText: state.AddContent.addContentSecondText,
+    isFetching: state.Data.isFetching
 });
 
 export default connect(mapStateToProps, {

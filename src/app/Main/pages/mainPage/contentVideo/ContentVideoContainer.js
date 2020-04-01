@@ -47,6 +47,7 @@ class ContentVideoContainer extends React.Component {
                 DataArrey={this.props.DataArrey}
                 deleteContent={this.props.deleteContent}
                 editMode={this.props.editMode}
+                isFetching={this.props.isFetching}
             />
         );
     }
@@ -59,7 +60,8 @@ const mapStateToProps = state => ({
     videos: state.filter.videos,
     movie: state.movieChose1.movie,
     firstContent: getContentArreyVideos(state),
-    editMode: state.AddContent.editMode
+    editMode: state.AddContent.editMode,
+    isFetching: state.Data.isFetching
 });
 
 export default connect(mapStateToProps, {

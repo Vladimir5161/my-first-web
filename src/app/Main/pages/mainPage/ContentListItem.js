@@ -15,12 +15,14 @@ const ContentListItem = ({
     editModeClass,
     keyFirebase,
     contentType,
+    isFetching,
     playerStyle = "react-player"
 }) => {
     return (
         <div className="content-list-item">
             {editMode ? (
                 <button
+                    disabled={isFetching.some(item => item === id)}
                     className={editModeClass}
                     onClick={() => {
                         deleteContent(id, keyFirebase, contentType);

@@ -1,6 +1,5 @@
 import { stopSubmit, reset } from "redux-form";
 import { webAPI } from "../app/api/api";
-import { initialize } from "../store/InitializeReducer";
 
 const initialState = {
     Data: [],
@@ -13,7 +12,7 @@ const initialState = {
         video: [],
         story: []
     },
-    canPush: false
+    isFetching: []
 };
 
 const DataReducer = (state = initialState, action) => {
@@ -150,10 +149,22 @@ const DataReducer = (state = initialState, action) => {
                 ...state,
                 Data: [...state.Data, action.content]
             };
+        case "ISFETCHINGDELETE":
+            return {
+                ...state,
+                isFetching: action.status
+                    ? [...state.isFetching, action.id]
+                    : state.isFetching.filter(id => id !== action.id)
+            };
         default:
             return state;
     }
 };
+export const Fetching = (status, id) => ({
+    type: "ISFETCHINGDELETE",
+    status,
+    id
+});
 export const addContentNew = content => ({ type: "ADDCONTENT", content });
 export const ShowMore = (additionalCount, season, movie, contentType) => ({
     type: "CHANGECONTENTSCOUNT",
@@ -183,8 +194,10 @@ export const deleteContent = (
     contentType
 ) => async dispatch => {
     try {
+        dispatch(Fetching(true, id));
         await webAPI.deleteContent(keyFirebase, contentType);
-        await dispatch(DeleteContent(id));
+        dispatch(DeleteContent(id));
+        dispatch(Fetching(false, id));
     } catch {
         return "something went wrong";
     }
@@ -197,14 +210,13 @@ export const getContents = (
     contentType
 ) => async dispatch => {
     try {
-        debugger;
         let responce = await webAPI.getContent(contentType);
         let slides = await webAPI.getSlides();
         let contentArray = Object.entries(responce);
         contentArray.map(item => (item[1].keyFirebase = item[0]));
-        await dispatch(downloadContent(Object.values(responce), contentType));
-        await dispatch(downloadSlides(Object.values(slides)));
-        await dispatch(uploadContent(season, itemsCount, movie, contentType));
+        dispatch(downloadContent(Object.values(responce), contentType));
+        dispatch(downloadSlides(Object.values(slides)));
+        dispatch(uploadContent(season, itemsCount, movie, contentType));
     } catch {
         return "something went wrong";
     }
@@ -255,9 +267,11 @@ export const addContent = (
                 image: addImage
             };
             try {
+                dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newImage, contentType);
-                await dispatch(addContentNew(newImage));
+                dispatch(addContentNew(newImage));
                 dispatch(reset("addContent"));
+                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }
@@ -270,9 +284,11 @@ export const addContent = (
                 name: addVideoName
             };
             try {
+                dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newVideo, contentType);
-                await dispatch(addContentNew(newVideo));
+                dispatch(addContentNew(newVideo));
                 dispatch(reset("addContent"));
+                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }
@@ -286,9 +302,11 @@ export const addContent = (
                 imageContent: addStoryImage
             };
             try {
+                dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newStory, contentType);
-                await dispatch(addContentNew(newStory));
+                dispatch(addContentNew(newStory));
                 dispatch(reset("addContent"));
+                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }

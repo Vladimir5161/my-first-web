@@ -19,14 +19,12 @@ class NewsList extends React.Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.newsData.length !== prevProps.newsData.length) {
-            debugger;
             this.rerender();
         }
     }
 
     render() {
         let { newsData, editModeNews } = this.props;
-        console.log(this.props.newsData);
         if (newsData.length === 0) {
             return <Preloader />;
         }
@@ -69,6 +67,7 @@ class NewsList extends React.Component {
                                 editModeNews={editModeNews}
                                 deleteNews={this.props.deleteNewsThunk}
                                 keyFirebase={keyFirebase}
+                                isFetching={this.props.isFetching}
                                 editModeClass="ButtonCloseImage-clickedEditBlack"
                             />
                         </div>
@@ -83,7 +82,8 @@ const mapStateToProps = state => ({
     newsData: state.newsData.NewsData,
     clickedNewsButton: state.newsData.clickedNewsButton,
     editModeNews: state.newsData.editModeNews,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    isFetching: state.newsData.isFetching
 });
 
 export default connect(mapStateToProps, {

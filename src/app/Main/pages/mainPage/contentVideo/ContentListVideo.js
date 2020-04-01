@@ -43,6 +43,7 @@ const ContentListVideo = ({
                                 editMode={props.editMode}
                                 editModeClass="ButtonCloseImage-clickedEdit"
                                 contentType={`video`}
+                                isFetching={props.isFetching}
                             />
                             <Link to={`/content/${id}`}>
                                 <button className="Add-content Know-more">

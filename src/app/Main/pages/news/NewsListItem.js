@@ -11,12 +11,14 @@ const NewsListItem = ({
     deleteNews,
     editModeClass,
     editModeNews,
-    keyFirebase
+    keyFirebase,
+    isFetching
 }) => {
     return (
         <div className="newsState">
             {editModeNews ? (
                 <button
+                    disabled={isFetching.some(item => item === id)}
                     className={editModeClass}
                     onClick={() => {
                         deleteNews(id, keyFirebase);

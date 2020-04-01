@@ -47,6 +47,7 @@ class ContentStoryContainer extends React.Component {
                 DataArrey={this.props.DataArrey}
                 deleteContent={this.props.deleteContent}
                 editMode={this.props.editMode}
+                isFetching={this.props.isFetching}
             />
         );
     }
@@ -58,7 +59,8 @@ const mapStateToProps = state => ({
     stories: state.filter.stories,
     movie: state.movieChose1.movie,
     firstContent: getContentArreyStories(state),
-    editMode: state.AddContent.editMode
+    editMode: state.AddContent.editMode,
+    isFetching: state.Data.isFetching
 });
 
 export default connect(mapStateToProps, {
