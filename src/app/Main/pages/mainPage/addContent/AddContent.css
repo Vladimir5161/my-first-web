@@ -71,7 +71,7 @@
   margin: 20px auto;
 }
 .addContentInputText textarea {
-  margin: 12px auto;
+  margin: 20px auto;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
   display: block;
@@ -84,7 +84,7 @@
 }
 .addContentInput input {
   display: block;
-  margin: 12px auto;
+  margin: 20px auto;
   width: 200px;
   height: 30px;
   padding: 0 10px;
@@ -130,9 +130,13 @@
   margin: 0 auto;
   left: 0;
   right: 0;
+  top: -18px;
   line-height: 15px;
 }
 
 .inputFieldError {
   border-color: red;
+}
+.formBlock {
+  position: relative;
 }

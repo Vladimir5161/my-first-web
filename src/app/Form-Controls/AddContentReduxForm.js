@@ -4,7 +4,6 @@ import { Input, createField, Textarea } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
 
 const addContentForm = ({ contentType, ...props }) => {
-    console.log(props.isFetching.some(item => item === "addContent"));
     return (
         <form onSubmit={props.handleSubmit}>
             {props.error && <div className="inputError">{props.error}</div>}

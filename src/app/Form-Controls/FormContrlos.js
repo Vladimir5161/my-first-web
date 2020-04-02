@@ -27,7 +27,7 @@ export const Input = ({ error, ...props }) => {
     console.log(props.inputField);
     const hasError = meta.error && meta.touched;
     return (
-        <div>
+        <div className="formBlock">
             {hasError ? <div className="inputError">{meta.error}</div> : null}
             <input
                 type={props.type}
@@ -45,7 +45,7 @@ export const Textarea = ({ error, ...props }) => {
     console.log(props.inputField);
     const hasError = meta.error && meta.touched;
     return (
-        <div>
+        <div className="formBlock">
             {hasError ? <div className="inputError">{meta.error}</div> : null}
             <textarea
                 type={props.type}
