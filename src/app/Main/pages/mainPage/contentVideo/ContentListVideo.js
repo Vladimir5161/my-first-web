@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
 import { compose } from "redux";
 import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
+import { ContentContext } from "../ContentContext.js";
 
 const ContentListVideo = ({
-    videos,
     firstContent,
     onComponentChangeVideo,
     ...props
 }) => {
     let additionalCount = 2;
     let [buttonName, changeButtonName] = useState("Show All");
+    let { season, movie, DataArrey, videos } = useContext(ContentContext);
     let on = (type, contentType, additionalCount) => {
         props.funcControlButtonName(type, contentType, additionalCount)
             ? changeButtonName("Close All")
             : changeButtonName("Show All");
     };
-    let contentType = props.getContentType(
-        "video",
-        props.movie,
-        props.season,
-        props.DataArrey
-    );
+    let contentType = props.getContentType("video", movie, season, DataArrey);
     if (firstContent.length === 0) {
         return null;
     }
@@ -38,12 +34,9 @@ const ContentListVideo = ({
                                 name={name}
                                 description={description}
                                 id={id}
-                                deleteContent={props.deleteContent}
                                 keyFirebase={keyFirebase}
-                                editMode={props.editMode}
                                 editModeClass="ButtonCloseImage-clickedEdit"
                                 contentType={`video`}
-                                isFetching={props.isFetching}
                             />
                             <Link to={`/content/${id}`}>
                                 <button className="Add-content Know-more">

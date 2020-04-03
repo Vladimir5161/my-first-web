@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { NewsContext } from "./NewsContext";
 
 const NewsListItem = ({
     newsImage,
@@ -8,12 +9,11 @@ const NewsListItem = ({
     data,
     time,
     id,
-    deleteNews,
     editModeClass,
     editModeNews,
-    keyFirebase,
-    isFetching
+    keyFirebase
 }) => {
+    let { deleteNews, isFetching } = useContext(NewsContext);
     return (
         <div className="newsState">
             {editModeNews ? (

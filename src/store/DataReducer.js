@@ -10,9 +10,9 @@ const initialState = {
     firstContent: {
         image: [],
         video: [],
-        story: []
+        story: [],
     },
-    isFetching: []
+    isFetching: [],
 };
 
 const DataReducer = (state = initialState, action) => {
@@ -21,12 +21,14 @@ const DataReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CHANGECONTENTSCOUNT":
             let ContentAll = newState.Data.filter(
-                item => item.movie === action.movie
+                (item) => item.movie === action.movie
             );
             let ContentType = ContentAll.filter(
-                item => item.season === action.season
+                (item) => item.season === action.season
             );
-            let Content = ContentType.filter(item => item[action.contentType]);
+            let Content = ContentType.filter(
+                (item) => item[action.contentType]
+            );
             let countFunc = (CountType, contentType) => {
                 let count =
                     newState.firstContent[contentType].length ===
@@ -42,7 +44,7 @@ const DataReducer = (state = initialState, action) => {
                     imagesCount: (state.imagesCount = countFunc(
                         `imagesCount`,
                         action.contentType
-                    ))
+                    )),
                 };
             } else if (action.contentType === "video") {
                 return {
@@ -50,7 +52,7 @@ const DataReducer = (state = initialState, action) => {
                     videosCount: (state.videosCount = countFunc(
                         `videosCount`,
                         action.contentType
-                    ))
+                    )),
                 };
             } else if (action.contentType === "story") {
                 return {
@@ -58,7 +60,7 @@ const DataReducer = (state = initialState, action) => {
                     storiesCount: (state.storiesCount = countFunc(
                         `storiesCount`,
                         action.contentType
-                    ))
+                    )),
                 };
             } else return state;
         case "ONDEFAULTCOUNTS":
@@ -66,18 +68,18 @@ const DataReducer = (state = initialState, action) => {
                 ...state,
                 imagesCount: (state.imagesCount = 3),
                 videosCount: (state.videosCount = 2),
-                storiesCount: (state.storiesCount = 2)
+                storiesCount: (state.storiesCount = 2),
             };
         case "UPLOADCONTENT":
             let currentContent = [];
             let ContentNew = newState.Data.filter(
-                item => item.movie === action.movie
+                (item) => item.movie === action.movie
             );
             let ContentTypes = ContentNew.filter(
-                item => item.season === action.season
+                (item) => item.season === action.season
             );
             let ContentOf = ContentTypes.filter(
-                item => item[action.contentType]
+                (item) => item[action.contentType]
             );
             let lastItem =
                 action.itemsCount > ContentOf.length
@@ -93,21 +95,21 @@ const DataReducer = (state = initialState, action) => {
                 ...newState,
                 firstContent: {
                     ...newState.firstContent,
-                    [action.contentType]: currentContent
-                }
+                    [action.contentType]: currentContent,
+                },
             };
         case "DOWNLOADCONTENT":
             let arrayNew = [
-                ...state.Data.filter(item => item[action.contentType])
+                ...state.Data.filter((item) => item[action.contentType]),
             ];
             for (let content of action.responce) {
                 if (arrayNew.length === 0) {
                     arrayNew.push(content);
                 } else if (
-                    arrayNew.some(element => element.id === content.id)
+                    arrayNew.some((element) => element.id === content.id)
                 ) {
                     let element = [
-                        ...arrayNew.filter(item => item.id === content.id)
+                        ...arrayNew.filter((item) => item.id === content.id),
                     ];
                     if (!element[0].hasOwnProperty("keyFirebase")) {
                         let itemForDelete = arrayNew.indexOf(element[0]);
@@ -120,9 +122,9 @@ const DataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 Data: [
-                    ...state.Data.filter(item => !item[action.contentType]),
-                    ...arrayNew
-                ]
+                    ...state.Data.filter((item) => !item[action.contentType]),
+                    ...arrayNew,
+                ],
             };
         case "DOWNLOADSLIDES":
             let arraySlides = [];
@@ -130,31 +132,31 @@ const DataReducer = (state = initialState, action) => {
                 if (newState.SlidesData.length === 0) {
                     arraySlides.push(i);
                 } else if (
-                    newState.SlidesData.some(element => element.id === i.id)
+                    newState.SlidesData.some((element) => element.id === i.id)
                 ) {
                     return state;
                 } else arraySlides.push(i);
             }
             return {
                 ...state,
-                SlidesData: state.SlidesData.concat(arraySlides)
+                SlidesData: state.SlidesData.concat(arraySlides),
             };
         case "DELETECONTENT":
             return {
                 ...state,
-                Data: state.Data.filter(item => item.id !== action.id)
+                Data: state.Data.filter((item) => item.id !== action.id),
             };
         case "ADDCONTENT":
             return {
                 ...state,
-                Data: [...state.Data, action.content]
+                Data: [...state.Data, action.content],
             };
         case "ISFETCHINGDELETE":
             return {
                 ...state,
                 isFetching: action.status
                     ? [...state.isFetching, action.id]
-                    : state.isFetching.filter(id => id !== action.id)
+                    : state.isFetching.filter((id) => id !== action.id),
             };
         default:
             return state;
@@ -163,36 +165,34 @@ const DataReducer = (state = initialState, action) => {
 export const Fetching = (status, id) => ({
     type: "ISFETCHINGDELETE",
     status,
-    id
+    id,
 });
-export const addContentNew = content => ({ type: "ADDCONTENT", content });
+export const addContentNew = (content) => ({ type: "ADDCONTENT", content });
 export const ShowMore = (additionalCount, season, movie, contentType) => ({
     type: "CHANGECONTENTSCOUNT",
     additionalCount,
     season,
     movie,
-    contentType
+    contentType,
 });
 export const uploadContent = (season, itemsCount, movie, contentType) => ({
     type: "UPLOADCONTENT",
     season,
     itemsCount,
     movie,
-    contentType
+    contentType,
 });
 export const downloadContent = (responce, contentType) => ({
     type: "DOWNLOADCONTENT",
     responce,
-    contentType
+    contentType,
 });
-export const downloadSlides = slides => ({ type: "DOWNLOADSLIDES", slides });
-export const DeleteContent = id => ({ type: "DELETECONTENT", id });
+export const downloadSlides = (slides) => ({ type: "DOWNLOADSLIDES", slides });
+export const DeleteContent = (id) => ({ type: "DELETECONTENT", id });
 
-export const deleteContent = (
-    id,
-    keyFirebase,
-    contentType
-) => async dispatch => {
+export const deleteContent = (id, keyFirebase, contentType) => async (
+    dispatch
+) => {
     try {
         dispatch(Fetching(true, id));
         await webAPI.deleteContent(keyFirebase, contentType);
@@ -203,17 +203,14 @@ export const deleteContent = (
     }
 };
 
-export const getContents = (
-    season,
-    itemsCount,
-    movie,
-    contentType
-) => async dispatch => {
+export const getContents = (season, itemsCount, movie, contentType) => async (
+    dispatch
+) => {
     try {
         let responce = await webAPI.getContent(contentType);
         let slides = await webAPI.getSlides();
         let contentArray = Object.entries(responce);
-        contentArray.map(item => (item[1].keyFirebase = item[0]));
+        contentArray.map((item) => (item[1].keyFirebase = item[0]));
         dispatch(downloadContent(Object.values(responce), contentType));
         dispatch(downloadSlides(Object.values(slides)));
         dispatch(uploadContent(season, itemsCount, movie, contentType));
@@ -245,7 +242,7 @@ export const addContent = (
         }
     };
     let Arrey = [];
-    Data.filter(item => item[contentType]).map(i => {
+    Data.filter((item) => item[contentType]).map((i) => {
         if (
             (i.image === addImage && i.image !== undefined) ||
             (i.video === addVideo && i.video !== undefined) ||
@@ -264,7 +261,7 @@ export const addContent = (
                 id: newId(),
                 season: season,
                 movie: movie,
-                image: addImage
+                image: addImage,
             };
             try {
                 dispatch(Fetching(true, "addContent"));
@@ -281,7 +278,7 @@ export const addContent = (
                 season: season,
                 movie: movie,
                 video: addVideo,
-                name: addVideoName
+                name: addVideoName,
             };
             try {
                 dispatch(Fetching(true, "addContent"));
@@ -299,7 +296,7 @@ export const addContent = (
                 movie: movie,
                 story: addStory,
                 name: addStoryText,
-                imageContent: addStoryImage
+                imageContent: addStoryImage,
             };
             try {
                 dispatch(Fetching(true, "addContent"));
@@ -312,5 +309,15 @@ export const addContent = (
             }
         }
     }
+};
+
+export const getContentMap = (arrey) => {
+    return arrey.reduce(
+        (map, product) => ({
+            ...map,
+            [product.id]: product,
+        }),
+        {}
+    );
 };
 export default DataReducer;

@@ -1,51 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./News.css";
 import NewsListItem from "./NewsListItem";
+import { NewsContext } from "./NewsContext";
 import { connect } from "react-redux";
 import {
     getNews,
     showAddNews,
     hideAddNews,
-    deleteNewsThunk
+    deleteNewsThunk,
 } from "../../../../store/newsDataReducer";
 import Preloader from "../../CommonComonents/Preloader";
 import { Auth } from "../../../../store/AuthReducer";
 import AddNews from "../mainPage/addContent/AddNews";
 
-class NewsList extends React.Component {
-    rerender() {
-        this.props.getNews();
-        this.props.Auth();
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.newsData.length !== prevProps.newsData.length) {
-            this.rerender();
-        }
-    }
+const NewsList = ({ newsData, editModeNews, ...props }) => {
+    let newsL = newsData.length;
+    useEffect(() => {
+        const rerender = () => {
+            props.getNews();
+            props.Auth();
+        };
+        rerender();
+    }, [newsL, props]);
 
-    render() {
-        let { newsData, editModeNews } = this.props;
-        if (newsData.length === 0) {
-            return <Preloader />;
-        }
-        return (
+    if (newsData.length === 0) {
+        return <Preloader />;
+    }
+    return (
+        <NewsContext.Provider
+            value={{
+                deleteNews: props.deleteNewsThunk,
+                isFetching: props.isFetching,
+            }}
+        >
             <div className="containerMain">
                 <h1 className="h1">News</h1>
-                {this.props.isAuth ? (
+                {props.isAuth ? (
                     <button
                         className="filterButton"
                         onClick={() => {
-                            this.props.clickedNewsButton
-                                ? this.props.hideAddNews()
-                                : this.props.showAddNews();
+                            props.clickedNewsButton
+                                ? props.hideAddNews()
+                                : props.showAddNews();
                         }}
                     >
                         Add News
                     </button>
                 ) : null}
-                {this.props.clickedNewsButton ? (
-                    <AddNews onComponentChange={this.onComponentChange} />
-                ) : null}
+                {props.clickedNewsButton ? <AddNews /> : null}
                 {newsData.map(
                     ({
                         newsImage,
@@ -54,7 +56,7 @@ class NewsList extends React.Component {
                         newsName,
                         data,
                         time,
-                        keyFirebase
+                        keyFirebase,
                     }) => (
                         <div key={id}>
                             <NewsListItem
@@ -65,25 +67,23 @@ class NewsList extends React.Component {
                                 time={time}
                                 id={id}
                                 editModeNews={editModeNews}
-                                deleteNews={this.props.deleteNewsThunk}
                                 keyFirebase={keyFirebase}
-                                isFetching={this.props.isFetching}
                                 editModeClass="ButtonCloseImage-clickedEditBlack"
                             />
                         </div>
                     )
                 )}
             </div>
-        );
-    }
-}
+        </NewsContext.Provider>
+    );
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     newsData: state.newsData.NewsData,
     clickedNewsButton: state.newsData.clickedNewsButton,
     editModeNews: state.newsData.editModeNews,
     isAuth: state.auth.isAuth,
-    isFetching: state.newsData.isFetching
+    isFetching: state.newsData.isFetching,
 });
 
 export default connect(mapStateToProps, {
@@ -91,5 +91,5 @@ export default connect(mapStateToProps, {
     Auth,
     showAddNews,
     hideAddNews,
-    deleteNewsThunk
+    deleteNewsThunk,
 })(NewsList);

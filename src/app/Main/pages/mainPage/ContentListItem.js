@@ -1,7 +1,7 @@
-import React from "react";
-
+import React, { useContext } from "react";
 import Player from "../../../../common/Player.js";
 import ButtonLike from "./ButtonLike.js";
+import { ContentContext } from "./ContentContext.js";
 
 const ContentListItem = ({
     image,
@@ -10,14 +10,12 @@ const ContentListItem = ({
     story,
     video,
     id,
-    editMode,
-    deleteContent,
     editModeClass,
     keyFirebase,
     contentType,
-    isFetching,
     playerStyle = "react-player"
 }) => {
+    let { editMode, deleteContent, isFetching } = useContext(ContentContext);
     return (
         <div className="content-list-item">
             {editMode ? (

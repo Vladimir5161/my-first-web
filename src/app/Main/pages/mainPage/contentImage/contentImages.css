@@ -88,6 +88,7 @@
 .imageContent-full-clicked {
   width: 100%;
   position: relative;
+  vertical-align: middle;
   z-index: 40;
 }
 
@@ -183,7 +184,6 @@
   left: 0;
   right: 0;
   z-index: 45;
-  vertical-align: middle;
 }
 
 @media screen and (max-width: 1024px) {

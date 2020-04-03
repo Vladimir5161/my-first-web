@@ -1,27 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ContentListImagesItem from "./ContentListImagesItem.js";
 import { compose } from "redux";
 import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
+import { ContentContext } from "../ContentContext.js";
 
-const ContentListImage = ({
-    firstContent,
-    images,
-    onComponentChange,
-    ...props
-}) => {
+const ContentListImage = ({ firstContent, onComponentChange, ...props }) => {
     let additionalCount = 3;
     let [buttonName, changeButtonName] = useState("Show All");
+    let { images, movie, DataArrey, season } = useContext(ContentContext);
     let on = (type, contentType, additionalCount) => {
         props.funcControlButtonName(type, contentType, additionalCount)
             ? changeButtonName("Close All")
             : changeButtonName("Show All");
     };
-    let contentType = props.getContentType(
-        "image",
-        props.movie,
-        props.season,
-        props.DataArrey
-    );
+    let contentType = props.getContentType("image", movie, season, DataArrey);
     if (firstContent.length === 0) {
         return null;
     }
@@ -35,10 +27,6 @@ const ContentListImage = ({
                             image={image}
                             id={id}
                             keyFirebase={keyFirebase}
-                            deleteContent={props.deleteContent}
-                            DataArrey={props.DataArrey}
-                            editMode={props.editMode}
-                            isFetching={props.isFetching}
                             editModeClass="ButtonCloseImage-clickedEdit"
                             contentType={"image"}
                         />

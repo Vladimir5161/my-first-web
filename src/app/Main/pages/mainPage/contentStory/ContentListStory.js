@@ -1,28 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../ContentListItem.js";
 import { compose } from "redux";
 import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
+import { ContentContext } from "../ContentContext.js";
 
-const ContentListStory = ({
-    stories,
-    firstContent,
-    onComponentChange,
-    ...props
-}) => {
+const ContentListStory = ({ firstContent, onComponentChange, ...props }) => {
     let additionalCount = 2;
     let [buttonName, changeButtonName] = useState("Show All");
+    let { season, movie, DataArrey, stories } = useContext(ContentContext);
     let on = (type, contentType, additionalCount) => {
         props.funcControlButtonName(type, contentType, additionalCount)
             ? changeButtonName("Close All")
             : changeButtonName("Show All");
     };
-    let contentType = props.getContentType(
-        "story",
-        props.movie,
-        props.season,
-        props.DataArrey
-    );
+    let contentType = props.getContentType("story", movie, season, DataArrey);
     if (firstContent.length === 0) {
         return null;
     }
@@ -51,11 +43,8 @@ const ContentListStory = ({
                                 story={story}
                                 keyFirebase={keyFirebase}
                                 id={id}
-                                deleteContent={props.deleteContent}
-                                editMode={props.editMode}
                                 editModeClass="ButtonCloseImage-clickedEditBlack"
                                 contentType={`story`}
-                                isFetching={props.isFetching}
                             />
                             <Link to={`/content/${id}`}>
                                 <button className="Add-content Know-more">

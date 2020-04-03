@@ -1,71 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import ContentListVideo from "./ContentListVideo.js";
 import { connect } from "react-redux";
-import {
-    ShowMore,
-    getContents,
-    deleteContent
-} from "../../../../../store/DataReducer";
 import { getContentArreyVideos } from "../../../../selectors/content-selectors";
+import { ContentContext } from "../ContentContext.js";
 
-class ContentVideoContainer extends React.Component {
-    refreshContent() {
-        this.props.getContents(
-            this.props.season,
-            this.props.itemsCount,
-            this.props.movie,
-            "video"
-        );
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (
-            this.props.season !== prevProps.season ||
-            this.props.movie !== prevProps.movie ||
-            this.props.itemsCount !== prevProps.itemsCount ||
-            this.props.DataArrey.Data.filter(item => item["video"]).length !==
-                prevProps.DataArrey.Data.filter(item => item["video"]).length
-        ) {
-            this.refreshContent();
-        }
-    }
-    onComponentChangeVideo = additionalCount => {
-        this.props.ShowMore(
-            additionalCount,
-            this.props.season,
-            this.props.movie,
-            "video"
-        );
+const ContentVideoContainer = ({ firstContent, itemsCount }) => {
+    let { season, movie, DataArrey, getContents, ShowMore } = useContext(
+        ContentContext
+    );
+    let arraL = DataArrey.Data.filter((item) => item["video"]).length;
+    useEffect(() => {
+        const refreshContent = () => {
+            getContents(season, itemsCount, movie, "video");
+        };
+        refreshContent();
+    }, [getContents, itemsCount, season, movie, arraL]);
+    const onComponentChange = (additionalCount) => {
+        ShowMore(additionalCount, season, movie, "video");
     };
-    render() {
-        return (
-            <ContentListVideo
-                onComponentChangeVideo={this.onComponentChangeVideo}
-                videos={this.props.videos}
-                season={this.props.season}
-                movie={this.props.movie}
-                firstContent={this.props.firstContent}
-                DataArrey={this.props.DataArrey}
-                deleteContent={this.props.deleteContent}
-                editMode={this.props.editMode}
-                isFetching={this.props.isFetching}
-            />
-        );
-    }
-}
 
-const mapStateToProps = state => ({
-    DataArrey: state.Data,
+    return (
+        <ContentListVideo
+            onComponentChange={onComponentChange}
+            firstContent={firstContent}
+        />
+    );
+};
+
+const mapStateToProps = (state) => ({
     itemsCount: state.Data.videosCount,
-    season: state.movieChose1.season,
-    videos: state.filter.videos,
-    movie: state.movieChose1.movie,
     firstContent: getContentArreyVideos(state),
-    editMode: state.AddContent.editMode,
-    isFetching: state.Data.isFetching
 });
 
-export default connect(mapStateToProps, {
-    ShowMore,
-    getContents,
-    deleteContent
-})(ContentVideoContainer);
+export default connect(mapStateToProps)(ContentVideoContainer);
