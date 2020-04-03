@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MainPage.css";
 import "./contentImage/contentImages.css";
 import AddContent from "./addContent/AddContent";
@@ -8,8 +8,9 @@ import { connect } from "react-redux";
 import {
     ShowMore,
     getContents,
-    deleteContent
+    deleteContent,
 } from "../../../../store/DataReducer";
+import { getSlides } from "../../../../store/DataReducer";
 import ContentImageContainer from "./contentImage/ContentImageContainer";
 import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
 import ContentStoryContainer from "./contentStory/ContentStoryContainer";
@@ -27,8 +28,14 @@ const FirstPage = ({
     movie,
     ShowMore,
     getContents,
-    deleteContent
+    deleteContent,
 }) => {
+    useEffect(() => {
+        const reloadSlides = () => {
+            getSlides();
+        };
+        reloadSlides();
+    }, [movie]);
     if (initialized === false) {
         return <Preloader />;
     }
@@ -46,7 +53,7 @@ const FirstPage = ({
                 movie,
                 ShowMore,
                 getContents,
-                deleteContent
+                deleteContent,
             }}
         >
             <div className="containerMain">
@@ -69,7 +76,7 @@ const FirstPage = ({
     );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     images: state.filter.images,
     stories: state.filter.stories,
     DataArrey: state.Data,
@@ -78,11 +85,12 @@ const mapStateToProps = state => ({
     isFetching: state.Data.isFetching,
     season: state.movieChose1.season,
     videos: state.filter.videos,
-    movie: state.movieChose1.movie
+    movie: state.movieChose1.movie,
 });
 
 export default connect(mapStateToProps, {
     ShowMore,
     getContents,
-    deleteContent
+    deleteContent,
+    getSlides,
 })(FirstPage);

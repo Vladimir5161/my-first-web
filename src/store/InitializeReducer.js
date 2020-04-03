@@ -1,7 +1,6 @@
-import { getContents } from "./DataReducer";
-import { getNews } from "./newsDataReducer";
+import { getContents, getSlides } from "./DataReducer";
 const initialState = {
-    initialized: false
+    initialized: false,
 };
 
 const InitializeReducer = (state = initialState, action) => {
@@ -9,7 +8,7 @@ const InitializeReducer = (state = initialState, action) => {
         case "INITIALIZE":
             return {
                 ...state,
-                initialized: (state.initialized = true)
+                initialized: (state.initialized = true),
             };
         default:
             return state;
@@ -27,7 +26,7 @@ export const initializeApp = () => async (dispatch, getState) => {
         await dispatch(getContents(season, imagesCount, movie, "image"));
         await dispatch(getContents(season, videosCount, movie, "video"));
         await dispatch(getContents(season, storiesCount, movie, "story"));
-        await dispatch(getNews());
+        await dispatch(getSlides());
         await dispatch(initialize());
     } catch {
         return "something went wrong";

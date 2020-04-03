@@ -13,15 +13,16 @@ import Preloader from "../../CommonComonents/Preloader";
 import { Auth } from "../../../../store/AuthReducer";
 import AddNews from "../mainPage/addContent/AddNews";
 
-const NewsList = ({ newsData, editModeNews, ...props }) => {
+const NewsList = ({ newsData, editModeNews, getNews, Auth, ...props }) => {
     let newsL = newsData.length;
     useEffect(() => {
         const rerender = () => {
-            props.getNews();
-            props.Auth();
+            getNews();
+            Auth();
         };
         rerender();
-    }, [newsL, props]);
+        console.log(1);
+    }, [newsL, getNews, Auth]);
 
     if (newsData.length === 0) {
         return <Preloader />;

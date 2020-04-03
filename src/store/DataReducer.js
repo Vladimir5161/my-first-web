@@ -208,12 +208,18 @@ export const getContents = (season, itemsCount, movie, contentType) => async (
 ) => {
     try {
         let responce = await webAPI.getContent(contentType);
-        let slides = await webAPI.getSlides();
         let contentArray = Object.entries(responce);
         contentArray.map((item) => (item[1].keyFirebase = item[0]));
         dispatch(downloadContent(Object.values(responce), contentType));
-        dispatch(downloadSlides(Object.values(slides)));
         dispatch(uploadContent(season, itemsCount, movie, contentType));
+    } catch {
+        return "something went wrong";
+    }
+};
+export const getSlides = () => async (dispatch) => {
+    try {
+        let slides = await webAPI.getSlides();
+        dispatch(downloadSlides(Object.values(slides)));
     } catch {
         return "something went wrong";
     }
