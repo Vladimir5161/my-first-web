@@ -1,6 +1,6 @@
 import React from "react";
 import { reduxForm } from "redux-form";
-import { Input, createField, Textarea } from "./FormContrlos";
+import Textarea, { Input, createField } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
 
 const addContentForm = ({ contentType, ...props }) => {
@@ -19,7 +19,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            item => item === "addContent"
+                            (item) => item === "addContent"
                         )}
                     >
                         Add
@@ -48,7 +48,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            item => item === "addContent"
+                            (item) => item === "addContent"
                         )}
                     >
                         Add
@@ -58,7 +58,7 @@ const addContentForm = ({ contentType, ...props }) => {
                 <div>
                     <div className="addContentInput">
                         {createField("add story name", "addStory", [], Input, {
-                            type: "text"
+                            type: "text",
                         })}
                     </div>
                     <div className="addContentInputText">
@@ -82,7 +82,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            item => item === "addContent"
+                            (item) => item === "addContent"
                         )}
                     >
                         Add

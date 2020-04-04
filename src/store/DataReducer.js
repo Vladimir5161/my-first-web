@@ -111,7 +111,16 @@ const DataReducer = (state = initialState, action) => {
                     let element = [
                         ...arrayNew.filter((item) => item.id === content.id),
                     ];
-                    if (!element[0].hasOwnProperty("keyFirebase")) {
+                    let checkArr = [];
+                    for (let key in content) {
+                        if (key !== element[key]) {
+                            checkArr.push(1);
+                        }
+                    }
+                    if (checkArr.length !== 0) {
+                        let itemForDelete = arrayNew.indexOf(element[0]);
+                        arrayNew.splice(itemForDelete, 1, content);
+                    } else if (!element[0].hasOwnProperty("keyFirebase")) {
                         let itemForDelete = arrayNew.indexOf(element[0]);
                         arrayNew.splice(itemForDelete, 1, content);
                     }
@@ -315,6 +324,29 @@ export const addContent = (
             }
         }
     }
+};
+
+export const updateStory = (
+    id,
+    name,
+    image,
+    story,
+    movie,
+    season,
+    contentType,
+    keyFirebase
+) => async (dispatch, getState) => {
+    let prevImage = getState().Data.Data.filter((item) => item.id === id)
+        .imageContent;
+    let newStory = {
+        id: id,
+        season: season,
+        movie: movie,
+        story: story,
+        name: name,
+        imageContent: image || prevImage,
+    };
+    await webAPI.updateStory(newStory, contentType, keyFirebase);
 };
 
 export const getContentMap = (arrey) => {

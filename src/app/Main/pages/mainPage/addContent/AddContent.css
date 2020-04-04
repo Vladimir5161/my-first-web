@@ -71,7 +71,7 @@
   margin: 20px auto;
 }
 .addContentInputText textarea {
-  margin: 20px auto;
+  margin: auto;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
   display: block;
@@ -84,7 +84,7 @@
 }
 .addContentInput input {
   display: block;
-  margin: 20px auto;
+  margin: auto;
   width: 200px;
   height: 30px;
   padding: 0 10px;
@@ -115,8 +115,25 @@
   border-radius: 5px;
   margin: 10px auto;
 }
+.saveContentButton{
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #c9c4c0;
+  border: 1px solid #1d1c1c;
+  font-family: "Montserrat";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin-left: auto;
+}
 
-.addContentButton:hover {
+.addContentButton:hover, .saveContentButton:hover {
   cursor: pointer;
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
@@ -130,13 +147,16 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: -18px;
+  top: -30px;
   line-height: 15px;
 }
-
+.inputFieldEditStory {
+  padding: 0;
+}
 .inputFieldError {
   border-color: red;
 }
 .formBlock {
   position: relative;
+  display: block;
 }

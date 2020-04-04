@@ -21,10 +21,8 @@ export const createField = (
     </div>
 );
 
-export const Input = ({ error, ...props }) => {
+export const Input = ({ error, inputField, inputFieldError, ...props }) => {
     const { input, meta, ...restProps } = props;
-    console.log(meta.error);
-    console.log(props.inputField);
     const hasError = meta.error && meta.touched;
     return (
         <div className="formBlock">
@@ -33,26 +31,36 @@ export const Input = ({ error, ...props }) => {
                 type={props.type}
                 {...input}
                 {...restProps}
-                className={hasError || error ? "inputFieldError" : "inputField"}
+                className={hasError || error ? inputFieldError : inputField}
             />
         </div>
     );
 };
 
-export const Textarea = ({ error, ...props }) => {
-    const { input, meta, ...restProps } = props;
-    console.log(meta.error);
-    console.log(props.inputField);
-    const hasError = meta.error && meta.touched;
-    return (
-        <div className="formBlock">
-            {hasError ? <div className="inputError">{meta.error}</div> : null}
-            <textarea
-                type={props.type}
-                {...input}
-                {...restProps}
-                className={hasError || error ? "inputFieldError" : "inputField"}
-            />
-        </div>
-    );
-};
+class Textarea extends React.Component {
+    auto_grow = (element) => {
+        element.height = "5px";
+        element.height = element.scrollHeight + "px";
+    };
+    render() {
+        let { error, inputField, inputFieldError, ...props } = this.props;
+        const { input, meta, ...restProps } = props;
+
+        const hasError = meta.error && meta.touched;
+        return (
+            <div className="formBlock">
+                {hasError ? (
+                    <div className="inputError">{meta.error}</div>
+                ) : null}
+                <textarea
+                    type={props.type}
+                    {...input}
+                    {...restProps}
+                    className={hasError || error ? inputFieldError : inputField}
+                    onInput={this.auto_grow(this)}
+                />
+            </div>
+        );
+    }
+}
+export default Textarea;

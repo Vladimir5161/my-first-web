@@ -1,6 +1,6 @@
 import React from "react";
 import { reduxForm } from "redux-form";
-import { Input, createField, Textarea } from "./FormContrlos";
+import Textarea, { Input, createField } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
 
 const addNewsForm = ({ ...props }) => {
@@ -36,7 +36,7 @@ const addNewsForm = ({ ...props }) => {
             </div>
             <button
                 className="addContentButton"
-                disabled={props.isFetching.some(id => id === "addNews")}
+                disabled={props.isFetching.some((id) => id === "addNews")}
             >
                 Add
             </button>
