@@ -14,7 +14,12 @@ const addContentForm = ({ contentType, ...props }) => {
                         "addImage",
                         [correctLink, required],
                         Input,
-                        { error: props.error, type: "text" }
+                        {
+                            error: props.error,
+                            type: "text",
+                            inputField: "inputField",
+                            inputFieldError: "inputFieldError",
+                        }
                     )}
                     <button
                         className="addContentButton"
@@ -33,7 +38,12 @@ const addContentForm = ({ contentType, ...props }) => {
                             "addVideo",
                             [correctLink, required],
                             Input,
-                            { error: props.error, type: "text" }
+                            {
+                                error: props.error,
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
                         )}
                     </div>
                     <div className="addContentInput">
@@ -42,7 +52,11 @@ const addContentForm = ({ contentType, ...props }) => {
                             "addVideoName",
                             [],
                             Input,
-                            { type: "text" }
+                            {
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
                         )}
                     </div>
                     <button
@@ -59,6 +73,8 @@ const addContentForm = ({ contentType, ...props }) => {
                     <div className="addContentInput">
                         {createField("add story name", "addStory", [], Input, {
                             type: "text",
+                            inputField: "inputField",
+                            inputFieldError: "inputFieldError",
                         })}
                     </div>
                     <div className="addContentInputText">
@@ -67,7 +83,11 @@ const addContentForm = ({ contentType, ...props }) => {
                             "addStoryText",
                             [],
                             Textarea,
-                            { type: "text" }
+                            {
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
                         )}
                     </div>
                     <div className="addContentInput">
@@ -76,7 +96,12 @@ const addContentForm = ({ contentType, ...props }) => {
                             "addStoryImage",
                             [correctLink, required],
                             Input,
-                            { error: props.error, type: "text" }
+                            {
+                                error: props.error,
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
                         )}
                     </div>
                     <button

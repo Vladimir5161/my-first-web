@@ -3,14 +3,16 @@ import { reduxForm } from "redux-form";
 import { Input, createField } from "./FormContrlos";
 import { required } from "../validators/validators";
 
-const PasswordForm = props => {
+const PasswordForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className="loginName">Your Login</div>
             <div className={props.inputField}>
                 {createField("Input Login", "addLogin", [required], Input, {
                     error: props.error,
-                    type: "text"
+                    type: "text",
+                    inputField: "inputField",
+                    inputFieldError: "inputFieldError",
                 })}
             </div>
             <div className="loginName">Your Password</div>
@@ -22,7 +24,9 @@ const PasswordForm = props => {
                     Input,
                     {
                         error: props.error,
-                        type: "password"
+                        type: "password",
+                        inputField: "inputField",
+                        inputFieldError: "inputFieldError",
                     }
                 )}
             </div>

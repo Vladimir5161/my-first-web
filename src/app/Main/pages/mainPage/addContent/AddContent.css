@@ -84,7 +84,7 @@
 }
 .addContentInput input {
   display: block;
-  margin: auto;
+  margin: 20px auto;
   width: 200px;
   height: 30px;
   padding: 0 10px;
@@ -144,7 +144,7 @@
   display: flex;
   justify-content: center;
   color: rgb(255, 1, 1);
-  margin: 0 auto;
+  margin: 10px auto;
   left: 0;
   right: 0;
   top: -30px;
@@ -154,7 +154,7 @@
   padding: 0;
 }
 .inputFieldError {
-  border-color: red;
+  border-color: red !important;
 }
 .formBlock {
   position: relative;

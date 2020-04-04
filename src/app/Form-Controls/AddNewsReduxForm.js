@@ -13,7 +13,12 @@ const addNewsForm = ({ ...props }) => {
                     "addNewsName",
                     [required],
                     Input,
-                    { error: props.error, type: "text" }
+                    {
+                        error: props.error,
+                        type: "text",
+                        inputField: "inputField",
+                        inputFieldError: "inputFieldError",
+                    }
                 )}
             </div>
             <div className="addContentInputText">
@@ -22,7 +27,12 @@ const addNewsForm = ({ ...props }) => {
                     "addNewsText",
                     [required],
                     Textarea,
-                    { error: props.error, type: "text" }
+                    {
+                        error: props.error,
+                        type: "text",
+                        inputField: "inputField",
+                        inputFieldError: "inputFieldError",
+                    }
                 )}
             </div>
             <div className="addContentInput">
@@ -31,7 +41,12 @@ const addNewsForm = ({ ...props }) => {
                     "addNewsImage",
                     [correctLink],
                     Input,
-                    { error: props.error, type: "text" }
+                    {
+                        error: props.error,
+                        type: "text",
+                        inputField: "inputField",
+                        inputFieldError: "inputFieldError",
+                    }
                 )}
             </div>
             <button
