@@ -1,5 +1,6 @@
 import { stopSubmit, reset } from "redux-form";
 import { webAPI } from "../app/api/api";
+import { ininialize } from "./InitializeReducer";
 
 const initialState = {
     Data: [],
@@ -167,10 +168,37 @@ const DataReducer = (state = initialState, action) => {
                     ? [...state.isFetching, action.id]
                     : state.isFetching.filter((id) => id !== action.id),
             };
+        case "UPDATECONTENT":
+            return {
+                ...state,
+                Data: state.Data.map((n) =>
+                    n.id === action.id
+                        ? Object.keys(n).some((i) => i === "story")
+                            ? {
+                                  ...n,
+                                  story: action.content.story || n.story,
+                                  imageContent:
+                                      action.content.imageContent ||
+                                      n.imageContent,
+                                  name: action.content.name || n.name,
+                              }
+                            : {
+                                  ...n,
+                                  video: action.content.video || n.video,
+                                  name: action.content.name || n.name,
+                              }
+                        : n
+                ),
+            };
         default:
             return state;
     }
 };
+export const updateContent = (content, id) => ({
+    type: "UPDATECONTENT",
+    content,
+    id,
+});
 export const Fetching = (status, id) => ({
     type: "ISFETCHINGDELETE",
     status,
@@ -252,7 +280,7 @@ export const addContent = (
         } else {
             let idCount = Data.pop();
             Data.push(idCount);
-            let newId = idCount.id + 1;
+            let newId = +idCount.id + 1;
             return newId;
         }
     };
@@ -326,9 +354,10 @@ export const addContent = (
     }
 };
 
-export const updateStory = (
+export const updateContentThunk = (
     id,
     name,
+    video,
     image,
     story,
     movie,
@@ -338,15 +367,25 @@ export const updateStory = (
 ) => async (dispatch, getState) => {
     let prevImage = getState().Data.Data.filter((item) => item.id === id)
         .imageContent;
-    let newStory = {
-        id: id,
-        season: season,
-        movie: movie,
-        story: story,
-        name: name,
-        imageContent: image || prevImage,
-    };
-    await webAPI.updateStory(newStory, contentType, keyFirebase);
+    let newContent =
+        contentType === "story"
+            ? {
+                  id: id,
+                  season: season,
+                  movie: movie,
+                  story: story,
+                  name: name,
+                  imageContent: image || prevImage,
+              }
+            : {
+                  id: id,
+                  season: season,
+                  movie: movie,
+                  video: video,
+                  name: name,
+              };
+    await webAPI.updateContent(newContent, contentType, keyFirebase);
+    dispatch(updateContent(newContent, id));
 };
 
 export const getContentMap = (arrey) => {

@@ -5,11 +5,7 @@ import { compose } from "redux";
 import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
 import { ContentContext } from "../ContentContext.js";
 
-const ContentListVideo = ({
-    firstContent,
-    onComponentChangeVideo,
-    ...props
-}) => {
+const ContentListVideo = ({ firstContent, onComponentChange, ...props }) => {
     let additionalCount = 2;
     let [buttonName, changeButtonName] = useState("Show All");
     let { season, movie, DataArrey, videos } = useContext(ContentContext);
@@ -51,7 +47,7 @@ const ContentListVideo = ({
                 <button
                     className="Add-content Show-more"
                     onClick={() => {
-                        onComponentChangeVideo(additionalCount);
+                        onComponentChange(additionalCount);
                         on("video", additionalCount);
                     }}
                 >

@@ -13,21 +13,20 @@ const ContentListItem = ({
     editModeClass,
     keyFirebase,
     contentType,
-    playerStyle = "react-player"
 }) => {
     let { editMode, deleteContent, isFetching } = useContext(ContentContext);
     return (
         <div className="content-list-item">
             {editMode ? (
                 <button
-                    disabled={isFetching.some(item => item === id)}
+                    disabled={isFetching.some((item) => item === id)}
                     className={editModeClass}
                     onClick={() => {
                         deleteContent(id, keyFirebase, contentType);
                     }}
                 ></button>
             ) : null}
-            <Player video={video} playerStyle={playerStyle} />
+            <Player video={video} playerStyle={"react-player"} />
             <div className="content-text">{text} </div>
             <h2 className="content-name">{name}</h2>
             <div className="content-image">

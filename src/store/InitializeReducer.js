@@ -8,13 +8,13 @@ const InitializeReducer = (state = initialState, action) => {
         case "INITIALIZE":
             return {
                 ...state,
-                initialized: (state.initialized = true),
+                initialized: (state.initialized = action.status),
             };
         default:
             return state;
     }
 };
-export const initialize = () => ({ type: "INITIALIZE" });
+export const initialize = (status) => ({ type: "INITIALIZE", status });
 
 export const initializeApp = () => async (dispatch, getState) => {
     let movie = getState().movieChose1.movie;
@@ -27,7 +27,7 @@ export const initializeApp = () => async (dispatch, getState) => {
         await dispatch(getContents(season, videosCount, movie, "video"));
         await dispatch(getContents(season, storiesCount, movie, "story"));
         await dispatch(getSlides());
-        await dispatch(initialize());
+        await dispatch(initialize(true));
     } catch {
         return "something went wrong";
     }

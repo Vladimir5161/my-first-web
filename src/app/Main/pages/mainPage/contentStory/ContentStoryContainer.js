@@ -4,18 +4,23 @@ import { connect } from "react-redux";
 import { getContentArreyStories } from "../../../../selectors/content-selectors";
 import { ContentContext } from "../ContentContext.js";
 
-const ContentStoryContainer = ({ firstContent, itemsCount }) => {
-    let { season, movie, DataArrey, getContents, ShowMore } = useContext(
-        ContentContext
-    );
-    let arraL = DataArrey.Data.filter(item => item["story"]).length;
+const ContentStoryContainer = ({ firstContent }) => {
+    let {
+        season,
+        movie,
+        DataArrey,
+        getContents,
+        ShowMore,
+        itemsCountStory,
+    } = useContext(ContentContext);
+    let arraL = DataArrey.Data.filter((item) => item["story"]).length;
     useEffect(() => {
         const refreshContent = () => {
-            getContents(season, itemsCount, movie, "story");
+            getContents(season, itemsCountStory, movie, "story");
         };
         refreshContent();
-    }, [getContents, itemsCount, season, movie, arraL]);
-    const onComponentChange = additionalCount => {
+    }, [getContents, itemsCountStory, season, movie, arraL]);
+    const onComponentChange = (additionalCount) => {
         ShowMore(additionalCount, season, movie, "story");
     };
 
@@ -27,9 +32,8 @@ const ContentStoryContainer = ({ firstContent, itemsCount }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    itemsCount: state.Data.storiesCount,
-    firstContent: getContentArreyStories(state)
+const mapStateToProps = (state) => ({
+    firstContent: getContentArreyStories(state),
 });
 
 export default connect(mapStateToProps)(ContentStoryContainer);

@@ -150,9 +150,6 @@
   top: -30px;
   line-height: 15px;
 }
-.inputFieldEditStory {
-  padding: 0;
-}
 .inputFieldError {
   border-color: red !important;
 }

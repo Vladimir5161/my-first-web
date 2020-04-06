@@ -44,11 +44,14 @@ export const webAPI = {
     deleteNews(keyFirebase) {
         return instance.delete(`/content/news/${keyFirebase}.json`);
     },
-    updateStory(story, contentType, keyFirebase) {
+    updateContent(content, contentType, keyFirebase) {
         return instance.put(
             `/content/${contentType}/${keyFirebase}.json`,
-            story
+            content
         );
+    },
+    updateNews(news, keyFirebase) {
+        return instance.put(`/content/news/${keyFirebase}.json`, news);
     },
 };
 

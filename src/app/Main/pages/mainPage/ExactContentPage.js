@@ -5,40 +5,36 @@ import { connect } from "react-redux";
 import { exactContentId } from "../../../selectors/exactContent-selectors";
 import { initializeApp } from "../../../../store/InitializeReducer";
 import Preloader from "../../CommonComonents/Preloader";
-import EditStoryReduxForm from "../../../Form-Controls/EditStoryForm";
-import { updateStory } from "../../../../store/DataReducer";
+import EditContentReduxForm from "../../../Form-Controls/EditContentForm";
+import { updateContentThunk } from "../../../../store/DataReducer";
 import { ContentContext } from "./ContentContext.js";
 
-const ExactContentPage = ({
-    match,
-    Data,
-    playerStyle = "react-player2",
-    initialized,
-    updateStory,
-}) => {
+const ExactContentPage = ({ match, Data, initialized, updateContentThunk }) => {
     let [edit, changeEdit] = useState("false");
     let { movie, season, isAuth } = useContext(ContentContext);
-    const EditStory = () => {
+    const EditContent = () => {
         changeEdit(true);
     };
     const onSubmit = (formData) => {
-        changeEdit(false);
-        updateStory(
+        updateContentThunk(
             match.params.id,
             formData.name,
+            formData.video,
             formData.imageContent,
             formData.story,
             movie,
             season,
-            "story",
+            Object.keys(Data[match.params.id]).some((n) => n === "story")
+                ? "story"
+                : "video",
             Data[match.params.id].keyFirebase
-        );
+        ).then(() => changeEdit(false));
     };
     return initialized ? (
         <div className="containerMain">
             <div className="ExactContent">
                 {edit === true ? (
-                    <EditStoryReduxForm
+                    <EditContentReduxForm
                         initialValues={Data[match.params.id]}
                         onSubmit={onSubmit}
                         match={match}
@@ -46,10 +42,9 @@ const ExactContentPage = ({
                     />
                 ) : (
                     <ExactContent
-                        EditStory={EditStory}
+                        EditContent={EditContent}
                         match={match}
                         Data={Data}
-                        playerStyle={playerStyle}
                         isAuth={isAuth}
                     />
                 )}
@@ -72,7 +67,7 @@ const ExactContent = (props) => {
             </div>
             <Player
                 video={props.Data[props.match.params.id].video}
-                playerStyle={props.playerStyle}
+                playerStyle={"react-player2"}
             />
             <div className="ButtonGoBackDiv">
                 <Link to="/">
@@ -83,7 +78,7 @@ const ExactContent = (props) => {
                 <button
                     className="saveContentButton"
                     onClick={() => {
-                        props.EditStory();
+                        props.EditContent();
                     }}
                 >
                     Edit
@@ -103,6 +98,6 @@ const ExactContent = (props) => {
     );
 };
 
-export default connect(mapStateToProps, { initializeApp, updateStory })(
+export default connect(mapStateToProps, { initializeApp, updateContentThunk })(
     ExactContentPage
 );

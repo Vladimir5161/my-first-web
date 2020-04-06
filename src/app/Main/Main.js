@@ -34,6 +34,7 @@ const Main = ({
     deleteContent,
     getSlides,
     isAuth,
+    itemsCountStory,
 }) => {
     return (
         <ContentContext.Provider
@@ -51,6 +52,7 @@ const Main = ({
                 getContents,
                 deleteContent,
                 isAuth,
+                itemsCountStory,
             }}
         >
             <main className="main">
@@ -101,6 +103,7 @@ const mapStateToProps = (state) => ({
     videos: state.filter.videos,
     movie: state.movieChose1.movie,
     isAuth: state.auth.isAuth,
+    itemsCountStory: state.Data.storiesCount,
 });
 
 export default connect(mapStateToProps, {

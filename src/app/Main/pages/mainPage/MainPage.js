@@ -16,7 +16,7 @@ const FirstPage = ({ getSlides }) => {
             getSlides();
         };
         reloadSlides();
-    }, [movie]);
+    }, [getSlides, movie]);
     if (initialized === false) {
         return <Preloader />;
     }

@@ -5,7 +5,7 @@ const initialState = {
     NewsData: [],
     clickedNewsButton: false,
     editModeNews: false,
-    isFetching: []
+    isFetching: [],
 };
 
 const newsDataReducer = (state = initialState, action) => {
@@ -15,9 +15,9 @@ const newsDataReducer = (state = initialState, action) => {
             for (let i of action.news) {
                 if (arrayNew.length === 0) {
                     arrayNew.push(i);
-                } else if (arrayNew.some(element => element.id === i.id)) {
+                } else if (arrayNew.some((element) => element.id === i.id)) {
                     let element = [
-                        ...arrayNew.filter(item => item.id === i.id)
+                        ...arrayNew.filter((item) => item.id === i.id),
                     ];
                     if (!element[0].hasOwnProperty("keyFirebase")) {
                         let itemForDelete = arrayNew.indexOf(element[0]);
@@ -30,47 +30,65 @@ const newsDataReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                NewsData: (state.NewsData = arrayNew)
+                NewsData: (state.NewsData = arrayNew),
             };
         case "SHOWADDNEWS":
             return {
                 ...state,
                 clickedNewsButton: (state.clickedNewsButton = true),
-                editModeNews: (state.editModeNews = true)
+                editModeNews: (state.editModeNews = true),
             };
         case "HIDEADDNEWS":
             return {
                 ...state,
                 clickedNewsButton: (state.clickedNewsButton = false),
-                editModeNews: (state.editModeNews = false)
+                editModeNews: (state.editModeNews = false),
             };
         case "DELETENEWS":
             return {
                 ...state,
-                NewsData: state.NewsData.filter(item => item.id !== action.id)
+                NewsData: state.NewsData.filter(
+                    (item) => item.id !== action.id
+                ),
             };
         case "ADDNEWS":
             return {
                 ...state,
-                NewsData: [...state.NewsData, action.news]
+                NewsData: [...state.NewsData, action.news],
             };
         case "ISFETCHING":
             return {
                 ...state,
                 isFetching: action.status
                     ? [...state.isFetching, action.id]
-                    : state.isFetching.filter(id => id !== action.id)
+                    : state.isFetching.filter((id) => id !== action.id),
+            };
+        case "UPDATENEWS":
+            return {
+                ...state,
+                Data: state.Data.map((n) =>
+                    n.id === action.id
+                        ? {
+                              ...n,
+                              data: new Date().toLocaleString(),
+                              newsImage: action.news.newsImage || n.newsImage,
+                              newsName: action.news.newsName || n.newsName,
+                              newsText: action.news.newsText || n.newsText,
+                          }
+                        : n
+                ),
             };
         default:
             return state;
     }
 };
+export const updateNews = (news, id) => ({ type: "UPDATENEWS", news, id });
 export const Fetching = (status, id) => ({ type: "ISFETCHING", status, id });
-export const uploadNews = news => ({ type: "UPLOAD", news });
+export const uploadNews = (news) => ({ type: "UPLOAD", news });
 export const showAddNews = () => ({ type: "SHOWADDNEWS" });
 export const hideAddNews = () => ({ type: "HIDEADDNEWS" });
-export const addNewsItem = news => ({ type: "ADDNEWS", news });
-export const deleteNewsItem = id => ({ type: "DELETENEWS", id });
+export const addNewsItem = (news) => ({ type: "ADDNEWS", news });
+export const deleteNewsItem = (id) => ({ type: "DELETENEWS", id });
 
 export const addNews = (newsName, newsText, newsImage) => async (
     dispatch,
@@ -83,7 +101,7 @@ export const addNews = (newsName, newsText, newsImage) => async (
         } else {
             let idCount = Data.pop();
             Data.push(idCount);
-            let newId = idCount.id + 1;
+            let newId = +idCount.id + 1;
             return newId;
         }
     };
@@ -92,7 +110,7 @@ export const addNews = (newsName, newsText, newsImage) => async (
         id: newId(),
         newsImage: newsImage || "",
         newsName,
-        newsText
+        newsText,
     };
     try {
         dispatch(Fetching(true, "addNews"));
@@ -104,7 +122,7 @@ export const addNews = (newsName, newsText, newsImage) => async (
         dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
     }
 };
-export const deleteNewsThunk = (id, keyFirebase) => async dispatch => {
+export const deleteNewsThunk = (id, keyFirebase) => async (dispatch) => {
     try {
         dispatch(Fetching(true, id));
         await webAPI.deleteNews(keyFirebase);
@@ -115,14 +133,32 @@ export const deleteNewsThunk = (id, keyFirebase) => async dispatch => {
     }
 };
 
-export const getNews = () => async dispatch => {
+export const getNews = () => async (dispatch) => {
     try {
         let responce = await webAPI.getNews();
         let arrayNews = Object.entries(responce);
-        arrayNews.map(item => (item[1].keyFirebase = item[0]));
+        arrayNews.map((item) => (item[1].keyFirebase = item[0]));
         dispatch(uploadNews(Object.values(responce)));
     } catch {
         return "something went wrong";
     }
 };
+export const updateNewsThunk = (
+    newsName,
+    newsText,
+    newsImage,
+    id,
+    keyFirebase
+) => async (dispatch) => {
+    let news = {
+        data: new Date().toLocaleString(),
+        id: id,
+        newsImage,
+        newsName,
+        newsText,
+    };
+    await webAPI.updateNews(news, keyFirebase);
+    dispatch(updateNews(news, id));
+};
+
 export default newsDataReducer;

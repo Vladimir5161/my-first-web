@@ -213,16 +213,16 @@
 .inputFieldEditStory, .inputFieldEditStoryImage, .inputFieldErrorEdit, .inputFieldErrorEditImage {
   display: block;
   border: none;
-  width: 400px;
+  width: 450px;
   background-color: rgba(70, 67, 67, 0.5);
-  padding: 0 30px;
+  padding: 0 20px;
   text-align: center;
   min-height: 25px;
   margin: 20px auto;
   border-radius: 15px;
   color: #272829;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 40px;
   font-weight: 900;
   border: 2px solid inherit;
 }
