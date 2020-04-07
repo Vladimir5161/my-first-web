@@ -50,7 +50,7 @@ const EditContentForm = (props) => {
                             {createField(
                                 "StoryImage",
                                 "imageContent",
-                                [required, correctLink],
+                                [correctLink],
                                 Input,
                                 {
                                     error: props.error,

@@ -26,7 +26,7 @@ const EditNewsForm = (props) => {
                     {createField(
                         "News Image",
                         "newsImage",
-                        [required, correctLink],
+                        [correctLink],
                         Input,
                         {
                             error: props.error,
