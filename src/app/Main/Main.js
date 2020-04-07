@@ -9,6 +9,10 @@ import ExactNewsPage from "./pages/news/ExactNewsPage";
 import ExactContentPage from "./pages/mainPage/ExactContentPage";
 import MyAlert from "./pages/myAlert";
 import { ContentContext } from "./pages/mainPage/ContentContext";
+import {
+    onClickFilterButton,
+    onDeClickFilterButton,
+} from "../../store/AddContentReducer";
 import Login from "./pages/Login/Login";
 import CreateAccount from "./pages/Login/CreateAccount";
 import { connect } from "react-redux";
@@ -35,6 +39,12 @@ const Main = ({
     getSlides,
     isAuth,
     itemsCountStory,
+    clicked,
+    addContentClassName,
+    addContentSecondText,
+    onDeClickFilterButton,
+    onClickFilterButton,
+    contentType,
 }) => {
     return (
         <ContentContext.Provider
@@ -53,6 +63,12 @@ const Main = ({
                 deleteContent,
                 isAuth,
                 itemsCountStory,
+                clicked,
+                addContentClassName,
+                addContentSecondText,
+                onDeClickFilterButton,
+                onClickFilterButton,
+                contentType,
             }}
         >
             <main className="main">
@@ -103,7 +119,11 @@ const mapStateToProps = (state) => ({
     videos: state.filter.videos,
     movie: state.movieChose1.movie,
     isAuth: state.auth.isAuth,
+    addContentSecondText: state.AddContent.addContentSecondText,
     itemsCountStory: state.Data.storiesCount,
+    clicked: state.AddContent.clicked,
+    addContentClassName: state.AddContent.addContentClassName,
+    contentType: state.AddContent.contentType,
 });
 
 export default connect(mapStateToProps, {
@@ -111,4 +131,6 @@ export default connect(mapStateToProps, {
     getContents,
     deleteContent,
     getSlides,
+    onClickFilterButton,
+    onDeClickFilterButton,
 })(Main);

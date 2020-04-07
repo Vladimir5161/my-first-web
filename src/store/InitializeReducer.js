@@ -1,6 +1,8 @@
 import { getContents, getSlides } from "./DataReducer";
+import { getNews } from "./newsDataReducer";
 const initialState = {
     initialized: false,
+    initializedNews: false,
 };
 
 const InitializeReducer = (state = initialState, action) => {
@@ -10,12 +12,17 @@ const InitializeReducer = (state = initialState, action) => {
                 ...state,
                 initialized: (state.initialized = action.status),
             };
+        case "INITIALIZENEWS":
+            return {
+                ...state,
+                initializedNews: (state.initializedNews = action.status),
+            };
         default:
             return state;
     }
 };
 export const initialize = (status) => ({ type: "INITIALIZE", status });
-
+export const initializeNews = (status) => ({ type: "INITIALIZENEWS", status });
 export const initializeApp = () => async (dispatch, getState) => {
     let movie = getState().movieChose1.movie;
     let season = getState().movieChose1.season;
@@ -28,6 +35,16 @@ export const initializeApp = () => async (dispatch, getState) => {
         await dispatch(getContents(season, storiesCount, movie, "story"));
         await dispatch(getSlides());
         await dispatch(initialize(true));
+    } catch {
+        return "something went wrong";
+    }
+};
+export const initializeNewsThunk = () => async (dispatch, getState) => {
+    let data = getState().newsData.newsData;
+    console.log(data);
+    try {
+        await dispatch(getNews());
+        dispatch(initializeNews(true));
     } catch {
         return "something went wrong";
     }

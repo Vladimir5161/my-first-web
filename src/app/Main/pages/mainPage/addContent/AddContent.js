@@ -1,36 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./AddContent.css";
 import { connect } from "react-redux";
 import AddContentFilter from "./AddContentFilter";
 import AddContentReduxForm from "../../../../Form-Controls/AddContentReduxForm";
 import {
-    onDeClickFilterButton,
-    onClickFilterButton,
-    onFilterImageClick,
-    onFilterVideoClick,
-    onFilterStoryClick
-} from "../../../../../store/AddContentReducer";
-import { addContent } from "../../../../../store/DataReducer";
-
-const AddContent = ({
-    addContentClassName,
-    onClickFilterButton,
-    onDeClickFilterButton,
-    clicked,
-    filterContentClassName,
-    movie,
-    season,
-    contentType,
     onFilterImageClick,
     onFilterVideoClick,
     onFilterStoryClick,
-    addContent,
-    arrey,
-    addContentSecondText,
-    isAuth,
-    isFetching
+} from "../../../../../store/AddContentReducer";
+import { addContent } from "../../../../../store/DataReducer";
+import { ContentContext } from "../ContentContext";
+
+const AddContent = ({
+    filterContentClassName,
+    onFilterImageClick,
+    onFilterVideoClick,
+    onFilterStoryClick,
 }) => {
-    let onSubmit = formData => {
+    let {
+        movie,
+        season,
+        DataArrey,
+        isFetching,
+        clicked,
+        onDeClickFilterButton,
+        onClickFilterButton,
+        isAuth,
+        addContentSecondText,
+        addContentClassName,
+        contentType,
+    } = useContext(ContentContext);
+    let onSubmit = (formData) => {
         addContent(
             movie,
             season,
@@ -60,31 +60,20 @@ const AddContent = ({
             <AddContentReduxForm
                 contentType={contentType}
                 onSubmit={onSubmit}
-                arrey={arrey}
+                arrey={DataArrey}
                 isFetching={isFetching}
             />
         </div>
     );
 };
 
-const mapStateToProps = state => ({
-    arrey: state.Data.Data,
-    contentType: state.AddContent.contentType,
-    isAuth: state.auth.isAuth,
-    addContentClassName: state.AddContent.addContentClassName,
-    clicked: state.AddContent.clicked,
+const mapStateToProps = (state) => ({
     filterContentClassName: state.AddContent.filterContentClassName,
-    movie: state.movieChose1.movie,
-    season: state.movieChose1.season,
-    addContentSecondText: state.AddContent.addContentSecondText,
-    isFetching: state.Data.isFetching
 });
 
 export default connect(mapStateToProps, {
     addContent,
-    onClickFilterButton,
-    onDeClickFilterButton,
     onFilterImageClick,
     onFilterVideoClick,
-    onFilterStoryClick
+    onFilterStoryClick,
 })(AddContent);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../common/reset.css";
 import "../common/base.css";
 import Header from "./Header/Header.js";
@@ -8,19 +8,20 @@ import { connect } from "react-redux";
 import { initializeApp } from "../store/InitializeReducer";
 import { Auth } from "../store/AuthReducer";
 
-class App extends React.Component {
-    componentDidMount() {
-        this.props.initializeApp();
-        this.props.Auth();
-    }
-    render() {
-        return (
-            <div className="app">
-                <Header />
-                <Main />
-                <Footer />
-            </div>
-        );
-    }
-}
+const App = ({ initializeApp, Auth }) => {
+    useEffect(() => {
+        const render = () => {
+            initializeApp();
+            Auth();
+        };
+        render();
+    }, [initializeApp, Auth]);
+    return (
+        <div className="app">
+            <Header />
+            <Main />
+            <Footer />
+        </div>
+    );
+};
 export default connect(null, { initializeApp, Auth })(App);

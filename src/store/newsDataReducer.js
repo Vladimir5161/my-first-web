@@ -19,10 +19,18 @@ const newsDataReducer = (state = initialState, action) => {
                     let element = [
                         ...arrayNew.filter((item) => item.id === i.id),
                     ];
-                    if (!element[0].hasOwnProperty("keyFirebase")) {
+                    let checkArr = [];
+                    for (let key in i) {
+                        if (key !== element[key]) {
+                            checkArr.push(1);
+                        }
+                    }
+                    if (checkArr.length !== 0) {
                         let itemForDelete = arrayNew.indexOf(element[0]);
                         arrayNew.splice(itemForDelete, 1, i);
-                        console.log(itemForDelete);
+                    } else if (!element[0].hasOwnProperty("keyFirebase")) {
+                        let itemForDelete = arrayNew.indexOf(element[0]);
+                        arrayNew.splice(itemForDelete, 1, i);
                     }
                 } else {
                     arrayNew.push(i);
@@ -66,11 +74,11 @@ const newsDataReducer = (state = initialState, action) => {
         case "UPDATENEWS":
             return {
                 ...state,
-                Data: state.Data.map((n) =>
+                NewsData: state.NewsData.map((n) =>
                     n.id === action.id
                         ? {
                               ...n,
-                              data: new Date().toLocaleString(),
+                              data: action.news.data || n.data,
                               newsImage: action.news.newsImage || n.newsImage,
                               newsName: action.news.newsName || n.newsName,
                               newsText: action.news.newsText || n.newsText,
@@ -90,7 +98,7 @@ export const hideAddNews = () => ({ type: "HIDEADDNEWS" });
 export const addNewsItem = (news) => ({ type: "ADDNEWS", news });
 export const deleteNewsItem = (id) => ({ type: "DELETENEWS", id });
 
-export const addNews = (newsName, newsText, newsImage) => async (
+export const addNews = (newsName, newsText, newsImage, movie) => async (
     dispatch,
     getState
 ) => {
@@ -111,6 +119,7 @@ export const addNews = (newsName, newsText, newsImage) => async (
         newsImage: newsImage || "",
         newsName,
         newsText,
+        movie,
     };
     try {
         dispatch(Fetching(true, "addNews"));
@@ -144,18 +153,21 @@ export const getNews = () => async (dispatch) => {
     }
 };
 export const updateNewsThunk = (
+    data,
     newsName,
     newsText,
     newsImage,
     id,
-    keyFirebase
+    keyFirebase,
+    movie
 ) => async (dispatch) => {
     let news = {
-        data: new Date().toLocaleString(),
+        data: data,
         id: id,
         newsImage,
         newsName,
         newsText,
+        movie,
     };
     await webAPI.updateNews(news, keyFirebase);
     dispatch(updateNews(news, id));

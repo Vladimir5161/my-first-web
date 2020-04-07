@@ -139,6 +139,32 @@
   background-color: #fff;
   cursor: pointer;
 }
+.ExactNewsName input {
+  width: 600px;
+  line-height: 30px;
+  padding: 0 20px;
+  font-weight: 900;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.newsTimeData input {
+  padding: 5px;
+  margin: 0 5px;
+}
+.ExactNewsImageInput input {
+  width: 300px;
+}
+.ExactNewsText textarea {
+  border-radius: 10px;
+  width: 750px;
+  height: 170px;
+  padding: 5px 10px;
+}
+@media screen and (max-width: 1170px) {
+  .ExactNewsText textarea {
+    width: 645px;
+  }
+}
 @media screen and (max-width: 1024px) {
   .readMore {
     left: 830px;
@@ -155,6 +181,35 @@
     width: 70px;
     height: 30px;
     border-radius: 10px;
+  }
+  .newsTimeData {
+    display: grid;
+    justify-content: center;
+  }
+  .ExactNewsText textarea {
+    width: 708px;
+  }
+  .ExactNewsImage {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    float: none;
+  }
+  .newsStateExact {
+    padding-top: 40px;
+  }
+  .newsTimeData {
+    display: grid;
+    grid-row: 1fr 1fr;
+    justify-content: center;
+  }
+  .newsTimeData input {
+    margin: 5px auto;
+    display: block;
+    border: 1px solid;
+  }
+  .newsTimeData div {
+    padding: 0;
   }
 }
 @media screen and (max-width: 425px) {
@@ -174,10 +229,17 @@
     padding-top: 50px;
   }
   .ButtonGoBackDiv {
-    top: 10px;
+    top: 0;
   }
   .ButtonGoBack {
     margin: 0 auto;
+  }
+  .ExactNewsName input {
+    width: 345px;
+    font-size: 16px;
+  }
+  .ExactNewsText textarea {
+    width: 365px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -196,6 +258,12 @@
     font-size: 14px;
     line-height: 18px;
   }
+  .ExactNewsName input {
+    width: 295px;
+  }
+  .ExactNewsText textarea {
+    width: 315px;
+  }
 }
 @media screen and (max-width: 320px) {
   .newsImage {
@@ -207,7 +275,13 @@
   .ExactNewsName {
     font-size: 18px;
   }
-  .ExactNewsImage {
+  .ExactNewsImage, .ExactNewsImageInput input {
     width: 250px;
+  }
+  .ExactNewsText textarea {
+    width: 260px;
+  }
+  .ExactNewsName input {
+    width: 240px;
   }
 }

@@ -59,14 +59,12 @@ const mapStateToProps = (state) => ({
     initialized: state.initializeApp.initialized,
 });
 
-const ExactContent = (props) => {
+const ExactContent = ({ Data, match, isAuth, EditContent }) => {
     return (
         <div>
-            <div className="ExactContentName">
-                {props.Data[props.match.params.id].name}
-            </div>
+            <div className="ExactContentName">{Data[match.params.id].name}</div>
             <Player
-                video={props.Data[props.match.params.id].video}
+                video={Data[match.params.id].video}
                 playerStyle={"react-player2"}
             />
             <div className="ButtonGoBackDiv">
@@ -74,11 +72,11 @@ const ExactContent = (props) => {
                     <button className="ButtonGoBack"></button>
                 </Link>
             </div>
-            {props.isAuth ? (
+            {isAuth ? (
                 <button
                     className="saveContentButton"
                     onClick={() => {
-                        props.EditContent();
+                        EditContent();
                     }}
                 >
                     Edit
@@ -87,11 +85,11 @@ const ExactContent = (props) => {
             <div className="ExactContentInfo">
                 <img
                     className="ExactContentImage"
-                    src={props.Data[props.match.params.id].imageContent}
+                    src={Data[match.params.id].imageContent}
                     alt=""
                 />
                 <div className="ExactContentText">
-                    {props.Data[props.match.params.id].story}
+                    {Data[match.params.id].story}
                 </div>
             </div>
         </div>

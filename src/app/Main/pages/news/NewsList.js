@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./News.css";
 import NewsListItem from "./NewsListItem";
 import { NewsContext } from "./NewsContext";
@@ -9,23 +9,66 @@ import {
     hideAddNews,
     deleteNewsThunk,
 } from "../../../../store/newsDataReducer";
+import { initializeNewsThunk } from "../../../../store/InitializeReducer";
 import Preloader from "../../CommonComonents/Preloader";
 import { Auth } from "../../../../store/AuthReducer";
 import AddNews from "../mainPage/addContent/AddNews";
+import { getNewsArrey } from "../../../selectors/content-selectors";
 
-const NewsList = ({ newsData, editModeNews, getNews, Auth, ...props }) => {
-    let newsL = newsData.length;
+const NewsList = ({
+    newsData,
+    editModeNews,
+    getNews,
+    Auth,
+    movie,
+    getNewsArrey,
+    initializeNewsThunk,
+    initializedNews,
+    ...props
+}) => {
+    let newsLength = newsData.length;
+    let [isData, changeisData] = useState(true);
     useEffect(() => {
         const rerender = () => {
-            getNews();
-            Auth();
+            initializeNewsThunk();
         };
         rerender();
-        console.log(1);
-    }, [newsL, getNews, Auth]);
-
-    if (newsData.length === 0) {
+    }, [newsLength, initializeNewsThunk, initializedNews]);
+    if (initializedNews === false) {
         return <Preloader />;
+    } else if (newsLength === 0) {
+        setTimeout(() => changeisData(false), 2000);
+        return isData ? (
+            <Preloader />
+        ) : (
+            <div>
+                <div
+                    style={{
+                        textAlign: "center",
+                        fontSize: "30px",
+                        color: "white",
+                    }}
+                >
+                    no data
+                </div>
+                {props.isAuth ? (
+                    <div>
+                        <h1 className="h1">News</h1>
+                        <button
+                            className="filterButton"
+                            onClick={() => {
+                                props.clickedNewsButton
+                                    ? props.hideAddNews()
+                                    : props.showAddNews();
+                            }}
+                        >
+                            Add News
+                        </button>
+                    </div>
+                ) : null}
+                {props.clickedNewsButton ? <AddNews movie={movie} /> : null}
+            </div>
+        );
     }
     return (
         <NewsContext.Provider
@@ -39,16 +82,22 @@ const NewsList = ({ newsData, editModeNews, getNews, Auth, ...props }) => {
                 {props.isAuth ? (
                     <button
                         className="filterButton"
-                        onClick={() => {
+                        onClick={
                             props.clickedNewsButton
-                                ? props.hideAddNews()
-                                : props.showAddNews();
-                        }}
+                                ? () => {
+                                      props.hideAddNews();
+                                  }
+                                : () => {
+                                      props.showAddNews();
+                                  }
+                        }
                     >
-                        Add News
+                        {props.clickedNewsButton
+                            ? "Close Edit Mode"
+                            : "Edit Mode"}
                     </button>
                 ) : null}
-                {props.clickedNewsButton ? <AddNews /> : null}
+                {props.clickedNewsButton ? <AddNews movie={movie} /> : null}
                 {newsData.map(
                     ({
                         newsImage,
@@ -80,11 +129,13 @@ const NewsList = ({ newsData, editModeNews, getNews, Auth, ...props }) => {
 };
 
 const mapStateToProps = (state) => ({
-    newsData: state.newsData.NewsData,
+    newsData: getNewsArrey(state),
     clickedNewsButton: state.newsData.clickedNewsButton,
     editModeNews: state.newsData.editModeNews,
     isAuth: state.auth.isAuth,
     isFetching: state.newsData.isFetching,
+    movie: state.movieChose1.movie,
+    initializedNews: state.initializeApp.initializedNews,
 });
 
 export default connect(mapStateToProps, {
@@ -93,4 +144,5 @@ export default connect(mapStateToProps, {
     showAddNews,
     hideAddNews,
     deleteNewsThunk,
+    initializeNewsThunk,
 })(NewsList);

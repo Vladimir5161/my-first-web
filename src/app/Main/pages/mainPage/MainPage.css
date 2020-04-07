@@ -170,7 +170,9 @@
   padding: 20px 40px;
 
 }
-
+.ExactContentNameForm {
+  display: block;
+}
 .ExactContentName {
   text-align: center;
   font-family: "Montserrat";
@@ -182,8 +184,8 @@
   top: -30px;
 }
 .ExactContentInfo {
-  display: grid;
-  justify-content: center;
+  display: block;
+  justify-content: right;
 }
 .ExactContentImage {
   max-height: 250px;
@@ -192,6 +194,7 @@
   margin: auto;
   margin-bottom: 10px;
   border-radius: 5px;
+  display: block;
 }
 
 .ExactContentText {
@@ -226,6 +229,12 @@
   font-weight: 900;
   border: 2px solid inherit;
 }
+.ExactContentLink {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+}
 .inputFieldErrorEdit, .inputFieldErrorEditImage {
   border: 2px solid red;
 }
@@ -238,7 +247,7 @@
   font-weight: 700;
   line-height: 25px;
   display: block;
-  height: 500px;
+  height: 350px;
   overflow: visible;
   margin: 15px auto;
   resize: vertical;
@@ -283,7 +292,9 @@
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     padding: 10px;
   }
-
+  .ExactContentText textarea {
+    width: 924px;
+  }
   .ExactContent {
     padding-bottom: 20px;
   }
@@ -294,7 +305,9 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     padding: 10px;
   }
-
+  .ExactContentText textarea {
+    width: 668px;
+  }
   .react-player2 iframe {
     height: 300px !important;
   }
@@ -309,15 +322,28 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
-
+  .ExactContentText textarea {
+    width: 330px;
+  }
   .react-player2 iframe {
     height: 250px !important;
   }
-
   .ExactContentName {
-    left: 20px;
-    top: -10px;
+    top: 0;
     font-size: 25px;
+  }
+  .ExactContentNameForm input {
+    width: 330px;
+  }
+  .ExactContentLink input {
+    width: 330px;
+    font-size: 16px;
+  }
+  .ExactContent {
+    padding-top: 45px;
+  }
+  .ExactContentImage {
+    width: 330px;
   }
 }
 
@@ -326,13 +352,23 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
-
+  .ExactContentImage {
+    width: 310px;
+  }
+  .ExactContentLink input {
+    width: 315px;
+  }
+  .ExactContentNameForm input {
+    width: 315px;
+  }
   .react-player2 iframe {
     height: 200px !important;
   }
-
+.ExactContentText textarea {
+  width: 315px
+}
   .ExactContent {
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
   }
 }
 
@@ -341,14 +377,22 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px;
   }
-
+  .ExactContentLink input {
+    width: 260px;
+  }
+  .ExactContentNameForm input {
+    width: 260px;
+  }
   .react-player2 iframe {
     height: 200px !important;
   }
-
+  .ExactContentImage {
+    width: 260px;
+  }
   .ExactContentName {
     font-size: 20px;
-    left: 20px;
-    top: -5px;
+  }
+  .ExactContentText textarea {
+    width: 260px;
   }
 }

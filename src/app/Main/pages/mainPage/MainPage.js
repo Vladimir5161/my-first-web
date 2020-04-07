@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import "./MainPage.css";
 import "./contentImage/contentImages.css";
 import AddContent from "./addContent/AddContent";

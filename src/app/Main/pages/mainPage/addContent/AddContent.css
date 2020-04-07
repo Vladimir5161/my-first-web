@@ -138,7 +138,6 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
-
 .inputError {
   position: absolute;
   display: flex;
@@ -157,3 +156,4 @@
   position: relative;
   display: block;
 }
+
