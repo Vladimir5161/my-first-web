@@ -1,5 +1,6 @@
 import { getContents, getSlides } from "./DataReducer";
 import { getNews } from "./newsDataReducer";
+import { getLikedContent } from "./contentLikeReducer";
 const initialState = {
     initialized: false,
     initializedNews: false,
@@ -33,6 +34,7 @@ export const initializeApp = () => async (dispatch, getState) => {
         await dispatch(getContents(season, imagesCount, movie, "image"));
         await dispatch(getContents(season, videosCount, movie, "video"));
         await dispatch(getContents(season, storiesCount, movie, "story"));
+        await dispatch(getLikedContent());
         await dispatch(getSlides());
         await dispatch(initialize(true));
     } catch {

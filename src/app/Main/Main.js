@@ -13,6 +13,7 @@ import {
     onClickFilterButton,
     onDeClickFilterButton,
 } from "../../store/AddContentReducer";
+import { getLikedContent } from "../../store/contentLikeReducer";
 import Login from "./pages/Login/Login";
 import CreateAccount from "./pages/Login/CreateAccount";
 import { connect } from "react-redux";
@@ -45,6 +46,7 @@ const Main = ({
     onDeClickFilterButton,
     onClickFilterButton,
     contentType,
+    IdArrey,
 }) => {
     return (
         <ContentContext.Provider
@@ -69,6 +71,7 @@ const Main = ({
                 onDeClickFilterButton,
                 onClickFilterButton,
                 contentType,
+                IdArrey,
             }}
         >
             <main className="main">
@@ -109,6 +112,7 @@ const Main = ({
 };
 
 const mapStateToProps = (state) => ({
+    IdArrey: state.likedContent.IdArrey,
     images: state.filter.images,
     stories: state.filter.stories,
     DataArrey: state.Data,
@@ -133,4 +137,5 @@ export default connect(mapStateToProps, {
     getSlides,
     onClickFilterButton,
     onDeClickFilterButton,
+    getLikedContent,
 })(Main);

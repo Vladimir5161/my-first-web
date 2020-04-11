@@ -16,6 +16,7 @@ const AddContent = ({
     onFilterImageClick,
     onFilterVideoClick,
     onFilterStoryClick,
+    addContent,
 }) => {
     let {
         movie,

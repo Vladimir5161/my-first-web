@@ -138,7 +138,7 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
-.inputError {
+.inputError,  .inputMainError{
   position: absolute;
   display: flex;
   justify-content: center;
@@ -146,8 +146,11 @@
   margin: 10px auto;
   left: 0;
   right: 0;
-  top: -30px;
+  top: -25px;
   line-height: 15px;
+}
+.inputMainError {
+  top: -5px;
 }
 .inputFieldError {
   border-color: red !important;

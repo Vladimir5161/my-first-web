@@ -11,14 +11,14 @@ const NewsListItem = ({
     id,
     editModeClass,
     editModeNews,
-    keyFirebase
+    keyFirebase,
 }) => {
     let { deleteNews, isFetching } = useContext(NewsContext);
     return (
         <div className="newsState">
             {editModeNews ? (
                 <button
-                    disabled={isFetching.some(item => item === id)}
+                    disabled={isFetching.some((item) => item === id)}
                     className={editModeClass}
                     onClick={() => {
                         deleteNews(id, keyFirebase);

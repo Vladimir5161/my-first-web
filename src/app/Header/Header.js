@@ -5,7 +5,6 @@ import UpperHeader from "./Menu/UpperHeader.js";
 import { LogOut } from "../.././store/AuthReducer";
 
 const Header = ({
-    countLike,
     logo,
     clicked,
     chosen,
@@ -13,13 +12,12 @@ const Header = ({
     OnClickedOff,
     isAuth,
     LogOut,
-    keyAuth
+    keyAuth,
 }) => {
     return (
         <header className="header">
             <div className="container">
                 <UpperHeader
-                    countLike={countLike}
                     logo={logo}
                     chosen={chosen}
                     clicked={clicked}
@@ -34,10 +32,9 @@ const Header = ({
     );
 };
 
-const mapStateToProps = store => ({
-    countLike: store.isLiked.countLike,
+const mapStateToProps = (store) => ({
     isAuth: store.auth.isAuth,
-    keyAuth: store.auth.keyAuth
+    keyAuth: store.auth.keyAuth,
 });
 
 export default connect(mapStateToProps, { LogOut })(Header);

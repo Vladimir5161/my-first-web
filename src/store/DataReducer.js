@@ -1,6 +1,6 @@
 import { stopSubmit, reset } from "redux-form";
 import { webAPI } from "../app/api/api";
-import { ininialize } from "./InitializeReducer";
+import { likedContent } from "./contentLikeReducer";
 
 const initialState = {
     Data: [],
@@ -14,6 +14,7 @@ const initialState = {
         story: [],
     },
     isFetching: [],
+    loading: false,
 };
 
 const DataReducer = (state = initialState, action) => {
@@ -103,7 +104,7 @@ const DataReducer = (state = initialState, action) => {
             let arrayNew = [
                 ...state.Data.filter((item) => item[action.contentType]),
             ];
-            for (let content of action.responce) {
+            action.responce.map((content) => {
                 if (arrayNew.length === 0) {
                     arrayNew.push(content);
                 } else if (
@@ -128,7 +129,7 @@ const DataReducer = (state = initialState, action) => {
                 } else {
                     arrayNew.push(content);
                 }
-            }
+            });
             return {
                 ...state,
                 Data: [
@@ -190,6 +191,14 @@ const DataReducer = (state = initialState, action) => {
                         : n
                 ),
             };
+        case "LOADING":
+            return {
+                ...state,
+                loading:
+                    state.loading === true
+                        ? state.loading === false
+                        : state.loading === true,
+            };
         default:
             return state;
     }
@@ -204,6 +213,7 @@ export const Fetching = (status, id) => ({
     status,
     id,
 });
+export const isLoading = () => ({ type: "LOADING" });
 export const addContentNew = (content) => ({ type: "ADDCONTENT", content });
 export const ShowMore = (additionalCount, season, movie, contentType) => ({
     type: "CHANGECONTENTSCOUNT",
@@ -228,12 +238,24 @@ export const downloadSlides = (slides) => ({ type: "DOWNLOADSLIDES", slides });
 export const DeleteContent = (id) => ({ type: "DELETECONTENT", id });
 
 export const deleteContent = (id, keyFirebase, contentType) => async (
-    dispatch
+    dispatch,
+    getState
 ) => {
+    let keyForDelete = getState().likedContent.IdArrey.some(
+        (i) => i.id === keyFirebase
+    )
+        ? getState().likedContent.IdArrey.filter((i) => i.id === keyFirebase)[0]
+              .keyForDelete
+        : null;
     try {
         dispatch(Fetching(true, id));
         await webAPI.deleteContent(keyFirebase, contentType);
-        dispatch(DeleteContent(id));
+        await dispatch(DeleteContent(id));
+        dispatch(
+            keyForDelete === null
+                ? null
+                : likedContent(keyForDelete, keyFirebase)
+        );
         dispatch(Fetching(false, id));
     } catch {
         return "something went wrong";
@@ -249,6 +271,7 @@ export const getContents = (season, itemsCount, movie, contentType) => async (
         contentArray.map((item) => (item[1].keyFirebase = item[0]));
         dispatch(downloadContent(Object.values(responce), contentType));
         dispatch(uploadContent(season, itemsCount, movie, contentType));
+        dispatch(Fetching(false, "addContent"));
     } catch {
         return "something went wrong";
     }
@@ -276,10 +299,13 @@ export const addContent = (
     let Data = getState().Data.Data;
     let newId = () => {
         if (Data.length < 1) {
-            return `1`;
+            return 1;
         } else {
-            let idCount = Data.pop();
-            Data.push(idCount);
+            let DataForId = Data.sort(function (a, b) {
+                return a.id - b.id;
+            });
+            let idCount = DataForId[Data.length - 1];
+            debugger;
             let newId = +idCount.id + 1;
             return newId;
         }
@@ -309,9 +335,8 @@ export const addContent = (
             try {
                 dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newImage, contentType);
-                dispatch(addContentNew(newImage));
+                await dispatch(addContentNew(newImage));
                 dispatch(reset("addContent"));
-                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }
@@ -326,9 +351,8 @@ export const addContent = (
             try {
                 dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newVideo, contentType);
-                dispatch(addContentNew(newVideo));
+                await dispatch(addContentNew(newVideo));
                 dispatch(reset("addContent"));
-                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }
@@ -344,9 +368,8 @@ export const addContent = (
             try {
                 dispatch(Fetching(true, "addContent"));
                 await webAPI.addContent(newStory, contentType);
-                dispatch(addContentNew(newStory));
+                await dispatch(addContentNew(newStory));
                 dispatch(reset("addContent"));
-                dispatch(Fetching(false, "addContent"));
             } catch {
                 return "some error";
             }
@@ -393,6 +416,15 @@ export const getContentMap = (arrey) => {
         (map, product) => ({
             ...map,
             [product.id]: product,
+        }),
+        {}
+    );
+};
+export const getLikedContentMap = (arrey) => {
+    return arrey.reduce(
+        (map, product) => ({
+            ...map,
+            [product.keyFirebase]: product,
         }),
         {}
     );

@@ -5,11 +5,12 @@ import images from "../../../common/images.js";
 import { Link } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { change } from "redux-form";
+import { getCount } from "../../selectors/likedContentSelectors";
 
 const UpperHeader = ({
-    countLike,
     OnVikingsS1,
     OnVikingsS2,
+    countLike,
     OnGOTS1,
     OnGOTS2,
     OnMovieChose1,
@@ -21,7 +22,7 @@ const UpperHeader = ({
     onDefaultOpenedContentCount,
     keyAuth,
     isAuth,
-    LogOut
+    LogOut,
 }) => {
     let [colorArrow, changeColorArrow] = useState("");
 
@@ -177,45 +178,46 @@ const UpperHeader = ({
         </div>
     );
 };
-const mapStateToProps = store => ({
-    logo: store.movieChose1.logo,
-    chosen: store.movieChose1.chosen,
-    Season: store.movieChose1.Season
+const mapStateToProps = (state) => ({
+    logo: state.movieChose1.logo,
+    chosen: state.movieChose1.chosen,
+    Season: state.movieChose1.Season,
+    countLike: getCount(state),
 });
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     OnMovieChose1: () =>
         dispatch({
-            type: "MOVIEGROUP1CLICK"
+            type: "MOVIEGROUP1CLICK",
         }),
     OnMovieChose2: () =>
         dispatch({
-            type: "MOVIEGROUP2CLICK"
+            type: "MOVIEGROUP2CLICK",
         }),
     OnVikingsS1: () =>
         dispatch({
-            type: "VIKINGSSEASON1"
+            type: "VIKINGSSEASON1",
         }),
     OnVikingsS2: () =>
         dispatch({
-            type: "VIKINGSSEASON2"
+            type: "VIKINGSSEASON2",
         }),
     OnGOTS1: () =>
         dispatch({
-            type: "GOTSEASON1"
+            type: "GOTSEASON1",
         }),
     OnGOTS2: () =>
         dispatch({
-            type: "GOTSEASON2"
+            type: "GOTSEASON2",
         }),
     OnRulesClick: () =>
         dispatch({
-            type: "ONRULESCLICK"
+            type: "ONRULESCLICK",
         }),
     onDefaultOpenedContentCount: () =>
         dispatch({
             /* обнюляю колличество открытых фото, видео и т.д. до изначальных значений (3 фото, 2 видео, 2 истории)*/
-            type: "ONDEFAULTCOUNTS"
-        })
+            type: "ONDEFAULTCOUNTS",
+        }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);

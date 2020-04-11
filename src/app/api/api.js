@@ -53,6 +53,28 @@ export const webAPI = {
     updateNews(news, keyFirebase) {
         return instance.put(`/content/news/${keyFirebase}.json`, news);
     },
+    likeContent(keyFirebase) {
+        return instance
+            .post(`/content/likedContent.json`, keyFirebase)
+            .then((reps) => {
+                return reps.data;
+            });
+    },
+    dislikeContent(keyFirebase) {
+        return instance
+            .delete(`/content/likedContent/${keyFirebase}.json`)
+            .then((reps) => {
+                return reps.data;
+            });
+    },
+    dislikeAllContent() {
+        return instance.delete(`content/likedContent.json`);
+    },
+    getLikedContent() {
+        return instance.get(`content/likedContent.json`).then((reps) => {
+            return reps.data;
+        });
+    },
 };
 
 export const authAPI = {

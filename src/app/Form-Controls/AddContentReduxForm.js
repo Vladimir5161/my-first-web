@@ -6,7 +6,11 @@ import { correctLink, required } from "../validators/validators";
 const addContentForm = ({ contentType, ...props }) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            {props.error && <div className="inputError">{props.error}</div>}
+            {props.error && (
+                <div style={{ position: "relative" }}>
+                    <div className="inputMainError">{props.error}</div>
+                </div>
+            )}
             {contentType === "image" ? (
                 <div className="addContentInput">
                     {createField(
@@ -24,7 +28,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            (item) => item === "addContent"
+                            (id) => id === "addContent"
                         )}
                     >
                         Add
@@ -62,7 +66,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            (item) => item === "addContent"
+                            (id) => id === "addContent"
                         )}
                     >
                         Add
@@ -107,7 +111,7 @@ const addContentForm = ({ contentType, ...props }) => {
                     <button
                         className="addContentButton"
                         disabled={props.isFetching.some(
-                            (item) => item === "addContent"
+                            (id) => id === "addContent"
                         )}
                     >
                         Add

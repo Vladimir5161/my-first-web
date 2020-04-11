@@ -1,68 +1,58 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getLikedId } from "../../../selectors/likedContentSelectors";
+import {
+    likeContent,
+    likedContent,
+    getLikedContent,
+} from "../../../../store/contentLikeReducer";
+import { useEffect } from "react";
 
 const ButtonLike = ({
-  onLikedCount,
-  onLikeCount,
-  id,
-  clicked,
-  onLikeClick,
-  onLikedClick,
-  removeContent,
-  addContent,})=> {
+    keyFirebase,
+    likedContentArray,
+    likeContent,
+    likedContent,
+    getLikedContent,
+    isFetching,
+}) => {
+    useEffect(() => {
+        const rerender = () => {
+            getLikedContent();
+        };
+        rerender();
+    }, [likedContentArray.length, getLikedContent]);
+    const exactObj = likedContentArray.filter((i) => i.id === keyFirebase);
     return (
-      <div>
-        {clicked ? (
-          <button
-            className="liked"
-            onClick={() => {
-              onLikedClick(id);
-              onLikedCount(id);
-              removeContent(id);
-            }}
-          ></button>
-        ) : (
-          <button
-            className="likedNo"
-            onClick={() => {
-              onLikeClick(id);
-              onLikeCount(id);
-              addContent(id);
-            }}
-          ></button>
-        )}
-      </div>
+        <div>
+            {likedContentArray.some((item) => item.id === keyFirebase) ? (
+                <button
+                    disabled={isFetching.some((id) => id === keyFirebase)}
+                    className="liked"
+                    onClick={() => {
+                        likedContent(exactObj[0].keyForDelete, keyFirebase);
+                    }}
+                ></button>
+            ) : (
+                <button
+                    disabled={isFetching.some((id) => id === keyFirebase)}
+                    className="likedNo"
+                    onClick={() => {
+                        likeContent(keyFirebase);
+                    }}
+                ></button>
+            )}
+        </div>
     );
-  }
+};
 
-const mapStateToProps = (state,props) => ({
-  clicked: state.likedContent.likedContentState[props.id]
-})
-
-const mapDispatchToProps = dispatch => ({
-  addContent: (id) =>dispatch({
-      type: "ONLIKE",
-      id: id,
-    }),
-  removeContent: id =>dispatch({
-      type: "ONLIKED",
-      id: id,
-    }),
-  onLikedClick: id=>dispatch({
-    type: "ONLIKEDCLICK",
-    id: id,
-  }),
-  onLikeClick: id=>dispatch({
-    type: "ONLIKECLICK",
-    id: id,
-  }),
-  onLikeCount: (id)=>dispatch({
-    type: "ONLIKECOUNT",
-    id,
-  }),
-  onLikedCount: (id)=>dispatch({
-    type: "ONLIKEDCOUNT",
-    id
-  }),
+const mapStateToProps = (state) => ({
+    likedContentArray: state.likedContent.IdArrey,
+    isFetching: state.likedContent.isFetching,
 });
-export default connect(mapStateToProps, mapDispatchToProps)(ButtonLike);
+
+export default connect(mapStateToProps, {
+    likeContent,
+    likedContent,
+    getLikedContent,
+})(ButtonLike);

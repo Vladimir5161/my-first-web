@@ -4,6 +4,7 @@ import ContentListItem from "../ContentListItem.js";
 import { compose } from "redux";
 import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
 import { ContentContext } from "../ContentContext.js";
+import Preloader from "../../../CommonComonents/Preloader.js";
 
 const ContentListStory = ({ firstContent, onComponentChange, ...props }) => {
     let additionalCount = 2;
@@ -31,7 +32,7 @@ const ContentListStory = ({ firstContent, onComponentChange, ...props }) => {
                         id,
                         imageContent,
                         video,
-                        keyFirebase
+                        keyFirebase,
                     }) => (
                         <div className="Content" key={id}>
                             <ContentListItem

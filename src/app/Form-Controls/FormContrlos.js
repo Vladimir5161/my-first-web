@@ -26,7 +26,11 @@ export const Input = ({ error, inputField, inputFieldError, ...props }) => {
     const hasError = meta.error && meta.touched;
     return (
         <div className="formBlock">
-            {hasError ? <div className="inputError">{meta.error}</div> : null}
+            {hasError ? (
+                <div style={{ position: "relative" }}>
+                    <div className="inputError">{meta.error}</div>
+                </div>
+            ) : null}
             <input
                 type={props.type}
                 {...input}

@@ -1,24 +1,21 @@
 import React from "react";
-import { keys } from "lodash";
 import LikedContentPageItem from "./LikedContentPageItem";
 import { connect } from "react-redux";
 import "./LikedContent.css";
-import { getContentMap } from "../../../../store/DataReducer";
+import { getLikedContent } from "../../../../store/contentLikeReducer";
+import { contentReduce } from "../../../selectors/likedContentSelectors";
 
-const LikedContentPage = ({
-    likedContentItems,
-    DataArrey,
-    contentMapVikings = getContentMap(DataArrey),
-}) => {
+const LikedContentPage = ({ likedContentData, contentWebReduce }) => {
     return (
         <div>
             <h1 className="h1">Liked Content</h1>
             <div className="likedContentPage">
-                {keys(likedContentItems).map((contentId) => (
-                    <div className="contentLikedArea" key={contentId}>
+                {likedContentData.map(({ id, keyForDelete }) => (
+                    <div className="contentLikedArea" key={id}>
                         <LikedContentPageItem
-                            contentId={contentId}
-                            product={contentMapVikings[contentId]}
+                            keyForDelete={keyForDelete}
+                            product={contentWebReduce[id]}
+                            id={id}
                         />
                     </div>
                 ))}
@@ -27,15 +24,10 @@ const LikedContentPage = ({
     );
 };
 
-const mapStateToProps = (store) => ({
-    likedContentItems: store.likedContentItems.likedContentIdArrey,
-    DataArrey: store.Data.Data,
+const mapStateToProps = (state) => ({
+    likedContentData: state.likedContent.IdArrey,
+    DataArrey: state.Data.Data,
+    contentWebReduce: contentReduce(state),
 });
-// const mapDispatchToProps = dispatch => ({
-//   getContentMap: (arrey) =>dispatch({
-//     type: "GETCONTENTMAP",
-//     arrey: arrey,
-//   })
-// })
 
-export default connect(mapStateToProps)(LikedContentPage);
+export default connect(mapStateToProps, { getLikedContent })(LikedContentPage);

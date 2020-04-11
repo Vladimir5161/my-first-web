@@ -11,9 +11,7 @@ import InitializeReducer from "./InitializeReducer";
 import AuthReducer from "./AuthReducer";
 
 const rootReducer = combineReducers({
-    likedContentItems: contentLikeReducer,
     likedContent: contentLikeReducer,
-    isLiked: contentLikeReducer,
     movieChose1: movieChoseReducer,
     AddContent: AddContentReducer,
     Rules: someReducer,
@@ -23,7 +21,7 @@ const rootReducer = combineReducers({
     Pass: AddContentReducer,
     form: formReducer,
     initializeApp: InitializeReducer,
-    auth: AuthReducer
+    auth: AuthReducer,
 });
 
 export default rootReducer;

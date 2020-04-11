@@ -4,17 +4,7 @@ import ButtonLike from "../ButtonLike.js";
 import ButtonCloseImage from "../ButtonCloseImage.js";
 import { ContentContext } from "../ContentContext.js";
 
-const ContentListImagesItem = ({
-    image,
-    OnLiked,
-    OnLike,
-    id,
-    clicked,
-    OnLikedClick,
-    OnLikeClick,
-    contentType,
-    keyFirebase,
-}) => {
+const ContentListImagesItem = ({ image, id, contentType, keyFirebase }) => {
     let { editMode, deleteContent, isFetching } = useContext(ContentContext);
     let [contentListState, changeContentListState] = useState({
         contentImageItem: "content-list-item-images",
@@ -80,15 +70,7 @@ const ContentListImagesItem = ({
                         ButtonCloseImage={contentListState.ButtonCloseImage}
                     />
                 </div>
-                <ButtonLike
-                    OnLike={OnLike}
-                    OnLiked={OnLiked}
-                    clicked={clicked}
-                    id={id}
-                    value={contentListState.value}
-                    OnLikeClick={OnLikeClick}
-                    OnLikedClick={OnLikedClick}
-                />
+                <ButtonLike keyFirebase={keyFirebase} id={id} />
             </div>
         </div>
     );

@@ -33,7 +33,7 @@ const ContentListItem = ({
                 <img src={image} alt="" />
             </div>
             <p className="content-story">{story}</p>
-            <ButtonLike id={id} />
+            <ButtonLike keyFirebase={keyFirebase} id={id} />
         </div>
     );
 };

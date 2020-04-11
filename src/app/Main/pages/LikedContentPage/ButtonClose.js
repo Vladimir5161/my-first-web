@@ -1,35 +1,16 @@
 import React from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import { likedContent } from "../../../../store/contentLikeReducer";
 
-const  ButtonClose = ({
-  contentId, 
-  deleteContent, 
-  onLikedCount,
-  onLikedClick,
-}) => {
+const ButtonClose = ({ keyForDelete, likedContent, id }) => {
     return (
-      <button
-        className="ButtonClose"
-        onClick={() => {
-          deleteContent(contentId);
-          onLikedCount();
-          onLikedClick(contentId);
-        }}
-      ></button>
+        <button
+            className="ButtonClose"
+            onClick={() => {
+                likedContent(keyForDelete, id);
+            }}
+        ></button>
     );
-  }
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteContent: id =>dispatch({
-    type: "ONLIKED",
-    id,
-  }),
-  onLikedCount: ()=>dispatch({
-    type: "ONLIKEDCOUNT",
-  }),
-  onLikedClick: (id)=>dispatch({
-    type: "ONLIKEDCLICK",
-    id,
-  }),
-})
-export default connect (null, mapDispatchToProps)(ButtonClose);
+export default connect(null, { likedContent })(ButtonClose);

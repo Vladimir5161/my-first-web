@@ -1,36 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LikedContentPage from "./LikedContentPage";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import "./LikedContent.css";
+import {
+    clearLikedContentAll,
+    getLikedContent,
+} from "../../../../store/contentLikeReducer";
+import Preloader from "../../CommonComonents/Preloader";
 
 const LikedPage = ({
-  OnCloseButtonClick,
-  OnClearAllClick,
-  OnLikedContentClear,
+    clearLikedContentAll,
+    initialized,
+    likedContentArray,
+    getLikedContent,
 }) => {
-    return (
-      <div className="containerMain">
-        <div className="LikedPage">
-          <LikedContentPage
-            OnCloseButtonClick={OnCloseButtonClick}
-          />
-        </div>
-        <div className="buttonClearAll">
-          <button className="Add-content" onClick={() => {OnClearAllClick(); OnLikedContentClear();}}>
-            Clear All
-          </button>
-        </div>
-      </div>
-    );
-  }
+    useEffect(() => {
+        const rerender = () => {
+            getLikedContent();
+        };
+        rerender();
+    }, [likedContentArray.length, getLikedContent]);
+    if (initialized === false) {
+        return <Preloader />;
+    } else
+        return (
+            <div className="containerMain">
+                <div className="LikedPage">
+                    <LikedContentPage />
+                </div>
+                <div className="buttonClearAll">
+                    <button
+                        className="Add-content"
+                        onClick={() => {
+                            clearLikedContentAll();
+                        }}
+                    >
+                        Clear All
+                    </button>
+                </div>
+            </div>
+        );
+};
 
-
-const mapDispatchToProps=(dispatch)=>({
-  OnClearAllClick: ()=>dispatch({
-    type: "ONCLEARALLCLICK"
-  }),
-  OnLikedContentClear: ()=>dispatch({
-    type: "ONLIKEDCONTENTCLEAR"
-  })
-})
-export default connect(null, mapDispatchToProps)(LikedPage);
+const mapStateToProps = (state) => ({
+    initialized: state.initializeApp.initialized,
+    likedContentArray: state.likedContent.IdArrey,
+});
+export default connect(mapStateToProps, {
+    clearLikedContentAll,
+    getLikedContent,
+})(LikedPage);
