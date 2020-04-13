@@ -1,5 +1,6 @@
 import React from "react";
 import { Field } from "redux-form";
+import Alerterror from "../Main/CommonComonents/Alerterror";
 
 export const createField = (
     placeholder,
@@ -25,19 +26,21 @@ export const Input = ({ error, inputField, inputFieldError, ...props }) => {
     const { input, meta, ...restProps } = props;
     const hasError = meta.error && meta.touched;
     return (
-        <div className="formBlock">
+        <>
             {hasError ? (
                 <div style={{ position: "relative" }}>
-                    <div className="inputError">{meta.error}</div>
+                    <Alerterror text={meta.error} />
                 </div>
             ) : null}
-            <input
-                type={props.type}
-                {...input}
-                {...restProps}
-                className={hasError || error ? inputFieldError : inputField}
-            />
-        </div>
+            <div className="formBlock">
+                <input
+                    type={props.type}
+                    {...input}
+                    {...restProps}
+                    className={hasError || error ? inputFieldError : inputField}
+                />
+            </div>
+        </>
     );
 };
 
@@ -52,18 +55,24 @@ class Textarea extends React.Component {
 
         const hasError = meta.error && meta.touched;
         return (
-            <div className="formBlock">
+            <>
                 {hasError ? (
-                    <div className="inputError">{meta.error}</div>
+                    <div style={{ position: "relative" }}>
+                        <Alerterror text={meta.error} />
+                    </div>
                 ) : null}
-                <textarea
-                    type={props.type}
-                    {...input}
-                    {...restProps}
-                    className={hasError || error ? inputFieldError : inputField}
-                    onInput={this.auto_grow(this)}
-                />
-            </div>
+                <div className="formBlock">
+                    <textarea
+                        type={props.type}
+                        {...input}
+                        {...restProps}
+                        className={
+                            hasError || error ? inputFieldError : inputField
+                        }
+                        onInput={this.auto_grow(this)}
+                    />
+                </div>
+            </>
         );
     }
 }

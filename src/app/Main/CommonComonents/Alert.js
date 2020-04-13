@@ -1,6 +1,6 @@
 import React from "react";
 
-const Alert = props => {
+const Alert = (props) => {
     return (
         <div
             class="alert alert-success"
@@ -13,7 +13,7 @@ const Alert = props => {
                 position: "absolute",
                 width: "500px",
                 top: "-70px",
-                zIndex: "25"
+                zIndex: "25",
             }}
         >
             {props.text}

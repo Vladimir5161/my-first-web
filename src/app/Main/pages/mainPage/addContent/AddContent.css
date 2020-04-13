@@ -70,12 +70,12 @@
   padding: 0;
   margin: 20px auto;
 }
-.addContentInputText textarea {
+.addContentInput textarea {
   margin: auto;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
   display: block;
-  width: 400px;
+  width: 300px;
   height: 80px;
   padding: 5px 10px;
   background-color: inherit;
@@ -85,7 +85,7 @@
 .addContentInput input {
   display: block;
   margin: 20px auto;
-  width: 200px;
+  width: 300px;
   height: 30px;
   padding: 0 10px;
   background-color: inherit;
@@ -94,7 +94,7 @@
 }
 
 .addContentInput input::placeholder,
-.addContentInputText textarea::placeholder {
+.addContentInput textarea::placeholder {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -159,4 +159,21 @@
   position: relative;
   display: block;
 }
+.alertError {
+  margin: 0 auto;
+  right: -210px;
+  color: red;
+  position: relative;
+  width: 200px;
+  line-height: 5px;
+  z-index: 25;
+  border: 1px solid red;
+}
 
+@media screen and (max-width: 425px) {
+  .alertError {
+    top: 10px;
+    right: 0;
+    left: 0;
+  }
+}

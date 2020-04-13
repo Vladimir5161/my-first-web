@@ -2,41 +2,42 @@ import React from "react";
 import { reduxForm } from "redux-form";
 import Textarea, { Input, createField } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
+import Alerterror from "../Main/CommonComonents/Alerterror";
 
 const addContentForm = ({ contentType, ...props }) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            {props.error && (
-                <div style={{ position: "relative" }}>
-                    <div className="inputMainError">{props.error}</div>
-                </div>
-            )}
-            {contentType === "image" ? (
-                <div className="addContentInput">
-                    {createField(
-                        "add image link",
-                        "addImage",
-                        [correctLink, required],
-                        Input,
-                        {
-                            error: props.error,
-                            type: "text",
-                            inputField: "inputField",
-                            inputFieldError: "inputFieldError",
-                        }
-                    )}
-                    <button
-                        className="addContentButton"
-                        disabled={props.isFetching.some(
-                            (id) => id === "addContent"
+            <div className="addContentInput">
+                {props.error && (
+                    <div style={{ position: "relative" }}>
+                        <Alerterror text={props.error} />
+                    </div>
+                )}
+                {contentType === "image" ? (
+                    <div>
+                        {createField(
+                            "add image link",
+                            "addImage",
+                            [correctLink, required],
+                            Input,
+                            {
+                                error: props.error,
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
                         )}
-                    >
-                        Add
-                    </button>
-                </div>
-            ) : contentType === "video" ? (
-                <div>
-                    <div className="addContentInput">
+                        <button
+                            className="addContentButton"
+                            disabled={props.isFetching.some(
+                                (id) => id === "addContent"
+                            )}
+                        >
+                            Add
+                        </button>
+                    </div>
+                ) : contentType === "video" ? (
+                    <div>
                         {createField(
                             "add video link",
                             "addVideo",
@@ -49,8 +50,6 @@ const addContentForm = ({ contentType, ...props }) => {
                                 inputFieldError: "inputFieldError",
                             }
                         )}
-                    </div>
-                    <div className="addContentInput">
                         {createField(
                             "add video name",
                             "addVideoName",
@@ -62,26 +61,22 @@ const addContentForm = ({ contentType, ...props }) => {
                                 inputFieldError: "inputFieldError",
                             }
                         )}
+                        <button
+                            className="addContentButton"
+                            disabled={props.isFetching.some(
+                                (id) => id === "addContent"
+                            )}
+                        >
+                            Add
+                        </button>
                     </div>
-                    <button
-                        className="addContentButton"
-                        disabled={props.isFetching.some(
-                            (id) => id === "addContent"
-                        )}
-                    >
-                        Add
-                    </button>
-                </div>
-            ) : contentType === "story" ? (
-                <div>
-                    <div className="addContentInput">
+                ) : contentType === "story" ? (
+                    <div>
                         {createField("add story name", "addStory", [], Input, {
                             type: "text",
                             inputField: "inputField",
                             inputFieldError: "inputFieldError",
                         })}
-                    </div>
-                    <div className="addContentInputText">
                         {createField(
                             "add story text",
                             "addStoryText",
@@ -93,8 +88,6 @@ const addContentForm = ({ contentType, ...props }) => {
                                 inputFieldError: "inputFieldError",
                             }
                         )}
-                    </div>
-                    <div className="addContentInput">
                         {createField(
                             "add story image",
                             "addStoryImage",
@@ -107,17 +100,17 @@ const addContentForm = ({ contentType, ...props }) => {
                                 inputFieldError: "inputFieldError",
                             }
                         )}
+                        <button
+                            className="addContentButton"
+                            disabled={props.isFetching.some(
+                                (id) => id === "addContent"
+                            )}
+                        >
+                            Add
+                        </button>
                     </div>
-                    <button
-                        className="addContentButton"
-                        disabled={props.isFetching.some(
-                            (id) => id === "addContent"
-                        )}
-                    >
-                        Add
-                    </button>
-                </div>
-            ) : null}
+                ) : null}
+            </div>
         </form>
     );
 };
