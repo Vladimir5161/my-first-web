@@ -203,7 +203,7 @@
   color: #000000;
   font-weight: 700;
   line-height: 25px;
-  text-align: justify;
+  text-align: center;
 }
 .inputFieldEditStoryImage, .inputFieldErrorEditImage {
   width: 400px;

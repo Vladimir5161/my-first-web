@@ -1,6 +1,6 @@
 import { stopSubmit, reset } from "redux-form";
 import { webAPI } from "../app/api/api";
-import { likedContent } from "./contentLikeReducer";
+import { onLiked } from "./contentLikeReducer";
 
 const initialState = {
     Data: [],
@@ -192,6 +192,7 @@ const DataReducer = (state = initialState, action) => {
                 ),
             };
         case "LOADING":
+            debugger;
             return {
                 ...state,
                 loading:
@@ -248,15 +249,17 @@ export const deleteContent = (id, keyFirebase, contentType) => async (
               .keyForDelete
         : null;
     try {
+        debugger;
         dispatch(Fetching(true, id));
         await webAPI.deleteContent(keyFirebase, contentType);
         await dispatch(DeleteContent(id));
-        dispatch(
-            keyForDelete === null
-                ? null
-                : likedContent(keyForDelete, keyFirebase)
-        );
-        dispatch(Fetching(false, id));
+        if (!keyForDelete) {
+            dispatch(Fetching(false, id));
+        } else {
+            await webAPI.dislikeContent(keyForDelete);
+            await dispatch(onLiked(keyFirebase));
+            dispatch(Fetching(false, id));
+        }
     } catch {
         return "something went wrong";
     }

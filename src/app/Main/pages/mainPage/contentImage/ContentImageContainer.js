@@ -4,18 +4,18 @@ import ContentListImage from "./ContentListImage";
 import { getContentArreyImages } from "../../../../selectors/content-selectors";
 import { ContentContext } from "../ContentContext";
 
-const ContentImageContainer = ({ itemsCount, firstContent }) => {
+const ContentImageContainer = React.memo(({ itemsCount, firstContent }) => {
     let { season, movie, DataArrey, getContents, ShowMore } = useContext(
         ContentContext
     );
-    let arraL = DataArrey.Data.filter(item => item["image"]).length;
+    let arraL = DataArrey.Data.filter((item) => item["image"]).length;
     useEffect(() => {
         const refreshContent = () => {
             getContents(season, itemsCount, movie, "image");
         };
         refreshContent();
     }, [getContents, itemsCount, season, movie, arraL]);
-    const onComponentChange = additionalCount => {
+    const onComponentChange = (additionalCount) => {
         ShowMore(additionalCount, season, movie, "image");
     };
 
@@ -25,9 +25,9 @@ const ContentImageContainer = ({ itemsCount, firstContent }) => {
             firstContent={firstContent}
         />
     );
-};
-const mapStateToProps = state => ({
+});
+const mapStateToProps = (state) => ({
     itemsCount: state.Data.imagesCount,
-    firstContent: getContentArreyImages(state)
+    firstContent: getContentArreyImages(state),
 });
 export default connect(mapStateToProps)(ContentImageContainer);

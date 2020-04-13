@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getContentArreyVideos } from "../../../../selectors/content-selectors";
 import { ContentContext } from "../ContentContext.js";
 
-const ContentVideoContainer = ({ firstContent, itemsCount }) => {
+const ContentVideoContainer = React.memo(({ firstContent, itemsCount }) => {
     let { season, movie, DataArrey, getContents, ShowMore } = useContext(
         ContentContext
     );
@@ -25,7 +25,7 @@ const ContentVideoContainer = ({ firstContent, itemsCount }) => {
             firstContent={firstContent}
         />
     );
-};
+});
 
 const mapStateToProps = (state) => ({
     itemsCount: state.Data.videosCount,

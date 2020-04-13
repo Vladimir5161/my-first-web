@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getContentArreyStories } from "../../../../selectors/content-selectors";
 import { ContentContext } from "../ContentContext.js";
 
-const ContentStoryContainer = ({ firstContent }) => {
+const ContentStoryContainer = React.memo(({ firstContent }) => {
     let {
         season,
         movie,
@@ -30,7 +30,7 @@ const ContentStoryContainer = ({ firstContent }) => {
             firstContent={firstContent}
         />
     );
-};
+});
 
 const mapStateToProps = (state) => ({
     firstContent: getContentArreyStories(state),
