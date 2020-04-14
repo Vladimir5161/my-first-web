@@ -1,7 +1,7 @@
 import React from "react";
-import Player from "./../../../../common/Player.js";
+import Player from "./../../CommonComonents/Player";
 import ButtonClose from "./ButtonClose";
-import ButtonCloseImage from "../mainPage/ButtonCloseImage";
+import ButtonCloseImage from "../../CommonComonents/ButtonCloseImage";
 import { Link } from "react-router-dom";
 
 class LikedContentPageItem extends React.Component {

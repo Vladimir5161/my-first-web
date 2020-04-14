@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import Player from "../../../../common/Player.js";
+import Player from "../../../CommonComonents/Player.js";
 import { connect } from "react-redux";
-import { exactContentId } from "../../../selectors/exactContent-selectors";
-import { initializeApp } from "../../../../store/InitializeReducer";
-import Preloader from "../../CommonComonents/Preloader";
-import EditContentReduxForm from "../../../Form-Controls/EditContentForm";
-import { updateContentThunk } from "../../../../store/DataReducer";
-import { ContentContext } from "./ContentContext.js";
+import { exactContentId } from "../../../../selectors/exactContent-selectors";
+import { initializeApp } from "../../../../../store/InitializeReducer";
+import Preloader from "../../../CommonComonents/Preloader";
+import EditContentReduxForm from "../../../../Form-Controls/EditContentForm";
+import { updateContentThunk } from "../../../../../store/DataReducer";
+import { ContentContext } from "../ContentContext.js";
 
 const ExactContentPage = ({ match, Data, initialized, updateContentThunk }) => {
     let [edit, changeEdit] = useState("false");

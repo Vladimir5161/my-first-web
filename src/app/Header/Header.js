@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Header.css";
-import UpperHeader from "./Menu/UpperHeader.js";
+import Menu from "./Menu/Menu";
 import { LogOut } from "../.././store/AuthReducer";
+import AlertErrorMessage from "../Main/CommonComonents/AlertErrorMessage";
+import { ClearErrorMessage } from "../../store/DataReducer";
 
 const Header = ({
     logo,
@@ -13,11 +15,13 @@ const Header = ({
     isAuth,
     LogOut,
     keyAuth,
+    AlertText,
+    ClearErrorMessage,
 }) => {
     return (
         <header className="header">
             <div className="container">
-                <UpperHeader
+                <Menu
                     logo={logo}
                     chosen={chosen}
                     clicked={clicked}
@@ -27,6 +31,12 @@ const Header = ({
                     LogOut={LogOut}
                     keyAuth={keyAuth}
                 />
+                {!AlertText ? null : (
+                    <AlertErrorMessage
+                        AlertText={AlertText}
+                        ClearErrorMessage={ClearErrorMessage}
+                    />
+                )}
             </div>
         </header>
     );
@@ -35,6 +45,7 @@ const Header = ({
 const mapStateToProps = (store) => ({
     isAuth: store.auth.isAuth,
     keyAuth: store.auth.keyAuth,
+    AlertText: store.Data.AlertText,
 });
 
-export default connect(mapStateToProps, { LogOut })(Header);
+export default connect(mapStateToProps, { LogOut, ClearErrorMessage })(Header);

@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import "./UpperHeader.css";
+import "./Menu.css";
 import images from "../../../common/images.js";
 import { Link } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { change } from "redux-form";
 import { getCount } from "../../selectors/likedContentSelectors";
+import {
+    onDefaultOpenedContentCount,
+    ErrorMessage,
+} from "../../../store/DataReducer";
+import {
+    ContentChange,
+    MovieGroup1Click,
+    MovieGroup2Click,
+} from "../../../store/movieChoseReduser";
 
-const UpperHeader = ({
-    OnVikingsS1,
-    OnVikingsS2,
-    countLike,
-    OnGOTS1,
-    OnGOTS2,
-    OnMovieChose1,
-    OnMovieChose2,
+const Menu = ({
+    ContentChange,
+    MovieGroup1Click,
+    MovieGroup2Click,
     logo,
     chosen,
-    OnRulesClick,
     Season,
     onDefaultOpenedContentCount,
     keyAuth,
     isAuth,
+    countLike,
     LogOut,
+    ErrorMessage,
 }) => {
     let [colorArrow, changeColorArrow] = useState("");
 
@@ -52,7 +57,7 @@ const UpperHeader = ({
                             <ul className="MoviesSubMenu">
                                 <li
                                     onClick={() => {
-                                        OnMovieChose1();
+                                        MovieGroup1Click();
                                         onDefaultOpenedContentCount();
                                     }}
                                     className="headerBtn"
@@ -61,7 +66,7 @@ const UpperHeader = ({
                                 </li>
                                 <li
                                     onClick={() => {
-                                        OnMovieChose2();
+                                        MovieGroup2Click();
                                         onDefaultOpenedContentCount();
                                     }}
                                     className="headerBtn"
@@ -79,7 +84,7 @@ const UpperHeader = ({
                                     <Link to="/">
                                         <li
                                             onClick={() => {
-                                                OnGOTS1();
+                                                ContentChange("got", 1);
                                                 onDefaultOpenedContentCount();
                                             }}
                                             className="headerBtn"
@@ -88,7 +93,7 @@ const UpperHeader = ({
                                         </li>
                                         <li
                                             onClick={() => {
-                                                OnGOTS2();
+                                                ContentChange("got", 2);
                                                 onDefaultOpenedContentCount();
                                             }}
                                             className="headerBtn"
@@ -102,7 +107,7 @@ const UpperHeader = ({
                                     <Link to="/">
                                         <li
                                             onClick={() => {
-                                                OnVikingsS1();
+                                                ContentChange("vikings", 1);
                                                 onDefaultOpenedContentCount();
                                             }}
                                             className="headerBtn"
@@ -111,7 +116,7 @@ const UpperHeader = ({
                                         </li>
                                         <li
                                             onClick={() => {
-                                                OnVikingsS2();
+                                                ContentChange("vikings", 2);
                                                 onDefaultOpenedContentCount();
                                             }}
                                             className="headerBtn"
@@ -131,12 +136,12 @@ const UpperHeader = ({
                     <li
                         className="menuPoints"
                         onClick={() => {
-                            OnRulesClick();
+                            ErrorMessage(" this page is not ready yet");
                         }}
                     >
-                        <AnchorLink className="menuPointsLinks" href="#">
+                        <a className="menuPointsLinks" href="#">
                             Rules&FAQ
-                        </AnchorLink>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -184,40 +189,11 @@ const mapStateToProps = (state) => ({
     Season: state.movieChose1.Season,
     countLike: getCount(state),
 });
-const mapDispatchToProps = (dispatch) => ({
-    OnMovieChose1: () =>
-        dispatch({
-            type: "MOVIEGROUP1CLICK",
-        }),
-    OnMovieChose2: () =>
-        dispatch({
-            type: "MOVIEGROUP2CLICK",
-        }),
-    OnVikingsS1: () =>
-        dispatch({
-            type: "VIKINGSSEASON1",
-        }),
-    OnVikingsS2: () =>
-        dispatch({
-            type: "VIKINGSSEASON2",
-        }),
-    OnGOTS1: () =>
-        dispatch({
-            type: "GOTSEASON1",
-        }),
-    OnGOTS2: () =>
-        dispatch({
-            type: "GOTSEASON2",
-        }),
-    OnRulesClick: () =>
-        dispatch({
-            type: "ONRULESCLICK",
-        }),
-    onDefaultOpenedContentCount: () =>
-        dispatch({
-            /* обнюляю колличество открытых фото, видео и т.д. до изначальных значений (3 фото, 2 видео, 2 истории)*/
-            type: "ONDEFAULTCOUNTS",
-        }),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpperHeader);
+export default connect(mapStateToProps, {
+    ContentChange,
+    MovieGroup1Click,
+    MovieGroup2Click,
+    onDefaultOpenedContentCount,
+    ErrorMessage,
+})(Menu);

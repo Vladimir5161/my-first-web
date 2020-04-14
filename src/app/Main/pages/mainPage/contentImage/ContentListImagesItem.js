@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 
-import ButtonLike from "../ButtonLike.js";
-import ButtonCloseImage from "../ButtonCloseImage.js";
+import ButtonLike from "../../../CommonComonents/ButtonLike";
+import ButtonCloseImage from "../../../CommonComonents/ButtonCloseImage";
 import { ContentContext } from "../ContentContext.js";
 
 const ContentListImagesItem = ({ image, id, contentType, keyFirebase }) => {

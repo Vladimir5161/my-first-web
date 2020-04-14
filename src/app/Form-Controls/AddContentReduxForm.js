@@ -72,15 +72,21 @@ const addContentForm = ({ contentType, ...props }) => {
                     </div>
                 ) : contentType === "story" ? (
                     <div>
-                        {createField("add story name", "addStory", [], Input, {
-                            type: "text",
-                            inputField: "inputField",
-                            inputFieldError: "inputFieldError",
-                        })}
+                        {createField(
+                            "add story name",
+                            "addStory",
+                            [required],
+                            Input,
+                            {
+                                type: "text",
+                                inputField: "inputField",
+                                inputFieldError: "inputFieldError",
+                            }
+                        )}
                         {createField(
                             "add story text",
                             "addStoryText",
-                            [],
+                            [required],
                             Textarea,
                             {
                                 type: "text",

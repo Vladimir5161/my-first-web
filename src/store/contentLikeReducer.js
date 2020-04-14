@@ -39,6 +39,7 @@ const contentLikeReducer = (state = initialState, action) => {
                 } else {
                     array.push(key);
                 }
+                return state;
             });
             return {
                 ...state,

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { compose } from "redux";
-import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
+import { LoggedInRedirect } from "../../../HOC/LoginRedirectHoc";
 import CreateAccountReduxForm from "../../../Form-Controls/CreateAccountReduxForm";
 import Alert from "../../CommonComonents/Alert";
 import "./login.css";
 
-const CreateAccount = props => {
+const CreateAccount = (props) => {
     let [alertText, changeAlertText] = useState(
         "your account has been created"
     );
-    const onSubmit = formData => {
+    const onSubmit = (formData) => {
         props.CreateAccount(formData.addLogin, formData.addPassword);
     };
     return (

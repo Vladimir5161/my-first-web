@@ -1,5 +1,6 @@
 import { webAPI } from "../app/api/api";
 import { stopSubmit, reset } from "redux-form";
+import { ErrorMessage } from "./DataReducer";
 
 const initialState = {
     NewsData: [],
@@ -105,10 +106,13 @@ export const addNews = (newsName, newsText, newsImage, movie) => async (
     let Data = getState().newsData.NewsData;
     let newId = () => {
         if (Data.length < 1) {
-            return `1`;
+            return 1;
         } else {
-            let idCount = Data.pop();
-            Data.push(idCount);
+            let DataForId = Data.sort(function (a, b) {
+                return a.id - b.id;
+            });
+            let idCount = DataForId[Data.length - 1];
+            debugger;
             let newId = +idCount.id + 1;
             return newId;
         }
@@ -121,14 +125,18 @@ export const addNews = (newsName, newsText, newsImage, movie) => async (
         newsText,
         movie,
     };
-    try {
-        dispatch(Fetching(true, "addNews"));
-        await webAPI.addNews(news);
-        dispatch(addNewsItem(news));
-        dispatch(reset("addNews"));
-        dispatch(Fetching(false, "addNews"));
-    } catch {
-        dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
+    if (Data.length >= 50) {
+        dispatch(ErrorMessage("not possible to add more news"));
+    } else {
+        try {
+            dispatch(Fetching(true, "addNews"));
+            await webAPI.addNews(news);
+            dispatch(addNewsItem(news));
+            dispatch(reset("addNews"));
+            dispatch(Fetching(false, "addNews"));
+        } catch {
+            dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
+        }
     }
 };
 export const deleteNewsThunk = (id, keyFirebase) => async (dispatch) => {
@@ -138,7 +146,7 @@ export const deleteNewsThunk = (id, keyFirebase) => async (dispatch) => {
         dispatch(deleteNewsItem(id));
         dispatch(Fetching(false, id));
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("unable to delete"));
     }
 };
 
@@ -149,7 +157,9 @@ export const getNews = () => async (dispatch) => {
         arrayNews.map((item) => (item[1].keyFirebase = item[0]));
         dispatch(uploadNews(Object.values(responce)));
     } catch {
-        return "something went wrong";
+        dispatch(
+            ErrorMessage("something went wrong when trying to upload content")
+        );
     }
 };
 export const updateNewsThunk = (
@@ -169,8 +179,12 @@ export const updateNewsThunk = (
         newsText,
         movie,
     };
-    await webAPI.updateNews(news, keyFirebase);
-    dispatch(updateNews(news, id));
+    try {
+        await webAPI.updateNews(news, keyFirebase);
+        dispatch(updateNews(news, id));
+    } catch {
+        dispatch(ErrorMessage("something went wrong"));
+    }
 };
 
 export default newsDataReducer;

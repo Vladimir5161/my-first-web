@@ -15,6 +15,7 @@ const initialState = {
     },
     isFetching: [],
     loading: false,
+    AlertText: null,
 };
 
 const DataReducer = (state = initialState, action) => {
@@ -129,6 +130,7 @@ const DataReducer = (state = initialState, action) => {
                 } else {
                     arrayNew.push(content);
                 }
+                return state;
             });
             return {
                 ...state,
@@ -192,7 +194,6 @@ const DataReducer = (state = initialState, action) => {
                 ),
             };
         case "LOADING":
-            debugger;
             return {
                 ...state,
                 loading:
@@ -200,10 +201,22 @@ const DataReducer = (state = initialState, action) => {
                         ? state.loading === false
                         : state.loading === true,
             };
+        case "ERRORMESSAGE":
+            return {
+                ...state,
+                AlertText: (state.AlertText = action.text),
+            };
+        case "CLEARERRORMESSAGE":
+            return {
+                ...state,
+                AlertText: (state.AlertText = null),
+            };
         default:
             return state;
     }
 };
+export const ErrorMessage = (text) => ({ type: "ERRORMESSAGE", text });
+export const ClearErrorMessage = () => ({ type: "CLEARERRORMESSAGE" });
 export const updateContent = (content, id) => ({
     type: "UPDATECONTENT",
     content,
@@ -237,6 +250,7 @@ export const downloadContent = (responce, contentType) => ({
 });
 export const downloadSlides = (slides) => ({ type: "DOWNLOADSLIDES", slides });
 export const DeleteContent = (id) => ({ type: "DELETECONTENT", id });
+export const onDefaultOpenedContentCount = () => ({ type: "ONDEFAULTCOUNT" });
 
 export const deleteContent = (id, keyFirebase, contentType) => async (
     dispatch,
@@ -249,7 +263,6 @@ export const deleteContent = (id, keyFirebase, contentType) => async (
               .keyForDelete
         : null;
     try {
-        debugger;
         dispatch(Fetching(true, id));
         await webAPI.deleteContent(keyFirebase, contentType);
         await dispatch(DeleteContent(id));
@@ -261,7 +274,7 @@ export const deleteContent = (id, keyFirebase, contentType) => async (
             dispatch(Fetching(false, id));
         }
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("something went wrong"));
     }
 };
 
@@ -276,7 +289,7 @@ export const getContents = (season, itemsCount, movie, contentType) => async (
         dispatch(uploadContent(season, itemsCount, movie, contentType));
         dispatch(Fetching(false, "addContent"));
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("something went wrong"));
     }
 };
 export const getSlides = () => async (dispatch) => {
@@ -284,7 +297,7 @@ export const getSlides = () => async (dispatch) => {
         let slides = await webAPI.getSlides();
         dispatch(downloadSlides(Object.values(slides)));
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("something went wrong"));
     }
 };
 
@@ -327,7 +340,11 @@ export const addContent = (
     });
     if (Arrey.length > 0) {
         dispatch(stopSubmit("addContent", { _error: "Dublicate content" }));
+    } else if (Data.length >= 200) {
+        debugger;
+        dispatch(ErrorMessage(`not possible to add new ${contentType}`));
     } else {
+        debugger;
         if (contentType === "image") {
             let newImage = {
                 id: newId(),
@@ -341,7 +358,7 @@ export const addContent = (
                 await dispatch(addContentNew(newImage));
                 dispatch(reset("addContent"));
             } catch {
-                return "some error";
+                dispatch(ErrorMessage("something went wrong"));
             }
         } else if (contentType === "video") {
             let newVideo = {
@@ -357,7 +374,7 @@ export const addContent = (
                 await dispatch(addContentNew(newVideo));
                 dispatch(reset("addContent"));
             } catch {
-                return "some error";
+                dispatch(ErrorMessage("something went wrong"));
             }
         } else if (contentType === "story") {
             let newStory = {
@@ -374,7 +391,7 @@ export const addContent = (
                 await dispatch(addContentNew(newStory));
                 dispatch(reset("addContent"));
             } catch {
-                return "some error";
+                dispatch(ErrorMessage("something went wrong"));
             }
         }
     }
@@ -410,8 +427,12 @@ export const updateContentThunk = (
                   video: video,
                   name: name,
               };
-    await webAPI.updateContent(newContent, contentType, keyFirebase);
-    dispatch(updateContent(newContent, id));
+    try {
+        await webAPI.updateContent(newContent, contentType, keyFirebase);
+        dispatch(updateContent(newContent, id));
+    } catch {
+        dispatch(ErrorMessage("something went wrong"));
+    }
 };
 
 export const getContentMap = (arrey) => {

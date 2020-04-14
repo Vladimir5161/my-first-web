@@ -4,7 +4,7 @@ import {
     likeContent,
     likedContent,
     getLikedContent,
-} from "../../../../store/contentLikeReducer";
+} from "../../../store/contentLikeReducer";
 import { useEffect } from "react";
 
 const ButtonLike = React.memo(

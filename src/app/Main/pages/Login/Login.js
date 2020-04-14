@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import PasswordAddContent from "./PasswordAddContent";
-import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
+import { LoggedInRedirect } from "../../../HOC/LoginRedirectHoc";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import Alert from "../../CommonComonents/Alert";
 import "./login.css";
 
-const Login = props => {
+const Login = (props) => {
     let [alertText, changeAlertText] = useState(
         "you are successfully logged in"
     );

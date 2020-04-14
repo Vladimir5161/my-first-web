@@ -1,8 +1,8 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import "./MainPage.css";
 import "./contentImage/contentImages.css";
 import AddContent from "./addContent/AddContent";
-import Filter from "./Filter";
+import Filter from "./filter/Filter";
 import ContentImageContainer from "./contentImage/ContentImageContainer";
 import ContentVideoContainer from "./contentVideo/ContentVideoContainer";
 import ContentStoryContainer from "./contentStory/ContentStoryContainer";

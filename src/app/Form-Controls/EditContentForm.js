@@ -3,7 +3,7 @@ import Textarea, { Input, createField } from "./FormContrlos";
 import { required } from "../validators/validators";
 import { reduxForm } from "redux-form";
 import { correctLink } from "../validators/validators";
-import Player from "../../common/Player";
+import Player from "../Main/CommonComonents/Player";
 
 const EditContentForm = (props) => {
     return (

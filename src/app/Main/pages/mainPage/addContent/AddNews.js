@@ -13,7 +13,11 @@ const AddNews = ({ addNews, isFetching, movie }) => {
             movie
         );
     };
-    return <AddNewsReduxFrom onSubmit={onSubmit} isFetching={isFetching} />;
+    return (
+        <div className="filterAddContent">
+            <AddNewsReduxFrom onSubmit={onSubmit} isFetching={isFetching} />
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => ({

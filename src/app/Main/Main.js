@@ -6,8 +6,7 @@ import LikedPage from "./pages/LikedContentPage/LikedPage";
 import ReactSlider from "./pages/slider/ReactSlider.js";
 import NewsList from "./pages/news/NewsList";
 import ExactNewsPage from "./pages/news/ExactNewsPage";
-import ExactContentPage from "./pages/mainPage/ExactContentPage";
-import MyAlert from "./pages/myAlert";
+import ExactContentPage from "./pages/mainPage/itemComponents/ExactContentPage";
 import { ContentContext } from "./pages/mainPage/ContentContext";
 import {
     onClickFilterButton,
@@ -104,7 +103,6 @@ const Main = ({
                         exact
                         component={CreateAccount}
                     />
-                    <MyAlert />
                 </div>
             </main>
         </ContentContext.Provider>

@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import { deleteNews } from "../../store/newsDataReducer";
 
 const instance = axios.create({
     withCreadentials: true,

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import Player from "../../../../common/Player.js";
-import ButtonLike from "./ButtonLike.js";
-import { ContentContext } from "./ContentContext.js";
+import Player from "../../../CommonComonents/Player.js";
+import ButtonLike from "../../../CommonComonents/ButtonLike.js";
+import { ContentContext } from "../ContentContext.js";
 
 const ContentListItem = ({
     image,
