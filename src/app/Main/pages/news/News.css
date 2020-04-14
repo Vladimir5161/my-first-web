@@ -102,9 +102,9 @@
   font-weight: 700;
   line-height: 18px;
   border-radius: 5px;
-  margin: 10px auto 0 auto;
+  margin: 10px auto 10px auto;
   position: relative;
-  left: 980px;
+  left: 960px;
 }
 .readMore:hover {
   background-color: #fff;
@@ -159,6 +159,8 @@
   width: 750px;
   height: 170px;
   padding: 5px 10px;
+  margin: 0 auto;
+  display: block;
 }
 @media screen and (max-width: 1170px) {
   .ExactNewsText textarea {
@@ -218,6 +220,7 @@
   }
   .readMore {
     left: 240px;
+    margin-right: 10px;
   }
   .ExactNewsName {
     width: 100%;
@@ -253,6 +256,7 @@
     left: 190px;
     width: 120px;
     height: 30px;
+    margin-right: 10px;
   }
   .ExactNewsText {
     font-size: 14px;
@@ -262,7 +266,7 @@
     width: 295px;
   }
   .ExactNewsText textarea {
-    width: 315px;
+    width: 305px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -279,7 +283,7 @@
     width: 250px;
   }
   .ExactNewsText textarea {
-    width: 260px;
+    width: 250px;
   }
   .ExactNewsName input {
     width: 240px;

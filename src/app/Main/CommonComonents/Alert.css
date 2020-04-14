@@ -41,6 +41,10 @@
         right: 0;
         left: 0;
       }
+      .alertLoginError, .alertTextareaError, .alertError {
+        width: 200px;
+        text-align: center;
+      }
     
 }
 @media screen and (max-width: 375px) {

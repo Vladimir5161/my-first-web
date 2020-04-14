@@ -234,10 +234,6 @@
   .fullScreenImageFixedBlock-clicked {
     max-width: 405px;
   }
-
-  .content-list-item-images {
-    padding: 5px;
-  }
 }
 
 @media screen and (max-width: 375px) {

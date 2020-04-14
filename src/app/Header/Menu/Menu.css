@@ -31,18 +31,14 @@
   margin: 0 13px;
 }
 
-.menuPoints:hover .contentSubMenu {
-  display: block;
-  line-height: 30px;
-}
-
 .MoviesSubMenu {
   display: none;
   position: absolute;
   z-index: 30;
 }
 
-.menuPoints:hover .MoviesSubMenu {
+.MoviesSubMenuClicked {
+  position: absolute;
   display: block;
   line-height: 30px;
 }
@@ -51,7 +47,8 @@
   text-decoration: none;
 }
 
-.menuPoints a:hover, .menuPoints button:hover {
+.menuPoints a:hover, .menuPoints button:hover,
+.menuPoints a:active, .menuPoints button:active {
   color: #9e8f7c;
 }
 
@@ -63,12 +60,18 @@
   font-weight: 400;
   text-decoration: none;
   line-height: 30px;
+  margin: 0 auto;
   border: none;
   background-color: inherit;
 }
 
 .contentSubMenu {
   display: none;
+  position: absolute;
+  z-index: 30;
+}
+.contentSubMenuClicked {
+  display: block;
   position: absolute;
   z-index: 30;
 }
@@ -93,7 +96,7 @@
 .loginArea {
   display: grid;
   align-items: center;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   padding: 0 20px 0 20px;
   position: relative;
 }
@@ -160,24 +163,21 @@
 @media screen and (max-width: 1024px) {
   .loginArea {
     padding: 0;
-    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 768px) {
   .loginArea {
     padding: 0 20px;
-    grid-template-columns: 2fr 1fr;
     margin-top: 20px;
   }
   .upperheader {
-    grid-template-rows: 4fr 5fr 2fr;
     grid-template-columns: none;
     margin: 0 auto;
     text-align: center;
   }
-  .menuPoints:hover .contentSubMenu,
-  .MoviesSubMenu {
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
     top: 100px;
     left: 85px;
   }
@@ -191,12 +191,15 @@
   .loginBlock:last-child {
     margin-right: auto;
   }
+  .loginArea {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 @media screen and (max-width: 425px) {
 
-  .menuPoints:hover .contentSubMenu,
-  .MoviesSubMenu {
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
     position: relative;
     top: 0;
     left: 0;
@@ -210,8 +213,8 @@
 
 @media screen and (max-width: 375px) {
 
-  .menuPoints:hover .contentSubMenu,
-  .MoviesSubMenu {
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked{
     position: relative;
     top: 0;
     left: 0;
@@ -225,8 +228,8 @@
 
 @media screen and (max-width: 320px) {
 
-  .menuPoints:hover .contentSubMenu,
-  .MoviesSubMenu {
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
     position: relative;
     top: 0;
     left: 0;

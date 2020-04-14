@@ -71,9 +71,11 @@ class LikedContentPageItem extends React.Component {
                 <div className="likedContent">
                     <h2 className="likedContent-name">{product.name}</h2>
                     <Player video={product.video} playerStyle={playerStyle} />
-                    <div className="likedContent-image">
-                        <img src={product.imageContent} alt="" />
-                    </div>
+                    {!product.imageContent ? null : (
+                        <div className="likedContent-image">
+                            <img src={product.imageContent} alt="" />
+                        </div>
+                    )}
                 </div>
                 <Link
                     to={`/content/${product.id}`}

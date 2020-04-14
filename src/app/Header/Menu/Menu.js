@@ -30,6 +30,8 @@ const Menu = ({
     ErrorMessage,
 }) => {
     let [colorArrow, changeColorArrow] = useState("");
+    let [clicked, changeClick] = useState(false);
+    let [clickedSeason, changeClickedSeason] = useState(false);
 
     useEffect(() => {
         let listener = () => {
@@ -53,8 +55,24 @@ const Menu = ({
                     </li>
                     <li className="menuPoints">
                         <Link to="/">
-                            <div className="headerBtn">Movies</div>
-                            <ul className="MoviesSubMenu">
+                            <div
+                                className="headerBtn"
+                                onClick={() =>
+                                    clicked
+                                        ? changeClick(false)
+                                        : (changeClick(true),
+                                          changeClickedSeason(false))
+                                }
+                            >
+                                Movies
+                            </div>
+                            <ul
+                                className={
+                                    clicked
+                                        ? "MoviesSubMenuClicked"
+                                        : "MoviesSubMenu"
+                                }
+                            >
                                 <li
                                     onClick={() => {
                                         MovieGroup1Click();
@@ -77,8 +95,24 @@ const Menu = ({
                         </Link>
                     </li>
                     <li className="menuPoints">
-                        <div className="headerBtn">Content</div>
-                        <ul className="contentSubMenu">
+                        <div
+                            className="headerBtn"
+                            onClick={() =>
+                                clickedSeason
+                                    ? changeClickedSeason(false)
+                                    : (changeClick(false),
+                                      changeClickedSeason(true))
+                            }
+                        >
+                            Content
+                        </div>
+                        <ul
+                            className={
+                                clickedSeason
+                                    ? "contentSubMenuClicked"
+                                    : "contentSubMenu"
+                            }
+                        >
                             {chosen ? (
                                 <div>
                                     <Link to="/">

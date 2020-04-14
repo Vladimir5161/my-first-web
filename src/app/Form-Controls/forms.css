@@ -100,14 +100,17 @@
   
   @media screen and (max-width: 425px) {
     .ExactContentText textarea {
-      width: 330px;
+      width: 325px;
     }
     .ExactContentNameForm input {
-      width: 330px;
+      width: 325px;
     }
     .ExactContentLink input {
       width: 330px;
       font-size: 16px;
+    }
+    .formBlock {
+      padding-right: 0 5px;
     }
   }
   

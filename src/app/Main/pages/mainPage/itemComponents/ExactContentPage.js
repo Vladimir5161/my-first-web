@@ -84,11 +84,13 @@ const ExactContentFr = ({ Data, match, isAuth, EditContent, ...props }) => {
                 </button>
             ) : null}
             <div className="ExactContentInfo">
-                <img
-                    className="ExactContentImage"
-                    src={Data[match.params.id].imageContent}
-                    alt=""
-                />
+                {!match.params.id ? null : (
+                    <img
+                        className="ExactContentImage"
+                        src={Data[match.params.id].imageContent}
+                        alt=""
+                    />
+                )}
                 <div className="ExactContentText">
                     {Data[match.params.id].story}
                 </div>
