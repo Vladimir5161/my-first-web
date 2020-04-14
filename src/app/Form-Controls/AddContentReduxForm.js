@@ -1,4 +1,5 @@
 import React from "react";
+import "./forms.css";
 import { reduxForm } from "redux-form";
 import Textarea, { Input, createField } from "./FormContrlos";
 import { correctLink, required } from "../validators/validators";
@@ -10,7 +11,10 @@ const addContentForm = ({ contentType, ...props }) => {
             <div className="addContentInput">
                 {props.error && (
                     <div style={{ position: "relative" }}>
-                        <Alerterror text={props.error} />
+                        <Alerterror
+                            text={props.error}
+                            class="alert alert-danger alertError"
+                        />
                     </div>
                 )}
                 {contentType === "image" ? (
@@ -25,6 +29,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertError",
                             }
                         )}
                         <button
@@ -48,6 +53,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertError",
                             }
                         )}
                         {createField(
@@ -59,6 +65,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertError",
                             }
                         )}
                         <button
@@ -81,6 +88,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertError",
                             }
                         )}
                         {createField(
@@ -92,6 +100,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertTextareaError",
                             }
                         )}
                         {createField(
@@ -104,6 +113,7 @@ const addContentForm = ({ contentType, ...props }) => {
                                 type: "text",
                                 inputField: "inputField",
                                 inputFieldError: "inputFieldError",
+                                class: "alert alert-danger alertError",
                             }
                         )}
                         <button

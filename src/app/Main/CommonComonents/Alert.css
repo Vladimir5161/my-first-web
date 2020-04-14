@@ -1,0 +1,55 @@
+.modal-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+.alertError, .alertTextareaError {
+    margin: 0 auto;
+    right: -210px;
+    color: red;
+    position: absolute;
+    width: 180px;
+    line-height: 5px;
+    z-index: 25;
+    border: 1px solid red;
+  }
+  .alertLoginError {
+    margin: 0 auto;
+    color: red;
+    width: 180px;
+    line-height: 5px;
+    z-index: 25;
+    border: 1px solid red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -40px;
+  }
+
+@media screen and (max-width: 425px) {
+    .modal-content {
+        width: 400px;
+    }
+    .alertError {
+        position: relative;
+        top: 10px;
+        right: 0;
+        left: 0;
+      }
+      .alertTextareaError {
+        position: relative;
+        top: -10px;
+        right: 0;
+        left: 0;
+      }
+    
+}
+@media screen and (max-width: 375px) {
+    .modal-content {
+        width: 345px;
+    }
+}
+@media screen and (max-width: 325px) {
+    .modal-content {
+        width: 285px;
+    }
+}

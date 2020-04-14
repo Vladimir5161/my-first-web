@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { newsDataIdSelector } from "../../../selectors/exactContent-selectors";
 import Preloader from "../../CommonComonents/Preloader";
@@ -62,16 +62,17 @@ const ExactNewsPage = ({
     );
 };
 
-const ExactNews = ({ match, newsData, isAuth, EditNews }) => {
+const ExactNewsFr = ({ match, newsData, isAuth, EditNews, ...props }) => {
     return (
         <div>
             <h3 className="ExactNewsName">
                 {newsData[match.params.id].newsName}
             </h3>
             <div className="ButtonGoBackDiv">
-                <Link to="/news">
-                    <button className="ButtonGoBack"></button>
-                </Link>
+                <button
+                    className="ButtonGoBack"
+                    onClick={() => props.history.goBack()}
+                ></button>
             </div>
             <div className="newsTimeData">
                 <div>{newsData[match.params.id].data}</div>
@@ -99,6 +100,7 @@ const ExactNews = ({ match, newsData, isAuth, EditNews }) => {
         </div>
     );
 };
+const ExactNews = withRouter(ExactNewsFr);
 
 const mapStateToProps = (state) => ({
     newsData: newsDataIdSelector(state),

@@ -1,22 +1,23 @@
 import React from "react";
+import "./Alert.css";
 
 const AlertErrorMessage = ({ AlertText, ClearErrorMessage }) => {
     return (
         <div
-            class="modal"
+            className="modal"
             tabindex="-1"
             role="dialog"
             style={{ display: "block", textAlign: "center" }}
         >
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" style={{ color: "red" }}>
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" style={{ color: "red" }}>
                             Alert!
                         </h5>
                         <button
                             type="button"
-                            class="close"
+                            className="close"
                             data-dismiss="modal"
                             aria-label="Close"
                             onClick={() => {
@@ -26,7 +27,7 @@ const AlertErrorMessage = ({ AlertText, ClearErrorMessage }) => {
                             <span aria-hidden="false">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" style={{ color: "red" }}>
+                    <div className="modal-body" style={{ color: "red" }}>
                         <p>{AlertText}</p>
                     </div>
                 </div>

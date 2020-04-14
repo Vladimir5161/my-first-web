@@ -11,6 +11,7 @@
 .filterButtonHover {
   display: grid;
   justify-content: center;
+  padding: 10px;
 }
 
 .filterContentActive {
@@ -138,43 +139,6 @@
   background-color: #fff;
   box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
-.inputError,  .inputMainError{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  color: rgb(255, 1, 1);
-  margin: 10px auto;
-  left: 0;
-  right: 0;
-  top: -25px;
-  line-height: 15px;
-}
-.inputMainError {
-  top: -5px;
-}
-.inputFieldError {
-  border-color: red !important;
-}
-.formBlock {
-  position: relative;
-  display: block;
-}
-.alertError {
-  margin: 0 auto;
-  right: -210px;
-  color: red;
-  position: absolute;
-  width: 180px;
-  line-height: 5px;
-  z-index: 25;
-  border: 1px solid red;
-}
 
-@media screen and (max-width: 425px) {
-  .alertError {
-    position: relative;
-    top: 10px;
-    right: 0;
-    left: 0;
-  }
-}
+
+

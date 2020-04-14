@@ -1,10 +1,11 @@
 import { stopSubmit, reset } from "redux-form";
 import { authAPI } from "../app/api/api";
+import { ErrorMessage } from "./DataReducer";
 const initialState = {
     isAuth: false,
     keyAuth: null,
     isCreated: false,
-    inputField: "loginInput"
+    inputField: "loginInput",
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -14,26 +15,26 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 isAuth: (state.isAuth = true),
                 keyAuth: (state.keyAuth = action.KeyAuth),
-                inputField: (state.inputField = "loginInputSuccess")
+                inputField: (state.inputField = "loginInputSuccess"),
             };
         case "LOGOUT":
             return {
                 ...state,
                 isAuth: (state.isAuth = false),
                 keyAuth: (state.keyAuth = null),
-                inputField: (state.inputField = "loginInput")
+                inputField: (state.inputField = "loginInput"),
             };
         case "CREATED":
             return {
                 ...state,
                 isCreated: true,
-                inputField: (state.inputField = "loginInputSuccess")
+                inputField: (state.inputField = "loginInputSuccess"),
             };
         case "CREATEDDEFAULT":
             return {
                 ...state,
                 isCreated: false,
-                inputField: (state.inputField = "loginInput")
+                inputField: (state.inputField = "loginInput"),
             };
         default:
             return state;
@@ -42,9 +43,9 @@ const AuthReducer = (state = initialState, action) => {
 
 export const Created = () => ({ type: "CREATED" });
 export const CreatedOnDefault = () => ({ type: "CREATEDDEFAULT" });
-export const onPassCheckSuccess = KeyAuth => ({
+export const onPassCheckSuccess = (KeyAuth) => ({
     type: "ONPASSCHECKSUCCESS",
-    KeyAuth
+    KeyAuth,
 });
 export const LoginOut = () => ({ type: "LOGOUT" });
 
@@ -62,17 +63,17 @@ export const Auth = () => async (dispatch, getState) => {
     }
 };
 
-export const LogOut = keyFirebase => async dispatch => {
+export const LogOut = (keyFirebase) => async (dispatch) => {
     await authAPI.logOut(keyFirebase);
     await dispatch(LoginOut());
 };
 
-export const onPassCheckClick = (addLogin, addPassword) => async dispatch => {
+export const onPassCheckClick = (addLogin, addPassword) => async (dispatch) => {
     let responce = await authAPI.getAccounts();
     let accounts = Object.values(responce);
-    if (accounts.some(el => el.login === addLogin)) {
-        let account = accounts.filter(el => el.login === addLogin);
-        if (account.some(el => el.password === addPassword)) {
+    if (accounts.some((el) => el.login === addLogin)) {
+        let account = accounts.filter((el) => el.login === addLogin);
+        if (account.some((el) => el.password === addPassword)) {
             let auth = true;
             await authAPI.loginIn(auth);
             await dispatch(Auth());
@@ -81,32 +82,33 @@ export const onPassCheckClick = (addLogin, addPassword) => async dispatch => {
         } else {
             dispatch(
                 stopSubmit("inputPassword", {
-                    _error: "wrong login or password"
+                    _error: "wrong login or password",
                 })
             );
         }
     } else {
-        dispatch(
-            stopSubmit("inputPassword", { _error: "wrong login or password" })
-        );
+        dispatch(ErrorMessage("wrong Login or Password"));
     }
 };
 
-export const CreateAccount = (addLogin, addPassword) => async dispatch => {
+export const CreateAccount = (addLogin, addPassword) => async (dispatch) => {
     let responce = await authAPI.getAccounts();
     let user = {
         login: addLogin,
-        password: addPassword
+        password: addPassword,
     };
     if (responce === null) {
         authAPI.createAccount(user);
+        dispatch(reset("create account"));
+    } else if (Object.values(responce).length >= 5) {
+        dispatch(ErrorMessage("max count of users has been reached"));
         dispatch(reset("create account"));
     } else {
         let accounts = Object.values(responce);
 
         try {
             if (
-                accounts.some(el => el.login !== addLogin) ||
+                accounts.some((el) => el.login !== addLogin) ||
                 accounts.length === 0
             ) {
                 authAPI.createAccount(user);
@@ -116,7 +118,7 @@ export const CreateAccount = (addLogin, addPassword) => async dispatch => {
                 dispatch(reset("create account"));
                 dispatch(
                     stopSubmit("create account", {
-                        _error: "this login was laredy taken"
+                        _error: "this login was laredy taken",
                     })
                 );
             }

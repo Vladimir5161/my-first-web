@@ -1,8 +1,9 @@
 import React from "react";
+import "./Alert.css";
 
 const Alert = (props) => {
     return (
-        <div className="alert alert-danger alertError" role="alert">
+        <div className={props.class} role="alert">
             {props.text}
         </div>
     );

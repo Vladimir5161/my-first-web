@@ -1,4 +1,5 @@
 import React from "react";
+import "./forms.css";
 import { Field } from "redux-form";
 import Alerterror from "../Main/CommonComonents/Alerterror";
 
@@ -29,7 +30,7 @@ export const Input = ({ error, inputField, inputFieldError, ...props }) => {
         <>
             {hasError ? (
                 <div style={{ position: "relative" }}>
-                    <Alerterror text={meta.error} />
+                    <Alerterror text={meta.error} class={props.class} />
                 </div>
             ) : null}
             <div className="formBlock">
@@ -58,7 +59,7 @@ class Textarea extends React.Component {
             <>
                 {hasError ? (
                     <div style={{ position: "relative" }}>
-                        <Alerterror text={meta.error} />
+                        <Alerterror text={meta.error} class={props.class} />
                     </div>
                 ) : null}
                 <div className="formBlock">

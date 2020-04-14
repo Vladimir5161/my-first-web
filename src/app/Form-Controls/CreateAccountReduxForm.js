@@ -1,4 +1,5 @@
 import React from "react";
+import "./forms.css";
 import { reduxForm } from "redux-form";
 import { Input, createField } from "./FormContrlos";
 import { required } from "../validators/validators";

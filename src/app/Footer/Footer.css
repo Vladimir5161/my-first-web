@@ -55,19 +55,21 @@
   margin: 0 auto;
 }
 
-.link a {
+.link button {
   font-family: "Montserrat";
   font-size: 13px;
   color: #373737;
   text-decoration: none;
+  border: none;
+  background-color: inherit;
   padding: 0 13px;
 }
 
-.link a:hover {
+.link button:hover {
   color: #ad9b85;
 }
 
-.link a span {
+.link button span {
   color: #747474;
 }
 
@@ -94,7 +96,7 @@
     border: none;
   }
 
-  .link a {
+  .link button {
     align-items: center;
   }
 }

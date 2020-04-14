@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Player from "../../../CommonComonents/Player.js";
 import { connect } from "react-redux";
 import { exactContentId } from "../../../../selectors/exactContent-selectors";
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => ({
     initialized: state.initializeApp.initialized,
 });
 
-const ExactContent = ({ Data, match, isAuth, EditContent }) => {
+const ExactContentFr = ({ Data, match, isAuth, EditContent, ...props }) => {
     return (
         <div>
             <div className="ExactContentName">{Data[match.params.id].name}</div>
@@ -68,9 +68,10 @@ const ExactContent = ({ Data, match, isAuth, EditContent }) => {
                 playerStyle={"react-player2"}
             />
             <div className="ButtonGoBackDiv">
-                <Link to="/">
-                    <button className="ButtonGoBack"></button>
-                </Link>
+                <button
+                    className="ButtonGoBack"
+                    onClick={() => props.history.goBack()}
+                ></button>
             </div>
             {isAuth ? (
                 <button
@@ -95,6 +96,8 @@ const ExactContent = ({ Data, match, isAuth, EditContent }) => {
         </div>
     );
 };
+
+const ExactContent = withRouter(ExactContentFr);
 
 export default connect(mapStateToProps, { initializeApp, updateContentThunk })(
     ExactContentPage

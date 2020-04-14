@@ -41,9 +41,7 @@ export const initializeApp = () => async (dispatch, getState) => {
         return "something went wrong";
     }
 };
-export const initializeNewsThunk = () => async (dispatch, getState) => {
-    let data = getState().newsData.newsData;
-    console.log(data);
+export const initializeNewsThunk = () => async (dispatch) => {
     try {
         await dispatch(getNews());
         dispatch(initializeNews(true));

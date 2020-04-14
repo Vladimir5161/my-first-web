@@ -139,9 +139,7 @@ const Menu = ({
                             ErrorMessage(" this page is not ready yet");
                         }}
                     >
-                        <a className="menuPointsLinks" href="#">
-                            Rules&FAQ
-                        </a>
+                        <button className="menuPointsLinks">Rules&FAQ</button>
                     </li>
                 </ul>
             </nav>

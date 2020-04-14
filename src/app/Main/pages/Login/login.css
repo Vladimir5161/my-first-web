@@ -55,3 +55,30 @@
 .timer {
     font-size: 0;
 }
+@media screen and (max-width: 425px) {
+    .passwordWindow {
+        width: 385px;
+    }
+    .loginInput {
+        width: 345px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .passwordWindow {
+        width: 345px;
+    }
+    .loginInput {
+        width: 305px;
+    }
+  }
+  @media screen and (max-width: 325px) {
+    .passwordWindow {
+        width: 285px;
+    }
+    .loginInput {
+        width: 255px;
+    }
+    .loginInput input {
+        width: 255px;
+    }
+  }

@@ -3,40 +3,39 @@ import React from "react";
 import "../Footer.css";
 
 const FooterFlor = () => {
-  return (
-    <div className="FooterFlor" id="info">
-      <div className="containerFooter">
-        <div className="FooterFlorGrid">
-          <div className="florBlock">
-            <div className="link">
-              Copyright © 2019
-              <a href="#">
-                <span>Vikings</span>
-              </a>
+    return (
+        <div className="FooterFlor" id="info">
+            <div className="containerFooter">
+                <div className="FooterFlorGrid">
+                    <div className="florBlock">
+                        <div className="link">
+                            Copyright © 2019
+                            <button>
+                                <span>Vikings</span>
+                            </button>
+                        </div>
+                        <div className="link">
+                            <button>Privat Policy</button>
+                        </div>
+                        <div className="link">
+                            <button>FAQ</button>
+                        </div>
+                        <div className="link">
+                            <button>Support</button>
+                        </div>
+                    </div>
+                    <div className="florBlock">
+                        <div className="link">
+                            Designed by
+                            <button>
+                                <span>Vladimir Vagaev</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="link">
-
-              <a href="#">Privat Policy</a>
-            </div>
-            <div className="link">
-              <a href="#">FAQ</a>
-            </div>
-            <div className="link">
-              <a href="#">Support</a>
-            </div>
-          </div>
-          <div className="florBlock">
-            <div className="link">
-              Designed by
-              <a href="#">
-                <span>Vladimir Vagaev</span>
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default FooterFlor;
