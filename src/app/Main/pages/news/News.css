@@ -102,7 +102,7 @@
   font-weight: 700;
   line-height: 18px;
   border-radius: 5px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 0 auto;
   position: relative;
   left: 960px;
 }
@@ -220,7 +220,6 @@
   }
   .readMore {
     left: 240px;
-    margin-right: 10px;
   }
   .ExactNewsName {
     width: 100%;
@@ -253,7 +252,7 @@
     width: 100%;
   }
   .readMore {
-    left: 190px;
+    left: 180px;
     width: 120px;
     height: 30px;
     margin-right: 10px;
