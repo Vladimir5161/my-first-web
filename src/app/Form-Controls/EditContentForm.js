@@ -101,52 +101,60 @@ const EditContentForm = (props) => {
                     (n) => n === "video"
                 ) ? (
                     <div>
-                        <div className="ExactContentNameForm">
-                            <div
-                                style={{
-                                    textAlign: "center",
-                                    position: "relative",
-                                    left: "-300px",
-                                    top: "50px",
-                                    fontSize: "20px",
-                                    fontWeight: 900,
-                                }}
-                            >
-                                Edit name
+                        <div className="addContentInput">
+                            <div className="ExactContentNameForm">
+                                <div
+                                    style={{
+                                        textAlign: "center",
+                                        position: "relative",
+                                        left: "-300px",
+                                        top: "50px",
+                                        fontSize: "20px",
+                                        fontWeight: 900,
+                                    }}
+                                >
+                                    Edit name
+                                </div>
+                                {createField(
+                                    "Story Name",
+                                    "name",
+                                    [required],
+                                    Input,
+                                    {
+                                        error: props.error,
+                                        type: "text",
+                                        inputField: "inputField",
+                                        inputFieldError: "inputFieldError",
+                                        class:
+                                            "alert alert-danger alertEditContentError",
+                                    }
+                                )}
                             </div>
-                            {createField(
-                                "Story Name",
-                                "name",
-                                [required],
-                                Input,
-                                {
-                                    error: props.error,
-                                    type: "text",
-                                    inputField: "inputField",
-                                    inputFieldError: "inputFieldError",
-                                    class:
-                                        "alert alert-danger alertEditContentError",
-                                }
-                            )}
-                        </div>
-                        <button className="saveContentButton">Save</button>
-                        <Player
-                            video={props.Data[props.match.params.id].video}
-                            playerStyle={"react-player2"}
-                        />
-                        <div className="ExactContentLink">
-                            <div>
-                                Input the link for a new video if you want
-                            </div>
-                            {createField("Video", "video", [required], Input, {
-                                error: props.error,
-                                type: "text",
-                                inputField: "inputField",
-                                class:
-                                    "alert alert-danger alertEditContentError",
+                            <button className="saveContentButton">Save</button>
+                            <Player
+                                video={props.Data[props.match.params.id].video}
+                                playerStyle={"react-player2"}
+                            />
+                            <div className="ExactContentLink">
+                                <div>
+                                    Input the link for a new video if you want
+                                </div>
+                                {createField(
+                                    "Video",
+                                    "video",
+                                    [required],
+                                    Input,
+                                    {
+                                        error: props.error,
+                                        type: "text",
+                                        inputField: "inputField",
+                                        class:
+                                            "alert alert-danger alertEditContentError",
 
-                                inputFieldError: "inputFieldError",
-                            })}{" "}
+                                        inputFieldError: "inputFieldError",
+                                    }
+                                )}{" "}
+                            </div>
                         </div>
                     </div>
                 ) : null}
