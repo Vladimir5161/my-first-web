@@ -21,7 +21,7 @@ const ButtonLike = React.memo(
                 getLikedContent();
             };
             rerender();
-        }, [likedContentArray.length, getLikedContent]);
+        }, [likedContent, likedContentArray.length, getLikedContent]);
         const exactObj = likedContentArray.filter((i) => i.id === keyFirebase);
         return (
             <div>

@@ -14,74 +14,86 @@ const EditContentForm = (props) => {
                     (n) => n === "story"
                 ) ? (
                     <div>
-                        <div className="ExactContentNameForm">
-                            <div
-                                style={{
-                                    textAlign: "center",
-                                    fontSize: "20px",
-                                    fontWeight: 900,
-                                }}
-                            >
-                                Edit name
+                        <div className="addContentInput">
+                            <div className="ExactContentNameForm">
+                                <div
+                                    style={{
+                                        textAlign: "center",
+                                        fontSize: "20px",
+                                        fontWeight: 900,
+                                    }}
+                                >
+                                    Edit name
+                                </div>
+                                {createField(
+                                    "Story Name",
+                                    "name",
+                                    [required],
+                                    Input,
+                                    {
+                                        error: props.error,
+                                        type: "text",
+                                        inputField: "inputField",
+                                        inputFieldError: "inputFieldError",
+                                        class:
+                                            "alert alert-danger alertEditContentError",
+                                    }
+                                )}
                             </div>
-                            {createField(
-                                "Story Name",
-                                "name",
-                                [required],
-                                Input,
-                                {
-                                    error: props.error,
-                                    type: "text",
-                                    inputField: "inputFieldEditStory",
-                                    inputFieldError: "inputFieldErrorEdit",
-                                }
-                            )}
-                        </div>
-                        <button className="saveContentButton">Save</button>
-                        <div className="ExactContentLink">
-                            <div
-                                style={{
-                                    textAlign: "center",
-                                    fontSize: "20px",
-                                    fontWeight: 900,
-                                }}
-                            >
-                                Input the link for a new image if you want
+                            <button className="saveContentButton">Save</button>
+                            <div className="ExactContentLink">
+                                <div
+                                    style={{
+                                        textAlign: "center",
+                                        fontSize: "20px",
+                                        fontWeight: 900,
+                                    }}
+                                >
+                                    Input the link for a new image if you want
+                                </div>
+                                {createField(
+                                    "StoryImage",
+                                    "imageContent",
+                                    [correctLink],
+                                    Input,
+                                    {
+                                        error: props.error,
+                                        type: "text",
+                                        inputField: "inputField",
+                                        inputFieldError: "inputFieldError",
+                                        class:
+                                            "alert alert-danger alertEditContentError",
+                                    }
+                                )}
                             </div>
-                            {createField(
-                                "StoryImage",
-                                "imageContent",
-                                [correctLink],
-                                Input,
-                                {
-                                    error: props.error,
-                                    type: "text",
-                                    inputField: "inputFieldEditStoryImage",
-                                    inputFieldError: "inputFieldErrorEditImage",
+                            <img
+                                className="ExactContentImage"
+                                src={
+                                    props.Data[props.match.params.id]
+                                        .imageContent
                                 }
-                            )}
-                        </div>
-                        <img
-                            className="ExactContentImage"
-                            src={props.Data[props.match.params.id].imageContent}
-                            alt=""
-                        />
-                        <div className="ExactContentText">
-                            <div style={{ textAlign: "center" }}>
-                                Edit your text
+                                alt=""
+                            />
+                            <div className="ExactContentText">
+                                <div style={{ textAlign: "center" }}>
+                                    Edit your text
+                                </div>
+                                {createField(
+                                    "Story Text",
+                                    "story",
+                                    [required],
+                                    Textarea,
+                                    {
+                                        error: props.error,
+                                        type: "text",
+                                        inputField: "textareaFieldEditStory",
+                                        inputFieldError:
+                                            "textareaFieldErrorEdit",
+                                        class:
+                                            "alert alert-danger alertEditContentError",
+                                    }
+                                )}
                             </div>
-                            {createField(
-                                "Story Text",
-                                "story",
-                                [required],
-                                Textarea,
-                                {
-                                    error: props.error,
-                                    type: "text",
-                                    inputField: "textareaFieldEditStory",
-                                    inputFieldError: "textareaFieldErrorEdit",
-                                }
-                            )}
                         </div>
                     </div>
                 ) : null}
@@ -110,8 +122,10 @@ const EditContentForm = (props) => {
                                 {
                                     error: props.error,
                                     type: "text",
-                                    inputField: "inputFieldEditStory",
-                                    inputFieldError: "inputFieldErrorEdit",
+                                    inputField: "inputField",
+                                    inputFieldError: "inputFieldError",
+                                    class:
+                                        "alert alert-danger alertEditContentError",
                                 }
                             )}
                         </div>
@@ -127,8 +141,11 @@ const EditContentForm = (props) => {
                             {createField("Video", "video", [required], Input, {
                                 error: props.error,
                                 type: "text",
-                                inputField: "inputFieldEditStory",
-                                inputFieldError: "inputFieldErrorEdit",
+                                inputField: "inputField",
+                                class:
+                                    "alert alert-danger alertEditContentError",
+
+                                inputFieldError: "inputFieldError",
                             })}{" "}
                         </div>
                     </div>

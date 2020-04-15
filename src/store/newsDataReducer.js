@@ -158,7 +158,9 @@ export const getNews = () => async (dispatch) => {
         dispatch(uploadNews(Object.values(responce)));
     } catch {
         dispatch(
-            ErrorMessage("something went wrong when trying to upload content")
+            ErrorMessage(
+                "something went wrong when trying to upload content, maybe there is no content"
+            )
         );
     }
 };

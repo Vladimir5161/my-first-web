@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { FilterFunc } from "../../../../../store/filterReducer";
 
 const Filter = ({ FilterFunc }) => {
+    let [buttonFilter, changeButtonFilter] = useState({
+        image: "buttonFilter",
+        video: "buttonFilter",
+        story: "buttonFilter",
+        all: "buttonFilterActive",
+    });
     return (
         <div className="filter">
             <ul>
                 <li>
                     <div
-                        className="buttonFilter"
+                        className={buttonFilter.image}
                         onClick={() => {
                             FilterFunc("image");
+                            changeButtonFilter({
+                                image: "buttonFilterActive",
+                                video: "buttonFilter",
+                                story: "buttonFilter",
+                                all: "buttonFilter",
+                            });
                         }}
                     >
                         Photo
@@ -18,9 +30,15 @@ const Filter = ({ FilterFunc }) => {
                 </li>
                 <li>
                     <div
-                        className="buttonFilter"
+                        className={buttonFilter.video}
                         onClick={() => {
                             FilterFunc("video");
+                            changeButtonFilter({
+                                image: "buttonFilter",
+                                video: "buttonFilterActive",
+                                story: "buttonFilter",
+                                all: "buttonFilter",
+                            });
                         }}
                     >
                         Video
@@ -28,9 +46,15 @@ const Filter = ({ FilterFunc }) => {
                 </li>
                 <li>
                     <div
-                        className="buttonFilter"
+                        className={buttonFilter.story}
                         onClick={() => {
                             FilterFunc("story");
+                            changeButtonFilter({
+                                image: "buttonFilter",
+                                video: "buttonFilter",
+                                story: "buttonFilterActive",
+                                all: "buttonFilter",
+                            });
                         }}
                     >
                         Stories
@@ -38,9 +62,15 @@ const Filter = ({ FilterFunc }) => {
                 </li>
                 <li>
                     <div
-                        className="buttonFilter"
+                        className={buttonFilter.all}
                         onClick={() => {
                             FilterFunc("all");
+                            changeButtonFilter({
+                                image: "buttonFilter",
+                                video: "buttonFilter",
+                                story: "buttonFilter",
+                                all: "buttonFilterActive",
+                            });
                         }}
                     >
                         All

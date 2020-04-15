@@ -102,7 +102,7 @@
   font-weight: 700;
   line-height: 18px;
   border-radius: 5px;
-  margin: 10px auto 0 auto;
+  margin: 10px auto 10px auto;
   position: relative;
   left: 960px;
 }
@@ -139,12 +139,16 @@
   background-color: #fff;
   cursor: pointer;
 }
+.ExactNewsName div {
+  width: 100%;
+}
 .ExactNewsName input {
-  width: 600px;
+  width: 100%;
   line-height: 30px;
   padding: 0 20px;
   font-weight: 900;
   border: none;
+  text-align: center;
   border-bottom: 1px solid black;
 }
 .newsTimeData input {
@@ -161,6 +165,7 @@
   padding: 5px 10px;
   margin: 0 auto;
   display: block;
+  border: 1px solid black;
 }
 @media screen and (max-width: 1170px) {
   .ExactNewsText textarea {
@@ -220,15 +225,13 @@
   }
   .readMore {
     left: 240px;
+    margin-right: 10px;
   }
   .ExactNewsName {
     width: 100%;
   }
   .news {
-    max-height: 235px;
-  }
-  .newsState {
-    padding-top: 50px;
+    max-height: 237px;
   }
   .ButtonGoBackDiv {
     top: 0;
@@ -252,7 +255,7 @@
     width: 100%;
   }
   .readMore {
-    left: 180px;
+    left: 190px;
     width: 120px;
     height: 30px;
     margin-right: 10px;
@@ -287,4 +290,7 @@
   .ExactNewsName input {
     width: 240px;
   }
+  .newsTimeData input {
+    width: 240px
+  };
 }

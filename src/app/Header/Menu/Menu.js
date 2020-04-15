@@ -54,25 +54,25 @@ const Menu = ({
                         </a>
                     </li>
                     <li className="menuPoints">
-                        <Link to="/">
-                            <div
-                                className="headerBtn"
-                                onClick={() =>
-                                    clicked
-                                        ? changeClick(false)
-                                        : (changeClick(true),
-                                          changeClickedSeason(false))
-                                }
-                            >
-                                Movies
-                            </div>
-                            <ul
-                                className={
-                                    clicked
-                                        ? "MoviesSubMenuClicked"
-                                        : "MoviesSubMenu"
-                                }
-                            >
+                        <div
+                            className="headerBtn"
+                            onClick={() =>
+                                clicked
+                                    ? changeClick(false)
+                                    : (changeClick(true),
+                                      changeClickedSeason(false))
+                            }
+                        >
+                            Movies
+                        </div>
+                        <ul
+                            className={
+                                clicked
+                                    ? "MoviesSubMenuClicked"
+                                    : "MoviesSubMenu"
+                            }
+                        >
+                            <AnchorLink href="#content">
                                 <li
                                     onClick={() => {
                                         MovieGroup1Click();
@@ -82,6 +82,8 @@ const Menu = ({
                                 >
                                     Game of Thrones
                                 </li>
+                            </AnchorLink>
+                            <AnchorLink href="#content">
                                 <li
                                     onClick={() => {
                                         MovieGroup2Click();
@@ -91,8 +93,8 @@ const Menu = ({
                                 >
                                     Vikings
                                 </li>
-                            </ul>
-                        </Link>
+                            </AnchorLink>
+                        </ul>
                     </li>
                     <li className="menuPoints">
                         <div
@@ -115,7 +117,7 @@ const Menu = ({
                         >
                             {chosen ? (
                                 <div>
-                                    <Link to="/">
+                                    <AnchorLink href="#content">
                                         <li
                                             onClick={() => {
                                                 ContentChange("got", 1);
@@ -134,11 +136,11 @@ const Menu = ({
                                         >
                                             {Season}
                                         </li>
-                                    </Link>
+                                    </AnchorLink>
                                 </div>
                             ) : (
                                 <div>
-                                    <Link to="/">
+                                    <AnchorLink href="#content">
                                         <li
                                             onClick={() => {
                                                 ContentChange("vikings", 1);
@@ -157,7 +159,7 @@ const Menu = ({
                                         >
                                             {Season}
                                         </li>
-                                    </Link>
+                                    </AnchorLink>
                                 </div>
                             )}
                         </ul>
