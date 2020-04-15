@@ -118,47 +118,51 @@ const Menu = ({
                             {chosen ? (
                                 <div>
                                     <AnchorLink href="#content">
-                                        <li
-                                            onClick={() => {
-                                                ContentChange("got", 1);
-                                                onDefaultOpenedContentCount();
-                                            }}
-                                            className="headerBtn"
-                                        >
-                                            Season 1-4
-                                        </li>
-                                        <li
-                                            onClick={() => {
-                                                ContentChange("got", 2);
-                                                onDefaultOpenedContentCount();
-                                            }}
-                                            className="headerBtn"
-                                        >
-                                            {Season}
-                                        </li>
+                                        <Link to="/">
+                                            <li
+                                                onClick={() => {
+                                                    ContentChange("got", 1);
+                                                    onDefaultOpenedContentCount();
+                                                }}
+                                                className="headerBtn"
+                                            >
+                                                Season 1-4
+                                            </li>
+                                            <li
+                                                onClick={() => {
+                                                    ContentChange("got", 2);
+                                                    onDefaultOpenedContentCount();
+                                                }}
+                                                className="headerBtn"
+                                            >
+                                                {Season}
+                                            </li>
+                                        </Link>
                                     </AnchorLink>
                                 </div>
                             ) : (
                                 <div>
                                     <AnchorLink href="#content">
-                                        <li
-                                            onClick={() => {
-                                                ContentChange("vikings", 1);
-                                                onDefaultOpenedContentCount();
-                                            }}
-                                            className="headerBtn"
-                                        >
-                                            Season 1-4
-                                        </li>
-                                        <li
-                                            onClick={() => {
-                                                ContentChange("vikings", 2);
-                                                onDefaultOpenedContentCount();
-                                            }}
-                                            className="headerBtn"
-                                        >
-                                            {Season}
-                                        </li>
+                                        <Link to="/">
+                                            <li
+                                                onClick={() => {
+                                                    ContentChange("vikings", 1);
+                                                    onDefaultOpenedContentCount();
+                                                }}
+                                                className="headerBtn"
+                                            >
+                                                Season 1-4
+                                            </li>
+                                            <li
+                                                onClick={() => {
+                                                    ContentChange("vikings", 2);
+                                                    onDefaultOpenedContentCount();
+                                                }}
+                                                className="headerBtn"
+                                            >
+                                                {Season}
+                                            </li>
+                                        </Link>
                                     </AnchorLink>
                                 </div>
                             )}
