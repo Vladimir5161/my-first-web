@@ -1,7 +1,7 @@
 import React from "react";
 import "./forms.css";
 import Textarea, { Input, createField } from "./FormContrlos";
-import { required } from "../validators/validators";
+import { required, minLength } from "../validators/validators";
 import { reduxForm } from "redux-form";
 import { correctLink } from "../validators/validators";
 import Player from "../Main/CommonComonents/Player";
@@ -81,7 +81,7 @@ const EditContentForm = (props) => {
                                 {createField(
                                     "Story Text",
                                     "story",
-                                    [required],
+                                    [required, minLength],
                                     Textarea,
                                     {
                                         error: props.error,

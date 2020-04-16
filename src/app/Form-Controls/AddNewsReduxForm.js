@@ -2,7 +2,7 @@ import React from "react";
 import "./forms.css";
 import { reduxForm } from "redux-form";
 import Textarea, { Input, createField } from "./FormContrlos";
-import { correctLink, required } from "../validators/validators";
+import { correctLink, required, minLength } from "../validators/validators";
 import Alerterror from "../../app/Main/CommonComonents/Alerterror";
 
 const addNewsForm = ({ ...props }) => {
@@ -34,7 +34,7 @@ const addNewsForm = ({ ...props }) => {
                     {createField(
                         "add your new's main text",
                         "addNewsText",
-                        [required],
+                        [required, minLength],
                         Textarea,
                         {
                             error: props.error,

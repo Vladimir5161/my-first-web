@@ -25,3 +25,12 @@ export const dublicateLink = (arrey) => (value) => {
         } else return undefined;
     });
 };
+
+export const minLength = (value) => {
+    if (value !== undefined) {
+        let arrValue = value.split("");
+        if (arrValue.length < 50) {
+            return "not enought text length";
+        }
+    } else return undefined;
+};

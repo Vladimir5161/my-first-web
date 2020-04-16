@@ -21,6 +21,7 @@
   font-weight: 700;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 50%;
   padding: 10px;
 }
@@ -47,6 +48,7 @@
   font-weight: 700;
   line-height: 18px;
   text-align: justify;
+  word-wrap: break-word;
 }
 .ExactNewsText {
   font-family: "Montserrat";
@@ -74,6 +76,7 @@
   background-color: #fff;
   position: relative;
   height: 100%;
+  border-radius: 5px;
 }
 .newsStateExact {
   padding: 20px 10px;
@@ -141,6 +144,7 @@
 }
 .ExactNewsName div {
   width: 100%;
+
 }
 .ExactNewsName input {
   width: 100%;
@@ -249,7 +253,7 @@
 }
 @media screen and (max-width: 375px) {
   .newsImage {
-    width: 200px;
+    max-width: 200px;
   }
   .newsName {
     width: 100%;
@@ -273,7 +277,7 @@
 }
 @media screen and (max-width: 320px) {
   .newsImage {
-    width: 250px;
+    max-width: 250px;
   }
   .readMore {
     left: 140px;

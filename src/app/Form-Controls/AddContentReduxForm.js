@@ -2,10 +2,11 @@ import React from "react";
 import "./forms.css";
 import { reduxForm } from "redux-form";
 import Textarea, { Input, createField } from "./FormContrlos";
-import { correctLink, required } from "../validators/validators";
+import { correctLink, required, minLength } from "../validators/validators";
 import Alerterror from "../Main/CommonComonents/Alerterror";
 
 const addContentForm = ({ contentType, ...props }) => {
+    console.log(1);
     return (
         <form onSubmit={props.handleSubmit}>
             <div className="addContentInput">
@@ -94,7 +95,7 @@ const addContentForm = ({ contentType, ...props }) => {
                         {createField(
                             "add story text",
                             "addStoryText",
-                            [required],
+                            [required, minLength],
                             Textarea,
                             {
                                 type: "text",
