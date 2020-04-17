@@ -22,7 +22,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 50%;
   padding: 10px;
 }
 .ExactNewsName {
@@ -30,9 +29,10 @@
   font-size: 21px;
   color: #363535;
   font-weight: 700;
+  width: 50%;
   display: flex;
   flex-direction: row;
-  width: 50%;
+  justify-content: center;
   padding: 10px;
   margin: 0 auto;
 }
@@ -120,24 +120,25 @@
 }
 .ButtonGoBack {
   width: 100px;
-  margin: 20px auto;
-  height: 40px;
-  padding: 10px 0;
+  margin: 10px auto 20px auto;
+  height: 30px;
   background-image: url(/images/arrow-left.png);
   background-position: center;
+  background-color: #c9c4c0;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 3px solid #1d1c1c;
+  border: 1px solid #1d1c1c;
   font-family: "Montserrat";
   font-size: 16px;
   color: #1d1c1c;
   font-weight: 700;
   line-height: 18px;
-  border-radius: 15px;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: rgb(153, 153, 153);
 }
+
+
 .ButtonGoBack:hover {
   background-color: #fff;
   cursor: pointer;
