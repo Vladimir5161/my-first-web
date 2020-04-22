@@ -16,6 +16,7 @@ const initialState = {
     isFetching: [],
     loading: false,
     AlertText: null,
+    WarningText: null,
 };
 
 const DataReducer = (state = initialState, action) => {
@@ -211,10 +212,22 @@ const DataReducer = (state = initialState, action) => {
                 ...state,
                 AlertText: (state.AlertText = null),
             };
+        case "WARNING":
+            return {
+                ...state,
+                WarningText: (state.WarningText = action.text),
+            };
+        case "WARNINGRESET":
+            return {
+                ...state,
+                WarningText: (state.WarningText = null),
+            };
         default:
             return state;
     }
 };
+export const Warning = (text) => ({ type: "WARNING", text });
+export const ClearWarningMessage = () => ({ type: "WARNINGRESET" });
 export const ErrorMessage = (text) => ({ type: "ERRORMESSAGE", text });
 export const ClearErrorMessage = () => ({ type: "CLEARERRORMESSAGE" });
 export const updateContent = (content, id) => ({
@@ -283,11 +296,13 @@ export const getContents = (season, itemsCount, movie, contentType) => async (
 ) => {
     try {
         let responce = await webAPI.getContent(contentType);
-        let contentArray = Object.entries(responce);
-        contentArray.map((item) => (item[1].keyFirebase = item[0]));
-        dispatch(downloadContent(Object.values(responce), contentType));
-        dispatch(uploadContent(season, itemsCount, movie, contentType));
-        dispatch(Fetching(false, "addContent"));
+        if (responce !== null) {
+            let contentArray = Object.entries(responce);
+            contentArray.map((item) => (item[1].keyFirebase = item[0]));
+            dispatch(downloadContent(Object.values(responce), contentType));
+            dispatch(uploadContent(season, itemsCount, movie, contentType));
+            dispatch(Fetching(false, "addContent"));
+        } else dispatch(Warning("seems that you have no content"));
     } catch {
         dispatch(ErrorMessage("something went wrong"));
     }
@@ -386,10 +401,14 @@ export const addContent = (
                 imageContent: addStoryImage,
             };
             try {
-                dispatch(Fetching(true, "addContent"));
-                await webAPI.addContent(newStory, contentType);
-                await dispatch(addContentNew(newStory));
-                dispatch(reset("addContent"));
+                if (getState().auth.isAuth) {
+                    dispatch(Fetching(true, "addContent"));
+                    await webAPI.addContent(newStory, contentType);
+                    await dispatch(addContentNew(newStory));
+                    dispatch(reset("addContent"));
+                } else {
+                    dispatch(Warning(" you are not logged in"));
+                }
             } catch {
                 dispatch(ErrorMessage("something went wrong"));
             }
@@ -428,8 +447,12 @@ export const updateContentThunk = (
                   name: name,
               };
     try {
-        await webAPI.updateContent(newContent, contentType, keyFirebase);
-        dispatch(updateContent(newContent, id));
+        if (getState().auth.isAuth) {
+            await webAPI.updateContent(newContent, contentType, keyFirebase);
+            dispatch(updateContent(newContent, id));
+        } else {
+            dispatch(Warning("you are not logged in"));
+        }
     } catch {
         dispatch(ErrorMessage("something went wrong"));
     }

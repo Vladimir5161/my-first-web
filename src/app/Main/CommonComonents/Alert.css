@@ -4,52 +4,62 @@
 }
 .alertError, .alertTextareaError {
     margin: 0 auto;
-    right: -210px;
+    font-size: 16px;
+    font-weight: 400;
     color: red;
     position: absolute;
     width: 200px;
-    line-height: 5px;
+    min-height: 5px;
     z-index: 25;
     border: 2px solid red;
+    padding: 5px 10px;
+  }
+  .alertTextareaError {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    width: 300px;
+    text-align: center;
+  }
+  .alertTextareaError:hover {
+    display: none;
   }
   .alertLoginError {
+    font-size: 16px;
+    font-weight: 400;
     margin: 0 auto;
     color: red;
     width: 200px;
-    line-height: 5px;
+    min-height: 5px;
     z-index: 25;
     border: 2px solid red;
     position: absolute;
-    left: 0;
-    right: 0;
-    top: -40px;
-  }
-  .alertErrorNewsEdit {
-    margin: 0 auto;
-    color: red;
-    width: 200px;
-    line-height: 5px;
-    z-index: 30;
-    font-size: 16px;
-    position: absolute;
-    padding: 10px !important;
-    left: 0;
-    right: 0;
+    padding: 5px 10px;
     text-align: center;
-    bottom: 0;
+    left: 0;
+    right: 0;
+    top: -25px;
   }
-  .alertEditContentError {
+  .alertEditContentError, .alertErrorNewsEdit{
+    font-size: 16px;
+    font-weight: 400;
     margin: 0 auto;
     color: red;
-    width: 200px;
-    line-height: 5px;
+    border: 2px solid red;
+    width: 200px !important;
+    min-height: 5px;
     z-index: 30;
     font-size: 16px;
     position: relative;
     left: 0;
     right: 0;
     text-align: center;
-    bottom: -10px;
+    padding: 5px 10px;
+  }
+  .alertErrorNewsEdit {
+    position: absolute;
+    bottom: 0;
   }
   .passwordError {
     width: 210px;
@@ -67,12 +77,6 @@
     .alertError {
         position: relative;
         top: 10px;
-        right: 0;
-        left: 0;
-      }
-      .alertTextareaError {
-        position: relative;
-        top: -10px;
         right: 0;
         left: 0;
       }

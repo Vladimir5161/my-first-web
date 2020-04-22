@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.content-list-item-images .likedNo:hover {
+.content-list-item-images .likedNo:active {
   background-image: url(/images/liked.png);
   cursor: pointer;
 }

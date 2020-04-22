@@ -1,6 +1,6 @@
 import { webAPI } from "../app/api/api";
 import { stopSubmit, reset } from "redux-form";
-import { ErrorMessage } from "./DataReducer";
+import { ErrorMessage, Warning } from "./DataReducer";
 
 const initialState = {
     NewsData: [],
@@ -129,11 +129,15 @@ export const addNews = (newsName, newsText, newsImage, movie) => async (
         dispatch(ErrorMessage("not possible to add more news"));
     } else {
         try {
-            dispatch(Fetching(true, "addNews"));
-            await webAPI.addNews(news);
-            dispatch(addNewsItem(news));
-            dispatch(reset("addNews"));
-            dispatch(Fetching(false, "addNews"));
+            if (getState().auth.isAuth) {
+                dispatch(Fetching(true, "addNews"));
+                await webAPI.addNews(news);
+                dispatch(addNewsItem(news));
+                dispatch(reset("addNews"));
+                dispatch(Fetching(false, "addNews"));
+            } else {
+                dispatch(Warning("you are not logged in"));
+            }
         } catch {
             dispatch(stopSubmit("addNews", { _error: "something went wrong" }));
         }
@@ -153,9 +157,11 @@ export const deleteNewsThunk = (id, keyFirebase) => async (dispatch) => {
 export const getNews = () => async (dispatch) => {
     try {
         let responce = await webAPI.getNews();
-        let arrayNews = Object.entries(responce);
-        arrayNews.map((item) => (item[1].keyFirebase = item[0]));
-        dispatch(uploadNews(Object.values(responce)));
+        if (responce !== null) {
+            let arrayNews = Object.entries(responce);
+            arrayNews.map((item) => (item[1].keyFirebase = item[0]));
+            dispatch(uploadNews(Object.values(responce)));
+        } else dispatch(Warning("seems that you have no news"));
     } catch {
         dispatch(
             ErrorMessage(
@@ -172,7 +178,7 @@ export const updateNewsThunk = (
     id,
     keyFirebase,
     movie
-) => async (dispatch) => {
+) => async (dispatch, getState) => {
     let news = {
         data: data,
         id: id,
@@ -182,8 +188,12 @@ export const updateNewsThunk = (
         movie,
     };
     try {
-        await webAPI.updateNews(news, keyFirebase);
-        dispatch(updateNews(news, id));
+        if (getState().auth.isAuth) {
+            await webAPI.updateNews(news, keyFirebase);
+            dispatch(updateNews(news, id));
+        } else {
+            dispatch(Warning("you are not logged in"));
+        }
     } catch {
         dispatch(ErrorMessage("something went wrong"));
     }

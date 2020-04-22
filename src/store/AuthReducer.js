@@ -1,6 +1,6 @@
 import { stopSubmit, reset } from "redux-form";
 import { authAPI } from "../app/api/api";
-import { ErrorMessage } from "./DataReducer";
+import { ErrorMessage, Warning } from "./DataReducer";
 const initialState = {
     isAuth: false,
     keyAuth: null,
@@ -101,7 +101,7 @@ export const CreateAccount = (addLogin, addPassword) => async (dispatch) => {
         authAPI.createAccount(user);
         dispatch(reset("create account"));
     } else if (Object.values(responce).length >= 5) {
-        dispatch(ErrorMessage("max count of users has been reached"));
+        dispatch(Warning("max count of users has been reached"));
         dispatch(reset("create account"));
     } else {
         let accounts = Object.values(responce);

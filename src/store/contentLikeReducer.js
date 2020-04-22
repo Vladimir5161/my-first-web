@@ -1,4 +1,5 @@
 import { webAPI } from "../app/api/api";
+import { ErrorMessage } from "./DataReducer";
 
 const initialState = {
     IdArrey: [],
@@ -77,30 +78,40 @@ export const likeContent = (keyFirebase) => async (dispatch) => {
         };
         dispatch(Fetching(true, keyFirebase));
         await webAPI.likeContent(ids);
-        await dispatch(onLike(ids));
+        dispatch(onLike(ids));
         dispatch(Fetching(false, keyFirebase));
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("something went wrong"));
     }
 };
 export const likedContent = (keyForDelete, keyFirebase) => async (dispatch) => {
     try {
-        dispatch(Fetching(true, keyFirebase));
-        await webAPI.dislikeContent(keyForDelete);
-        await dispatch(onLiked(keyFirebase));
-        dispatch(Fetching(false, keyFirebase));
+        if (!keyForDelete) {
+            dispatch(ErrorMessage("something went wrong"));
+        } else {
+            dispatch(Fetching(true, keyFirebase));
+            await webAPI.dislikeContent(keyForDelete);
+            dispatch(onLiked(keyFirebase));
+            dispatch(Fetching(false, keyFirebase));
+        }
     } catch {
-        return "something went wrong";
+        dispatch(ErrorMessage("something went wrong"));
     }
 };
 export const getLikedContent = () => async (dispatch) => {
     try {
         const responce = await webAPI.getLikedContent();
-        let resp = Object.entries(responce);
-        resp.map((item) => (item[1].keyForDelete = item[0]));
-        dispatch(getLikedContentArray(Object.values(responce)));
+        if (responce !== null) {
+            let resp = Object.entries(responce);
+            resp.map((item) => (item[1].keyForDelete = item[0]));
+            dispatch(getLikedContentArray(Object.values(responce)));
+        } else return undefined;
     } catch {
-        return "something went wrong";
+        dispatch(
+            ErrorMessage(
+                "something went wrong when trying to get liked content"
+            )
+        );
     }
 };
 export const clearLikedContentAll = () => async (dispatch) => {

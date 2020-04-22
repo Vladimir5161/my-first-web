@@ -46,6 +46,7 @@ const Main = ({
     onClickFilterButton,
     contentType,
     IdArrey,
+    getLikedContent,
 }) => {
     return (
         <ContentContext.Provider
@@ -70,6 +71,7 @@ const Main = ({
                 onDeClickFilterButton,
                 onClickFilterButton,
                 contentType,
+                getLikedContent,
                 IdArrey,
             }}
         >

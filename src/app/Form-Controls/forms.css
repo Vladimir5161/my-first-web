@@ -28,7 +28,11 @@
   .inputFieldErrorEdit, .inputFieldErrorEditImage {
     border: 2px solid red;
   }
-  .textareaFieldEditStory{
+  .textareaBlock, .inputBlock {
+    display: grid;
+    justify-content: center;
+  }
+  .textareaFieldEdit{
     border: none;
     border-radius: 15px;
     background-color: rgba(70, 67, 67, 0.5);

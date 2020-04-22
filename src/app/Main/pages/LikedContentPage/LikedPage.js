@@ -1,25 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import LikedContentPage from "./LikedContentPage";
 import { connect } from "react-redux";
 import "./LikedContent.css";
-import {
-    clearLikedContentAll,
-    getLikedContent,
-} from "../../../../store/contentLikeReducer";
+import { clearLikedContentAll } from "../../../../store/contentLikeReducer";
 import Preloader from "../../CommonComonents/Preloader";
 
-const LikedPage = ({
-    clearLikedContentAll,
-    initialized,
-    likedContentArray,
-    getLikedContent,
-}) => {
-    useEffect(() => {
-        const rerender = () => {
-            getLikedContent();
-        };
-        rerender();
-    }, [likedContentArray.length, getLikedContent]);
+const LikedPage = React.memo(({ clearLikedContentAll, initialized }) => {
     if (initialized === false) {
         return <Preloader />;
     } else
@@ -40,13 +26,11 @@ const LikedPage = ({
                 </div>
             </div>
         );
-};
+});
 
 const mapStateToProps = (state) => ({
     initialized: state.initializeApp.initialized,
-    likedContentArray: state.likedContent.IdArrey,
 });
 export default connect(mapStateToProps, {
     clearLikedContentAll,
-    getLikedContent,
 })(LikedPage);

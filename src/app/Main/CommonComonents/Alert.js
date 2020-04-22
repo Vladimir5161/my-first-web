@@ -12,7 +12,8 @@ const Alert = (props) => {
                 right: "0",
                 color: "blue",
                 position: "absolute",
-                width: "500px",
+                textAlign: "center",
+                maxWidth: "500px",
                 top: "-70px",
                 zIndex: "25",
             }}

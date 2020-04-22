@@ -4,7 +4,11 @@ import "./Header.css";
 import Menu from "./Menu/Menu";
 import { LogOut } from "../.././store/AuthReducer";
 import AlertErrorMessage from "../Main/CommonComonents/AlertErrorMessage";
-import { ClearErrorMessage } from "../../store/DataReducer";
+import {
+    ClearErrorMessage,
+    ClearWarningMessage,
+} from "../../store/DataReducer";
+import Warining from "../Main/CommonComonents/Warning";
 
 const Header = ({
     logo,
@@ -17,6 +21,8 @@ const Header = ({
     keyAuth,
     AlertText,
     ClearErrorMessage,
+    ClearWarningMessage,
+    WarningText,
 }) => {
     return (
         <header className="header">
@@ -37,6 +43,12 @@ const Header = ({
                         ClearErrorMessage={ClearErrorMessage}
                     />
                 )}
+                {!WarningText ? null : (
+                    <Warining
+                        WarningText={WarningText}
+                        ClearWarningMessage={ClearWarningMessage}
+                    />
+                )}
             </div>
         </header>
     );
@@ -46,6 +58,11 @@ const mapStateToProps = (store) => ({
     isAuth: store.auth.isAuth,
     keyAuth: store.auth.keyAuth,
     AlertText: store.Data.AlertText,
+    WarningText: store.Data.WarningText,
 });
 
-export default connect(mapStateToProps, { LogOut, ClearErrorMessage })(Header);
+export default connect(mapStateToProps, {
+    LogOut,
+    ClearErrorMessage,
+    ClearWarningMessage,
+})(Header);

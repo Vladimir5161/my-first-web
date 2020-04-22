@@ -1,11 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-    likeContent,
-    likedContent,
-    getLikedContent,
-} from "../../../store/contentLikeReducer";
-import { useEffect } from "react";
+import { likeContent, likedContent } from "../../../store/contentLikeReducer";
 
 const ButtonLike = React.memo(
     ({
@@ -13,15 +8,8 @@ const ButtonLike = React.memo(
         likedContentArray,
         likeContent,
         likedContent,
-        getLikedContent,
         isFetching,
     }) => {
-        useEffect(() => {
-            const rerender = () => {
-                getLikedContent();
-            };
-            rerender();
-        }, [likedContent, likedContentArray.length, getLikedContent]);
         const exactObj = likedContentArray.filter((i) => i.id === keyFirebase);
         return (
             <div>
@@ -55,5 +43,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
     likeContent,
     likedContent,
-    getLikedContent,
 })(ButtonLike);

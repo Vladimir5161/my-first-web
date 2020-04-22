@@ -27,7 +27,7 @@ export const Input = ({ error, inputField, inputFieldError, ...props }) => {
     const { input, meta, ...restProps } = props;
     const hasError = meta.error && meta.touched;
     return (
-        <>
+        <div className="inputBlock">
             {hasError ? (
                 <div style={{ position: "relative" }}>
                     <Alerterror text={meta.error} class={props.class} />
@@ -41,7 +41,7 @@ export const Input = ({ error, inputField, inputFieldError, ...props }) => {
                     className={hasError || error ? inputFieldError : inputField}
                 />
             </div>
-        </>
+        </div>
     );
 };
 
@@ -56,7 +56,7 @@ class Textarea extends React.Component {
 
         const hasError = meta.error && meta.touched;
         return (
-            <>
+            <div className="textareaBlock">
                 {hasError ? (
                     <div style={{ position: "relative" }}>
                         <Alerterror text={meta.error} class={props.class} />
@@ -73,7 +73,7 @@ class Textarea extends React.Component {
                         onInput={this.auto_grow(this)}
                     />
                 </div>
-            </>
+            </div>
         );
     }
 }

@@ -86,7 +86,7 @@ const EditContentForm = (props) => {
                                     {
                                         error: props.error,
                                         type: "text",
-                                        inputField: "textareaFieldEditStory",
+                                        inputField: "textareaFieldEdit",
                                         inputFieldError:
                                             "textareaFieldErrorEdit",
                                         class:

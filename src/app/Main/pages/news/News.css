@@ -7,9 +7,6 @@
   flex-direction: row;
   margin: 5px 0;
 }
-.newsTimeData div {
-  padding-right: 20px;
-}
 .news {
   max-height: 180px;
   overflow: hidden;
@@ -60,13 +57,13 @@
 }
 .ExactNewsImage {
   float: left;
-  max-height: 250px;
+  max-height: 200px;
   max-width: 300px;
   margin: 0 10px 10px 5px;
 }
 .newsImage {
   float: left;
-  max-height: 150px;
+  max-height: 200px;
   max-width: 300px;
   margin: 0 10px 10px 5px;
 }
@@ -220,9 +217,6 @@
     display: block;
     border: 1px solid;
   }
-  .newsTimeData div {
-    padding: 0;
-  }
 }
 @media screen and (max-width: 425px) {
   .newsName {
@@ -251,11 +245,13 @@
   .ExactNewsText textarea {
     width: 365px;
   }
+  .newsImage {
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 375px) {
-  .newsImage {
-    max-width: 200px;
-  }
   .newsName {
     width: 100%;
   }
@@ -274,6 +270,11 @@
   }
   .ExactNewsText textarea {
     width: 305px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .readMore {
+    left: 180px;
   }
 }
 @media screen and (max-width: 320px) {

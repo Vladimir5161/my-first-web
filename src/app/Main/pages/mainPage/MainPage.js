@@ -10,13 +10,21 @@ import Preloader from "../../CommonComonents/Preloader";
 import { ContentContext } from "./ContentContext";
 
 const FirstPage = ({ getSlides }) => {
-    let { movie, initialized } = useContext(ContentContext);
+    let { movie, initialized, IdArrey, getLikedContent } = useContext(
+        ContentContext
+    );
     useEffect(() => {
         const reloadSlides = () => {
             getSlides();
         };
         reloadSlides();
     }, [getSlides, movie]);
+    useEffect(() => {
+        const reloadLikes = () => {
+            getLikedContent();
+        };
+        reloadLikes();
+    }, [IdArrey.length, getLikedContent]);
     if (initialized === false) {
         return <Preloader />;
     }

@@ -34,3 +34,11 @@ export const minLength = (value) => {
         }
     } else return undefined;
 };
+export const maxPassLength = (max, type) => (value) => {
+    if (value !== undefined) {
+        let arrValue = value.split("");
+        if (arrValue.length < max) {
+            return `not enought ${type} length`;
+        }
+    } else return undefined;
+};

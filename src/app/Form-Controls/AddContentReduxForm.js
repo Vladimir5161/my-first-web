@@ -6,7 +6,6 @@ import { correctLink, required, minLength } from "../validators/validators";
 import Alerterror from "../Main/CommonComonents/Alerterror";
 
 const addContentForm = ({ contentType, ...props }) => {
-    console.log(1);
     return (
         <form onSubmit={props.handleSubmit}>
             <div className="addContentInput">
