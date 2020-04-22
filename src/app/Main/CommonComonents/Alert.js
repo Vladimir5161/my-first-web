@@ -7,7 +7,7 @@ const Alert = (props) => {
             class="alert alert-success"
             role="alert"
             style={{
-                margin: "0 auto",
+                margin: "0 5px",
                 left: "0",
                 right: "0",
                 color: "blue",

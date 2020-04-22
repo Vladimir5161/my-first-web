@@ -80,11 +80,7 @@ export const onPassCheckClick = (addLogin, addPassword) => async (dispatch) => {
             dispatch(reset("inputPassword"));
             dispatch(reset("addContent"));
         } else {
-            dispatch(
-                stopSubmit("inputPassword", {
-                    _error: "wrong login or password",
-                })
-            );
+            dispatch(ErrorMessage("wrong Login or Password"));
         }
     } else {
         dispatch(ErrorMessage("wrong Login or Password"));

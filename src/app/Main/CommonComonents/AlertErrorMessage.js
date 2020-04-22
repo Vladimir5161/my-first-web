@@ -7,7 +7,7 @@ const AlertErrorMessage = ({ AlertText, ClearErrorMessage }) => {
             className="modal"
             tabindex="-1"
             role="dialog"
-            style={{ display: "block", textAlign: "center" }}
+            style={{ display: "block", textAlign: "center", zIndex: "100" }}
         >
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
