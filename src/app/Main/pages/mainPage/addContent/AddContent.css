@@ -1,0 +1,149 @@
+.filterAddContent {
+  justify-content: center;
+  margin: 0 auto;
+  display: grid;
+}
+
+.filterAddContent form {
+  margin: 0 auto;
+  padding: 0 10px;
+  background-color: #c9c4c0;
+  border-radius: 5px;
+}
+
+.filterButtonHover {
+  display: grid;
+  justify-content: center;
+  padding: 10px;
+}
+
+.filterContentActive {
+  display: block;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.filterContent {
+  display: none;
+}
+
+.filterContentActive li {
+  padding: 10px 0;
+  padding: 10px;
+  border: 1px solid #1d1c1c;
+  text-align: center;
+  width: 200px;
+}
+
+.filterContentActive li:hover {
+  background-color: #c9c4c0;
+  cursor: pointer;
+}
+
+.filterButton {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  height: 40px;
+  background-color: #c9c4c0;
+  border: 1px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.filterButton:hover {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+}
+
+.Submit {
+  display: block;
+  height: 30px;
+  width: 100px;
+  padding: 0;
+  margin: 20px auto;
+}
+.addContentInput textarea {
+  margin: 0 auto;
+  display: block;
+  height: 200px;
+  padding: 5px 10px;
+  background-color: inherit;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+  width: 300px;
+}
+.addContentInput input {
+  display: block;
+  margin: 10px auto 20px auto;
+  width: 280px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: inherit;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+}
+
+.addContentInput input::placeholder,
+.addContentInput textarea::placeholder {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+.addContentButton {
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #c9c4c0;
+  border: 1px solid #1d1c1c;
+  font-family: "Montserrat";
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+.saveContentButton{
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #c9c4c0;
+  border: 1px solid #1d1c1c;
+  font-family: "Montserrat";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 16px;
+  color: #1d1c1c;
+  font-weight: 700;
+  line-height: 18px;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.addContentButton:hover, .saveContentButton:hover {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+}
+
+@media screen and (max-width: 320px) {
+  .addContentInput textarea {
+    width: 280px;
+  }
+}
+

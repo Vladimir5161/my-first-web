@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  outline: 0;
+  word-wrap: break-word;
+}
+
+.app {
+  background-image: url(/images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+}
+
+.containerMain {
+  border-radius: 20px;
+  min-height: 400px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px 0 5px 0;
+  background-color: rgba(252, 252, 252, 0.3);
+  box-shadow: 0 10px 70px 10px #d3d3d3;
+}
+
+.Add-content {
+  background-color: #c9c4c0;
+  width: 170px;
+  height: 53px;
+  border: none;
+  border-bottom: 3px solid #a3a2a1;
+  border-radius: 5px;
+  margin: 10px auto 20px auto;
+  font-family: "Raleway";
+  font-size: 14px;
+  line-height: 23px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.Add-content:hover {
+  background-color: #fff;
+  border-bottom: 3px solid #d6d2ce;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+  color: #998675;
+  cursor: pointer;
+}
+
+.react-player:nth-child(1) {
+  height: 270px;
+}

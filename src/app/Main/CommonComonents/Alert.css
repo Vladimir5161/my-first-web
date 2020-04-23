@@ -1,0 +1,102 @@
+.modal-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+.alertError, .alertTextareaError {
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: 400;
+    color: red;
+    position: relative;
+    max-width: 200px;
+    min-height: 5px;
+    text-align: center;
+    z-index: 25;
+    border: 2px solid red;
+    padding: 5px 10px;
+  }
+  .alertTextareaError {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    max-width: 250px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .alertLoginError {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 auto;
+    color: red;
+    width: 200px;
+    min-height: 5px;
+    z-index: 25;
+    border: 2px solid red;
+    position: absolute;
+    padding: 5px 10px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: -25px;
+  }
+  .alertEditContentError, .alertErrorNewsEdit{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 auto;
+    color: red;
+    border: 2px solid red;
+    width: 200px !important;
+    min-height: 5px;
+    z-index: 30;
+    font-size: 16px;
+    position: relative;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 5px 10px;
+  }
+  .alertErrorNewsEdit {
+    position: absolute;
+    bottom: 0;
+  }
+  .passwordError {
+    width: 210px;
+    text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    .alertErrorNewsEdit {
+      position: relative;
+    }
+  }
+@media screen and (max-width: 425px) {
+    .modal-content {
+        width: 400px;
+    }
+    .alertError {
+        position: relative;
+        top: 10px;
+        right: 0;
+        left: 0;
+      }
+      .alertLoginError, .alertTextareaError, .alertError {
+        text-align: center;
+      }
+      .alertTextareaError {
+        width: 200px;
+      }
+    
+}
+@media screen and (max-width: 375px) {
+    .modal-content {
+        width: 345px;
+    }
+    .alertTextareaError {
+      width: 200px;
+    }
+}
+@media screen and (max-width: 325px) {
+    .modal-content {
+        width: 285px;
+    }
+}

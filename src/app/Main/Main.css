@@ -1,0 +1,25 @@
+.wrapper {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.LoadMore {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 20px auto;
+}
+
+.main {
+  min-height: 638px;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.Know-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+}

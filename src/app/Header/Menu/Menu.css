@@ -1,0 +1,242 @@
+.upperheader {
+  display: grid;
+  grid-template-columns: 3fr 6fr 4fr;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  width: 1170px;
+  z-index: 40;
+  width: 100%;
+  position: relative;
+}
+
+.logo img {
+  padding: 0 10px;
+  max-width: 300px;
+  min-height: 130px;
+}
+
+.navigationMenu:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.menu {
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+
+.menuPoints {
+  float: left;
+  margin: 0 13px;
+}
+
+.MoviesSubMenu {
+  display: none;
+  position: absolute;
+  z-index: 30;
+}
+
+.MoviesSubMenuClicked {
+  position: absolute;
+  display: block;
+  line-height: 30px;
+}
+
+.menuPoints a {
+  text-decoration: none;
+}
+
+.menuPoints a:hover, .menuPoints button:hover,
+.menuPoints a:active, .menuPoints button:active {
+  color: #9e8f7c;
+}
+
+.menuPointsLinks {
+  display: block;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 30px;
+  margin: 0 auto;
+  border: none;
+  background-color: inherit;
+}
+
+.contentSubMenu {
+  display: none;
+  position: absolute;
+  z-index: 30;
+}
+.contentSubMenuClicked {
+  display: block;
+  position: absolute;
+  z-index: 30;
+}
+
+.headerBtn {
+  display: block;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  border: none;
+  background-color: inherit;
+  text-decoration-line: none;
+}
+
+.headerBtn:hover {
+  color: #9e8f7c;
+  cursor: pointer;
+}
+
+.loginArea {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 20px 0 20px;
+  position: relative;
+}
+
+.loginArea a,
+.loginArea button {
+  text-decoration-line: none;
+  justify-content: center;
+  margin: 0 auto;
+}
+.loginBlock {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.cart {
+  background-image: url(/images/likeW.png);
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 30px;
+  background-color: inherit;
+  margin: 0 13px;
+}
+
+.search {
+  background-image: url(/images/iconSearch.png);
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 26px;
+  width: 25px;
+  background-color: inherit;
+  margin: 0 13px;
+}
+
+.cart:hover,
+.search:hover {
+  cursor: pointer;
+}
+
+.countLike {
+  position: relative;
+  top: 10px;
+  left: 12px;
+  color: #fff;
+}
+
+.arrowScroll {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+.arrowScroll img {
+  height: 40px;
+  width: 70px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .loginArea {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loginArea {
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+  .upperheader {
+    grid-template-columns: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
+    top: 100px;
+    left: 85px;
+  }
+  .navigationMenu {
+    display: grid;
+    justify-content: center;
+  }
+  .loginBlock:first-child {
+    margin-left: auto;
+  }
+  .loginBlock:last-child {
+    margin-right: auto;
+  }
+  .loginArea {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked{
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .contentSubMenuClicked,
+  .MoviesSubMenuClicked {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .menu {
+    display: block;
+    top: 20px;
+  }
+}
