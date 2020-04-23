@@ -17,7 +17,7 @@ const ButtonLike = React.memo(
                     <button
                         disabled={isFetching.some((id) => id === keyFirebase)}
                         className="liked"
-                        onClick={() => {
+                        onMouseDown={() => {
                             likedContent(exactObj[0].keyForDelete, keyFirebase);
                         }}
                     ></button>
@@ -25,7 +25,7 @@ const ButtonLike = React.memo(
                     <button
                         disabled={isFetching.some((id) => id === keyFirebase)}
                         className="likedNo"
-                        onClick={() => {
+                        onMouseDown={() => {
                             likeContent(keyFirebase);
                         }}
                     ></button>

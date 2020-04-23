@@ -77,7 +77,7 @@
   grid-template-columns: 1fr;
 }
 
-.content-list-item-images:hover {
+.content-list-item-images:active {
   border: 3px solid #b8b2b2;
   width: 100%;
   overflow: hidden;
@@ -201,7 +201,6 @@
     max-width: 1004px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .imageContent-full-clicked {
     width: 738px;
@@ -217,7 +216,12 @@
     max-width: 748px;
   }
 }
-
+@media screen and (min-width: 1024px) {
+  .content-list-item-images .likedNo:hover {
+    background-image: url(/images/liked.png);
+    cursor: pointer;
+  }
+}
 @media screen and (max-width: 425px) {
   .imageContent-full-clicked {
     width: 395px;

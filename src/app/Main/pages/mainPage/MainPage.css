@@ -131,7 +131,7 @@
   bottom: 30px;
 }
 
-.content-list-item .likedNo:hover {
+.content-list-item .likedNo:active {
   background-image: url(/images/liked.png);
   cursor: pointer;
 }
@@ -244,9 +244,14 @@
   .react-player2 iframe {
     height: 300px !important;
   }
-
   .ExactContent {
     padding-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .content-list-item .likedNo:hover {
+    background-image: url(/images/liked.png);
+    cursor: pointer;
   }
 }
 
