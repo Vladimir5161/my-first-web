@@ -106,9 +106,6 @@ const EditContentForm = (props) => {
                                 <div
                                     style={{
                                         textAlign: "center",
-                                        position: "relative",
-                                        left: "-300px",
-                                        top: "50px",
                                         fontSize: "20px",
                                         fontWeight: 900,
                                     }}
