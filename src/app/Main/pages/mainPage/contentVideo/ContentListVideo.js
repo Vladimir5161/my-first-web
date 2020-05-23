@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../itemComponents/ContentListItem";
 import { compose } from "redux";
-import { ControlButtonHoc } from "../../../../HOC/ControlButtonHoc";
+import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
 import { ContentContext } from "../ContentContext.js";
 
 const ContentListVideo = ({ firstContent, onComponentChange, ...props }) => {

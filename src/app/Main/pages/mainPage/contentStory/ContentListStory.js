@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ContentListItem from "../itemComponents/ContentListItem";
 import { compose } from "redux";
-import { ControlButtonHoc } from "../../../../HOC/ControlButtonHoc";
+import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
 import { ContentContext } from "../ContentContext.js";
 
 const ContentListStory = ({ firstContent, onComponentChange, ...props }) => {
@@ -33,26 +33,26 @@ const ContentListStory = ({ firstContent, onComponentChange, ...props }) => {
                         video,
                         keyFirebase,
                     }) => (
-                        <div className="Content" key={id}>
-                            <ContentListItem
-                                video={video}
-                                image={imageContent}
-                                name={name}
-                                text={text}
-                                description={description}
-                                story={story}
-                                keyFirebase={keyFirebase}
-                                id={id}
-                                editModeClass="ButtonCloseImage-clickedEditBlack"
-                                contentType={`story`}
-                            />
-                            <Link to={`/content/${id}`}>
-                                <button className="Add-content Know-more">
-                                    Know More
+                            <div className="Content" key={id}>
+                                <ContentListItem
+                                    video={video}
+                                    image={imageContent}
+                                    name={name}
+                                    text={text}
+                                    description={description}
+                                    story={story}
+                                    keyFirebase={keyFirebase}
+                                    id={id}
+                                    editModeClass="ButtonCloseImage-clickedEditBlack"
+                                    contentType={`story`}
+                                />
+                                <Link to={`/content/${id}`}>
+                                    <button className="Add-content Know-more">
+                                        Know More
                                 </button>
-                            </Link>
-                        </div>
-                    )
+                                </Link>
+                            </div>
+                        )
                 )}
             </div>
             {contentType.length <= additionalCount ? null : (
