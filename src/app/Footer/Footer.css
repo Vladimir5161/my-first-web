@@ -8,10 +8,8 @@
 
 .containerFooter {
   display: grid;
-  padding-top: 20px;
   max-width: 1170px;
   margin: 0 auto;
-  padding: auto;
 }
 
 .footerImage img {
@@ -34,6 +32,7 @@
   grid-template-columns: 75% 25%;
   height: 40px;
   text-align: center;
+  align-items: center;
 }
 
 .florBlock:first-child {
