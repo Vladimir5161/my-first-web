@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PasswordAddContent from "./PasswordAddContent";
-import { LoggedInRedirect } from "../../../HOC/LoginRedirectHoc";
+import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import Alert from "../../CommonComonents/Alert";

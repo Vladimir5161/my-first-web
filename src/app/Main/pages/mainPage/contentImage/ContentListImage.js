@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import ContentListImagesItem from "./ContentListImagesItem.js";
 import { compose } from "redux";
-import { ControlButtonHoc } from "../../../../HOC/ControlButtonHoc";
+import { ControlButtonHoc } from "../../../../hoc/ControlButtonHoc";
 import { ContentContext } from "../ContentContext.js";
 
 const ContentListImage = ({ firstContent, onComponentChange, ...props }) => {

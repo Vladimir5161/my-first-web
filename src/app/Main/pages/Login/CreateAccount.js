@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { compose } from "redux";
-import { LoggedInRedirect } from "../../../HOC/LoginRedirectHoc";
+import { LoggedInRedirect } from "../../../hoc/LoginRedirectHoc";
 import CreateAccountReduxForm from "../../../Form-Controls/CreateAccountReduxForm";
 import Alert from "../../CommonComonents/Alert";
 import "./login.css";
