@@ -11,7 +11,7 @@
 }
 
 .main {
-  min-height: 638px;
+  min-height: 73vh;
   margin: auto;
   padding-bottom: 40px;
 }
@@ -22,4 +22,15 @@
   left: 0;
   right: 0;
   z-index: 25;
+}
+
+@media screen and (min-width: 1024px) {
+  .main {
+    min-height: 69vh;
+  }
+}
+@media screen and (min-width: 768) {
+  .main {
+    min-height: 50vh;
+  }
 }

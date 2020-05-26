@@ -2,7 +2,8 @@
   background-image: url(/images/photo.png);
   background-size: cover;
   background-repeat: no-repeat;
-  max-height: 15%;
+  position: relative;
+  bottom: 0;
 }
 
 .containerFooter {

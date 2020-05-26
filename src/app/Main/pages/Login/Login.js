@@ -13,7 +13,7 @@ const Login = (props) => {
     return (
         <div>
             {props.isAuth ? (
-                <div style={{ position: "relative" }}>
+                <div styl e={{ position: "relative" }}>
                     <Alert text={alertText} {...props} />
                     <div className="timer">
                         {setTimeout(() => {
