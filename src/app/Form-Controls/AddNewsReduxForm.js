@@ -19,7 +19,7 @@ const addNewsForm = ({ ...props }) => {
                 )}
                 <div>
                     {createField(
-                        "add you new's Name",
+                        "add your new's Name",
                         "addNewsName",
                         [required],
                         Input,

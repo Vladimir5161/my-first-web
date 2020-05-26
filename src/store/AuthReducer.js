@@ -114,7 +114,7 @@ export const CreateAccount = (addLogin, addPassword) => async (dispatch) => {
                 dispatch(reset("create account"));
                 dispatch(
                     stopSubmit("create account", {
-                        _error: "this login was laredy taken",
+                        _error: "this login was already taken",
                     })
                 );
             }

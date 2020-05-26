@@ -13,6 +13,7 @@ import {
     onDeClickFilterButton,
 } from "../../store/AddContentReducer";
 import { getLikedContent } from "../../store/contentLikeReducer";
+import InfoPage from "./pages/infoPage/InfoPage";
 import Login from "./pages/Login/Login";
 import CreateAccount from "./pages/Login/CreateAccount";
 import { connect } from "react-redux";
@@ -99,6 +100,7 @@ const Main = ({
                         exact
                         component={ExactContentPage}
                     />
+                    <Route path="/info" exact component={InfoPage} />
                     <Route path="/login" exact component={Login} />
                     <Route
                         path="/createAccount"

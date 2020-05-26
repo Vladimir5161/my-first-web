@@ -77,6 +77,7 @@ const Menu = ({
                                     onClick={() => {
                                         MovieGroup1Click();
                                         onDefaultOpenedContentCount();
+                                        changeClick(false);
                                     }}
                                     className="headerBtn"
                                 >
@@ -88,6 +89,7 @@ const Menu = ({
                                     onClick={() => {
                                         MovieGroup2Click();
                                         onDefaultOpenedContentCount();
+                                        changeClick(false);
                                     }}
                                     className="headerBtn"
                                 >
@@ -123,6 +125,7 @@ const Menu = ({
                                                 onClick={() => {
                                                     ContentChange("got", 1);
                                                     onDefaultOpenedContentCount();
+                                                    changeClickedSeason(false);
                                                 }}
                                                 className="headerBtn"
                                             >
@@ -132,6 +135,7 @@ const Menu = ({
                                                 onClick={() => {
                                                     ContentChange("got", 2);
                                                     onDefaultOpenedContentCount();
+                                                    changeClickedSeason(false);
                                                 }}
                                                 className="headerBtn"
                                             >
@@ -148,6 +152,7 @@ const Menu = ({
                                                 onClick={() => {
                                                     ContentChange("vikings", 1);
                                                     onDefaultOpenedContentCount();
+                                                    changeClickedSeason(false);
                                                 }}
                                                 className="headerBtn"
                                             >
@@ -157,6 +162,7 @@ const Menu = ({
                                                 onClick={() => {
                                                     ContentChange("vikings", 2);
                                                     onDefaultOpenedContentCount();
+                                                    changeClickedSeason(false);
                                                 }}
                                                 className="headerBtn"
                                             >
@@ -173,13 +179,12 @@ const Menu = ({
                             News
                         </Link>
                     </li>
-                    <li
-                        className="menuPoints"
-                        onClick={() => {
-                            ErrorMessage(" this page is not ready yet");
-                        }}
-                    >
-                        <button className="menuPointsLinks">Rules&FAQ</button>
+                    <li className="menuPoints">
+                        <Link to="/info" className="menuPointsLinks">
+                            <button className="menuPointsLinks">
+                                About the page
+                            </button>
+                        </Link>
                     </li>
                 </ul>
             </nav>
