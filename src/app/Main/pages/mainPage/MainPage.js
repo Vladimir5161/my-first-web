@@ -43,6 +43,8 @@ const FirstPage = ({ getSlides }) => {
                     <ContentVideoContainer />
                     <ContentStoryContainer />
                 </div>
+                <h1>obmen</h1>
+                <img src="https://pbs.twimg.com/profile_images/1069560915299848192/BmZPZiGr.jpg" />
             </div>
         </div>
     );

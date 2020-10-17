@@ -27,7 +27,6 @@ const Menu = ({
     isAuth,
     countLike,
     LogOut,
-    ErrorMessage,
 }) => {
     let [colorArrow, changeColorArrow] = useState("");
     let [clicked, changeClick] = useState(false);
